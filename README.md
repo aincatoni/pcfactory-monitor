@@ -124,5 +124,4 @@ pcfactory-monitor/
 - Puede que necesites ir a Settings > Actions > General y habilitar "Read and write permissions"
 
 ## 📝 Licencia
-
-MIT - Úsalo como quieras 🎉
+Usar el código pero prohibído replicar el uso de los mismos endpoints

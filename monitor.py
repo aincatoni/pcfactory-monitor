@@ -412,12 +412,8 @@ def generate_html_dashboard(report: Dict) -> str:
             border-bottom: 1px solid var(--border);
         }
         .logo { display: flex; align-items: center; gap: 1rem; }
-        .logo-icon {
-            width: 48px; height: 48px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1rem; font-weight: bold; color: white;
+        .logo-icon img {
+            max-width: 48px;
         }
         .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
         .logo-text span { font-size: 0.875rem; color: var(--text-muted); }
@@ -559,9 +555,11 @@ def generate_html_dashboard(report: Dict) -> str:
     <div class="container">
         <header class="header">
             <div class="logo">
-                <div class="logo-icon">PCF</div>
+                <div class="logo-icon">
+                <img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg">
+                </div>
                 <div class="logo-text">
-                    <h1>PCFactory Monitor</h1>
+                    <h1>pc Factory Monitor</h1>
                     <span>Monitoreo de Categorias</span>
                 </div>
             </div>
