@@ -28,53 +28,30 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: 🐍 Setup Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
       
-      - name: 📦 Install dependencies
-        run: |
-          pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       
-      - name: 🔍 Run monitor
-        run: |
-          python monitor.py --workers 5 --output-dir ./output
+      - name: Run monitor
+        run: python monitor.py --workers 5 --output-dir ./output
         timeout-minutes: 15
       
-      - name: 📄 Setup Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v4
       
-      - name: 📤 Upload artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './output'
       
-      - name: 🚀 Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      
-      - name: ✅ Summary
-        run: |
-          echo "## 📊 Monitor Results" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f ./output/report.json ]; then
-            echo "Dashboard: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Summary" >> $GITHUB_STEP_SUMMARY
-            cat ./output/report.json | python -c "
-import json, sys
-data = json.load(sys.stdin)
-s = data['summary']
-print(f\"- Total: {s['total_categorias']}\")
-print(f\"- URLs OK: {s['urls_ok']}\")
-print(f\"- URLs Error: {s['urls_error']}\")
-print(f\"- Con productos: {s['con_productos']}\")
-print(f\"- Sin productos: {s['sin_productos']}\")
-print(f\"- Health Score: {s['health_score']}%\")
-" >> $GITHUB_STEP_SUMMARY
-          fi
