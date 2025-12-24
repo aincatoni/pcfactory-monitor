@@ -604,7 +604,8 @@ def generate_html_dashboard(report: Dict) -> str:
         ''' + all_ok_section + '''
         
         <footer class="footer">
-            <p>Actualizacion automatica cada 10 minutos - Powered by GitHub Actions</p>
+            <p>Actualizacion automatica cada 10 minutos </p>
+            <p>Hecho con ❤️ por Ain Catoni </p>
         </footer>
     </div>
 </body>
