@@ -543,6 +543,24 @@ def generate_html_dashboard(report: Dict) -> str:
         .empty-state { padding: 3rem; text-align: center; color: var(--text-muted); }
         .empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
         .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .nav-link:hover { background: var(--bg-hover); }
+        .nav-link.active { background: var(--accent-blue); color: white; }
         @media (max-width: 768px) {
             .container { padding: 1rem; }
             .header { flex-direction: column; gap: 1rem; text-align: center; }
@@ -565,6 +583,11 @@ def generate_html_dashboard(report: Dict) -> str:
             </div>
             <div class="timestamp">''' + timestamp_display + '''</div>
         </header>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">📦 Categorías</a>
+            <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
+        </div>
         
         <div class="status-banner ''' + status_class + '''">
             <div class="status-indicator"></div>
