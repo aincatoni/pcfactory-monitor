@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PCFactory Delivery Monitor - Región Metropolitana
-Verifica el estado de despacho a todas las comunas y genera un dashboard HTML
+PCFactory Delivery Monitor - Nacional
+Verifica el estado de despacho a todas las comunas de Chile y genera un dashboard HTML
 """
 import json
 import time
 import random
 import argparse
-import unicodedata
+import csv
 import concurrent.futures as cf
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Tuple, Optional
@@ -27,59 +27,79 @@ BASE_URL = "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 15_6_1) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
 
-# Comunas de la Región Metropolitana con sus IDs
-COMUNAS_RM = [
-    (291, "Colina"), (292, "Lampa"), (293, "Tiltil"), (294, "Quilicura"),
-    (295, "Pudahuel"), (296, "Conchalí"), (297, "Huechuraba"), (298, "Renca"),
-    (299, "Quinta Normal"), (300, "Cerro Navia"), (301, "Lo Prado"), (302, "Independencia"),
-    (303, "Recoleta"), (304, "Estación Central"), (305, "Maipú"), (306, "Cerrillos"),
-    (307, "Santiago"), (308, "San Bernardo"), (309, "Calera de Tango"), (310, "Buin"),
-    (311, "Paine"), (312, "Melipilla"), (313, "Alhué"), (314, "Curacaví"),
-    (315, "María Pinto"), (316, "San Pedro"), (317, "Talagante"), (318, "Peñaflor"),
-    (319, "El Monte"), (320, "Isla de Maipo"), (321, "Padre Hurtado"), (322, "Ñuñoa"),
-    (323, "Providencia"), (324, "Las Condes"), (325, "Vitacura"), (326, "Lo Barnechea"),
-    (327, "Peñalolén"), (328, "La Reina"), (329, "La Granja"), (330, "San Joaquín"),
-    (331, "Macul"), (332, "La Florida"), (333, "La Cisterna"), (334, "El Bosque"),
-    (335, "San Ramón"), (336, "Lo Espejo"), (337, "San Miguel"), (338, "Pedro Aguirre Cerda"),
-    (339, "La Pintana"), (340, "Puente Alto"), (341, "Pirque"), (342, "San José de Maipo"),
-]
-
-# Provincias por comuna
-PROVINCIA_POR_COMUNA = {
-    "Cerrillos": "Santiago", "Cerro Navia": "Santiago", "Conchalí": "Santiago", "El Bosque": "Santiago",
-    "Estación Central": "Santiago", "Huechuraba": "Santiago", "Independencia": "Santiago", "La Cisterna": "Santiago",
-    "La Florida": "Santiago", "La Granja": "Santiago", "La Pintana": "Santiago", "La Reina": "Santiago",
-    "Las Condes": "Santiago", "Lo Barnechea": "Santiago", "Lo Espejo": "Santiago", "Lo Prado": "Santiago",
-    "Macul": "Santiago", "Maipú": "Santiago", "Ñuñoa": "Santiago", "Pedro Aguirre Cerda": "Santiago",
-    "Peñalolén": "Santiago", "Providencia": "Santiago", "Pudahuel": "Santiago", "Quilicura": "Santiago",
-    "Quinta Normal": "Santiago", "Recoleta": "Santiago", "Renca": "Santiago", "San Joaquín": "Santiago",
-    "San Miguel": "Santiago", "San Ramón": "Santiago", "Santiago": "Santiago", "Vitacura": "Santiago",
-    "Pirque": "Cordillera", "Puente Alto": "Cordillera", "San José de Maipo": "Cordillera",
-    "Colina": "Chacabuco", "Lampa": "Chacabuco", "Tiltil": "Chacabuco",
-    "Buin": "Maipo", "Calera de Tango": "Maipo", "Paine": "Maipo", "San Bernardo": "Maipo",
-    "Alhué": "Melipilla", "Curacaví": "Melipilla", "María Pinto": "Melipilla", "Melipilla": "Melipilla", "San Pedro": "Melipilla",
-    "El Monte": "Talagante", "Isla de Maipo": "Talagante", "Padre Hurtado": "Talagante", "Peñaflor": "Talagante", "Talagante": "Talagante",
+# Nombres de regiones
+REGIONES = {
+    1: "Tarapacá",
+    2: "Antofagasta", 
+    3: "Atacama",
+    4: "Coquimbo",
+    5: "Valparaíso",
+    6: "O'Higgins",
+    7: "Maule",
+    8: "Biobío",
+    9: "Araucanía",
+    10: "Los Lagos",
+    11: "Aysén",
+    12: "Magallanes",
+    13: "Metropolitana",
+    14: "Los Ríos",
+    15: "Arica y Parinacota",
+    16: "Ñuble",
 }
 
-# Ciudades para matchear con comunas (las más comunes de la RM)
-CIUDADES_RM = [
-    (1, "Santiago"), (437, "Buin"), (440, "Colina"), (441, "Curacavi"),
-    (442, "El Monte"), (444, "Lampa"), (449, "Melipilla"), (450, "Padre Hurtado"),
-    (452, "Penaflor"), (456, "Talagante"), (458, "Calera de Tango"), (1067, "Tiltil"),
-    (1331, "Alhue"), (1343, "San Pedro de Melipilla"), (439, "Cajon del Maipo"),
-    (443, "Isla de Maipo"), (451, "Paine"), (453, "Pirque"), (454, "San Jose de Maipo"),
-    (2474, "Chicureo"), (448, "Maria Pinto"),
-]
+# ==============================================================================
+# CARGA DE DATOS
+# ==============================================================================
+
+def load_ciudades(path: str) -> Dict[int, Dict]:
+    """Carga ciudades: {id_ciudad: {nombre, id_region}}"""
+    ciudades = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            try:
+                cid = int(row["id_ciudad"])
+                ciudades[cid] = {
+                    "nombre": row["ciudad"].strip(),
+                    "id_region": int(row["id_region"]),
+                }
+            except (ValueError, KeyError):
+                continue
+    return ciudades
+
+def load_comunas(path: str) -> Dict[int, Dict]:
+    """Carga comunas: {id_comuna: {nombre, id_region, despacho}}"""
+    comunas = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            try:
+                cid = int(row["id_comuna"])
+                comunas[cid] = {
+                    "nombre": row["comuna"].strip(),
+                    "id_region": int(row["id_region"]),
+                    "despacho": int(row.get("despacho", 1)),
+                }
+            except (ValueError, KeyError):
+                continue
+    return comunas
+
+def load_ciudad_comuna(path: str) -> Dict[int, int]:
+    """Carga relación comuna->ciudad: {id_comuna: id_ciudad}"""
+    relacion = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            try:
+                id_comuna = int(row["id_comuna"])
+                id_ciudad = int(row["id_ciudad"])
+                # Si hay múltiples ciudades para una comuna, quedarse con la primera
+                if id_comuna not in relacion:
+                    relacion[id_comuna] = id_ciudad
+            except (ValueError, KeyError):
+                continue
+    return relacion
 
 # ==============================================================================
 # UTILIDADES
 # ==============================================================================
-
-def nfd_lower(s: str) -> str:
-    """Normaliza string para comparación (sin acentos, lowercase)"""
-    s = unicodedata.normalize("NFD", s or "")
-    s = "".join(ch for ch in s if unicodedata.category(ch) != "Mn")
-    return s.lower().strip()
 
 def create_session() -> requests.Session:
     s = requests.Session()
@@ -95,7 +115,7 @@ def create_session() -> requests.Session:
         allowed_methods=frozenset(["GET"]),
         raise_on_status=False,
     )
-    adapter = HTTPAdapter(max_retries=retry, pool_connections=10, pool_maxsize=10)
+    adapter = HTTPAdapter(max_retries=retry, pool_connections=15, pool_maxsize=15)
     s.mount("https://", adapter)
     s.mount("http://", adapter)
     return s
@@ -129,86 +149,82 @@ def parse_payload(payload: Dict) -> Tuple[str, Optional[str], Optional[int], Opt
     t0 = tarifas[0]
     return ("Disponible", t0.get("fecha_entrega"), t0.get("dias_entrega"), t0.get("transporte"))
 
-def find_best_city(session: requests.Session, id_comuna: int, comuna: str, 
-                   tienda_id: int, cantidad: int, producto: int, total: int,
-                   delay_min: float, delay_max: float) -> Dict[str, Any]:
-    """Prueba diferentes ciudades para encontrar una que tenga disponibilidad"""
-    target = nfd_lower(comuna)
-    
-    # Ordenar ciudades: primero las que matchean el nombre, luego Santiago, luego el resto
-    ordered = []
-    for cid, cname in CIUDADES_RM:
-        if nfd_lower(cname) == target:
-            ordered.insert(0, (cid, cname))
-        elif cid == 1:  # Santiago como fallback principal
-            ordered.insert(1 if ordered else 0, (cid, cname))
-        else:
-            ordered.append((cid, cname))
-    
-    # Probar en orden hasta encontrar disponibilidad
-    for ciudad_id, ciudad_nombre in ordered[:5]:  # Limitar a 5 intentos
-        polite_pause(delay_min, delay_max)
-        url = build_url(tienda_id, ciudad_id, id_comuna, cantidad, producto, total)
-        http_code, payload = call_endpoint(session, url)
-        estado, fecha, dias, transporte = parse_payload(payload or {})
-        
-        if estado == "Disponible":
-            return {
-                "estado": estado,
-                "fecha_entrega": fecha,
-                "dias_entrega": dias,
-                "transporte": transporte,
-                "ciudad_id": ciudad_id,
-                "ciudad_nombre": ciudad_nombre,
-                "http_code": http_code,
-                "url": url,
-            }
-    
-    # Si ninguna funcionó, retornar el último intento
-    return {
-        "estado": "No disponible",
-        "fecha_entrega": None,
-        "dias_entrega": None,
-        "transporte": None,
-        "ciudad_id": ordered[0][0] if ordered else 1,
-        "ciudad_nombre": ordered[0][1] if ordered else "Santiago",
-        "http_code": http_code if 'http_code' in dir() else 0,
-        "url": url if 'url' in dir() else "",
-    }
-
-def check_comuna(session: requests.Session, id_comuna: int, comuna: str,
+def check_comuna(session: requests.Session, id_comuna: int, comuna_data: Dict,
+                 id_ciudad: int, ciudad_data: Dict,
                  tienda_id: int, cantidad: int, producto: int, total: int,
                  delay_min: float, delay_max: float) -> Dict[str, Any]:
     """Verifica disponibilidad de despacho para una comuna"""
-    result = find_best_city(session, id_comuna, comuna, tienda_id, cantidad, producto, total, delay_min, delay_max)
+    polite_pause(delay_min, delay_max)
+    
+    url = build_url(tienda_id, id_ciudad, id_comuna, cantidad, producto, total)
+    http_code, payload = call_endpoint(session, url)
+    estado, fecha, dias, transporte = parse_payload(payload or {})
     
     return {
         "id_comuna": id_comuna,
-        "comuna": comuna,
-        "provincia": PROVINCIA_POR_COMUNA.get(comuna, ""),
-        **result
+        "comuna": comuna_data["nombre"],
+        "id_region": comuna_data["id_region"],
+        "region": REGIONES.get(comuna_data["id_region"], f"Región {comuna_data['id_region']}"),
+        "id_ciudad": id_ciudad,
+        "ciudad": ciudad_data["nombre"] if ciudad_data else "N/A",
+        "estado": estado,
+        "fecha_entrega": fecha,
+        "dias_entrega": dias,
+        "transporte": transporte,
+        "http_code": http_code,
+        "url": url,
     }
 
 # ==============================================================================
 # MONITOR PRINCIPAL
 # ==============================================================================
 
-def run_delivery_monitor(producto: int, total: int, tienda_id: int = 11, cantidad: int = 1,
-                         workers: int = 3, delay_min: float = 0.3, delay_max: float = 0.7) -> Dict:
+def run_delivery_monitor(producto: int, total: int, 
+                         ciudades_path: str, comunas_path: str, relacion_path: str,
+                         tienda_id: int = 11, cantidad: int = 1,
+                         workers: int = 5, delay_min: float = 0.2, delay_max: float = 0.5,
+                         region_filter: Optional[int] = None) -> Dict:
+    
+    # Cargar datos
+    print("[*] Cargando datos...")
+    ciudades = load_ciudades(ciudades_path)
+    comunas = load_comunas(comunas_path)
+    relacion = load_ciudad_comuna(relacion_path)
+    
+    print(f"    Ciudades: {len(ciudades)}")
+    print(f"    Comunas: {len(comunas)}")
+    print(f"    Relaciones: {len(relacion)}")
+    
+    # Filtrar por región si se especifica
+    if region_filter:
+        comunas = {k: v for k, v in comunas.items() if v["id_region"] == region_filter}
+        print(f"    Filtrado a región {region_filter}: {len(comunas)} comunas")
+    
     session = create_session()
     
-    print(f"[*] Producto: {producto} | Total: ${total:,} | Tienda: {tienda_id}")
-    print(f"[*] Comunas a verificar: {len(COMUNAS_RM)}")
+    print(f"\n[*] Producto: {producto} | Total: ${total:,} | Tienda: {tienda_id}")
+    print(f"[*] Comunas a verificar: {len(comunas)}")
     
     results = []
     
+    # Preparar tareas
+    tasks = []
+    for id_comuna, comuna_data in comunas.items():
+        id_ciudad = relacion.get(id_comuna)
+        if id_ciudad is None:
+            print(f"    [WARN] Comuna {id_comuna} sin ciudad asignada, usando Santiago")
+            id_ciudad = 1
+        ciudad_data = ciudades.get(id_ciudad, {"nombre": "Desconocida", "id_region": 0})
+        tasks.append((id_comuna, comuna_data, id_ciudad, ciudad_data))
+    
+    # Ejecutar en paralelo
     with cf.ThreadPoolExecutor(max_workers=workers) as executor:
         future_map = {
             executor.submit(
-                check_comuna, session, id_comuna, comuna,
+                check_comuna, session, id_comuna, comuna_data, id_ciudad, ciudad_data,
                 tienda_id, cantidad, producto, total, delay_min, delay_max
-            ): (id_comuna, comuna)
-            for id_comuna, comuna in COMUNAS_RM
+            ): (id_comuna, comuna_data)
+            for id_comuna, comuna_data, id_ciudad, ciudad_data in tasks
         }
         
         for i, future in enumerate(cf.as_completed(future_map), 1):
@@ -216,44 +232,75 @@ def run_delivery_monitor(producto: int, total: int, tienda_id: int = 11, cantida
                 result = future.result()
                 results.append(result)
                 
-                status = "[OK]" if result["estado"] == "Disponible" else "[--]"
+                status = "OK" if result["estado"] == "Disponible" else "--"
                 dias = result.get("dias_entrega", "?")
-                print(f"  {status} {i}/{len(COMUNAS_RM)} {result['comuna']}: {dias} días")
+                print(f"  [{status}] {i}/{len(tasks)} {result['comuna']}: {dias} días")
                 
             except Exception as e:
-                id_comuna, comuna = future_map[future]
-                print(f"  [ERR] {comuna}: {e}")
+                id_comuna, comuna_data = future_map[future]
+                print(f"  [ERR] {comuna_data['nombre']}: {e}")
                 results.append({
                     "id_comuna": id_comuna,
-                    "comuna": comuna,
-                    "provincia": PROVINCIA_POR_COMUNA.get(comuna, ""),
+                    "comuna": comuna_data["nombre"],
+                    "id_region": comuna_data["id_region"],
+                    "region": REGIONES.get(comuna_data["id_region"], ""),
+                    "id_ciudad": None,
+                    "ciudad": "Error",
                     "estado": "Error",
                     "fecha_entrega": None,
                     "dias_entrega": None,
                     "transporte": None,
-                    "ciudad_id": None,
-                    "ciudad_nombre": None,
                     "http_code": 0,
                     "url": "",
                     "error": str(e),
                 })
     
-    # Ordenar por provincia y comuna
-    results.sort(key=lambda x: (x.get("provincia", ""), x.get("comuna", "")))
+    # Ordenar por región y comuna
+    results.sort(key=lambda x: (x.get("id_region", 0), x.get("comuna", "")))
     
-    # Calcular estadísticas
+    # Calcular estadísticas globales
     disponibles = [r for r in results if r["estado"] == "Disponible"]
     no_disponibles = [r for r in results if r["estado"] == "No disponible"]
     errores = [r for r in results if r["estado"] == "Error"]
     
-    # Distribución por días
+    # Estadísticas por región
+    stats_por_region = {}
+    for r in results:
+        reg_id = r["id_region"]
+        if reg_id not in stats_por_region:
+            stats_por_region[reg_id] = {
+                "nombre": REGIONES.get(reg_id, f"Región {reg_id}"),
+                "total": 0,
+                "disponibles": 0,
+                "no_disponibles": 0,
+                "errores": 0,
+                "dias_sum": 0,
+                "dias_count": 0,
+            }
+        stats_por_region[reg_id]["total"] += 1
+        if r["estado"] == "Disponible":
+            stats_por_region[reg_id]["disponibles"] += 1
+            if r.get("dias_entrega") is not None:
+                stats_por_region[reg_id]["dias_sum"] += r["dias_entrega"]
+                stats_por_region[reg_id]["dias_count"] += 1
+        elif r["estado"] == "No disponible":
+            stats_por_region[reg_id]["no_disponibles"] += 1
+        else:
+            stats_por_region[reg_id]["errores"] += 1
+    
+    # Calcular promedios y porcentajes por región
+    for reg_id, stats in stats_por_region.items():
+        stats["cobertura_pct"] = round(stats["disponibles"] / stats["total"] * 100, 1) if stats["total"] > 0 else 0
+        stats["promedio_dias"] = round(stats["dias_sum"] / stats["dias_count"], 1) if stats["dias_count"] > 0 else 0
+    
+    # Distribución por días (global)
     dias_dist = {}
     for r in disponibles:
         dias = r.get("dias_entrega")
         if dias is not None:
             dias_dist[dias] = dias_dist.get(dias, 0) + 1
     
-    # Calcular promedio de días
+    # Promedio global
     dias_values = [r["dias_entrega"] for r in disponibles if r.get("dias_entrega") is not None]
     promedio_dias = round(sum(dias_values) / len(dias_values), 1) if dias_values else 0
     
@@ -267,6 +314,7 @@ def run_delivery_monitor(producto: int, total: int, tienda_id: int = 11, cantida
         "promedio_dias": promedio_dias,
         "dias_distribucion": dias_dist,
         "cobertura_pct": round(len(disponibles) / len(results) * 100, 1) if results else 0,
+        "total_regiones": len(stats_por_region),
     }
     
     return {
@@ -276,6 +324,7 @@ def run_delivery_monitor(producto: int, total: int, tienda_id: int = 11, cantida
         "tienda_id": tienda_id,
         "cantidad": cantidad,
         "summary": summary,
+        "stats_por_region": stats_por_region,
         "comunas": results,
         "no_disponibles": no_disponibles,
         "errores": errores,
@@ -290,6 +339,7 @@ def generate_html_dashboard(report: Dict) -> str:
     comunas = report["comunas"]
     no_disponibles = report["no_disponibles"]
     errores = report.get("errores", [])
+    stats_por_region = report.get("stats_por_region", {})
     
     # Timestamp
     try:
@@ -303,6 +353,10 @@ def generate_html_dashboard(report: Dict) -> str:
         status_class = "critical"
         status_text = f"{len(errores)} comunas con error"
         status_color = "#ef4444"
+    elif len(no_disponibles) > 10:
+        status_class = "warning"
+        status_text = f"{len(no_disponibles)} comunas sin despacho"
+        status_color = "#f59e0b"
     elif no_disponibles:
         status_class = "warning"
         status_text = f"{len(no_disponibles)} comunas sin despacho"
@@ -312,22 +366,36 @@ def generate_html_dashboard(report: Dict) -> str:
         status_text = "Despacho disponible en todas las comunas"
         status_color = "#10b981"
     
+    # Cards por región
+    region_cards = ""
+    for reg_id in sorted(stats_por_region.keys()):
+        stats = stats_por_region[reg_id]
+        cob = stats["cobertura_pct"]
+        if cob >= 95:
+            cob_class = "green"
+        elif cob >= 80:
+            cob_class = "yellow"
+        else:
+            cob_class = "red"
+        
+        region_cards += f'''
+        <div class="region-card" data-region="{reg_id}">
+            <div class="region-name">{stats["nombre"]}</div>
+            <div class="region-cob {cob_class}">{cob}%</div>
+            <div class="region-stats">
+                <span>{stats["disponibles"]}/{stats["total"]}</span>
+                <span>~{stats["promedio_dias"]}d</span>
+            </div>
+        </div>'''
+    
     # Filas de comunas sin disponibilidad
     no_disp_rows = ""
     for c in no_disponibles:
         no_disp_rows += f'''<tr>
             <td><span class="badge badge-id">{c["id_comuna"]}</span></td>
             <td>{c["comuna"]}</td>
-            <td>{c.get("provincia", "-")}</td>
-        </tr>\n'''
-    
-    # Filas de errores
-    error_rows = ""
-    for c in errores:
-        error_rows += f'''<tr class="error-row">
-            <td><span class="badge badge-error">{c.get("http_code", "ERR")}</span></td>
-            <td>{c["comuna"]}</td>
-            <td>{c.get("error", "-")[:50]}</td>
+            <td>{c.get("region", "-")}</td>
+            <td>{c.get("ciudad", "-")}</td>
         </tr>\n'''
     
     # Sección sin disponibilidad
@@ -342,62 +410,12 @@ def generate_html_dashboard(report: Dict) -> str:
             </div>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>ID</th><th>Comuna</th><th>Provincia</th></tr></thead>
+                    <thead><tr><th>ID</th><th>Comuna</th><th>Región</th><th>Ciudad</th></tr></thead>
                     <tbody>{no_disp_rows}</tbody>
                 </table>
             </div>
         </div>
         '''
-    
-    # Sección errores
-    error_section = ""
-    if errores:
-        error_section = f'''
-        <div class="section">
-            <div class="section-header">
-                <span>!</span>
-                <h2>Errores de Conexión</h2>
-                <span class="section-count">{len(errores)}</span>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Status</th><th>Comuna</th><th>Error</th></tr></thead>
-                    <tbody>{error_rows}</tbody>
-                </table>
-            </div>
-        </div>
-        '''
-    
-    # Tabla completa de comunas
-    comunas_rows = ""
-    for c in comunas:
-        dias = c.get("dias_entrega")
-        if dias is not None:
-            if dias <= 1:
-                dias_class = "green"
-                dias_badge = "badge-ok"
-            elif dias <= 3:
-                dias_class = "blue"
-                dias_badge = "badge-id"
-            else:
-                dias_class = "yellow"
-                dias_badge = "badge-warn"
-            dias_display = f'<span class="badge {dias_badge}">{dias} día{"s" if dias != 1 else ""}</span>'
-        else:
-            dias_class = "red"
-            dias_display = '<span class="badge badge-error">-</span>'
-        
-        estado_badge = "badge-ok" if c["estado"] == "Disponible" else "badge-error"
-        
-        comunas_rows += f'''<tr>
-            <td><span class="badge badge-id">{c["id_comuna"]}</span></td>
-            <td>{c["comuna"]}</td>
-            <td>{c.get("provincia", "-")}</td>
-            <td>{dias_display}</td>
-            <td>{c.get("fecha_entrega", "-") or "-"}</td>
-            <td>{c.get("transporte", "-") or "-"}</td>
-            <td><span class="badge {estado_badge}">{c["estado"]}</span></td>
-        </tr>\n'''
     
     # Distribución de días (mini chart)
     dias_dist = summary.get("dias_distribucion", {})
@@ -416,9 +434,44 @@ def generate_html_dashboard(report: Dict) -> str:
                 <span class="dist-count">{count}</span>
             </div>'''
     
-    # Stats color classes
+    # Tabla completa de comunas (agrupada por región)
+    comunas_rows = ""
+    current_region = None
+    for c in comunas:
+        # Header de región
+        if c.get("id_region") != current_region:
+            current_region = c.get("id_region")
+            region_name = REGIONES.get(current_region, f"Región {current_region}")
+            comunas_rows += f'''<tr class="region-header-row">
+                <td colspan="7"><strong>{region_name}</strong></td>
+            </tr>\n'''
+        
+        dias = c.get("dias_entrega")
+        if dias is not None:
+            if dias <= 2:
+                dias_badge = "badge-ok"
+            elif dias <= 5:
+                dias_badge = "badge-id"
+            else:
+                dias_badge = "badge-warn"
+            dias_display = f'<span class="badge {dias_badge}">{dias}d</span>'
+        else:
+            dias_display = '<span class="badge badge-error">-</span>'
+        
+        estado_badge = "badge-ok" if c["estado"] == "Disponible" else "badge-error"
+        
+        comunas_rows += f'''<tr data-region="{c.get("id_region", 0)}">
+            <td><span class="badge badge-id">{c["id_comuna"]}</span></td>
+            <td>{c["comuna"]}</td>
+            <td>{dias_display}</td>
+            <td>{c.get("fecha_entrega", "-") or "-"}</td>
+            <td>{c.get("transporte", "-") or "-"}</td>
+            <td>{c.get("ciudad", "-")}</td>
+            <td><span class="badge {estado_badge}">{c["estado"]}</span></td>
+        </tr>\n'''
+    
+    # Stats classes
     no_disp_class = "red" if summary["no_disponibles"] > 0 else "green"
-    error_class = "red" if summary["errores"] > 0 else "green"
     
     html = f'''<!DOCTYPE html>
 <html lang="es">
@@ -426,7 +479,7 @@ def generate_html_dashboard(report: Dict) -> str:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="600">
-    <title>PCFactory Delivery Monitor - RM</title>
+    <title>PCFactory Delivery Monitor - Nacional</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -455,7 +508,7 @@ def generate_html_dashboard(report: Dict) -> str:
             line-height: 1.6;
             min-height: 100vh;
         }}
-        .container {{ max-width: 1200px; margin: 0 auto; padding: 2rem; }}
+        .container {{ max-width: 1400px; margin: 0 auto; padding: 2rem; }}
         .header {{
             display: flex;
             justify-content: space-between;
@@ -516,9 +569,10 @@ def generate_html_dashboard(report: Dict) -> str:
         .warning .status-indicator {{ background: var(--accent-yellow); }}
         .critical .status-indicator {{ background: var(--accent-red); }}
         @keyframes pulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.5; }} }}
+        
         .stats-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 1rem;
             margin-bottom: 2rem;
         }}
@@ -526,22 +580,23 @@ def generate_html_dashboard(report: Dict) -> str:
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             transition: all 0.2s ease;
         }}
         .stat-card:hover {{ background: var(--bg-hover); transform: translateY(-2px); }}
         .stat-label {{
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }}
-        .stat-value {{ font-family: var(--font-mono); font-size: 2rem; font-weight: 700; }}
+        .stat-value {{ font-family: var(--font-mono); font-size: 1.75rem; font-weight: 700; }}
         .stat-value.green {{ color: var(--accent-green); }}
         .stat-value.yellow {{ color: var(--accent-yellow); }}
         .stat-value.red {{ color: var(--accent-red); }}
         .stat-value.blue {{ color: var(--accent-blue); }}
+        
         .health-card {{
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -557,6 +612,36 @@ def generate_html_dashboard(report: Dict) -> str:
             color: {status_color};
         }}
         .health-label {{ color: var(--text-muted); margin-top: 0.5rem; }}
+        
+        .regions-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }}
+        .region-card {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+        .region-card:hover {{ background: var(--bg-hover); transform: translateY(-2px); }}
+        .region-card.selected {{ border-color: var(--accent-blue); background: var(--bg-hover); }}
+        .region-name {{ font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; }}
+        .region-cob {{ font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; }}
+        .region-cob.green {{ color: var(--accent-green); }}
+        .region-cob.yellow {{ color: var(--accent-yellow); }}
+        .region-cob.red {{ color: var(--accent-red); }}
+        .region-stats {{
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }}
+        
         .dist-container {{
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -598,10 +683,11 @@ def generate_html_dashboard(report: Dict) -> str:
         .dist-count {{
             font-family: var(--font-mono);
             font-size: 0.75rem;
-            width: 30px;
+            width: 40px;
             text-align: right;
             color: var(--text-secondary);
         }}
+        
         .section {{
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -625,26 +711,35 @@ def generate_html_dashboard(report: Dict) -> str:
             border-radius: 999px;
             color: var(--text-secondary);
         }}
-        .table-container {{ overflow-x: auto; }}
+        .table-container {{ overflow-x: auto; max-height: 600px; overflow-y: auto; }}
         table {{ width: 100%; border-collapse: collapse; }}
         th {{
             text-align: left;
-            padding: 1rem 1.5rem;
-            font-size: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-muted);
             background: var(--bg-secondary);
             font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }}
-        td {{ padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.875rem; }}
+        td {{ padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.8rem; }}
         tr:last-child td {{ border-bottom: none; }}
         tr:hover {{ background: var(--bg-hover); }}
-        .error-row {{ background: rgba(239, 68, 68, 0.05); }}
+        .region-header-row {{
+            background: var(--bg-secondary) !important;
+        }}
+        .region-header-row td {{
+            padding: 0.5rem 1rem;
+            color: var(--accent-blue);
+        }}
         .badge {{
             font-family: var(--font-mono);
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.4rem;
             border-radius: 4px;
             font-weight: 500;
         }}
@@ -661,11 +756,25 @@ def generate_html_dashboard(report: Dict) -> str:
             border-radius: 8px;
             margin-bottom: 1.5rem;
         }}
+        .filter-input {{
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 1rem;
+        }}
+        .filter-input:focus {{ outline: none; border-color: var(--accent-blue); }}
         .footer {{ text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }}
         @media (max-width: 768px) {{
             .container {{ padding: 1rem; }}
             .header {{ flex-direction: column; gap: 1rem; text-align: center; }}
             .stats-grid {{ grid-template-columns: repeat(2, 1fr); }}
+            .regions-grid {{ grid-template-columns: repeat(2, 1fr); }}
             .health-score {{ font-size: 3rem; }}
         }}
     </style>
@@ -679,7 +788,7 @@ def generate_html_dashboard(report: Dict) -> str:
                 </div>
                 <div class="logo-text">
                     <h1>pc Factory Monitor</h1>
-                    <span>Despacho Región Metropolitana</span>
+                    <span>Despacho Nacional - Chile</span>
                 </div>
             </div>
             <div class="timestamp">{timestamp_display}</div>
@@ -687,7 +796,7 @@ def generate_html_dashboard(report: Dict) -> str:
         
         <div class="nav-links">
             <a href="index.html" class="nav-link">📦 Categorías</a>
-            <a href="delivery.html" class="nav-link active">🚚 Despacho RM</a>
+            <a href="delivery.html" class="nav-link active">🚚 Despacho Nacional</a>
         </div>
         
         <div class="product-info">
@@ -701,7 +810,7 @@ def generate_html_dashboard(report: Dict) -> str:
         
         <div class="health-card">
             <div class="health-score">{summary["cobertura_pct"]}%</div>
-            <div class="health-label">Cobertura de Despacho (comunas con disponibilidad)</div>
+            <div class="health-label">Cobertura Nacional ({summary["disponibles"]}/{summary["total_comunas"]} comunas)</div>
         </div>
         
         <div class="stats-grid">
@@ -718,8 +827,24 @@ def generate_html_dashboard(report: Dict) -> str:
                 <div class="stat-value {no_disp_class}">{summary["no_disponibles"]}</div>
             </div>
             <div class="stat-card">
+                <div class="stat-label">Regiones</div>
+                <div class="stat-value blue">{summary["total_regiones"]}</div>
+            </div>
+            <div class="stat-card">
                 <div class="stat-label">Promedio Días</div>
                 <div class="stat-value blue">{summary["promedio_dias"]}</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">
+                <span>🗺️</span>
+                <h2>Cobertura por Región</h2>
+            </div>
+            <div style="padding: 1rem;">
+                <div class="regions-grid">
+                    {region_cards}
+                </div>
             </div>
         </div>
         
@@ -728,7 +853,6 @@ def generate_html_dashboard(report: Dict) -> str:
             {dias_chart if dias_chart else '<p style="color: var(--text-muted);">Sin datos</p>'}
         </div>
         
-        {error_section}
         {no_disp_section}
         
         <div class="section">
@@ -737,16 +861,17 @@ def generate_html_dashboard(report: Dict) -> str:
                 <h2>Todas las Comunas</h2>
                 <span class="section-count">{len(comunas)}</span>
             </div>
+            <input type="text" class="filter-input" placeholder="Buscar comuna..." id="filterInput" style="margin: 1rem;">
             <div class="table-container">
-                <table>
+                <table id="comunasTable">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Comuna</th>
-                            <th>Provincia</th>
                             <th>Días</th>
-                            <th>Fecha Entrega</th>
+                            <th>Fecha</th>
                             <th>Transporte</th>
+                            <th>Ciudad</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
@@ -760,6 +885,43 @@ def generate_html_dashboard(report: Dict) -> str:
             <p>Hecho con ❤️ por Ain Catoni</p>
         </footer>
     </div>
+    
+    <script>
+        // Filtro de búsqueda
+        document.getElementById('filterInput').addEventListener('input', function(e) {{
+            const filter = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#comunasTable tbody tr');
+            rows.forEach(row => {{
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            }});
+        }});
+        
+        // Click en región para filtrar
+        document.querySelectorAll('.region-card').forEach(card => {{
+            card.addEventListener('click', function() {{
+                const regionId = this.dataset.region;
+                const isSelected = this.classList.contains('selected');
+                
+                // Toggle selección
+                document.querySelectorAll('.region-card').forEach(c => c.classList.remove('selected'));
+                if (!isSelected) {{
+                    this.classList.add('selected');
+                }}
+                
+                // Filtrar tabla
+                const rows = document.querySelectorAll('#comunasTable tbody tr');
+                rows.forEach(row => {{
+                    if (isSelected || !regionId) {{
+                        row.style.display = '';
+                    }} else {{
+                        const rowRegion = row.dataset.region;
+                        row.style.display = (rowRegion === regionId || row.classList.contains('region-header-row')) ? '' : 'none';
+                    }}
+                }});
+            }});
+        }});
+    </script>
 </body>
 </html>'''
     
@@ -770,32 +932,40 @@ def generate_html_dashboard(report: Dict) -> str:
 # ==============================================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="PCFactory Delivery Monitor - RM")
+    parser = argparse.ArgumentParser(description="PCFactory Delivery Monitor - Nacional")
     parser.add_argument("--producto", type=int, required=True, help="ID del producto")
     parser.add_argument("--total", type=int, required=True, help="Total del carrito")
     parser.add_argument("--tienda", type=int, default=11, help="ID tienda (default: 11)")
     parser.add_argument("--cantidad", type=int, default=1, help="Cantidad (default: 1)")
-    parser.add_argument("--workers", type=int, default=3, help="Workers paralelos")
-    parser.add_argument("--delay-min", type=float, default=0.3)
-    parser.add_argument("--delay-max", type=float, default=0.7)
+    parser.add_argument("--workers", type=int, default=5, help="Workers paralelos")
+    parser.add_argument("--delay-min", type=float, default=0.2)
+    parser.add_argument("--delay-max", type=float, default=0.5)
     parser.add_argument("--output-dir", type=str, default="./output")
+    parser.add_argument("--ciudades", type=str, default="ciudad.csv", help="CSV de ciudades")
+    parser.add_argument("--comunas", type=str, default="comuna.csv", help="CSV de comunas")
+    parser.add_argument("--relacion", type=str, default="ciudad_comuna.csv", help="CSV relación ciudad-comuna")
+    parser.add_argument("--region", type=int, default=None, help="Filtrar por región (opcional)")
     args = parser.parse_args()
     
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     
     print("=" * 60)
-    print("PCFactory Delivery Monitor - Región Metropolitana")
+    print("PCFactory Delivery Monitor - Nacional")
     print("=" * 60)
     
     report = run_delivery_monitor(
         producto=args.producto,
         total=args.total,
+        ciudades_path=args.ciudades,
+        comunas_path=args.comunas,
+        relacion_path=args.relacion,
         tienda_id=args.tienda,
         cantidad=args.cantidad,
         workers=args.workers,
         delay_min=args.delay_min,
         delay_max=args.delay_max,
+        region_filter=args.region,
     )
     
     # Guardar JSON
@@ -814,7 +984,7 @@ def main():
     # Resumen
     summary = report["summary"]
     print("\n" + "=" * 60)
-    print("RESUMEN")
+    print("RESUMEN NACIONAL")
     print("=" * 60)
     print(f"Total comunas: {summary['total_comunas']}")
     print(f"Con despacho: {summary['disponibles']}")
@@ -822,10 +992,17 @@ def main():
     print(f"Cobertura: {summary['cobertura_pct']}%")
     print(f"Promedio días: {summary['promedio_dias']}")
     
+    print("\nCobertura por región:")
+    for reg_id in sorted(report["stats_por_region"].keys()):
+        stats = report["stats_por_region"][reg_id]
+        print(f"  {stats['nombre']}: {stats['cobertura_pct']}% ({stats['disponibles']}/{stats['total']})")
+    
     if report["no_disponibles"]:
-        print("\nComunas sin despacho:")
-        for c in report["no_disponibles"]:
-            print(f"  - [{c['id_comuna']}] {c['comuna']}")
+        print(f"\nComunas sin despacho ({len(report['no_disponibles'])}):")
+        for c in report["no_disponibles"][:10]:
+            print(f"  - [{c['id_comuna']}] {c['comuna']} ({c['region']})")
+        if len(report["no_disponibles"]) > 10:
+            print(f"  ... y {len(report['no_disponibles']) - 10} más")
     
     print("\n[OK] Monitoreo completado!")
 
