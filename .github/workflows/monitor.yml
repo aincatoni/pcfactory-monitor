@@ -1,57 +1,57 @@
 name: PCFactory Category Monitor
 
 on:
-  # Ejecutar cada 10 minutos
   schedule:
     - cron: '*/10 * * * *'
-  
-  # Permitir ejecución manual
   workflow_dispatch:
-  
-  # Ejecutar en push a main (para testing)
-  push:
-    branches: [main]
+    inputs:
+      producto:
+        description: 'ID del producto para delivery monitor'
+        required: false
+        default: '53880'
+      total:
+        description: 'Total del carrito'
+        required: false
+        default: '554990'
 
-# Permisos para publicar en GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Solo un job a la vez
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
       
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
       
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Instalar dependencias
+        run: pip install requests pandas openpyxl urllib3
       
-      - name: Run monitor
+      - name: Crear directorio output
+        run: mkdir -p output
+      
+      - name: Ejecutar Category Monitor
         run: python monitor.py --workers 5 --output-dir ./output
-        timeout-minutes: 15
       
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Ejecutar Delivery Monitor
+        run: |
+          python delivery_monitor.py \
+            --producto ${{ github.event.inputs.producto || '53880' }} \
+            --total ${{ github.event.inputs.total || '554990' }} \
+            --workers 5 \
+            --output-dir ./output
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './output'
+          path: ./output
       
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
