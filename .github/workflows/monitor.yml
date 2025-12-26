@@ -40,13 +40,19 @@ jobs:
       - name: Ejecutar Category Monitor
         run: python monitor.py --workers 5 --output-dir ./output
       
-      - name: Ejecutar Delivery Monitor
+      - name: Ejecutar Delivery Monitor Nacional
         run: |
           python delivery_monitor.py \
             --producto ${{ github.event.inputs.producto || '53880' }} \
             --total ${{ github.event.inputs.total || '554990' }} \
-            --workers 5 \
-            --output-dir ./output
+            --workers 8 \
+            --output-dir ./output \
+            --ciudades data/ciudad.csv \
+            --comunas data/comuna.csv \
+            --relacion data/ciudad_comuna.csv
+      
+      - name: Listar archivos generados
+        run: ls -la ./output/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
