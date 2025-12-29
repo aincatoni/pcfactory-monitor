@@ -137,17 +137,19 @@ def call_endpoint(session: requests.Session, url: str, timeout: int = 15) -> Tup
     except Exception:
         return 0, None
 
-def parse_payload(payload: Dict) -> Tuple[str, Optional[str], Optional[int], Optional[str]]:
-    """Retorna (estado, fecha_entrega, dias_entrega, transporte)"""
+def parse_payload(payload: Dict) -> Tuple[str, Optional[str], Optional[int], Optional[str], Optional[int], bool]:
+    """Retorna (estado, fecha_entrega, dias_entrega, transporte, precio, gratis)"""
     if not isinstance(payload, dict):
-        return ("No disponible", None, None, None)
+        return ("No disponible", None, None, None, None, False)
     if str(payload.get("codigo")) != "0":
-        return ("No disponible", None, None, None)
+        return ("No disponible", None, None, None, None, False)
     tarifas = (payload.get("resultado") or {}).get("tarifas") or []
     if not tarifas:
-        return ("No disponible", None, None, None)
+        return ("No disponible", None, None, None, None, False)
     t0 = tarifas[0]
-    return ("Disponible", t0.get("fecha_entrega"), t0.get("dias_entrega"), t0.get("transporte"))
+    precio = t0.get("precio")
+    gratis = t0.get("gratis", False) or precio == 0
+    return ("Disponible", t0.get("fecha_entrega"), t0.get("dias_entrega"), t0.get("transporte"), precio, gratis)
 
 def check_comuna(session: requests.Session, id_comuna: int, comuna_data: Dict,
                  id_ciudad: int, ciudad_data: Dict,
@@ -158,7 +160,7 @@ def check_comuna(session: requests.Session, id_comuna: int, comuna_data: Dict,
     
     url = build_url(tienda_id, id_ciudad, id_comuna, cantidad, producto, total)
     http_code, payload = call_endpoint(session, url)
-    estado, fecha, dias, transporte = parse_payload(payload or {})
+    estado, fecha, dias, transporte, precio, gratis = parse_payload(payload or {})
     
     return {
         "id_comuna": id_comuna,
@@ -171,6 +173,8 @@ def check_comuna(session: requests.Session, id_comuna: int, comuna_data: Dict,
         "fecha_entrega": fecha,
         "dias_entrega": dias,
         "transporte": transporte,
+        "precio_despacho": precio,
+        "despacho_gratis": gratis,
         "http_code": http_code,
         "url": url,
     }
@@ -263,6 +267,14 @@ def run_delivery_monitor(producto: int, total: int,
     no_disponibles = [r for r in results if r["estado"] == "No disponible"]
     errores = [r for r in results if r["estado"] == "Error"]
     
+    # Estadísticas de precio
+    con_precio = [r for r in disponibles if r.get("precio_despacho") is not None]
+    gratis_count = len([r for r in disponibles if r.get("despacho_gratis")])
+    precios = [r["precio_despacho"] for r in con_precio if r["precio_despacho"] > 0]
+    precio_promedio = round(sum(precios) / len(precios)) if precios else 0
+    precio_min = min(precios) if precios else 0
+    precio_max = max(precios) if precios else 0
+    
     # Estadísticas por región
     stats_por_region = {}
     for r in results:
@@ -276,6 +288,9 @@ def run_delivery_monitor(producto: int, total: int,
                 "errores": 0,
                 "dias_sum": 0,
                 "dias_count": 0,
+                "precio_sum": 0,
+                "precio_count": 0,
+                "gratis_count": 0,
             }
         stats_por_region[reg_id]["total"] += 1
         if r["estado"] == "Disponible":
@@ -283,6 +298,11 @@ def run_delivery_monitor(producto: int, total: int,
             if r.get("dias_entrega") is not None:
                 stats_por_region[reg_id]["dias_sum"] += r["dias_entrega"]
                 stats_por_region[reg_id]["dias_count"] += 1
+            if r.get("precio_despacho") is not None and r["precio_despacho"] > 0:
+                stats_por_region[reg_id]["precio_sum"] += r["precio_despacho"]
+                stats_por_region[reg_id]["precio_count"] += 1
+            if r.get("despacho_gratis"):
+                stats_por_region[reg_id]["gratis_count"] += 1
         elif r["estado"] == "No disponible":
             stats_por_region[reg_id]["no_disponibles"] += 1
         else:
@@ -292,6 +312,7 @@ def run_delivery_monitor(producto: int, total: int,
     for reg_id, stats in stats_por_region.items():
         stats["cobertura_pct"] = round(stats["disponibles"] / stats["total"] * 100, 1) if stats["total"] > 0 else 0
         stats["promedio_dias"] = round(stats["dias_sum"] / stats["dias_count"], 1) if stats["dias_count"] > 0 else 0
+        stats["precio_promedio"] = round(stats["precio_sum"] / stats["precio_count"]) if stats["precio_count"] > 0 else 0
     
     # Distribución por días (global)
     dias_dist = {}
@@ -315,6 +336,10 @@ def run_delivery_monitor(producto: int, total: int,
         "dias_distribucion": dias_dist,
         "cobertura_pct": round(len(disponibles) / len(results) * 100, 1) if results else 0,
         "total_regiones": len(stats_por_region),
+        "despacho_gratis": gratis_count,
+        "precio_promedio": precio_promedio,
+        "precio_min": precio_min,
+        "precio_max": precio_max,
     }
     
     return {
@@ -443,7 +468,7 @@ def generate_html_dashboard(report: Dict) -> str:
             current_region = c.get("id_region")
             region_name = REGIONES.get(current_region, f"Región {current_region}")
             comunas_rows += f'''<tr class="region-header-row">
-                <td colspan="7"><strong>{region_name}</strong></td>
+                <td colspan="8"><strong>{region_name}</strong></td>
             </tr>\n'''
         
         dias = c.get("dias_entrega")
@@ -458,12 +483,23 @@ def generate_html_dashboard(report: Dict) -> str:
         else:
             dias_display = '<span class="badge badge-error">-</span>'
         
+        # Precio de despacho
+        precio = c.get("precio_despacho")
+        gratis = c.get("despacho_gratis")
+        if gratis:
+            precio_display = '<span class="badge badge-ok">Gratis</span>'
+        elif precio is not None:
+            precio_display = f'<span class="badge badge-id">${precio:,}</span>'
+        else:
+            precio_display = '<span class="badge badge-error">-</span>'
+        
         estado_badge = "badge-ok" if c["estado"] == "Disponible" else "badge-error"
         
         comunas_rows += f'''<tr data-region="{c.get("id_region", 0)}">
             <td><span class="badge badge-id">{c["id_comuna"]}</span></td>
             <td>{c["comuna"]}</td>
             <td>{dias_display}</td>
+            <td>{precio_display}</td>
             <td>{c.get("fecha_entrega", "-") or "-"}</td>
             <td>{c.get("transporte", "-") or "-"}</td>
             <td>{c.get("ciudad", "-")}</td>
@@ -547,6 +583,110 @@ def generate_html_dashboard(report: Dict) -> str:
             transition: all 0.2s;
         }}
         .nav-link:hover {{ background: var(--bg-hover); }}
+        
+        .product-panel {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }}
+        .product-current {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }}
+        .product-label {{
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }}
+        .product-value {{
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }}
+        .product-value strong {{
+            color: var(--text-primary);
+        }}
+        .product-sep {{
+            color: var(--border);
+            margin: 0 0.25rem;
+        }}
+        .change-product-btn {{
+            margin-left: auto;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+        .change-product-btn:hover {{
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--accent-blue);
+        }}
+        .product-form {{
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }}
+        .form-row {{
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }}
+        .form-group {{
+            flex: 1;
+        }}
+        .form-group label {{
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }}
+        .form-group input {{
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.6rem 0.8rem;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+        }}
+        .form-group input:focus {{
+            outline: none;
+            border-color: var(--accent-blue);
+        }}
+        .form-actions {{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }}
+        .btn-primary {{
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }}
+        .btn-primary:hover {{
+            background: #2563eb;
+            transform: translateY(-1px);
+        }}
+        .form-hint {{
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }}
         .nav-link.active {{ background: var(--accent-blue); color: white; }}
         .status-banner {{
             display: flex;
@@ -799,8 +939,32 @@ def generate_html_dashboard(report: Dict) -> str:
             <a href="delivery.html" class="nav-link active">🚚 Despacho Nacional</a>
         </div>
         
-        <div class="product-info">
-            Producto: {report["producto"]} | Total: ${report["total"]:,} | Cantidad: {report["cantidad"]}
+        <div class="product-panel">
+            <div class="product-current">
+                <span class="product-label">Monitoreando:</span>
+                <span class="product-value">Producto <strong>{report["producto"]}</strong></span>
+                <span class="product-sep">|</span>
+                <span class="product-value">Total <strong>${report["total"]:,}</strong></span>
+                <span class="product-sep">|</span>
+                <span class="product-value">Cantidad <strong>{report["cantidad"]}</strong></span>
+            </div>
+            <button class="change-product-btn" onclick="toggleProductForm()">⚙️ Cambiar Producto</button>
+            <div class="product-form" id="productForm" style="display: none;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>ID Producto</label>
+                        <input type="number" id="inputProducto" value="{report["producto"]}" placeholder="Ej: 53880">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Carrito</label>
+                        <input type="number" id="inputTotal" value="{report["total"]}" placeholder="Ej: 554990">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <a id="runWorkflowBtn" class="btn-primary" href="#" target="_blank">🚀 Ejecutar Monitor</a>
+                    <span class="form-hint">Se abrirá GitHub Actions para confirmar</span>
+                </div>
+            </div>
         </div>
         
         <div class="status-banner {status_class}">
@@ -827,12 +991,16 @@ def generate_html_dashboard(report: Dict) -> str:
                 <div class="stat-value {no_disp_class}">{summary["no_disponibles"]}</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Regiones</div>
-                <div class="stat-value blue">{summary["total_regiones"]}</div>
+                <div class="stat-label">Despacho Gratis</div>
+                <div class="stat-value green">{summary["despacho_gratis"]}</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Promedio Días</div>
                 <div class="stat-value blue">{summary["promedio_dias"]}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Precio Promedio</div>
+                <div class="stat-value yellow">${summary["precio_promedio"]:,}</div>
             </div>
         </div>
         
@@ -869,6 +1037,7 @@ def generate_html_dashboard(report: Dict) -> str:
                             <th>ID</th>
                             <th>Comuna</th>
                             <th>Días</th>
+                            <th>Precio</th>
                             <th>Fecha</th>
                             <th>Transporte</th>
                             <th>Ciudad</th>
@@ -921,6 +1090,30 @@ def generate_html_dashboard(report: Dict) -> str:
                 }});
             }});
         }});
+        
+        // Toggle formulario de producto
+        function toggleProductForm() {{
+            const form = document.getElementById('productForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+            if (form.style.display === 'block') {{
+                updateWorkflowUrl();
+            }}
+        }}
+        
+        // Actualizar URL del workflow
+        function updateWorkflowUrl() {{
+            const producto = document.getElementById('inputProducto').value;
+            const total = document.getElementById('inputTotal').value;
+            const btn = document.getElementById('runWorkflowBtn');
+            // URL para disparar workflow con parámetros
+            const repoUrl = 'https://github.com/aincatoni/pcfactory-monitor/actions/workflows/monitor.yml';
+            btn.href = repoUrl;
+            btn.title = `Producto: ${{producto}}, Total: ${{total}}`;
+        }}
+        
+        // Escuchar cambios en inputs
+        document.getElementById('inputProducto')?.addEventListener('input', updateWorkflowUrl);
+        document.getElementById('inputTotal')?.addEventListener('input', updateWorkflowUrl);
     </script>
 </body>
 </html>'''
