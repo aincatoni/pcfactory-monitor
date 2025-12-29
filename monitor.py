@@ -628,7 +628,7 @@ def generate_html_dashboard(report: Dict) -> str:
         
         <footer class="footer">
             <p>Actualizacion automatica cada 10 minutos </p>
-            <p>Hecho con ❤️ por Ain Catoni </p>
+            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
         </footer>
     </div>
 </body>
