@@ -127,6 +127,12 @@ def create_session() -> requests.Session:
 def polite_pause(min_s: float, max_s: float):
     time.sleep(random.uniform(min_s, max_s))
 
+def formato_clp(numero: int) -> str:
+    """Formatea número al estilo chileno (punto como separador de miles)"""
+    if numero is None:
+        return "0"
+    return f"{numero:,}".replace(",", ".")
+
 # ==============================================================================
 # API CALLS
 # ==============================================================================
@@ -528,7 +534,7 @@ def generate_html_dashboard(report: Dict) -> str:
         if gratis:
             precio_display = '<span class="badge badge-ok">Gratis</span>'
         elif precio is not None and precio > 0:
-            precio_display = f'<span class="badge badge-id">${precio:,}</span>'
+            precio_display = f'<span class="badge badge-id">${formato_clp(precio)}</span>'
         elif c["estado"] == "Disponible":
             # Disponible pero sin info de precio - mostrar en gris
             precio_display = '<span class="badge badge-id">N/D</span>'
@@ -988,7 +994,7 @@ def generate_html_dashboard(report: Dict) -> str:
                 <span class="product-label">Monitoreando:</span>
                 <span class="product-value">Producto <strong>{report["producto"]}</strong></span>
                 <span class="product-sep">|</span>
-                <span class="product-value">Total <strong>${report["total"]:,}</strong></span>
+                <span class="product-value">Total <strong>${formato_clp(report["total"])}</strong></span>
                 <span class="product-sep">|</span>
                 <span class="product-value">Cantidad <strong>{report["cantidad"]}</strong></span>
             </div>
@@ -1044,7 +1050,7 @@ def generate_html_dashboard(report: Dict) -> str:
             </div>
             <div class="stat-card">
                 <div class="stat-label">Precio Promedio</div>
-                <div class="stat-value yellow">${summary["precio_promedio"]:,}</div>
+                <div class="stat-value yellow">${formato_clp(summary["precio_promedio"])}</div>
             </div>
         </div>
         
