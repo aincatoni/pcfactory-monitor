@@ -22,7 +22,11 @@ from urllib3.util.retry import Retry
 # CONFIGURACION
 # ==============================================================================
 
-BASE_URL = "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship"
+# Endpoint para verificar disponibilidad de despacho
+DELIVERY_URL = "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship"
+
+# Endpoint para obtener costo del despacho (POST)
+COSTO_URL = "https://api.pcfactory.cl/pcfactory-services-carro-compra/v1/carro/entrega/despacho"
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 15_6_1) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
@@ -128,7 +132,7 @@ def polite_pause(min_s: float, max_s: float):
 # ==============================================================================
 
 def build_url(tienda_id: int, ciudad_id: int, id_comuna: int, cantidad: int, id_producto: int, total: int) -> str:
-    return f"{BASE_URL}/{tienda_id}/{ciudad_id}/{id_comuna}/web?cantidad={cantidad}&id_producto={id_producto}&total={total}"
+    return f"{DELIVERY_URL}/{tienda_id}/{ciudad_id}/{id_comuna}/web?cantidad={cantidad}&id_producto={id_producto}&total={total}"
 
 def call_endpoint(session: requests.Session, url: str, timeout: int = 15) -> Tuple[int, Optional[Dict]]:
     try:
@@ -137,30 +141,65 @@ def call_endpoint(session: requests.Session, url: str, timeout: int = 15) -> Tup
     except Exception:
         return 0, None
 
-def parse_payload(payload: Dict) -> Tuple[str, Optional[str], Optional[int], Optional[str], Optional[int], bool]:
-    """Retorna (estado, fecha_entrega, dias_entrega, transporte, precio, gratis)"""
+def get_costo_despacho(session: requests.Session, producto_id: int, cantidad: int, 
+                       ciudad_nombre: str, comuna_nombre: str, timeout: int = 15) -> Tuple[Optional[int], bool]:
+    """
+    Obtiene el costo del despacho usando el endpoint del carro de compra.
+    Retorna (costo, gratis)
+    """
+    try:
+        payload = {
+            "items": [{"id": producto_id, "cantidad": cantidad, "origin": "PCF", "empresa": "PCFACTORY"}],
+            "ciudad": ciudad_nombre.upper(),
+            "comuna": comuna_nombre.upper()
+        }
+        r = session.post(COSTO_URL, json=payload, timeout=timeout)
+        if r.status_code != 200:
+            return None, False
+        
+        data = r.json()
+        opciones = data.get("opciones") or []
+        if not opciones:
+            return None, False
+        
+        costo = opciones[0].get("costo")
+        gratis = costo == 0 if costo is not None else False
+        return costo, gratis
+    except Exception:
+        return None, False
+
+def parse_payload(payload: Dict) -> Tuple[str, Optional[str], Optional[int], Optional[str]]:
+    """Retorna (estado, fecha_entrega, dias_entrega, transporte)"""
     if not isinstance(payload, dict):
-        return ("No disponible", None, None, None, None, False)
+        return ("No disponible", None, None, None)
     if str(payload.get("codigo")) != "0":
-        return ("No disponible", None, None, None, None, False)
+        return ("No disponible", None, None, None)
     tarifas = (payload.get("resultado") or {}).get("tarifas") or []
     if not tarifas:
-        return ("No disponible", None, None, None, None, False)
+        return ("No disponible", None, None, None)
     t0 = tarifas[0]
-    precio = t0.get("precio")
-    gratis = t0.get("gratis", False) or precio == 0
-    return ("Disponible", t0.get("fecha_entrega"), t0.get("dias_entrega"), t0.get("transporte"), precio, gratis)
+    return ("Disponible", t0.get("fecha_entrega"), t0.get("dias_entrega"), t0.get("transporte"))
 
 def check_comuna(session: requests.Session, id_comuna: int, comuna_data: Dict,
                  id_ciudad: int, ciudad_data: Dict,
                  tienda_id: int, cantidad: int, producto: int, total: int,
                  delay_min: float, delay_max: float) -> Dict[str, Any]:
-    """Verifica disponibilidad de despacho para una comuna"""
+    """Verifica disponibilidad de despacho para una comuna y obtiene el costo"""
     polite_pause(delay_min, delay_max)
     
+    # 1. Verificar disponibilidad con el endpoint original
     url = build_url(tienda_id, id_ciudad, id_comuna, cantidad, producto, total)
     http_code, payload = call_endpoint(session, url)
-    estado, fecha, dias, transporte, precio, gratis = parse_payload(payload or {})
+    estado, fecha, dias, transporte = parse_payload(payload or {})
+    
+    # 2. Si está disponible, obtener el costo con el nuevo endpoint
+    precio = None
+    gratis = False
+    if estado == "Disponible":
+        ciudad_nombre = ciudad_data["nombre"] if ciudad_data else "SANTIAGO"
+        comuna_nombre = comuna_data["nombre"]
+        polite_pause(delay_min * 0.5, delay_max * 0.5)  # Pausa más corta para segunda llamada
+        precio, gratis = get_costo_despacho(session, producto, cantidad, ciudad_nombre, comuna_nombre)
     
     return {
         "id_comuna": id_comuna,
@@ -488,10 +527,14 @@ def generate_html_dashboard(report: Dict) -> str:
         gratis = c.get("despacho_gratis")
         if gratis:
             precio_display = '<span class="badge badge-ok">Gratis</span>'
-        elif precio is not None:
+        elif precio is not None and precio > 0:
             precio_display = f'<span class="badge badge-id">${precio:,}</span>'
+        elif c["estado"] == "Disponible":
+            # Disponible pero sin info de precio - mostrar en gris
+            precio_display = '<span class="badge badge-id">N/D</span>'
         else:
-            precio_display = '<span class="badge badge-error">-</span>'
+            # No disponible
+            precio_display = '<span class="badge badge-muted">-</span>'
         
         estado_badge = "badge-ok" if c["estado"] == "Disponible" else "badge-error"
         
@@ -887,6 +930,7 @@ def generate_html_dashboard(report: Dict) -> str:
         .badge-ok {{ background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }}
         .badge-warn {{ background: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); }}
         .badge-error {{ background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }}
+        .badge-muted {{ background: var(--bg-secondary); color: var(--text-muted); }}
         .product-info {{
             font-family: var(--font-mono);
             font-size: 0.75rem;
@@ -1051,7 +1095,7 @@ def generate_html_dashboard(report: Dict) -> str:
         
         <footer class="footer">
             <p>Actualización automática cada 10 minutos</p>
-            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
+            <p>Hecho con ❤️ por Ain Catoni</p>
         </footer>
     </div>
     
