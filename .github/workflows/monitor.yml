@@ -170,12 +170,38 @@ jobs:
           path: output/
         continue-on-error: true
       
-      - name: Create payments placeholder if needed
+      - name: Preserve existing payments.html from gh-pages
         run: |
           mkdir -p output
+          # Si no hay payments.html del artifact, intentar obtener el existente de gh-pages
           if [ ! -f output/payments.html ]; then
+            echo "No hay payments.html nuevo, intentando preservar el existente..."
+            # Descargar el payments.html actual de gh-pages si existe
+            HTTP_STATUS=$(curl -s -o output/payments.html -w "%{http_code}" \
+              "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/payments.html" || echo "000")
+            
+            if [ "$HTTP_STATUS" = "200" ]; then
+              # Verificar que no sea el placeholder (el placeholder tiene menos de 2KB)
+              FILE_SIZE=$(stat -c%s output/payments.html 2>/dev/null || echo "0")
+              if [ "$FILE_SIZE" -gt 2000 ]; then
+                echo "✓ Preservado payments.html existente con datos ($FILE_SIZE bytes)"
+              else
+                echo "El archivo existente es el placeholder, creando uno nuevo..."
+                rm -f output/payments.html
+              fi
+            else
+              echo "No existe payments.html en gh-pages (HTTP $HTTP_STATUS)"
+              rm -f output/payments.html
+            fi
+          fi
+          
+          # Si aún no hay archivo, crear el placeholder
+          if [ ! -f output/payments.html ]; then
+            echo "Creando placeholder..."
             echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PCFactory - Medios de Pago</title><style>:root{--bg:#0d1117;--text:#f0f6fc;--muted:#8b949e;--blue:#3b82f6;--border:#30363d}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}.container{text-align:center;padding:2rem}h1{font-size:2rem;margin-bottom:1rem}p{color:var(--muted);margin-bottom:2rem;line-height:1.6}.nav-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.nav-link{color:var(--blue);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);border-radius:8px}.nav-link:hover{background:var(--border)}</style></head><body><div class="container"><h1>Monitor de Medios de Pago</h1><p>Corre 3 veces al dia: 9am, 2pm, 8pm Chile.<br>Manual: Actions - Run workflow - run_payments: true</p><div class="nav-links"><a href="index.html" class="nav-link">Categorias</a><a href="delivery.html" class="nav-link">Despacho</a></div></div></body></html>' > output/payments.html
           fi
+          
+          echo "=== Contenido final de output/ ==="
           ls -la output/
       
       - name: Deploy to GitHub Pages
