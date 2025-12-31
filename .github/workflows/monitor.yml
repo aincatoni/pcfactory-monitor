@@ -89,11 +89,9 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.run_payments }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "Manual trigger with run_payments=true"
           elif [[ "${{ github.event_name }}" == "schedule" ]]; then
             CURRENT_HOUR=$(date -u +%H)
             CURRENT_MIN=$(date -u +%M)
-            echo "Current UTC time: ${CURRENT_HOUR}:${CURRENT_MIN}"
             if [[ "$CURRENT_HOUR" == "12" || "$CURRENT_HOUR" == "17" || "$CURRENT_HOUR" == "23" ]] && [[ "$CURRENT_MIN" -lt "15" ]]; then
               echo "should_run=true" >> $GITHUB_OUTPUT
             else
@@ -176,41 +174,8 @@ jobs:
         run: |
           mkdir -p output
           if [ ! -f output/payments.html ]; then
-            echo "Creating placeholder payments.html"
-            cat > output/payments.html << 'ENDHTML'
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>PCFactory - Monitor de Medios de Pago</title>
-<style>
-:root{--bg:#0d1117;--text:#f0f6fc;--muted:#8b949e;--blue:#3b82f6;--border:#30363d}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}
-.container{text-align:center;padding:2rem}
-h1{font-size:2rem;margin-bottom:1rem}
-p{color:var(--muted);margin-bottom:2rem;line-height:1.6}
-.nav-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.nav-link{color:var(--blue);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);border-radius:8px}
-.nav-link:hover{background:var(--border)}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>Monitor de Medios de Pago</h1>
-<p>El monitor de pagos corre 3 veces al dia: 9am, 2pm, 8pm (hora Chile).<br>
-O ejecutalo manualmente: Actions - Run workflow - run_payments: true</p>
-<div class="nav-links">
-<a href="index.html" class="nav-link">Categorias</a>
-<a href="delivery.html" class="nav-link">Despacho Nacional</a>
-</div>
-</div>
-</body>
-</html>
-ENDHTML
+            echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PCFactory - Medios de Pago</title><style>:root{--bg:#0d1117;--text:#f0f6fc;--muted:#8b949e;--blue:#3b82f6;--border:#30363d}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}.container{text-align:center;padding:2rem}h1{font-size:2rem;margin-bottom:1rem}p{color:var(--muted);margin-bottom:2rem;line-height:1.6}.nav-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.nav-link{color:var(--blue);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);border-radius:8px}.nav-link:hover{background:var(--border)}</style></head><body><div class="container"><h1>Monitor de Medios de Pago</h1><p>Corre 3 veces al dia: 9am, 2pm, 8pm Chile.<br>Manual: Actions - Run workflow - run_payments: true</p><div class="nav-links"><a href="index.html" class="nav-link">Categorias</a><a href="delivery.html" class="nav-link">Despacho</a></div></div></body></html>' > output/payments.html
           fi
-          echo "=== Files in output ==="
           ls -la output/
       
       - name: Deploy to GitHub Pages
