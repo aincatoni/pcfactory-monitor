@@ -3,7 +3,7 @@ name: PCFactory Monitor
 on:
   schedule:
     - cron: '*/10 * * * *'
-  
+
   workflow_dispatch:
     inputs:
       producto:
@@ -108,30 +108,37 @@ jobs:
     if: needs.check-payment-schedule.outputs.should_run == 'true'
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - name: Install Python dependencies
         run: pip install -r requirements.txt
+
       - name: Install Playwright dependencies
         working-directory: ./payments
         run: |
           npm install
           npx playwright install chromium --with-deps
+
       - name: Run payment tests
         working-directory: ./payments
         run: npx playwright test || true
         continue-on-error: true
+
       - name: Generate payment dashboard
         run: |
           python payment_dashboard.py \
             --results ./payments/test-results/payment-monitor-report.json \
             --output-dir ./output
+
       - name: Upload payment results
         uses: actions/upload-artifact@v4
         with:
@@ -143,44 +150,28 @@ jobs:
           retention-days: 7
 
   deploy:
-    needs: [monitor-categories, monitor-delivery, monitor-payments]
+    # ✅ OJO: NO dependemos de monitor-payments (porque es condicional)
+    needs: [monitor-categories, monitor-delivery, check-payment-schedule]
     runs-on: ubuntu-latest
     if: always()
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Download category results
         uses: actions/download-artifact@v4
         with:
           name: category-results
           path: output/
         continue-on-error: true
-      
+
       - name: Download delivery results
         uses: actions/download-artifact@v4
         with:
           name: delivery-results
           path: output/
         continue-on-error: true
-      
-      - name: Download payment results
+
+      - name: Download payment results (if exists)
         uses: actions/download-artifact@v4
         with:
           name: payment-results
-          path: output/
-        continue-on-error: true
-      
-      - name: Create payments placeholder if needed
-        run: |
-          mkdir -p output
-          if [ ! -f output/payments.html ]; then
-            echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PCFactory - Medios de Pago</title><style>:root{--bg:#0d1117;--text:#f0f6fc;--muted:#8b949e;--blue:#3b82f6;--border:#30363d}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}.container{text-align:center;padding:2rem}h1{font-size:2rem;margin-bottom:1rem}p{color:var(--muted);margin-bottom:2rem;line-height:1.6}.nav-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.nav-link{color:var(--blue);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);border-radius:8px}.nav-link:hover{background:var(--border)}</style></head><body><div class="container"><h1>Monitor de Medios de Pago</h1><p>Corre 3 veces al dia: 9am, 2pm, 8pm Chile.<br>Manual: Actions - Run workflow - run_payments: true</p><div class="nav-links"><a href="index.html" class="nav-link">Categorias</a><a href="delivery.html" class="nav-link">Despacho</a></div></div></body></html>' > output/payments.html
-          fi
-          ls -la output/
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
-          keep_files: true
