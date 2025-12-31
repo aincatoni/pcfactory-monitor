@@ -16,7 +16,7 @@ on:
         required: false
         default: '554990'
       run_payments:
-        description: 'Ejecutar monitor de pagos (más lento)'
+        description: 'Ejecutar monitor de pagos'
         required: false
         default: 'false'
         type: choice
@@ -98,23 +98,28 @@ jobs:
 
   # ============================================
   # Job 3: Monitor de Medios de Pago (Playwright)
-  # Solo se ejecuta cada 30 min o manualmente
+  # Solo cuando run_payments = true (manual)
   # ============================================
   monitor-payments:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    # Solo ejecutar si es dispatch manual con run_payments=true O si es schedule y minuto es 0 o 30
-    if: |
-      github.event.inputs.run_payments == 'true' || 
-      (github.event_name == 'schedule' && (github.run_number % 3 == 0))
+    if: github.event.inputs.run_payments == 'true'
     
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+      
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
       
       - name: Install Playwright dependencies
         working-directory: ./payments
@@ -149,6 +154,7 @@ jobs:
   deploy:
     needs: [monitor-categories, monitor-delivery]
     runs-on: ubuntu-latest
+    if: always() && (needs.monitor-categories.result == 'success' || needs.monitor-delivery.result == 'success')
     
     steps:
       - uses: actions/checkout@v4
@@ -158,12 +164,14 @@ jobs:
         with:
           name: category-results
           path: output/
+        continue-on-error: true
       
       - name: Download delivery results
         uses: actions/download-artifact@v4
         with:
           name: delivery-results
           path: output/
+        continue-on-error: true
       
       - name: Download payment results (if available)
         uses: actions/download-artifact@v4
@@ -172,18 +180,41 @@ jobs:
           path: output/
         continue-on-error: true
       
-      - name: Add navigation to dashboards
+      - name: Ensure payments.html exists
         run: |
-          # Agregar link a payments.html en los dashboards existentes si no existe
-          if [ -f output/payments.html ]; then
-            echo "Payment dashboard exists"
-          else
-            echo "Creating placeholder payment dashboard"
-            cat > output/payments.html << 'EOF'
+          if [ ! -f output/payments.html ]; then
+            echo "Creating placeholder payments.html"
+            cat > output/payments.html << 'HTMLEOF'
           <!DOCTYPE html>
-          <html><head><meta http-equiv="refresh" content="0;url=index.html"></head>
-          <body><p>Redirigiendo...</p></body></html>
-          EOF
+          <html lang="es">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>PCFactory - Monitor de Medios de Pago</title>
+              <style>
+                  :root { --bg: #0d1117; --text: #f0f6fc; --muted: #8b949e; --blue: #3b82f6; --border: #30363d; }
+                  * { margin: 0; padding: 0; box-sizing: border-box; }
+                  body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+                  .container { text-align: center; padding: 2rem; }
+                  h1 { font-size: 2rem; margin-bottom: 1rem; }
+                  p { color: var(--muted); margin-bottom: 2rem; }
+                  .nav-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+                  .nav-link { color: var(--blue); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 8px; }
+                  .nav-link:hover { background: var(--border); }
+              </style>
+          </head>
+          <body>
+              <div class="container">
+                  <h1>💳 Monitor de Medios de Pago</h1>
+                  <p>El monitoreo de medios de pago se ejecuta manualmente.<br>Ve a Actions → Run workflow → run_payments: true</p>
+                  <div class="nav-links">
+                      <a href="index.html" class="nav-link">📦 Categorías</a>
+                      <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
+                  </div>
+              </div>
+          </body>
+          </html>
+          HTMLEOF
           fi
       
       - name: Deploy to GitHub Pages
@@ -193,17 +224,3 @@ jobs:
           publish_dir: ./output
           keep_files: true
           force_orphan: false
-
-  # ============================================
-  # Job 5: Notificación de errores (opcional)
-  # ============================================
-  notify:
-    needs: [monitor-categories, monitor-delivery]
-    runs-on: ubuntu-latest
-    if: failure()
-    
-    steps:
-      - name: Notify failure
-        run: |
-          echo "⚠️ Monitor failed!"
-          echo "Check: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
