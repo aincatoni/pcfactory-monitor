@@ -595,13 +595,15 @@ def generate_html_dashboard(report: Dict) -> str:
         }}
         .container {{ max-width: 1400px; margin: 0 auto; padding: 2rem; }}
         .header {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }}
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 2rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                flex-wrap: wrap;
+                gap: 1rem;
+            }}
         .logo {{ display: flex; align-items: center; gap: 1rem; }}
         .logo-icon {{ width: 48px; height: 48px; }}
         .logo-icon img {{ width: 100%; height: 100%; object-fit: contain; }}
@@ -610,10 +612,11 @@ def generate_html_dashboard(report: Dict) -> str:
         .timestamp {{
             font-family: var(--font-mono);
             font-size: 0.875rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             background: var(--bg-card);
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            border: 1px solid var(--border);
         }}
         .nav-links {{
             display: flex;

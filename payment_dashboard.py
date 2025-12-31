@@ -59,15 +59,15 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
     
     # Status
     if failed == 0 and total > 0:
-        status_class = "status-ok"
+        status_class = "healthy"
         status_text = "Todos los medios de pago operativos"
-        status_color = "#22c55e"
+        status_color = "#10b981"
     elif failed > 0:
-        status_class = "status-error"
+        status_class = "critical"
         status_text = f"{failed} medio(s) de pago con problemas"
         status_color = "#ef4444"
     else:
-        status_class = "status-warning"
+        status_class = "warning"
         status_text = "Sin datos de monitoreo"
         status_color = "#f59e0b"
     
@@ -171,20 +171,20 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💳</text></svg>">
     <style>
         :root {{
-            --bg-primary: #0d1117;
-            --bg-secondary: #161b22;
-            --bg-card: #21262d;
-            --bg-hover: #30363d;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --text-muted: #6e7681;
-            --border: #30363d;
-            --accent-green: #22c55e;
-            --accent-red: #ef4444;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-hover: #22222e;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent-green: #10b981;
             --accent-yellow: #f59e0b;
+            --accent-red: #ef4444;
             --accent-blue: #3b82f6;
-            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-mono: 'SF Mono', Consolas, monospace;
+            --border: #27272a;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+            --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
         }}
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
@@ -193,6 +193,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
+            padding-bottom: 2rem;
         }}
         .container {{ max-width: 1400px; margin: 0 auto; padding: 2rem; }}
         .header {{
@@ -200,21 +201,24 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
             flex-wrap: wrap;
             gap: 1rem;
         }}
         .logo {{ display: flex; align-items: center; gap: 1rem; }}
         .logo-icon {{ width: 48px; height: 48px; }}
         .logo-icon img {{ width: 100%; height: 100%; }}
-        .logo-text h1 {{ font-size: 1.5rem; font-weight: 600; }}
-        .logo-text span {{ font-size: 0.875rem; color: var(--text-secondary); }}
+        .logo-text h1 {{ font-size: 1.5rem; font-weight: 700; }}
+        .logo-text span {{ font-size: 0.875rem; color: var(--text-muted); }}
         .timestamp {{
             font-family: var(--font-mono);
             font-size: 0.875rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             background: var(--bg-card);
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            border: 1px solid var(--border);
         }}
         .nav-links {{
             display: flex;
@@ -236,29 +240,32 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         .nav-link:hover {{ background: var(--bg-hover); }}
         .nav-link.active {{ background: var(--accent-blue); color: white; }}
         .status-banner {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
+            gap: 1rem;
         }}
-        .status-banner.status-ok {{ background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); }}
-        .status-banner.status-error {{ background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }}
-        .status-banner.status-warning {{ background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); }}
+        .status-banner.healthy {{ border-color: var(--accent-green); background: rgba(16, 185, 129, 0.1); }}
+        .status-banner.critical {{ border-color: var(--accent-red); background: rgba(239, 68, 68, 0.1); }}
+        .status-banner.warning {{ border-color: var(--accent-yellow); background: rgba(245, 158, 11, 0.1); }}
         .status-indicator {{
             width: 12px;
             height: 12px;
             border-radius: 50%;
             animation: pulse 2s infinite;
         }}
-        .status-ok .status-indicator {{ background: var(--accent-green); }}
-        .status-error .status-indicator {{ background: var(--accent-red); }}
-        .status-warning .status-indicator {{ background: var(--accent-yellow); }}
+        .status-banner.healthy .status-indicator {{ background: var(--accent-green); }}
+        .status-banner.critical .status-indicator {{ background: var(--accent-red); }}
+        .status-banner.warning .status-indicator {{ background: var(--accent-yellow); }}
         @keyframes pulse {{
             0%, 100% {{ opacity: 1; }}
             50% {{ opacity: 0.5; }}
         }}
+        .status-text {{ font-size: 1.125rem; font-weight: 600; }}
         .stats-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -271,7 +278,9 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
+            transition: all 0.2s ease;
         }}
+        .stat-card:hover {{ background: var(--bg-hover); transform: translateY(-2px); }}
         .stat-value {{
             font-family: var(--font-mono);
             font-size: 2.5rem;
@@ -280,7 +289,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         .stat-value.green {{ color: var(--accent-green); }}
         .stat-value.red {{ color: var(--accent-red); }}
         .stat-value.blue {{ color: var(--accent-blue); }}
-        .stat-label {{ color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem; }}
+        .stat-label {{ color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem; }}
         .section-title {{
             font-size: 1.25rem;
             margin-bottom: 1.5rem;
@@ -324,7 +333,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             font-weight: 500;
             margin-bottom: 1rem;
         }}
-        .status-badge.status-ok {{ background: rgba(34, 197, 94, 0.15); color: var(--accent-green); }}
+        .status-badge.status-ok {{ background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }}
         .status-badge.status-error {{ background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }}
         .payment-stats {{ display: flex; gap: 1.5rem; }}
         .payment-stats .stat {{ display: flex; flex-direction: column; }}
@@ -374,6 +383,8 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             .header {{ flex-direction: column; text-align: center; }}
             .payments-grid {{ grid-template-columns: 1fr; }}
             .stats-grid {{ grid-template-columns: repeat(2, 1fr); }}
+            .stat-value {{ font-size: 1.75rem; }}
+            .nav-links {{ justify-content: center; }}
         }}
     </style>
 </head>
@@ -400,7 +411,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         
         <div class="status-banner {status_class}">
             <div class="status-indicator"></div>
-            <span>{status_text}</span>
+            <span class="status-text">{status_text}</span>
         </div>
         
         <div class="stats-grid">
@@ -428,7 +439,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         </div>
         
         <div class="history-section">
-            <h2 class="section-title">Historial de Verificaciones</h2>
+            <h2 class="section-title" style="border-bottom: none; margin-bottom: 1rem;">Historial de Verificaciones</h2>
             <table class="history-table">
                 <thead>
                     <tr>
@@ -444,7 +455,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         </div>
         
         <footer class="footer">
-            <p>Actualización automática cada 30 minutos</p>
+            <p>Actualización automática: 9am, 2pm, 8pm Chile</p>
             <p>Hecho con ❤️ por Ain Cortés Catoni</p>
         </footer>
     </div>
