@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-12-31T21:16:57.799020+00:00",
+  "timestamp": "2025-12-31T21:17:19.787643+00:00",
   "producto": 53880,
-  "total": 554990,
+  "total": 559990,
   "tienda_id": 11,
   "cantidad": 1,
   "summary": {
@@ -282,7 +282,7 @@
       "precio_despacho": 11932.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/523/345/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/523/345/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 7,
@@ -298,7 +298,7 @@
       "precio_despacho": 157252.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/2336/7/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/2336/7/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 8,
@@ -314,7 +314,7 @@
       "precio_despacho": 157252.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1096/8/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1096/8/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 6,
@@ -330,7 +330,7 @@
       "precio_despacho": 23864.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1023/6/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1023/6/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 5,
@@ -346,7 +346,7 @@
       "precio_despacho": 11932.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/5/5/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/5/5/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 9,
@@ -362,7 +362,7 @@
       "precio_despacho": 71593.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1022/9/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1022/9/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 10,
@@ -378,7 +378,7 @@
       "precio_despacho": 11932.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/72/10/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/72/10/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 16,
@@ -394,7 +394,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/84/16/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/84/16/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 13,
@@ -410,7 +410,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/10/13/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/10/13/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 12,
@@ -426,7 +426,7 @@
       "precio_despacho": 10746.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/58/12/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/58/12/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 17,
@@ -442,7 +442,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/59/17/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/59/17/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 14,
@@ -458,7 +458,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/10/14/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/10/14/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 15,
@@ -474,7 +474,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/150/15/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/150/15/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 18,
@@ -490,7 +490,7 @@
       "precio_despacho": 135306.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/118/18/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/118/18/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 19,
@@ -506,7 +506,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/93/19/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/93/19/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 11,
@@ -522,7 +522,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/95/11/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/95/11/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 28,
@@ -538,7 +538,7 @@
       "precio_despacho": 17170.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/169/28/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/169/28/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 23,
@@ -554,7 +554,7 @@
       "precio_despacho": 9128.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/12/23/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/12/23/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 20,
@@ -570,7 +570,7 @@
       "precio_despacho": 9128.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/17/20/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/17/20/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 22,
@@ -586,7 +586,7 @@
       "precio_despacho": 9128.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/26/22/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/26/22/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 21,
@@ -602,7 +602,7 @@
       "precio_despacho": 9128.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/165/21/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/165/21/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 26,
@@ -618,7 +618,7 @@
       "precio_despacho": 51509.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1021/26/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1021/26/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 27,
@@ -634,7 +634,7 @@
       "precio_despacho": 17170.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/171/27/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/171/27/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 24,
@@ -650,7 +650,7 @@
       "precio_despacho": 18257.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/160/24/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/160/24/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 25,
@@ -666,7 +666,7 @@
       "precio_despacho": 8585.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/99/25/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/99/25/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 31,
@@ -682,7 +682,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1024/31/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1024/31/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 43,
@@ -698,7 +698,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1026/43/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1026/43/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 38,
@@ -714,7 +714,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/194/38/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/194/38/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 34,
@@ -730,7 +730,7 @@
       "precio_despacho": 7597.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/27/34/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/27/34/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 40,
@@ -746,7 +746,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/196/40/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/196/40/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 30,
@@ -762,7 +762,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1025/30/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1025/30/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 29,
@@ -778,7 +778,7 @@
       "precio_despacho": 7597.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/4/29/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/4/29/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 42,
@@ -794,7 +794,7 @@
       "precio_despacho": 7597.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/195/42/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/195/42/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 37,
@@ -810,7 +810,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/189/37/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/189/37/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 35,
@@ -826,7 +826,7 @@
       "precio_despacho": 7597.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/64/35/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/64/35/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 33,
@@ -842,7 +842,7 @@
       "precio_despacho": 22790.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1147/33/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1147/33/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 39,
@@ -858,7 +858,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1027/39/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1027/39/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 36,
@@ -874,7 +874,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1156/36/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1156/36/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 41,
@@ -890,7 +890,7 @@
       "precio_despacho": 15193.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/198/41/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/198/41/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 32,
@@ -906,7 +906,7 @@
       "precio_despacho": 8736.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/177/32/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/177/32/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 80,
@@ -922,7 +922,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/588/80/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/588/80/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 46,
@@ -938,7 +938,7 @@
       "precio_despacho": 9209.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/7/46/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/7/46/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 51,
@@ -954,7 +954,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/40/51/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/40/51/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 58,
@@ -970,7 +970,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/572/58/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/572/58/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 77,
@@ -986,7 +986,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/209/77/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/209/77/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 75,
@@ -1002,7 +1002,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/233/75/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/233/75/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 65,
@@ -1018,7 +1018,7 @@
       "precio_despacho": 9822.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/110/65/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/110/65/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 74,
@@ -1034,7 +1034,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/223/74/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/223/74/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 79,
@@ -1050,7 +1050,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/206/79/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/206/79/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 78,
@@ -1066,7 +1066,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/202/78/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/202/78/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 53,
@@ -1082,7 +1082,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/218/53/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/218/53/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 72,
@@ -1098,7 +1098,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1348/72/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1348/72/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 71,
@@ -1114,7 +1114,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1349/71/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1349/71/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 50,
@@ -1130,7 +1130,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/215/50/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/215/50/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 44,
@@ -1146,7 +1146,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/42/44/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/42/44/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 66,
@@ -1162,7 +1162,7 @@
       "precio_despacho": 7060.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/216/66/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/216/66/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 64,
@@ -1178,7 +1178,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/108/64/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/108/64/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 56,
@@ -1194,7 +1194,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/214/56/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/214/56/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 52,
@@ -1210,7 +1210,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/109/52/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/109/52/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 67,
@@ -1226,7 +1226,7 @@
       "precio_despacho": 8288.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/217/67/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/217/67/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 63,
@@ -1242,7 +1242,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1028/63/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1028/63/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 48,
@@ -1258,7 +1258,7 @@
       "precio_despacho": 8595.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/67/48/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/67/48/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 45,
@@ -1274,7 +1274,7 @@
       "precio_despacho": 18417.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1170/45/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1170/45/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 55,
@@ -1290,7 +1290,7 @@
       "precio_despacho": 8595.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/205/55/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/205/55/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 61,
@@ -1306,7 +1306,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1081/61/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1081/61/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 49,
@@ -1322,7 +1322,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/210/49/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/210/49/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 68,
@@ -1338,7 +1338,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/78/68/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/78/68/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 54,
@@ -1354,7 +1354,7 @@
       "precio_despacho": 9209.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/225/54/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/225/54/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 59,
@@ -1370,7 +1370,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/211/59/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/211/59/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 76,
@@ -1386,7 +1386,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/227/76/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/227/76/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 57,
@@ -1402,7 +1402,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/192/57/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/192/57/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 60,
@@ -1418,7 +1418,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/213/60/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/213/60/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 62,
@@ -1434,7 +1434,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/229/62/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/229/62/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 81,
@@ -1450,7 +1450,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1007/81/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1007/81/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 70,
@@ -1466,7 +1466,7 @@
       "precio_despacho": 8595.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/49/70/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/49/70/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 69,
@@ -1482,7 +1482,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/208/69/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/208/69/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 73,
@@ -1498,7 +1498,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/81/73/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/81/73/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 47,
@@ -1514,7 +1514,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/106/47/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/106/47/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 100,
@@ -1530,7 +1530,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/268/100/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/268/100/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 103,
@@ -1546,7 +1546,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/271/103/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/271/103/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 85,
@@ -1562,7 +1562,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/241/85/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/241/85/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 92,
@@ -1578,7 +1578,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1030/92/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1030/92/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 93,
@@ -1594,7 +1594,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/245/93/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/245/93/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 94,
@@ -1610,7 +1610,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/237/94/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/237/94/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 83,
@@ -1626,7 +1626,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/235/83/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/235/83/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 112,
@@ -1642,7 +1642,7 @@
       "precio_despacho": 18417.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1177/112/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1177/112/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 98,
@@ -1658,7 +1658,7 @@
       "precio_despacho": 24556.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/253/98/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/253/98/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 111,
@@ -1674,7 +1674,7 @@
       "precio_despacho": 18417.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1178/111/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1178/111/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 105,
@@ -1690,7 +1690,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1179/105/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1179/105/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 86,
@@ -1706,7 +1706,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/57/86/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/57/86/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 90,
@@ -1722,7 +1722,7 @@
       "precio_despacho": 18417.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/250/90/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/250/90/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 113,
@@ -1738,7 +1738,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1463/113/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1463/113/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 84,
@@ -1754,7 +1754,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1018/84/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1018/84/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 102,
@@ -1770,7 +1770,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/269/102/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/269/102/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 110,
@@ -1786,7 +1786,7 @@
       "precio_despacho": 18417.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1180/110/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1180/110/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 87,
@@ -1802,7 +1802,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/238/87/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/238/87/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 107,
@@ -1818,7 +1818,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1015/107/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1015/107/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 114,
@@ -1834,7 +1834,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1162/114/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1162/114/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 108,
@@ -1850,7 +1850,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/502/108/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/502/108/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 97,
@@ -1866,7 +1866,7 @@
       "precio_despacho": 24556.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/255/97/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/255/97/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 96,
@@ -1882,7 +1882,7 @@
       "precio_despacho": 24556.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/254/96/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/254/96/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 109,
@@ -1898,7 +1898,7 @@
       "precio_despacho": 18417.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1031/109/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1031/109/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 101,
@@ -1914,7 +1914,7 @@
       "precio_despacho": 6139.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/85/101/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/85/101/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 106,
@@ -1930,7 +1930,7 @@
       "precio_despacho": 18417.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1188/106/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1188/106/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 91,
@@ -1946,7 +1946,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/256/91/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/256/91/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 82,
@@ -1962,7 +1962,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/80/82/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/80/82/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 89,
@@ -1978,7 +1978,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/82/89/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/82/89/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 88,
@@ -1994,7 +1994,7 @@
       "precio_despacho": 12278.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/236/88/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/236/88/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 99,
@@ -2010,7 +2010,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/85/99/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/85/99/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 95,
@@ -2026,7 +2026,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/266/95/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/266/95/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 104,
@@ -2042,7 +2042,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/25/104/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/25/104/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 142,
@@ -2058,7 +2058,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/293/142/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/293/142/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 144,
@@ -2074,7 +2074,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1193/144/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1193/144/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 136,
@@ -2090,7 +2090,7 @@
       "precio_despacho": 21159.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1043/136/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1043/136/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 131,
@@ -2106,7 +2106,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1038/131/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1038/131/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 132,
@@ -2122,7 +2122,7 @@
       "precio_despacho": 14106.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1039/132/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1039/132/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 115,
@@ -2138,7 +2138,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/32/115/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/32/115/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 129,
@@ -2154,7 +2154,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1195/129/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1195/129/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 120,
@@ -2170,7 +2170,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1033/120/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1033/120/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 121,
@@ -2186,7 +2186,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1034/121/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1034/121/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 134,
@@ -2202,7 +2202,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/508/134/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/508/134/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 139,
@@ -2218,7 +2218,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1198/139/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1198/139/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 128,
@@ -2234,7 +2234,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/276/128/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/276/128/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 118,
@@ -2250,7 +2250,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/294/118/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/294/118/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 140,
@@ -2266,7 +2266,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/292/140/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/292/140/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 125,
@@ -2282,7 +2282,7 @@
       "precio_despacho": 14106.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1040/125/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1040/125/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 143,
@@ -2298,7 +2298,7 @@
       "precio_despacho": 13377.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1194/143/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1194/143/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 130,
@@ -2314,7 +2314,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1041/130/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1041/130/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 123,
@@ -2330,7 +2330,7 @@
       "precio_despacho": 14106.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1035/123/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1035/123/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 141,
@@ -2346,7 +2346,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1044/141/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1044/141/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 117,
@@ -2362,7 +2362,7 @@
       "precio_despacho": 14106.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1036/117/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1036/117/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 126,
@@ -2378,7 +2378,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1032/126/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1032/126/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 119,
@@ -2394,7 +2394,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/299/119/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/299/119/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 127,
@@ -2410,7 +2410,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/282/127/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/282/127/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 138,
@@ -2426,7 +2426,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/283/138/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/283/138/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 133,
@@ -2442,7 +2442,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1042/133/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1042/133/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 124,
@@ -2458,7 +2458,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/91/124/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/91/124/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 116,
@@ -2474,7 +2474,7 @@
       "precio_despacho": 14106.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/298/116/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/298/116/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 122,
@@ -2490,7 +2490,7 @@
       "precio_despacho": 21159.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1037/122/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1037/122/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 137,
@@ -2506,7 +2506,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/284/137/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/284/137/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 135,
@@ -2522,7 +2522,7 @@
       "precio_despacho": 14106.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1045/135/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1045/135/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 392,
@@ -2538,7 +2538,7 @@
       "precio_despacho": 22530.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1056/392/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1056/392/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 188,
@@ -2554,7 +2554,7 @@
       "precio_despacho": 22530.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1205/188/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1205/188/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 180,
@@ -2570,7 +2570,7 @@
       "precio_despacho": 22530.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/16/180/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/16/180/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 158,
@@ -2586,7 +2586,7 @@
       "precio_despacho": 10489.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/8/158/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/8/158/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 183,
@@ -2602,7 +2602,7 @@
       "precio_despacho": 10489.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/14/183/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/14/183/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 163,
@@ -2618,7 +2618,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/18/163/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/18/163/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 161,
@@ -2634,7 +2634,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/2/161/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/2/161/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 184,
@@ -2650,7 +2650,7 @@
       "precio_despacho": 11406.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1210/184/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1210/184/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 169,
@@ -2666,7 +2666,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/28/169/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/28/169/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 181,
@@ -2682,7 +2682,7 @@
       "precio_despacho": 10489.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/31/181/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/31/181/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 166,
@@ -2698,7 +2698,7 @@
       "precio_despacho": 13711.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1052/166/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1052/166/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 343,
@@ -2714,7 +2714,7 @@
       "precio_despacho": 7510.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/20/343/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/20/343/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 167,
@@ -2730,7 +2730,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1213/167/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1213/167/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 195,
@@ -2746,7 +2746,7 @@
       "precio_despacho": 10489.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/41/195/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/41/195/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 179,
@@ -2762,7 +2762,7 @@
       "precio_despacho": 9785.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/46/179/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/46/179/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 182,
@@ -2778,7 +2778,7 @@
       "precio_despacho": 9785.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/52/182/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/52/182/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 186,
@@ -2794,7 +2794,7 @@
       "precio_despacho": 8741.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/53/186/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/53/186/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 178,
@@ -2810,7 +2810,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/56/178/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/56/178/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 192,
@@ -2826,7 +2826,7 @@
       "precio_despacho": 7510.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/60/192/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/60/192/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 194,
@@ -2842,7 +2842,7 @@
       "precio_despacho": 10489.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/61/194/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/61/194/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 193,
@@ -2858,7 +2858,7 @@
       "precio_despacho": 22530.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1054/193/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1054/193/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 164,
@@ -2874,7 +2874,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/69/164/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/69/164/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 191,
@@ -2890,7 +2890,7 @@
       "precio_despacho": 24258.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1225/191/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1225/191/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 189,
@@ -2906,7 +2906,7 @@
       "precio_despacho": 22530.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1055/189/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1055/189/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 162,
@@ -2922,7 +2922,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/307/162/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/307/162/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 196,
@@ -2938,7 +2938,7 @@
       "precio_despacho": 22530.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1083/196/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1083/196/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 190,
@@ -2954,7 +2954,7 @@
       "precio_despacho": 9237.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/87/190/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/87/190/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 168,
@@ -2970,7 +2970,7 @@
       "precio_despacho": 9785.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1053/168/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1053/168/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 160,
@@ -2986,7 +2986,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/92/160/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/92/160/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 165,
@@ -3002,7 +3002,7 @@
       "precio_despacho": 10489.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/96/165/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/96/165/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 187,
@@ -3018,7 +3018,7 @@
       "precio_despacho": 10489.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1215/187/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1215/187/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 159,
@@ -3034,7 +3034,7 @@
       "precio_despacho": 10489.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/105/159/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/105/159/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 197,
@@ -3050,7 +3050,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/88/197/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/88/197/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 219,
@@ -3066,7 +3066,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/15/219/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/15/219/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 400,
@@ -3082,7 +3082,7 @@
       "precio_despacho": 25087.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/600/400/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/600/400/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 199,
@@ -3098,7 +3098,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/24/199/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/24/199/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 221,
@@ -3114,7 +3114,7 @@
       "precio_despacho": 25087.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1058/221/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1058/221/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 206,
@@ -3130,7 +3130,7 @@
       "precio_despacho": 7510.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/30/206/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/30/206/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 222,
@@ -3146,7 +3146,7 @@
       "precio_despacho": 28682.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/601/222/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/601/222/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 200,
@@ -3162,7 +3162,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/33/200/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/33/200/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 215,
@@ -3178,7 +3178,7 @@
       "precio_despacho": 8362.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/34/215/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/34/215/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 212,
@@ -3194,7 +3194,7 @@
       "precio_despacho": 9763.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/154/212/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/154/212/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 225,
@@ -3210,7 +3210,7 @@
       "precio_despacho": 8362.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/38/225/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/38/225/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 208,
@@ -3226,7 +3226,7 @@
       "precio_despacho": 16725.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/45/208/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/45/208/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 226,
@@ -3242,7 +3242,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/50/226/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/50/226/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 205,
@@ -3258,7 +3258,7 @@
       "precio_despacho": 8362.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1060/205/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1060/205/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 204,
@@ -3274,7 +3274,7 @@
       "precio_despacho": 22530.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/55/204/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/55/204/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 202,
@@ -3290,7 +3290,7 @@
       "precio_despacho": 25087.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1090/202/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1090/202/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 211,
@@ -3306,7 +3306,7 @@
       "precio_despacho": 25087.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1241/211/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1241/211/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 220,
@@ -3322,7 +3322,7 @@
       "precio_despacho": 8362.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/62/220/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/62/220/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 214,
@@ -3338,7 +3338,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/344/214/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/344/214/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 209,
@@ -3354,7 +3354,7 @@
       "precio_despacho": 8362.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1070/209/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1070/209/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 216,
@@ -3370,7 +3370,7 @@
       "precio_despacho": 8362.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/71/216/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/71/216/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 223,
@@ -3386,7 +3386,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/73/223/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/73/223/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 203,
@@ -3402,7 +3402,7 @@
       "precio_despacho": 7510.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1061/203/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1061/203/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 198,
@@ -3418,7 +3418,7 @@
       "precio_despacho": 22530.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1073/198/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1073/198/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 218,
@@ -3434,7 +3434,7 @@
       "precio_despacho": 8362.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/345/218/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/345/218/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 213,
@@ -3450,7 +3450,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/94/213/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/94/213/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 217,
@@ -3466,7 +3466,7 @@
       "precio_despacho": 25087.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1059/217/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1059/217/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 185,
@@ -3482,7 +3482,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1057/185/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1057/185/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 227,
@@ -3498,7 +3498,7 @@
       "precio_despacho": 25087.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1089/227/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1089/227/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 201,
@@ -3514,7 +3514,7 @@
       "precio_despacho": 8362.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/97/201/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/97/201/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 207,
@@ -3530,7 +3530,7 @@
       "precio_despacho": 7510.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/101/207/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/101/207/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 210,
@@ -3546,7 +3546,7 @@
       "precio_despacho": 25087.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/9/210/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/9/210/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 224,
@@ -3562,7 +3562,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/103/224/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/103/224/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 257,
@@ -3578,7 +3578,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/389/257/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/389/257/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 254,
@@ -3594,7 +3594,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/11/254/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/11/254/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 256,
@@ -3610,7 +3610,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/388/256/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/388/256/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 266,
@@ -3626,7 +3626,7 @@
       "precio_despacho": 61069.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1288/266/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1288/266/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 263,
@@ -3642,7 +3642,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1062/263/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1062/263/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 253,
@@ -3658,7 +3658,7 @@
       "precio_despacho": 111960.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1088/253/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1088/253/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 260,
@@ -3674,7 +3674,7 @@
       "precio_despacho": 45913.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1068/260/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1068/260/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 259,
@@ -3690,7 +3690,7 @@
       "precio_despacho": 45913.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/385/259/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/385/259/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 249,
@@ -3706,7 +3706,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/35/249/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/35/249/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 251,
@@ -3722,7 +3722,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/36/251/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/36/251/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 268,
@@ -3738,7 +3738,7 @@
       "precio_despacho": 61069.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1264/268/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1264/268/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 267,
@@ -3754,7 +3754,7 @@
       "precio_despacho": 61069.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1266/267/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1266/267/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 250,
@@ -3770,7 +3770,7 @@
       "precio_despacho": 30535.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1020/250/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1020/250/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 248,
@@ -3786,7 +3786,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/594/248/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/594/248/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 255,
@@ -3802,7 +3802,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1069/255/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1069/255/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 240,
@@ -3818,7 +3818,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/63/240/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/63/240/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 269,
@@ -3834,7 +3834,7 @@
       "precio_despacho": 61069.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1276/269/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1276/269/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 252,
@@ -3850,7 +3850,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/74/252/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/74/252/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 244,
@@ -3866,7 +3866,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1064/244/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1064/244/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 247,
@@ -3882,7 +3882,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/75/247/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/75/247/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 262,
@@ -3898,7 +3898,7 @@
       "precio_despacho": 45913.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1071/262/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1071/262/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 245,
@@ -3914,7 +3914,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/77/245/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/77/245/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 243,
@@ -3930,7 +3930,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1065/243/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1065/243/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 264,
@@ -3946,7 +3946,7 @@
       "precio_despacho": 45913.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1280/264/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1280/264/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 265,
@@ -3962,7 +3962,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1063/265/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1063/265/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 258,
@@ -3978,7 +3978,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1072/258/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1072/258/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 261,
@@ -3994,7 +3994,7 @@
       "precio_despacho": 45913.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1278/261/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1278/261/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 246,
@@ -4010,7 +4010,7 @@
       "precio_despacho": 28682.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/602/246/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/602/246/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 242,
@@ -4026,7 +4026,7 @@
       "precio_despacho": 57364.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1285/242/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1285/242/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 241,
@@ -4042,7 +4042,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1074/241/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1074/241/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 272,
@@ -4058,7 +4058,7 @@
       "precio_despacho": 33366.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/593/272/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/593/272/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 275,
@@ -4074,7 +4074,7 @@
       "precio_despacho": 33366.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1292/275/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1292/275/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 273,
@@ -4090,7 +4090,7 @@
       "precio_despacho": 33366.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1298/273/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1298/273/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 277,
@@ -4106,7 +4106,7 @@
       "precio_despacho": 33366.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1381/277/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1381/277/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 270,
@@ -4122,7 +4122,7 @@
       "precio_despacho": 28219.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/6/270/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/6/270/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 274,
@@ -4138,7 +4138,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1296/274/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1296/274/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 271,
@@ -4154,7 +4154,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1307/271/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1307/271/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 278,
@@ -4170,7 +4170,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1304/278/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1304/278/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 276,
@@ -4186,7 +4186,7 @@
       "precio_despacho": 33366.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1308/276/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1308/276/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 279,
@@ -4202,7 +4202,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1311/279/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1311/279/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 290,
@@ -4218,7 +4218,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1313/290/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1313/290/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 289,
@@ -4234,7 +4234,7 @@
       "precio_despacho": 31363.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1321/289/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1321/289/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 284,
@@ -4250,7 +4250,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1317/284/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1317/284/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 280,
@@ -4266,7 +4266,7 @@
       "precio_despacho": 33366.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1319/280/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1319/280/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 286,
@@ -4282,7 +4282,7 @@
       "precio_despacho": 31363.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1325/286/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1325/286/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 287,
@@ -4298,7 +4298,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1315/287/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1315/287/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 282,
@@ -4314,7 +4314,7 @@
       "precio_despacho": 60046.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/121/282/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/121/282/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 283,
@@ -4330,7 +4330,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1323/283/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1323/283/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 285,
@@ -4346,7 +4346,7 @@
       "precio_despacho": 6855.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/309/285/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/309/285/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 288,
@@ -4362,7 +4362,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1327/288/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1327/288/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 281,
@@ -4378,7 +4378,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1324/281/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1324/281/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 313,
@@ -4394,7 +4394,7 @@
       "precio_despacho": 17231.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1331/313/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1331/313/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 310,
@@ -4410,7 +4410,7 @@
       "precio_despacho": 7467.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/437/310/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/437/310/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 309,
@@ -4426,7 +4426,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/458/309/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/458/309/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 306,
@@ -4442,7 +4442,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/306/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/306/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 300,
@@ -4458,7 +4458,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/300/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/300/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 291,
@@ -4474,7 +4474,7 @@
       "precio_despacho": 7467.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/440/291/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/440/291/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 296,
@@ -4490,7 +4490,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/296/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/296/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 314,
@@ -4506,7 +4506,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/441/314/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/441/314/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 334,
@@ -4522,7 +4522,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/334/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/334/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 319,
@@ -4538,7 +4538,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/442/319/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/442/319/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 304,
@@ -4554,7 +4554,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/304/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/304/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 297,
@@ -4570,7 +4570,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/297/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/297/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 302,
@@ -4586,7 +4586,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/302/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/302/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 320,
@@ -4602,7 +4602,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/443/320/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/443/320/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 333,
@@ -4618,7 +4618,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/333/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/333/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 332,
@@ -4634,7 +4634,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/332/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/332/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 329,
@@ -4650,7 +4650,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/329/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/329/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 339,
@@ -4666,7 +4666,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/339/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/339/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 328,
@@ -4682,7 +4682,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/328/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/328/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 292,
@@ -4698,7 +4698,7 @@
       "precio_despacho": 6893.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/444/292/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/444/292/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 324,
@@ -4714,7 +4714,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/324/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/324/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 326,
@@ -4730,7 +4730,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/326/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/326/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 336,
@@ -4746,7 +4746,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/336/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/336/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 301,
@@ -4762,7 +4762,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/301/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/301/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 331,
@@ -4778,7 +4778,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/331/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/331/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 305,
@@ -4794,7 +4794,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/305/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/305/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 315,
@@ -4810,7 +4810,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/448/315/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/448/315/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 312,
@@ -4826,7 +4826,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/449/312/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/449/312/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 321,
@@ -4842,7 +4842,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/450/321/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/450/321/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 311,
@@ -4858,7 +4858,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/451/311/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/451/311/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 338,
@@ -4874,7 +4874,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/338/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/338/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 318,
@@ -4890,7 +4890,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/447/318/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/447/318/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 327,
@@ -4906,7 +4906,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/327/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/327/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 341,
@@ -4922,7 +4922,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/453/341/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/453/341/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 323,
@@ -4938,7 +4938,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/323/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/323/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 295,
@@ -4954,7 +4954,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/295/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/295/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 340,
@@ -4970,7 +4970,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/340/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/340/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 294,
@@ -4986,7 +4986,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/294/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/294/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 299,
@@ -5002,7 +5002,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/299/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/299/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 303,
@@ -5018,7 +5018,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/303/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/303/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 298,
@@ -5034,7 +5034,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/298/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/298/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 308,
@@ -5050,7 +5050,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/308/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/308/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 330,
@@ -5066,7 +5066,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/330/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/330/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 342,
@@ -5082,7 +5082,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/439/342/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/439/342/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 337,
@@ -5098,7 +5098,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/337/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/337/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 316,
@@ -5114,7 +5114,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1343/316/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1343/316/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 335,
@@ -5130,7 +5130,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/335/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/335/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 307,
@@ -5146,7 +5146,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/307/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/307/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 317,
@@ -5162,7 +5162,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/445/317/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/445/317/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 293,
@@ -5178,7 +5178,7 @@
       "precio_despacho": 11488.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1067/293/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1067/293/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 325,
@@ -5194,7 +5194,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/325/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/325/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 322,
@@ -5210,7 +5210,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/322/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1/322/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 231,
@@ -5226,7 +5226,7 @@
       "precio_despacho": 28682.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1086/231/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1086/231/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 234,
@@ -5242,7 +5242,7 @@
       "precio_despacho": 28682.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/603/234/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/603/234/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 236,
@@ -5258,7 +5258,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/43/236/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/43/236/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 239,
@@ -5274,7 +5274,7 @@
       "precio_despacho": 9561.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/606/239/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/606/239/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 230,
@@ -5290,7 +5290,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/44/230/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/44/230/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 233,
@@ -5306,7 +5306,7 @@
       "precio_despacho": 11473.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/54/233/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/54/233/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 401,
@@ -5322,7 +5322,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1085/401/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1085/401/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 229,
@@ -5338,7 +5338,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/86/229/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/86/229/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 237,
@@ -5354,7 +5354,7 @@
       "precio_despacho": 19121.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/65/237/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/65/237/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 235,
@@ -5370,7 +5370,7 @@
       "precio_despacho": 9561.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/66/235/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/66/235/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 238,
@@ -5386,7 +5386,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/83/238/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/83/238/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 228,
@@ -5402,7 +5402,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/98/228/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/98/228/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 1,
@@ -5418,7 +5418,7 @@
       "precio_despacho": 12772.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/39/1/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/39/1/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 2,
@@ -5434,7 +5434,7 @@
       "precio_despacho": 76633.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1356/2/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1356/2/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 4,
@@ -5450,7 +5450,7 @@
       "precio_despacho": 76633.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1352/4/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1352/4/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 3,
@@ -5466,7 +5466,7 @@
       "precio_despacho": 158092.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1354/3/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1354/3/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 148,
@@ -5482,7 +5482,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/604/148/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/604/148/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 170,
@@ -5498,7 +5498,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/19/170/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/19/170/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 177,
@@ -5514,7 +5514,7 @@
       "precio_despacho": 6855.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/19/177/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/19/177/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 154,
@@ -5530,7 +5530,7 @@
       "precio_despacho": 26755.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1208/154/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1208/154/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 152,
@@ -5546,7 +5546,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/23/152/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/23/152/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 171,
@@ -5562,7 +5562,7 @@
       "precio_despacho": 20566.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1046/171/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1046/171/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 174,
@@ -5578,7 +5578,7 @@
       "precio_despacho": 8227.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/234/174/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/234/174/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 156,
@@ -5594,7 +5594,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1222/156/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1222/156/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 176,
@@ -5610,7 +5610,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1048/176/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1048/176/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 172,
@@ -5626,7 +5626,7 @@
       "precio_despacho": 20566.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1049/172/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1049/172/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 151,
@@ -5642,7 +5642,7 @@
       "precio_despacho": 20566.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1224/151/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1224/151/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 149,
@@ -5658,7 +5658,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/48/149/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/48/149/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 155,
@@ -5674,7 +5674,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/79/155/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/79/155/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 150,
@@ -5690,7 +5690,7 @@
       "precio_despacho": 20566.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1226/150/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1226/150/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 145,
@@ -5706,7 +5706,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/3/145/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/3/145/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 147,
@@ -5722,7 +5722,7 @@
       "precio_despacho": 6855.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/2513/147/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/2513/147/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 173,
@@ -5738,7 +5738,7 @@
       "precio_despacho": 20566.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1050/173/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1050/173/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 157,
@@ -5754,7 +5754,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1051/157/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1051/157/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 153,
@@ -5770,7 +5770,7 @@
       "precio_despacho": 20566.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1368/153/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1368/153/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 175,
@@ -5786,7 +5786,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/333/175/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/333/175/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 146,
@@ -5802,7 +5802,7 @@
       "precio_despacho": 3990.0,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1047/146/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1047/146/web?cantidad=1&id_producto=53880&total=559990"
     }
   ],
   "no_disponibles": [
@@ -5820,7 +5820,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/10/14/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/10/14/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 72,
@@ -5836,7 +5836,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1348/72/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1348/72/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 71,
@@ -5852,7 +5852,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1349/71/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1349/71/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 200,
@@ -5868,7 +5868,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/33/200/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/33/200/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 185,
@@ -5884,7 +5884,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1057/185/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1057/185/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 274,
@@ -5900,7 +5900,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1296/274/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1296/274/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 271,
@@ -5916,7 +5916,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1307/271/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1307/271/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 278,
@@ -5932,7 +5932,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1304/278/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1304/278/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 279,
@@ -5948,7 +5948,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1311/279/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1311/279/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 290,
@@ -5964,7 +5964,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1313/290/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1313/290/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 284,
@@ -5980,7 +5980,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1317/284/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1317/284/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 287,
@@ -5996,7 +5996,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1315/287/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1315/287/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 283,
@@ -6012,7 +6012,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1323/283/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1323/283/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 288,
@@ -6028,7 +6028,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1327/288/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1327/288/web?cantidad=1&id_producto=53880&total=559990"
     },
     {
       "id_comuna": 281,
@@ -6044,7 +6044,7 @@
       "precio_despacho": null,
       "despacho_gratis": false,
       "http_code": 200,
-      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1324/281/web?cantidad=1&id_producto=53880&total=554990"
+      "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1324/281/web?cantidad=1&id_producto=53880&total=559990"
     }
   ],
   "errores": []

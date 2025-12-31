@@ -1,1 +1,410 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PCFactory - Medios de Pago</title><style>:root{--bg:#0d1117;--text:#f0f6fc;--muted:#8b949e;--blue:#3b82f6;--border:#30363d}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}.container{text-align:center;padding:2rem}h1{font-size:2rem;margin-bottom:1rem}p{color:var(--muted);margin-bottom:2rem;line-height:1.6}.nav-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.nav-link{color:var(--blue);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);border-radius:8px}.nav-link:hover{background:var(--border)}</style></head><body><div class="container"><h1>Monitor de Medios de Pago</h1><p>Corre 3 veces al dia: 9am, 2pm, 8pm Chile.<br>Manual: Actions - Run workflow - run_payments: true</p><div class="nav-links"><a href="index.html" class="nav-link">Categorias</a><a href="delivery.html" class="nav-link">Despacho</a></div></div></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="300">
+    <title>PCFactory - Monitor de Medios de Pago</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💳</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --bg-hover: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --border: #30363d;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --accent-blue: #3b82f6;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'SF Mono', Consolas, monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 48px; height: 48px; }
+        .logo-icon img { width: 100%; height: 100%; }
+        .logo-text h1 { font-size: 1.5rem; font-weight: 600; }
+        .logo-text span { font-size: 0.875rem; color: var(--text-secondary); }
+        .timestamp {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .nav-link:hover { background: var(--bg-hover); }
+        .nav-link.active { background: var(--accent-blue); color: white; }
+        .status-banner {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .status-banner.status-ok { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); }
+        .status-banner.status-error { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .status-banner.status-warning { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); }
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        .status-ok .status-indicator { background: var(--accent-green); }
+        .status-error .status-indicator { background: var(--accent-red); }
+        .status-warning .status-indicator { background: var(--accent-yellow); }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-value {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .stat-value.green { color: var(--accent-green); }
+        .stat-value.red { color: var(--accent-red); }
+        .stat-value.blue { color: var(--accent-blue); }
+        .stat-label { color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem; }
+        .section-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .payments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .payment-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .payment-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .payment-card.status-ok { border-left: 4px solid var(--accent-green); }
+        .payment-card.status-error { border-left: 4px solid var(--accent-red); }
+        .payment-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-secondary);
+        }
+        .status-icon { font-size: 1.5rem; }
+        .payment-header h3 { font-size: 1rem; font-weight: 500; }
+        .payment-body { padding: 1.25rem; }
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .status-badge.status-ok { background: rgba(34, 197, 94, 0.15); color: var(--accent-green); }
+        .status-badge.status-error { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+        .payment-stats { display: flex; gap: 1.5rem; }
+        .payment-stats .stat { display: flex; flex-direction: column; }
+        .payment-stats .stat-label { font-size: 0.75rem; color: var(--text-muted); }
+        .payment-stats .stat-value { font-size: 1.1rem; font-weight: 600; }
+        .error-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--accent-red);
+        }
+        .gateway-url {
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .history-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .history-table { width: 100%; border-collapse: collapse; }
+        .history-table th, .history-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .history-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        .status-icons { display: flex; gap: 0.25rem; }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .header { flex-direction: column; text-align: center; }
+            .payments-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg" alt="PCFactory">
+                </div>
+                <div class="logo-text">
+                    <h1>pc Factory Monitor</h1>
+                    <span>Medios de Pago</span>
+                </div>
+            </div>
+            <div class="timestamp">31/12/2025 21:16:59 UTC</div>
+        </header>
+        
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">📦 Categorías</a>
+            <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
+            <a href="payments.html" class="nav-link active">💳 Medios de Pago</a>
+        </nav>
+        
+        <div class="status-banner status-ok">
+            <div class="status-indicator"></div>
+            <span>Todos los medios de pago operativos</span>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value blue">5</div>
+                <div class="stat-label">Total Medios</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value green">5</div>
+                <div class="stat-label">Operativos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value ">0</div>
+                <div class="stat-label">Con Problemas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value green">100.0%</div>
+                <div class="stat-label">Disponibilidad</div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Estado de Medios de Pago</h2>
+        <div class="payments-grid">
+            
+        <div class="payment-card status-ok">
+            <div class="payment-header">
+                <span class="status-icon">✅</span>
+                <h3>Transferencia ETPay</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-ok">Operativo</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">100.0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">24.7s</span>
+                    </div>
+                </div>
+                
+                <div class="gateway-url">Gateway: pmt-pcfactory.etpayment.com</div>
+            </div>
+        </div>
+        
+        <div class="payment-card status-ok">
+            <div class="payment-header">
+                <span class="status-icon">✅</span>
+                <h3>Beneficio BancoEstado</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-ok">Operativo</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">100.0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">24.7s</span>
+                    </div>
+                </div>
+                
+                <div class="gateway-url">Gateway: pagos.compraqui.cl</div>
+            </div>
+        </div>
+        
+        <div class="payment-card status-ok">
+            <div class="payment-header">
+                <span class="status-icon">✅</span>
+                <h3>Mastercard Click to Pay</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-ok">Operativo</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">100.0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">25.6s</span>
+                    </div>
+                </div>
+                
+                <div class="gateway-url">Gateway: pagos.compraqui.cl</div>
+            </div>
+        </div>
+        
+        <div class="payment-card status-ok">
+            <div class="payment-header">
+                <span class="status-icon">✅</span>
+                <h3>Tarjeta de Débito (Webpay)</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-ok">Operativo</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">100.0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">25.1s</span>
+                    </div>
+                </div>
+                
+                <div class="gateway-url">Gateway: webpay3g.transbank.cl</div>
+            </div>
+        </div>
+        
+        <div class="payment-card status-ok">
+            <div class="payment-header">
+                <span class="status-icon">✅</span>
+                <h3>Tarjeta de Crédito (Webpay)</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-ok">Operativo</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">100.0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">24.8s</span>
+                    </div>
+                </div>
+                
+                <div class="gateway-url">Gateway: webpay3g.transbank.cl</div>
+            </div>
+        </div>
+        
+        </div>
+        
+        <div class="history-section">
+            <h2 class="section-title">Historial de Verificaciones</h2>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Fecha/Hora</th>
+                        <th>Estado</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td>31/12 21:16</td>
+            <td class="status-icons"><span title="Transferencia ETPay">✅</span> <span title="Beneficio BancoEstado">✅</span> <span title="Mastercard Click to Pay">✅</span> <span title="Tarjeta de Débito (Webpay)">✅</span> <span title="Tarjeta de Crédito (Webpay)">✅</span> </td>
+            <td>5/5</td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+        
+        <footer class="footer">
+            <p>Actualización automática cada 30 minutos</p>
+            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Auto-refresh every 5 minutes
+        setTimeout(() => location.reload(), 5 * 60 * 1000);
+    </script>
+</body>
+</html>
