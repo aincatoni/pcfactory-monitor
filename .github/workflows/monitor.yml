@@ -2,7 +2,6 @@ name: PCFactory Monitor
 
 on:
   schedule:
-    # Categorías y Despacho cada 10 minutos
     - cron: '*/10 * * * *'
   
   workflow_dispatch:
@@ -30,9 +29,6 @@ permissions:
   id-token: write
 
 jobs:
-  # ============================================
-  # Job 1: Monitor de Categorías
-  # ============================================
   monitor-categories:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -59,9 +55,6 @@ jobs:
           path: output/
           retention-days: 7
 
-  # ============================================
-  # Job 2: Monitor de Despacho Nacional
-  # ============================================
   monitor-delivery:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -96,10 +89,6 @@ jobs:
           path: output/
           retention-days: 7
 
-  # ============================================
-  # Job 3: Monitor de Medios de Pago (Playwright)
-  # Solo cuando run_payments = true (manual)
-  # ============================================
   monitor-payments:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -148,9 +137,6 @@ jobs:
             output/payment_history.json
           retention-days: 7
 
-  # ============================================
-  # Job 4: Deploy a GitHub Pages
-  # ============================================
   deploy:
     needs: [monitor-categories, monitor-delivery, monitor-payments]
     runs-on: ubuntu-latest
@@ -173,49 +159,18 @@ jobs:
           path: output/
         continue-on-error: true
       
-      - name: Download payment results (if available)
+      - name: Download payment results
         uses: actions/download-artifact@v4
         with:
           name: payment-results
           path: output/
         continue-on-error: true
       
-      - name: Ensure payments.html exists
+      - name: Create placeholder if needed
         run: |
           mkdir -p output
           if [ ! -f output/payments.html ]; then
-            echo "Creating placeholder payments.html"
-            cat > output/payments.html << 'EOF'
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCFactory - Monitor de Medios de Pago</title>
-    <style>
-        :root { --bg: #0d1117; --text: #f0f6fc; --muted: #8b949e; --blue: #3b82f6; --border: #30363d; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .container { text-align: center; padding: 2rem; }
-        h1 { font-size: 2rem; margin-bottom: 1rem; }
-        p { color: var(--muted); margin-bottom: 2rem; }
-        .nav-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .nav-link { color: var(--blue); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 8px; }
-        .nav-link:hover { background: var(--border); }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>💳 Monitor de Medios de Pago</h1>
-        <p>El monitoreo de medios de pago se ejecuta manualmente.<br>Ve a Actions → Run workflow → run_payments: true</p>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">📦 Categorías</a>
-            <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
-        </div>
-    </div>
-</body>
-</html>
-EOF
+            echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PCFactory - Monitor de Medios de Pago</title><style>:root{--bg:#0d1117;--text:#f0f6fc;--muted:#8b949e;--blue:#3b82f6;--border:#30363d}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}.container{text-align:center;padding:2rem}h1{font-size:2rem;margin-bottom:1rem}p{color:var(--muted);margin-bottom:2rem}.nav-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.nav-link{color:var(--blue);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);border-radius:8px}.nav-link:hover{background:var(--border)}</style></head><body><div class="container"><h1>Monitor de Medios de Pago</h1><p>El monitoreo se ejecuta manualmente.<br>Ve a Actions - Run workflow - run_payments: true</p><div class="nav-links"><a href="index.html" class="nav-link">Categorias</a><a href="delivery.html" class="nav-link">Despacho Nacional</a></div></div></body></html>' > output/payments.html
           fi
           ls -la output/
       
