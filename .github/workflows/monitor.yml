@@ -152,7 +152,7 @@ jobs:
   # Job 4: Deploy a GitHub Pages
   # ============================================
   deploy:
-    needs: [monitor-categories, monitor-delivery]
+    needs: [monitor-categories, monitor-delivery, monitor-payments]
     runs-on: ubuntu-latest
     if: always() && (needs.monitor-categories.result == 'success' || needs.monitor-delivery.result == 'success')
     
