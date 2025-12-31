@@ -1,0 +1,536 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+PCFactory Payment Methods Dashboard Generator
+Genera el dashboard HTML a partir de los resultados de Playwright
+"""
+import json
+import argparse
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Dict, List, Any
+
+def formato_clp(numero: int) -> str:
+    """Formatea número al estilo chileno"""
+    if numero is None:
+        return "0"
+    return f"{numero:,}".replace(",", ".")
+
+def load_results(results_path: str) -> Dict:
+    """Carga los resultados del test de Playwright"""
+    try:
+        with open(results_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return None
+
+def load_history(history_path: str) -> List[Dict]:
+    """Carga el historial de ejecuciones"""
+    try:
+        with open(history_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
+def save_history(history: List[Dict], history_path: str):
+    """Guarda el historial (máximo 100 entradas)"""
+    trimmed = history[-100:]
+    with open(history_path, 'w', encoding='utf-8') as f:
+        json.dump(trimmed, f, ensure_ascii=False, indent=2)
+
+def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
+    """Genera el dashboard HTML"""
+    
+    # Timestamp
+    timestamp = report.get("timestamp", datetime.now(timezone.utc).isoformat())
+    try:
+        dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+        timestamp_display = dt.strftime("%d/%m/%Y %H:%M:%S UTC")
+    except:
+        timestamp_display = timestamp
+    
+    # Summary
+    summary = report.get("summary", {"total": 0, "passed": 0, "failed": 0})
+    results = report.get("results", [])
+    
+    total = summary.get("total", 0)
+    passed = summary.get("passed", 0)
+    failed = summary.get("failed", 0)
+    
+    # Status
+    if failed == 0 and total > 0:
+        status_class = "status-ok"
+        status_text = "Todos los medios de pago operativos"
+        status_color = "#22c55e"
+    elif failed > 0:
+        status_class = "status-error"
+        status_text = f"{failed} medio(s) de pago con problemas"
+        status_color = "#ef4444"
+    else:
+        status_class = "status-warning"
+        status_text = "Sin datos de monitoreo"
+        status_color = "#f59e0b"
+    
+    # Porcentaje de disponibilidad
+    availability = round((passed / total * 100) if total > 0 else 0, 1)
+    
+    # Calcular uptime 24h
+    uptime_stats = {}
+    last_24h = [h for h in history if _is_within_24h(h.get("timestamp", ""))]
+    for entry in last_24h:
+        for r in entry.get("results", []):
+            method = r.get("paymentMethod", "")
+            if method not in uptime_stats:
+                uptime_stats[method] = {"total": 0, "passed": 0}
+            uptime_stats[method]["total"] += 1
+            if r.get("status") == "PASSED":
+                uptime_stats[method]["passed"] += 1
+    
+    # Generar tarjetas de medios de pago
+    payment_cards = ""
+    for r in results:
+        method_name = r.get("paymentMethod", "Desconocido")
+        status = r.get("status", "UNKNOWN")
+        duration = r.get("duration", 0)
+        error = r.get("error", "")
+        gateway_url = r.get("gatewayUrl", "")
+        
+        card_class = "status-ok" if status == "PASSED" else "status-error"
+        status_icon = "✅" if status == "PASSED" else "❌"
+        status_badge = "Operativo" if status == "PASSED" else "Con problemas"
+        
+        # Uptime 24h
+        uptime = uptime_stats.get(method_name, {"total": 0, "passed": 0})
+        uptime_pct = round((uptime["passed"] / uptime["total"] * 100) if uptime["total"] > 0 else 100, 1)
+        
+        gateway_info = ""
+        if gateway_url:
+            try:
+                from urllib.parse import urlparse
+                host = urlparse(gateway_url).netloc
+                gateway_info = f'<div class="gateway-url">Gateway: {host}</div>'
+            except:
+                gateway_info = f'<div class="gateway-url">Gateway alcanzado</div>'
+        
+        error_info = f'<div class="error-message">{error}</div>' if error else ""
+        
+        payment_cards += f'''
+        <div class="payment-card {card_class}">
+            <div class="payment-header">
+                <span class="status-icon">{status_icon}</span>
+                <h3>{method_name}</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge {card_class}">{status_badge}</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">{uptime_pct}%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">{duration / 1000:.1f}s</span>
+                    </div>
+                </div>
+                {error_info}
+                {gateway_info}
+            </div>
+        </div>
+        '''
+    
+    # Generar historial
+    history_rows = ""
+    for entry in reversed(history[-48:]):
+        try:
+            dt = datetime.fromisoformat(entry.get("timestamp", "").replace('Z', '+00:00'))
+            time_str = dt.strftime("%d/%m %H:%M")
+        except:
+            time_str = entry.get("timestamp", "")[:16]
+        
+        statuses = ""
+        for r in entry.get("results", []):
+            icon = "✅" if r.get("status") == "PASSED" else "❌"
+            statuses += f'<span title="{r.get("paymentMethod", "")}">{icon}</span> '
+        
+        entry_summary = entry.get("summary", {})
+        history_rows += f'''
+        <tr>
+            <td>{time_str}</td>
+            <td class="status-icons">{statuses}</td>
+            <td>{entry_summary.get("passed", 0)}/{entry_summary.get("total", 0)}</td>
+        </tr>
+        '''
+    
+    html = f'''<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="300">
+    <title>PCFactory - Monitor de Medios de Pago</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💳</text></svg>">
+    <style>
+        :root {{
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --bg-hover: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --border: #30363d;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --accent-blue: #3b82f6;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'SF Mono', Consolas, monospace;
+        }}
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }}
+        .container {{ max-width: 1400px; margin: 0 auto; padding: 2rem; }}
+        .header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }}
+        .logo {{ display: flex; align-items: center; gap: 1rem; }}
+        .logo-icon {{ width: 48px; height: 48px; }}
+        .logo-icon img {{ width: 100%; height: 100%; }}
+        .logo-text h1 {{ font-size: 1.5rem; font-weight: 600; }}
+        .logo-text span {{ font-size: 0.875rem; color: var(--text-secondary); }}
+        .timestamp {{
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }}
+        .nav-links {{
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }}
+        .nav-link {{
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }}
+        .nav-link:hover {{ background: var(--bg-hover); }}
+        .nav-link.active {{ background: var(--accent-blue); color: white; }}
+        .status-banner {{
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }}
+        .status-banner.status-ok {{ background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); }}
+        .status-banner.status-error {{ background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }}
+        .status-banner.status-warning {{ background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); }}
+        .status-indicator {{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }}
+        .status-ok .status-indicator {{ background: var(--accent-green); }}
+        .status-error .status-indicator {{ background: var(--accent-red); }}
+        .status-warning .status-indicator {{ background: var(--accent-yellow); }}
+        @keyframes pulse {{
+            0%, 100% {{ opacity: 1; }}
+            50% {{ opacity: 0.5; }}
+        }}
+        .stats-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }}
+        .stat-card {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }}
+        .stat-value {{
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }}
+        .stat-value.green {{ color: var(--accent-green); }}
+        .stat-value.red {{ color: var(--accent-red); }}
+        .stat-value.blue {{ color: var(--accent-blue); }}
+        .stat-label {{ color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem; }}
+        .section-title {{
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }}
+        .payments-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }}
+        .payment-card {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }}
+        .payment-card:hover {{
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }}
+        .payment-card.status-ok {{ border-left: 4px solid var(--accent-green); }}
+        .payment-card.status-error {{ border-left: 4px solid var(--accent-red); }}
+        .payment-header {{
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-secondary);
+        }}
+        .status-icon {{ font-size: 1.5rem; }}
+        .payment-header h3 {{ font-size: 1rem; font-weight: 500; }}
+        .payment-body {{ padding: 1.25rem; }}
+        .status-badge {{
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }}
+        .status-badge.status-ok {{ background: rgba(34, 197, 94, 0.15); color: var(--accent-green); }}
+        .status-badge.status-error {{ background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }}
+        .payment-stats {{ display: flex; gap: 1.5rem; }}
+        .payment-stats .stat {{ display: flex; flex-direction: column; }}
+        .payment-stats .stat-label {{ font-size: 0.75rem; color: var(--text-muted); }}
+        .payment-stats .stat-value {{ font-size: 1.1rem; font-weight: 600; }}
+        .error-message {{
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--accent-red);
+        }}
+        .gateway-url {{
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }}
+        .history-section {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }}
+        .history-table {{ width: 100%; border-collapse: collapse; }}
+        .history-table th, .history-table td {{
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }}
+        .history-table th {{
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }}
+        .status-icons {{ display: flex; gap: 0.25rem; }}
+        .footer {{
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }}
+        @media (max-width: 768px) {{
+            .container {{ padding: 1rem; }}
+            .header {{ flex-direction: column; text-align: center; }}
+            .payments-grid {{ grid-template-columns: 1fr; }}
+            .stats-grid {{ grid-template-columns: repeat(2, 1fr); }}
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg" alt="PCFactory">
+                </div>
+                <div class="logo-text">
+                    <h1>pc Factory Monitor</h1>
+                    <span>Medios de Pago</span>
+                </div>
+            </div>
+            <div class="timestamp">{timestamp_display}</div>
+        </header>
+        
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">📦 Categorías</a>
+            <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
+            <a href="payments.html" class="nav-link active">💳 Medios de Pago</a>
+        </nav>
+        
+        <div class="status-banner {status_class}">
+            <div class="status-indicator"></div>
+            <span>{status_text}</span>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value blue">{total}</div>
+                <div class="stat-label">Total Medios</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value green">{passed}</div>
+                <div class="stat-label">Operativos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value {"red" if failed > 0 else ""}">{failed}</div>
+                <div class="stat-label">Con Problemas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value {"green" if availability >= 80 else "red"}">{availability}%</div>
+                <div class="stat-label">Disponibilidad</div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Estado de Medios de Pago</h2>
+        <div class="payments-grid">
+            {payment_cards if payment_cards else '<p style="color: var(--text-muted);">No hay datos disponibles</p>'}
+        </div>
+        
+        <div class="history-section">
+            <h2 class="section-title">Historial de Verificaciones</h2>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Fecha/Hora</th>
+                        <th>Estado</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {history_rows if history_rows else '<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">Sin historial</td></tr>'}
+                </tbody>
+            </table>
+        </div>
+        
+        <footer class="footer">
+            <p>Actualización automática cada 30 minutos</p>
+            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Auto-refresh every 5 minutes
+        setTimeout(() => location.reload(), 5 * 60 * 1000);
+    </script>
+</body>
+</html>'''
+    
+    return html
+
+def _is_within_24h(timestamp: str) -> bool:
+    """Verifica si el timestamp está dentro de las últimas 24 horas"""
+    try:
+        dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+        diff = datetime.now(timezone.utc) - dt
+        return diff.total_seconds() < 24 * 60 * 60
+    except:
+        return False
+
+def main():
+    parser = argparse.ArgumentParser(description="PCFactory Payment Dashboard Generator")
+    parser.add_argument("--results", type=str, default="./test-results/payment-monitor-report.json",
+                       help="Ruta al archivo de resultados")
+    parser.add_argument("--output-dir", type=str, default="./output",
+                       help="Directorio de salida")
+    args = parser.parse_args()
+    
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    print("=" * 60)
+    print("PCFactory Payment Dashboard Generator")
+    print("=" * 60)
+    
+    # Cargar resultados
+    results = load_results(args.results)
+    if not results:
+        print(f"[!] No se encontró archivo de resultados: {args.results}")
+        results = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "results": [],
+            "summary": {"total": 0, "passed": 0, "failed": 0}
+        }
+    
+    # Cargar y actualizar historial
+    history_path = output_dir / "payment_history.json"
+    history = load_history(str(history_path))
+    
+    if results.get("results"):
+        history.append({
+            "timestamp": results.get("timestamp"),
+            "results": results.get("results"),
+            "summary": results.get("summary")
+        })
+        save_history(history, str(history_path))
+    
+    # Generar HTML
+    html_content = generate_html_dashboard(results, history)
+    html_path = output_dir / "payments.html"
+    with open(html_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"[+] Dashboard guardado: {html_path}")
+    
+    # Guardar JSON
+    json_path = output_dir / "payment_report.json"
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+    print(f"[+] JSON guardado: {json_path}")
+    
+    # Resumen
+    summary = results.get("summary", {})
+    print("\n" + "=" * 60)
+    print("RESUMEN")
+    print("=" * 60)
+    print(f"Total medios: {summary.get('total', 0)}")
+    print(f"Operativos: {summary.get('passed', 0)}")
+    print(f"Con problemas: {summary.get('failed', 0)}")
+    
+    for r in results.get("results", []):
+        icon = "✅" if r.get("status") == "PASSED" else "❌"
+        print(f"  {icon} {r.get('paymentMethod', 'Desconocido')}")
+    
+    print("\n[OK] Dashboard generado!")
+
+if __name__ == "__main__":
+    main()

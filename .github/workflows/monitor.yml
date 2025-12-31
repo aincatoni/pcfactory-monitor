@@ -1,63 +1,209 @@
-name: PCFactory Category Monitor
+name: PCFactory Monitor
 
 on:
   schedule:
+    # Categorías y Despacho cada 10 minutos
     - cron: '*/10 * * * *'
+  
   workflow_dispatch:
     inputs:
       producto:
-        description: 'ID del producto para delivery monitor'
+        description: 'ID del producto para delivery'
         required: false
         default: '53880'
       total:
         description: 'Total del carrito'
         required: false
         default: '554990'
+      run_payments:
+        description: 'Ejecutar monitor de pagos (más lento)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 jobs:
-  monitor:
+  # ============================================
+  # Job 1: Monitor de Categorías
+  # ============================================
+  monitor-categories:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
       
-      - name: Instalar dependencias
-        run: pip install requests pandas openpyxl urllib3
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       
-      - name: Crear directorio output
-        run: mkdir -p output
-      
-      - name: Ejecutar Category Monitor
+      - name: Run category monitor
         run: python monitor.py --workers 5 --output-dir ./output
       
-      - name: Ejecutar Delivery Monitor Nacional
+      - name: Upload category results
+        uses: actions/upload-artifact@v4
+        with:
+          name: category-results
+          path: output/
+          retention-days: 7
+
+  # ============================================
+  # Job 2: Monitor de Despacho Nacional
+  # ============================================
+  monitor-delivery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Run delivery monitor
         run: |
           python delivery_monitor.py \
             --producto ${{ github.event.inputs.producto || '53880' }} \
             --total ${{ github.event.inputs.total || '554990' }} \
-            --workers 8 \
+            --workers 5 \
             --output-dir ./output \
-            --ciudades data/ciudad.csv \
-            --comunas data/comuna.csv \
-            --relacion data/ciudad_comuna.csv
+            --ciudades ./data/ciudad.csv \
+            --comunas ./data/comuna.csv \
+            --relacion ./data/ciudad_comuna.csv
       
-      - name: Listar archivos generados
-        run: ls -la ./output/
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload delivery results
+        uses: actions/upload-artifact@v4
         with:
-          path: ./output
+          name: delivery-results
+          path: output/
+          retention-days: 7
+
+  # ============================================
+  # Job 3: Monitor de Medios de Pago (Playwright)
+  # Solo se ejecuta cada 30 min o manualmente
+  # ============================================
+  monitor-payments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # Solo ejecutar si es dispatch manual con run_payments=true O si es schedule y minuto es 0 o 30
+    if: |
+      github.event.inputs.run_payments == 'true' || 
+      (github.event_name == 'schedule' && (github.run_number % 3 == 0))
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install Playwright dependencies
+        working-directory: ./payments
+        run: |
+          npm ci
+          npx playwright install chromium --with-deps
+      
+      - name: Run payment tests
+        working-directory: ./payments
+        run: npx playwright test || true
+        continue-on-error: true
+      
+      - name: Generate payment dashboard
+        run: |
+          python payment_dashboard.py \
+            --results ./payments/test-results/payment-monitor-report.json \
+            --output-dir ./output
+      
+      - name: Upload payment results
+        uses: actions/upload-artifact@v4
+        with:
+          name: payment-results
+          path: |
+            output/payments.html
+            output/payment_report.json
+            output/payment_history.json
+          retention-days: 7
+
+  # ============================================
+  # Job 4: Deploy a GitHub Pages
+  # ============================================
+  deploy:
+    needs: [monitor-categories, monitor-delivery]
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download category results
+        uses: actions/download-artifact@v4
+        with:
+          name: category-results
+          path: output/
+      
+      - name: Download delivery results
+        uses: actions/download-artifact@v4
+        with:
+          name: delivery-results
+          path: output/
+      
+      - name: Download payment results (if available)
+        uses: actions/download-artifact@v4
+        with:
+          name: payment-results
+          path: output/
+        continue-on-error: true
+      
+      - name: Add navigation to dashboards
+        run: |
+          # Agregar link a payments.html en los dashboards existentes si no existe
+          if [ -f output/payments.html ]; then
+            echo "Payment dashboard exists"
+          else
+            echo "Creating placeholder payment dashboard"
+            cat > output/payments.html << 'EOF'
+          <!DOCTYPE html>
+          <html><head><meta http-equiv="refresh" content="0;url=index.html"></head>
+          <body><p>Redirigiendo...</p></body></html>
+          EOF
+          fi
       
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          keep_files: true
+          force_orphan: false
+
+  # ============================================
+  # Job 5: Notificación de errores (opcional)
+  # ============================================
+  notify:
+    needs: [monitor-categories, monitor-delivery]
+    runs-on: ubuntu-latest
+    if: failure()
+    
+    steps:
+      - name: Notify failure
+        run: |
+          echo "⚠️ Monitor failed!"
+          echo "Check: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

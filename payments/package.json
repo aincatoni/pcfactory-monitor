@@ -1,0 +1,22 @@
+{
+  "name": "pcfactory-payment-monitor",
+  "version": "1.0.0",
+  "description": "Monitor de medios de pago PCFactory usando Playwright E2E tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report",
+    "install:browsers": "npx playwright install chromium --with-deps",
+    "generate:report": "node scripts/generate-html-report.js"
+  },
+  "keywords": ["pcfactory", "payment", "monitor", "playwright", "e2e"],
+  "author": "PCFactory Monitor",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.57.0",
+    "playwright": "^1.57.0"
+  }
+}
