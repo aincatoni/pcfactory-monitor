@@ -124,7 +124,7 @@ jobs:
       - name: Install Playwright dependencies
         working-directory: ./payments
         run: |
-          npm ci
+          npm install
           npx playwright install chromium --with-deps
       
       - name: Run payment tests
