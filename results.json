@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
-        "commitHash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20663947179"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/7e43d81c5dd3b3674763cd4d58658ede4cd9c533",
+        "commitHash": "7e43d81c5dd3b3674763cd4d58658ede4cd9c533",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20664358722"
       },
       "gitCommit": {
-        "shortHash": "ac6c685",
-        "hash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
-        "subject": "feat: Add Playwright configuration and package.json for login monitoring tests",
-        "body": "feat: Add Playwright configuration and package.json for login monitoring tests\n",
+        "shortHash": "7e43d81",
+        "hash": "7e43d81c5dd3b3674763cd4d58658ede4cd9c533",
+        "subject": "refactor: Simplify login test flow by removing dropdown navigation and enhancing button visibility checks",
+        "body": "refactor: Simplify login test flow by removing dropdown navigation and enhancing button visibility checks\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767377947000
+          "time": 1767379045000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767377947000
+          "time": 1767379045000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
-            "commitHash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20663947179"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/7e43d81c5dd3b3674763cd4d58658ede4cd9c533",
+            "commitHash": "7e43d81c5dd3b3674763cd4d58658ede4cd9c533",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20664358722"
           },
           "gitCommit": {
-            "shortHash": "ac6c685",
-            "hash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
-            "subject": "feat: Add Playwright configuration and package.json for login monitoring tests",
-            "body": "feat: Add Playwright configuration and package.json for login monitoring tests\n",
+            "shortHash": "7e43d81",
+            "hash": "7e43d81c5dd3b3674763cd4d58658ede4cd9c533",
+            "subject": "refactor: Simplify login test flow by removing dropdown navigation and enhancing button visibility checks",
+            "body": "refactor: Simplify login test flow by removing dropdown navigation and enhancing button visibility checks\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767377947000
+              "time": 1767379045000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767377947000
+              "time": 1767379045000
             },
             "branch": "main"
           },
@@ -137,12 +137,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 43615,
+                      "duration": 42564,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T18:20:28.685Z",
+                      "startTime": "2026-01-02T18:44:43.940Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,12 +171,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42838,
+                      "duration": 42552,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T18:21:13.132Z",
+                      "startTime": "2026-01-02T18:45:26.732Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,12 +205,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42253,
+                      "duration": 41976,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T18:21:55.981Z",
+                      "startTime": "2026-01-02T18:46:09.296Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42387,
+                      "duration": 42188,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T18:22:38.246Z",
+                      "startTime": "2026-01-02T18:46:51.283Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,7 +273,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42035,
+                      "duration": 42164,
                       "errors": [],
                       "stdout": [
                         {
@@ -286,7 +286,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-02T18:20:28.664Z\n"
+                          "text": "Timestamp: 2026-01-02T18:44:43.920Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -304,7 +304,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/ajHJtN9zmpuVtlPxJDCkZYZ8Veo2fP8gozKnMCtgeVb0qtggmMglreGm0tDQ7QQP\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/3VkdRVb5RRRse5UDfl4OoKei7QsaCcRDoF4t1Jgj8vUUlfX1TzqVSBUcSCSxwVow\n"
                         },
                         {
                           "text": "✅ Compraquí: PASSED\n"
@@ -336,7 +336,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T18:23:20.645Z",
+                      "startTime": "2026-01-02T18:47:33.483Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -356,8 +356,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-02T18:20:27.970Z",
-    "duration": 214779.92,
+    "startTime": "2026-01-02T18:44:43.239Z",
+    "duration": 212477.62,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
