@@ -42,9 +42,7 @@
             border-bottom: 1px solid var(--border);
         }
         .logo { display: flex; align-items: center; gap: 1rem; }
-        .logo-icon img {
-            max-width: 48px;
-        }
+        .logo-icon img { max-width: 48px; }
         .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
         .logo-text span { font-size: 0.875rem; color: var(--text-muted); }
         .timestamp {
@@ -117,7 +115,7 @@
             font-family: var(--font-mono);
             font-size: 4rem;
             font-weight: 700;
-            color: var(--accent-yellow);
+            color: var(--accent-green);
         }
         .health-label { color: var(--text-muted); margin-top: 0.5rem; }
         .section {
@@ -168,11 +166,7 @@
         .badge-id { background: var(--bg-hover); color: var(--text-secondary); }
         .empty-state { padding: 3rem; text-align: center; color: var(--text-muted); }
         .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
+        .nav-links { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
         .nav-link {
             font-family: var(--font-mono);
             font-size: 0.875rem;
@@ -206,7 +200,7 @@
                     <span>Monitor de Login</span>
                 </div>
             </div>
-            <div class="timestamp">02/01/2026 18:45:18 UTC</div>
+            <div class="timestamp">02/01/2026 19:17:05 UTC</div>
         </header>
         
         <div class="nav-links">
@@ -216,9 +210,9 @@
             <a href="login.html" class="nav-link active">🔐 Login</a>
         </div>
         
-        <div class="status-banner warning">
+        <div class="status-banner healthy">
             <div class="status-indicator"></div>
-            <span class="status-text">Sin datos de monitoreo</span>
+            <span class="status-text">Login Operativo</span>
         </div>
         
         <div class="health-card">
@@ -237,11 +231,11 @@
             </div>
             <div class="stat-card">
                 <div class="stat-label">Uptime 24h</div>
-                <div class="stat-value red">0%</div>
+                <div class="stat-value green">100%</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Ejecuciones</div>
-                <div class="stat-value blue">0</div>
+                <div class="stat-value blue">1</div>
             </div>
         </div>
         
@@ -270,7 +264,7 @@
         <div class="section">
             <div class="section-header">
                 <h2>📊 Historial Reciente</h2>
-                <span class="section-count">Últimas 0 ejecuciones</span>
+                <span class="section-count">Últimas 1 ejecuciones</span>
             </div>
             <div class="table-container">
                 <table>
@@ -290,7 +284,6 @@
         
         <footer class="footer">
             <p>Actualización automática 3 veces al día (9am, 2pm, 8pm Chile)</p>
-            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
         </footer>
     </div>
 </body>
