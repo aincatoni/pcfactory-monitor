@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/15e61a2fe757aaa5adca624e2c963edc33c1bff3",
-        "commitHash": "15e61a2fe757aaa5adca624e2c963edc33c1bff3",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20664929522"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/246b3068f30ca73c5437aa4e5aa572358efa2c29",
+        "commitHash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20665412878"
       },
       "gitCommit": {
-        "shortHash": "15e61a2",
-        "hash": "15e61a2fe757aaa5adca624e2c963edc33c1bff3",
-        "subject": "refactor: Enhance result file search and loading logic, improve error handling, and update dashboard generation",
-        "body": "refactor: Enhance result file search and loading logic, improve error handling, and update dashboard generation\n",
+        "shortHash": "246b306",
+        "hash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
+        "subject": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping",
+        "body": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767380269000
+          "time": 1767382287000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767380269000
+          "time": 1767382287000
         },
         "branch": "main"
       },
@@ -67,24 +67,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/15e61a2fe757aaa5adca624e2c963edc33c1bff3",
-            "commitHash": "15e61a2fe757aaa5adca624e2c963edc33c1bff3",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20664929522"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/246b3068f30ca73c5437aa4e5aa572358efa2c29",
+            "commitHash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20665412878"
           },
           "gitCommit": {
-            "shortHash": "15e61a2",
-            "hash": "15e61a2fe757aaa5adca624e2c963edc33c1bff3",
-            "subject": "refactor: Enhance result file search and loading logic, improve error handling, and update dashboard generation",
-            "body": "refactor: Enhance result file search and loading logic, improve error handling, and update dashboard generation\n",
+            "shortHash": "246b306",
+            "hash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
+            "subject": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping",
+            "body": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767380269000
+              "time": 1767382287000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767380269000
+              "time": 1767382287000
             },
             "branch": "main"
           },
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2080,
+                      "duration": 2158,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T19:16:36.366Z",
+                      "startTime": "2026-01-02T19:46:05.610Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -178,12 +178,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3857,
+                      "duration": 3911,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T19:16:39.946Z",
+                      "startTime": "2026-01-02T19:46:09.098Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -218,12 +218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4043,
+                      "duration": 4875,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T19:16:43.816Z",
+                      "startTime": "2026-01-02T19:46:13.024Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -258,12 +258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3923,
+                      "duration": 4638,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T19:16:47.873Z",
+                      "startTime": "2026-01-02T19:46:17.923Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -298,12 +298,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9751,
+                      "duration": 10551,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T19:16:51.810Z",
+                      "startTime": "2026-01-02T19:46:22.572Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -338,7 +338,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3872,
+                      "duration": 4363,
                       "errors": [],
                       "stdout": [
                         {
@@ -359,7 +359,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T19:17:01.572Z",
+                      "startTime": "2026-01-02T19:46:33.133Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -385,8 +385,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-02T19:16:35.643Z",
-    "duration": 29879.755,
+    "startTime": "2026-01-02T19:46:04.902Z",
+    "duration": 32675.529,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
