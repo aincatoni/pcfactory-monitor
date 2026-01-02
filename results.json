@@ -1,0 +1,366 @@
+{
+  "config": {
+    "configFile": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/playwright.config.js",
+    "rootDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+        "commitHash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661147109"
+      },
+      "gitCommit": {
+        "shortHash": "a5ef80c",
+        "hash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+        "subject": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow",
+        "body": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow\n",
+        "author": {
+          "name": "Ain Cortés",
+          "email": "acortes@pcfactory.cl",
+          "time": 1767368154000
+        },
+        "committer": {
+          "name": "Ain Cortés",
+          "email": "acortes@pcfactory.cl",
+          "time": 1767368154000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+            "commitHash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661147109"
+          },
+          "gitCommit": {
+            "shortHash": "a5ef80c",
+            "hash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+            "subject": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow",
+            "body": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow\n",
+            "author": {
+              "name": "Ain Cortés",
+              "email": "acortes@pcfactory.cl",
+              "time": 1767368154000
+            },
+            "committer": {
+              "name": "Ain Cortés",
+              "email": "acortes@pcfactory.cl",
+              "time": 1767368154000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "payment-methods.spec.js",
+      "file": "payment-methods.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "PCFactory Payment Methods Monitor",
+          "file": "payment-methods.spec.js",
+          "line": 82,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Verificar Transferencia ETPay",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 41172,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:39:33.713Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f2683f08aeb6c605225-6b16f542516fc8e8a9ee",
+              "file": "payment-methods.spec.js",
+              "line": 92,
+              "column": 5
+            },
+            {
+              "title": "Verificar Compraquí",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 41737,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:40:15.102Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f2683f08aeb6c605225-4bec07209d3775128d89",
+              "file": "payment-methods.spec.js",
+              "line": 92,
+              "column": 5
+            },
+            {
+              "title": "Verificar Mastercard Click to Pay",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 41618,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:40:56.849Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f2683f08aeb6c605225-d56cad27cc6e083b82f3",
+              "file": "payment-methods.spec.js",
+              "line": 92,
+              "column": 5
+            },
+            {
+              "title": "Verificar Tarjeta de Débito (Webpay)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 42042,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:41:38.481Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f2683f08aeb6c605225-9cf1d5c0ae7ab961cbf8",
+              "file": "payment-methods.spec.js",
+              "line": 92,
+              "column": 5
+            },
+            {
+              "title": "Verificar Tarjeta de Crédito (Webpay)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 41620,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n========================================\n"
+                        },
+                        {
+                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
+                        },
+                        {
+                          "text": "========================================\n"
+                        },
+                        {
+                          "text": "Timestamp: 2026-01-02T15:39:33.688Z\n"
+                        },
+                        {
+                          "text": "Total: 5\n"
+                        },
+                        {
+                          "text": "✅ Passed: 5\n"
+                        },
+                        {
+                          "text": "❌ Failed: 0\n"
+                        },
+                        {
+                          "text": "----------------------------------------\n"
+                        },
+                        {
+                          "text": "✅ Transferencia ETPay: PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/OF9mnYYVnCdbBdr1Ie2dGBo8QgYOMGIcXmmaUEz5TQPS0BFDn5DyuFuiZha323Ya\n"
+                        },
+                        {
+                          "text": "✅ Compraquí: PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
+                        },
+                        {
+                          "text": "✅ Mastercard Click to Pay: PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
+                        },
+                        {
+                          "text": "✅ Tarjeta de Débito (Webpay): PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
+                        },
+                        {
+                          "text": "✅ Tarjeta de Crédito (Webpay): PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
+                        },
+                        {
+                          "text": "========================================\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:42:20.534Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f2683f08aeb6c605225-25c5a9f2e564119fce55",
+              "file": "payment-methods.spec.js",
+              "line": 92,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-02T15:39:32.990Z",
+    "duration": 209227.62699999998,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

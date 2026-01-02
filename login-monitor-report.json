@@ -1,0 +1,395 @@
+{
+  "config": {
+    "configFile": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/playwright.config.js",
+    "rootDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+        "commitHash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661147109"
+      },
+      "gitCommit": {
+        "shortHash": "a5ef80c",
+        "hash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+        "subject": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow",
+        "body": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow\n",
+        "author": {
+          "name": "Ain Cortés",
+          "email": "acortes@pcfactory.cl",
+          "time": 1767368154000
+        },
+        "committer": {
+          "name": "Ain Cortés",
+          "email": "acortes@pcfactory.cl",
+          "time": 1767368154000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/login-monitor-report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+            "commitHash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661147109"
+          },
+          "gitCommit": {
+            "shortHash": "a5ef80c",
+            "hash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
+            "subject": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow",
+            "body": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow\n",
+            "author": {
+              "name": "Ain Cortés",
+              "email": "acortes@pcfactory.cl",
+              "time": 1767368154000
+            },
+            "committer": {
+              "name": "Ain Cortés",
+              "email": "acortes@pcfactory.cl",
+              "time": 1767368154000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "login.spec.js",
+      "file": "login.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "PCFactory Login Monitor",
+          "file": "login.spec.js",
+          "line": 54,
+          "column": 6,
+          "specs": [
+            {
+              "title": "1. Página de login carga correctamente",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2731,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:39:44.587Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-dc7dc-e-login-carga-correctamente-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-626db241adf6bc0faa74",
+              "file": "login.spec.js",
+              "line": 69,
+              "column": 3
+            },
+            {
+              "title": "2. Formulario de login está presente",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4837,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:39:48.835Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-0b9f2-ario-de-login-está-presente-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-f1a64c52f83485c0f26c",
+              "file": "login.spec.js",
+              "line": 117,
+              "column": 3
+            },
+            {
+              "title": "3. Opciones de login social presentes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4446,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:39:53.684Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-9ff0b-s-de-login-social-presentes-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-65ee94fc604ada64bb68",
+              "file": "login.spec.js",
+              "line": 169,
+              "column": 3
+            },
+            {
+              "title": "4. Sistema responde a intento de login",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4226,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:39:58.144Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-d61b0-responde-a-intento-de-login-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-9ff823559cca17b49a66",
+              "file": "login.spec.js",
+              "line": 211,
+              "column": 3
+            },
+            {
+              "title": "5. Link de recuperar contraseña funciona",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4258,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:40:02.385Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-333b2-cuperar-contraseña-funciona-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-06419018bc543eb97a84",
+              "file": "login.spec.js",
+              "line": 304,
+              "column": 3
+            },
+            {
+              "title": "6. Link de registro funciona",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3604,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Resultados del Monitor de Login:\n"
+                        },
+                        {
+                          "text": "   ✅ Pasaron: 3\n"
+                        },
+                        {
+                          "text": "   ❌ Fallaron: 0\n"
+                        },
+                        {
+                          "text": "   ⚠️ Advertencias: 3\n"
+                        },
+                        {
+                          "text": "   📈 Tasa de éxito: 50%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T15:40:06.665Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-6-Link-de-registro-funciona-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-5adda677558936ab5ab3",
+              "file": "login.spec.js",
+              "line": 356,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-02T15:39:43.833Z",
+    "duration": 26502.571,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
