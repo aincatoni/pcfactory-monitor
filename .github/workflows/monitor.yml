@@ -91,6 +91,9 @@ jobs:
           python delivery_monitor.py \
             --producto ${{ github.event.inputs.producto || '53880' }} \
             --total ${{ github.event.inputs.total || '554990' }} \
+            --ciudades data/ciudad.csv \
+            --comunas data/comuna.csv \
+            --relacion data/ciudad_comuna.csv \
             --output-dir ./output
       
       - name: Upload delivery results
@@ -170,12 +173,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: payments/package-lock.json
       
       - name: Install dependencies
         working-directory: payments
-        run: npm ci || npm install
+        run: npm install
       
       - name: Install Playwright browsers
         working-directory: payments
@@ -223,12 +224,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: login/package-lock.json
       
       - name: Install dependencies
         working-directory: login
-        run: npm ci || npm install
+        run: npm install
       
       - name: Install Playwright browsers
         working-directory: login
@@ -339,16 +338,6 @@ jobs:
           # Listar archivos
           echo "📁 Archivos en gh-pages:"
           ls -la
-      
-      - name: Add navigation to dashboards
-        run: |
-          # Agregar botón de Login a los dashboards existentes si no lo tienen
-          for file in index.html delivery.html payments.html; do
-            if [ -f "$file" ] && ! grep -q "login.html" "$file"; then
-              # Agregar link de login antes del cierre de nav-buttons
-              sed -i 's|</nav>|<a href="login.html" class="nav-btn">🔐 Login</a></nav>|g' "$file" 2>/dev/null || true
-            fi
-          done
       
       - name: Commit and push
         run: |
