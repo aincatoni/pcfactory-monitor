@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-        "commitHash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661147109"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
+        "commitHash": "e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661723912"
       },
       "gitCommit": {
-        "shortHash": "a5ef80c",
-        "hash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-        "subject": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow",
-        "body": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow\n",
+        "shortHash": "e550755",
+        "hash": "e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
+        "subject": "Refactor PCFactory login tests to use environment variables for credentials, improve selector accuracy, and enhance test descriptions and structure",
+        "body": "Refactor PCFactory login tests to use environment variables for credentials, improve selector accuracy, and enhance test descriptions and structure\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767368154000
+          "time": 1767370222000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767368154000
+          "time": 1767370222000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-            "commitHash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661147109"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
+            "commitHash": "e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661723912"
           },
           "gitCommit": {
-            "shortHash": "a5ef80c",
-            "hash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-            "subject": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow",
-            "body": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow\n",
+            "shortHash": "e550755",
+            "hash": "e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
+            "subject": "Refactor PCFactory login tests to use environment variables for credentials, improve selector accuracy, and enhance test descriptions and structure",
+            "body": "Refactor PCFactory login tests to use environment variables for credentials, improve selector accuracy, and enhance test descriptions and structure\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767368154000
+              "time": 1767370222000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767368154000
+              "time": 1767370222000
             },
             "branch": "main"
           },
@@ -137,12 +137,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41172,
+                      "duration": 43112,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T15:39:33.713Z",
+                      "startTime": "2026-01-02T16:12:27.156Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,12 +171,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41737,
+                      "duration": 42129,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T15:40:15.102Z",
+                      "startTime": "2026-01-02T16:13:10.473Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,12 +205,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41618,
+                      "duration": 41447,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T15:40:56.849Z",
+                      "startTime": "2026-01-02T16:13:52.614Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42042,
+                      "duration": 41751,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T15:41:38.481Z",
+                      "startTime": "2026-01-02T16:14:34.072Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,7 +273,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41620,
+                      "duration": 41699,
                       "errors": [],
                       "stdout": [
                         {
@@ -286,7 +286,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-02T15:39:33.688Z\n"
+                          "text": "Timestamp: 2026-01-02T16:12:27.134Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -304,7 +304,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/OF9mnYYVnCdbBdr1Ie2dGBo8QgYOMGIcXmmaUEz5TQPS0BFDn5DyuFuiZha323Ya\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/ytn1EVI6c4haQjA5E0QYHw2dE3MkelNiojrpUwmRahLlK2BzpVP8R3dnAk5tPsF0\n"
                         },
                         {
                           "text": "✅ Compraquí: PASSED\n"
@@ -336,7 +336,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T15:42:20.534Z",
+                      "startTime": "2026-01-02T16:15:15.835Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -356,8 +356,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-02T15:39:32.990Z",
-    "duration": 209227.62699999998,
+    "startTime": "2026-01-02T16:12:26.468Z",
+    "duration": 211130.378,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
