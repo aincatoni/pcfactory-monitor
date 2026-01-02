@@ -2,6 +2,7 @@ name: PCFactory Monitor
 
 on:
   schedule:
+    # Categorías y delivery cada 10 minutos
     - cron: '*/10 * * * *'
   
   workflow_dispatch:
@@ -22,6 +23,14 @@ on:
         options:
           - 'true'
           - 'false'
+      run_login:
+        description: 'Ejecutar monitor de login'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 permissions:
   contents: write
@@ -29,20 +38,28 @@ permissions:
   id-token: write
 
 jobs:
+  # ============================================
+  # Monitor de Categorías (cada 10 min)
+  # ============================================
   monitor-categories:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    
     steps:
       - uses: actions/checkout@v4
+      
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
+      
       - name: Run category monitor
         run: python monitor.py --workers 5 --output-dir ./output
+      
       - name: Upload category results
         uses: actions/upload-artifact@v4
         with:
@@ -50,28 +67,32 @@ jobs:
           path: output/
           retention-days: 7
 
+  # ============================================
+  # Monitor de Delivery (cada 10 min)
+  # ============================================
   monitor-delivery:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    
     steps:
       - uses: actions/checkout@v4
+      
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
+      
       - name: Run delivery monitor
         run: |
           python delivery_monitor.py \
             --producto ${{ github.event.inputs.producto || '53880' }} \
             --total ${{ github.event.inputs.total || '554990' }} \
-            --workers 5 \
-            --output-dir ./output \
-            --ciudades ./data/ciudad.csv \
-            --comunas ./data/comuna.csv \
-            --relacion ./data/ciudad_comuna.csv
+            --output-dir ./output
+      
       - name: Upload delivery results
         uses: actions/upload-artifact@v4
         with:
@@ -79,134 +100,262 @@ jobs:
           path: output/
           retention-days: 7
 
+  # ============================================
+  # Verificar si toca correr Payments (3x día)
+  # ============================================
   check-payment-schedule:
     runs-on: ubuntu-latest
     outputs:
       should_run: ${{ steps.check.outputs.should_run }}
     steps:
-      - name: Check if payments should run
+      - name: Check if should run payments
         id: check
         run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.run_payments }}" == "true" ]]; then
+          HOUR=$(date -u +%H)
+          MINUTE=$(date -u +%M)
+          
+          # Correr a las 12:00, 17:00, 23:00 UTC (9am, 2pm, 8pm Chile)
+          # O cuando es ejecución manual con run_payments=true
+          if [[ "${{ github.event.inputs.run_payments }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.event_name }}" == "schedule" ]]; then
-            CURRENT_HOUR=$(date -u +%H)
-            CURRENT_MIN=$(date -u +%M)
-            if [[ "$CURRENT_HOUR" == "12" || "$CURRENT_HOUR" == "17" || "$CURRENT_HOUR" == "23" ]] && [[ "$CURRENT_MIN" -lt "15" ]]; then
-              echo "should_run=true" >> $GITHUB_OUTPUT
-            else
-              echo "should_run=false" >> $GITHUB_OUTPUT
-            fi
+            echo "Manual run requested"
+          elif [[ "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "10" ]]; then
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "Scheduled run at hour $HOUR"
           else
             echo "should_run=false" >> $GITHUB_OUTPUT
+            echo "Skipping payments (hour=$HOUR, minute=$MINUTE)"
           fi
 
-  monitor-payments:
-    needs: check-payment-schedule
+  # ============================================
+  # Verificar si toca correr Login (3x día)
+  # ============================================
+  check-login-schedule:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - name: Check if should run login
+        id: check
+        run: |
+          HOUR=$(date -u +%H)
+          MINUTE=$(date -u +%M)
+          
+          # Correr a las 12:00, 17:00, 23:00 UTC (9am, 2pm, 8pm Chile)
+          # O cuando es ejecución manual con run_login=true
+          if [[ "${{ github.event.inputs.run_login }}" == "true" ]]; then
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "Manual run requested"
+          elif [[ "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "10" ]]; then
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            echo "Scheduled run at hour $HOUR"
+          else
+            echo "should_run=false" >> $GITHUB_OUTPUT
+            echo "Skipping login (hour=$HOUR, minute=$MINUTE)"
+          fi
+
+  # ============================================
+  # Monitor de Medios de Pago (3x día)
+  # ============================================
+  monitor-payments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: check-payment-schedule
     if: needs.check-payment-schedule.outputs.should_run == 'true'
+    
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
-      - name: Install Playwright dependencies
-        working-directory: ./payments
-        run: |
-          npm install
-          npx playwright install chromium --with-deps
+          cache: 'npm'
+          cache-dependency-path: payments/package-lock.json
+      
+      - name: Install dependencies
+        working-directory: payments
+        run: npm ci || npm install
+      
+      - name: Install Playwright browsers
+        working-directory: payments
+        run: npx playwright install chromium --with-deps
+      
       - name: Run payment tests
-        working-directory: ./payments
-        run: npx playwright test || true
+        working-directory: payments
+        run: npm test
         continue-on-error: true
+      
+      - name: Setup Python for dashboard
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
       - name: Generate payment dashboard
         run: |
           python payment_dashboard.py \
             --results ./payments/test-results/payment-monitor-report.json \
             --output-dir ./output
+        continue-on-error: true
+      
       - name: Upload payment results
         uses: actions/upload-artifact@v4
         with:
           name: payment-results
           path: |
-            output/payments.html
-            output/payment_report.json
-            output/payment_history.json
+            output/
+            payments/test-results/
           retention-days: 7
 
-  deploy:
-    needs: [monitor-categories, monitor-delivery, monitor-payments]
+  # ============================================
+  # Monitor de Login (3x día)
+  # ============================================
+  monitor-login:
     runs-on: ubuntu-latest
-    if: always()
+    timeout-minutes: 15
+    needs: check-login-schedule
+    if: needs.check-login-schedule.outputs.should_run == 'true'
+    
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: login/package-lock.json
+      
+      - name: Install dependencies
+        working-directory: login
+        run: npm ci || npm install
+      
+      - name: Install Playwright browsers
+        working-directory: login
+        run: npx playwright install chromium --with-deps
+      
+      - name: Create test-results directory
+        working-directory: login
+        run: mkdir -p test-results/screenshots
+      
+      - name: Run login tests
+        working-directory: login
+        run: npm test
+        continue-on-error: true
+      
+      - name: Setup Python for dashboard
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Generate login dashboard
+        run: |
+          python login/scripts/login_dashboard.py \
+            --results ./login/test-results/login-monitor-report.json \
+            --output-dir ./output
+        continue-on-error: true
+      
+      - name: Upload login results
+        uses: actions/upload-artifact@v4
+        with:
+          name: login-results
+          path: |
+            output/
+            login/test-results/
+          retention-days: 7
+
+  # ============================================
+  # Deploy a GitHub Pages
+  # ============================================
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [monitor-categories, monitor-delivery, check-payment-schedule, check-login-schedule]
+    if: always() && (needs.monitor-categories.result == 'success' || needs.monitor-delivery.result == 'success')
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+        continue-on-error: true
+      
+      - name: Initialize gh-pages if needed
+        run: |
+          if [ ! -f index.html ]; then
+            echo "Initializing gh-pages branch"
+            git checkout --orphan gh-pages-temp || true
+            echo "<html><body><h1>PCFactory Monitor</h1></body></html>" > index.html
+            git add index.html
+            git commit -m "Initialize gh-pages" || true
+          fi
       
       - name: Download category results
         uses: actions/download-artifact@v4
         with:
           name: category-results
-          path: output/
+          path: ./new-results/
         continue-on-error: true
       
       - name: Download delivery results
         uses: actions/download-artifact@v4
         with:
           name: delivery-results
-          path: output/
+          path: ./new-results/
         continue-on-error: true
       
-      - name: Download payment results
+      - name: Download payment results if available
         uses: actions/download-artifact@v4
         with:
           name: payment-results
-          path: output/
+          path: ./new-results/
         continue-on-error: true
       
-      - name: Preserve existing payments.html from gh-pages
-        run: |
-          mkdir -p output
-          # Si no hay payments.html del artifact, intentar obtener el existente de gh-pages
-          if [ ! -f output/payments.html ]; then
-            echo "No hay payments.html nuevo, intentando preservar el existente..."
-            # Descargar el payments.html actual de gh-pages si existe
-            HTTP_STATUS=$(curl -s -o output/payments.html -w "%{http_code}" \
-              "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/payments.html" || echo "000")
-            
-            if [ "$HTTP_STATUS" = "200" ]; then
-              # Verificar que no sea el placeholder (el placeholder tiene menos de 2KB)
-              FILE_SIZE=$(stat -c%s output/payments.html 2>/dev/null || echo "0")
-              if [ "$FILE_SIZE" -gt 2000 ]; then
-                echo "✓ Preservado payments.html existente con datos ($FILE_SIZE bytes)"
-              else
-                echo "El archivo existente es el placeholder, creando uno nuevo..."
-                rm -f output/payments.html
-              fi
-            else
-              echo "No existe payments.html en gh-pages (HTTP $HTTP_STATUS)"
-              rm -f output/payments.html
-            fi
-          fi
-          
-          # Si aún no hay archivo, crear el placeholder
-          if [ ! -f output/payments.html ]; then
-            echo "Creando placeholder..."
-            echo '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PCFactory - Medios de Pago</title><style>:root{--bg:#0d1117;--text:#f0f6fc;--muted:#8b949e;--blue:#3b82f6;--border:#30363d}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}.container{text-align:center;padding:2rem}h1{font-size:2rem;margin-bottom:1rem}p{color:var(--muted);margin-bottom:2rem;line-height:1.6}.nav-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.nav-link{color:var(--blue);text-decoration:none;padding:.5rem 1rem;border:1px solid var(--border);border-radius:8px}.nav-link:hover{background:var(--border)}</style></head><body><div class="container"><h1>Monitor de Medios de Pago</h1><p>Corre 3 veces al dia: 9am, 2pm, 8pm Chile.<br>Manual: Actions - Run workflow - run_payments: true</p><div class="nav-links"><a href="index.html" class="nav-link">Categorias</a><a href="delivery.html" class="nav-link">Despacho</a></div></div></body></html>' > output/payments.html
-          fi
-          
-          echo "=== Contenido final de output/ ==="
-          ls -la output/
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Download login results if available
+        uses: actions/download-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output
-          keep_files: true
+          name: login-results
+          path: ./new-results/
+        continue-on-error: true
+      
+      - name: Merge results
+        run: |
+          # Copiar nuevos resultados
+          if [ -d "./new-results" ]; then
+            cp -r ./new-results/* ./ 2>/dev/null || true
+          fi
+          
+          # Crear placeholders solo si no existen los archivos
+          if [ ! -f "payments.html" ]; then
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Payments Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>💳 Medios de Pago</h1><p>El monitor de pagos se ejecuta 3 veces al día.</p><p>Próxima ejecución: 9am, 2pm, u 8pm (Chile)</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > payments.html
+          fi
+          
+          if [ ! -f "login.html" ]; then
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Login Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🔐 Login Monitor</h1><p>El monitor de login se ejecuta 3 veces al día.</p><p>Próxima ejecución: 9am, 2pm, u 8pm (Chile)</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > login.html
+          fi
+          
+          # Limpiar
+          rm -rf ./new-results
+          
+          # Listar archivos
+          echo "📁 Archivos en gh-pages:"
+          ls -la
+      
+      - name: Add navigation to dashboards
+        run: |
+          # Agregar botón de Login a los dashboards existentes si no lo tienen
+          for file in index.html delivery.html payments.html; do
+            if [ -f "$file" ] && ! grep -q "login.html" "$file"; then
+              # Agregar link de login antes del cierre de nav-buttons
+              sed -i 's|</nav>|<a href="login.html" class="nav-btn">🔐 Login</a></nav>|g' "$file" 2>/dev/null || true
+            fi
+          done
+      
+      - name: Commit and push
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Update dashboards - $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
