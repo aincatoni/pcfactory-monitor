@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2026-01-02T16:12:27.134Z",
+    "timestamp": "2026-01-02T17:01:03.815Z",
     "results": [
       {
         "paymentMethod": "Transferencia ETPay",
@@ -42,8 +42,8 @@
         ],
         "error": null,
         "gatewayReached": true,
-        "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/ytn1EVI6c4haQjA5E0QYHw2dE3MkelNiojrpUwmRahLlK2BzpVP8R3dnAk5tPsF0",
-        "duration": 25695
+        "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/Mb2KzUGmAxweKe5gXd2kCoHnDTVzcG0PZQ3FflzCyIDHs5yqQXSWjpoAKMu7BwGN",
+        "duration": 24258
       },
       {
         "paymentMethod": "Compraquí",
@@ -86,7 +86,7 @@
         "error": null,
         "gatewayReached": true,
         "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-        "duration": 25436
+        "duration": 24828
       },
       {
         "paymentMethod": "Mastercard Click to Pay",
@@ -129,7 +129,7 @@
         "error": null,
         "gatewayReached": true,
         "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-        "duration": 24745
+        "duration": 24642
       },
       {
         "paymentMethod": "Tarjeta de Débito (Webpay)",
@@ -172,7 +172,7 @@
         "error": null,
         "gatewayReached": true,
         "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-        "duration": 25135
+        "duration": 25208
       },
       {
         "paymentMethod": "Tarjeta de Crédito (Webpay)",
@@ -215,7 +215,7 @@
         "error": null,
         "gatewayReached": true,
         "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-        "duration": 25033
+        "duration": 24727
       }
     ],
     "summary": {
