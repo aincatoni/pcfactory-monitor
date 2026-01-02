@@ -241,6 +241,9 @@ jobs:
         working-directory: login
         run: npm test
         continue-on-error: true
+        env:
+          PCFACTORY_RUT: ${{ secrets.PCFACTORY_RUT }}
+          PCFACTORY_PASSWORD: ${{ secrets.PCFACTORY_PASSWORD }}
       
       - name: Setup Python for dashboard
         uses: actions/setup-python@v5

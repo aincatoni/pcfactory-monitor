@@ -5,43 +5,54 @@ const { test, expect } = require('@playwright/test');
  * PCFactory Login Monitor
  * 
  * Este test verifica que el sistema de login de PCFactory está funcionando correctamente.
- * Prueba múltiples aspectos del flujo de autenticación.
+ * Usa GitHub Secrets para las credenciales (PCFACTORY_RUT y PCFACTORY_PASSWORD).
+ * 
+ * Flujo:
+ * 1. Ir a pcfactory.cl
+ * 2. Hacer hover en "Hola, ingresa" para abrir dropdown
+ * 3. Click en "Inicia sesión"
+ * 4. Llenar RUT y Contraseña
+ * 5. Click en botón de login
+ * 6. Verificar que el login fue exitoso
  */
 
 const CONFIG = {
-  loginUrl: 'https://www.pcfactory.cl/login',
   baseUrl: 'https://www.pcfactory.cl',
   
-  // Credenciales de prueba (inválidas - solo para verificar que el sistema responde)
-  testCredentials: {
-    email: 'test.monitor@example.com',
-    password: 'TestPassword123!'
+  // Credenciales desde variables de entorno (GitHub Secrets)
+  credentials: {
+    rut: process.env.PCFACTORY_RUT || '',
+    password: process.env.PCFACTORY_PASSWORD || ''
   },
   
   // Timeouts
   navigationTimeout: 30000,
-  actionTimeout: 10000,
+  actionTimeout: 15000,
   
-  // Selectores (pueden necesitar ajustes según cambios en la web)
+  // Selectores basados en el análisis del DOM
   selectors: {
-    // Campos del formulario
-    emailInput: 'input[type="email"], input[name="email"], input[placeholder*="correo" i], input[placeholder*="email" i], #email',
-    passwordInput: 'input[type="password"], input[name="password"], #password',
-    loginButton: 'button[type="submit"], button:has-text("Iniciar sesión"), button:has-text("Ingresar"), .btn-login',
+    // Dropdown de login en header
+    loginDropdownButton: 'button#login-dropdown',
+    loginDropdownToggle: '.dropdown-toggle[data-toggle="dropdown"]',
+    loginDropdownMenu: '.dropdown-menu[aria-labelledby="login-dropdown"]',
     
-    // Opciones de login social
-    googleLogin: 'button:has-text("Google"), a:has-text("Google"), .google-login, [data-provider="google"]',
-    facebookLogin: 'button:has-text("Facebook"), a:has-text("Facebook"), .facebook-login, [data-provider="facebook"]',
+    // Link "Inicia sesión" en el dropdown
+    iniciarSesionLink: 'a.dropdown-item[href*="login"]',
     
-    // Elementos de la página
-    loginForm: 'form, .login-form, .form-login, [class*="login"]',
-    errorMessage: '.error, .alert-error, .error-message, [class*="error"], [role="alert"]',
-    forgotPassword: 'a:has-text("Olvidaste"), a:has-text("Recuperar"), a[href*="recuperar"], a[href*="forgot"]',
-    registerLink: 'a:has-text("Regístrate"), a:has-text("Crear cuenta"), a[href*="registro"], a[href*="register"]',
+    // Página de login (auth.pcfactory.cl)
+    rutInput: 'input#username, input[name="username"]',
+    passwordInput: 'input#password, input[name="password"]',
+    submitButton: 'button[type="submit"], input[type="submit"], #kc-login',
     
-    // Usuario logueado
-    userMenu: '.user-menu, .mi-cuenta, [class*="user"], [class*="account"]',
-    userName: '.user-name, .nombre-usuario'
+    // Verificación de login exitoso
+    userLoggedIn: '.user-name, .nombre-usuario, [data-content-name*="Hola"]',
+    miCuentaLink: 'a[href*="mi-cuenta"], a[href*="micuenta"]',
+    
+    // Mensajes de error
+    errorMessage: '.alert-error, .error-message, .kc-feedback-text, [class*="error"]',
+    
+    // Olvidé contraseña
+    forgotPasswordLink: 'a:has-text("Olvidaste"), a:has-text("olvidaste")'
   }
 };
 
@@ -57,18 +68,11 @@ test.describe('PCFactory Login Monitor', () => {
     // Configurar timeouts
     page.setDefaultTimeout(CONFIG.actionTimeout);
     page.setDefaultNavigationTimeout(CONFIG.navigationTimeout);
-    
-    // Interceptar errores de consola
-    page.on('console', msg => {
-      if (msg.type() === 'error') {
-        console.log(`Console error: ${msg.text()}`);
-      }
-    });
   });
 
-  test('1. Página de login carga correctamente', async ({ page }) => {
+  test('1. Página principal carga correctamente', async ({ page }) => {
     const testResult = {
-      name: 'Carga de página',
+      name: 'Carga página principal',
       status: 'pending',
       duration: 0,
       details: {}
@@ -76,36 +80,32 @@ test.describe('PCFactory Login Monitor', () => {
     const startTime = Date.now();
     
     try {
-      // Navegar a la página de login
-      const response = await page.goto(CONFIG.loginUrl, {
+      const response = await page.goto(CONFIG.baseUrl, {
         waitUntil: 'domcontentloaded'
       });
       
-      // Verificar respuesta HTTP
       const status = response?.status() || 0;
       testResult.details.httpStatus = status;
       
       expect(status).toBeLessThan(400);
       
-      // Verificar que la página tiene contenido
-      const title = await page.title();
-      testResult.details.pageTitle = title;
+      // Esperar que cargue el header
+      await page.waitForSelector('header, .navbar, nav', { timeout: 10000 });
       
-      // Tomar screenshot
       await page.screenshot({ 
-        path: 'test-results/screenshots/01-login-page.png',
-        fullPage: true 
+        path: 'test-results/screenshots/01-homepage.png',
+        fullPage: false 
       });
       
       testResult.status = 'passed';
-      testResult.details.message = 'Página de login cargó correctamente';
+      testResult.details.message = 'Página principal cargó correctamente';
       
     } catch (error) {
       testResult.status = 'failed';
       testResult.details.error = error.message;
       await page.screenshot({ 
-        path: 'test-results/screenshots/01-login-page-error.png',
-        fullPage: true 
+        path: 'test-results/screenshots/01-homepage-error.png',
+        fullPage: false 
       });
       throw error;
     } finally {
@@ -114,9 +114,9 @@ test.describe('PCFactory Login Monitor', () => {
     }
   });
 
-  test('2. Formulario de login está presente', async ({ page }) => {
+  test('2. Dropdown de login se despliega', async ({ page }) => {
     const testResult = {
-      name: 'Formulario presente',
+      name: 'Dropdown de login',
       status: 'pending',
       duration: 0,
       details: {}
@@ -124,41 +124,47 @@ test.describe('PCFactory Login Monitor', () => {
     const startTime = Date.now();
     
     try {
-      await page.goto(CONFIG.loginUrl, { waitUntil: 'domcontentloaded' });
-      
-      // Esperar que cargue el contenido
+      await page.goto(CONFIG.baseUrl, { waitUntil: 'domcontentloaded' });
       await page.waitForTimeout(2000);
       
-      // Buscar campo de email
-      const emailField = await page.locator(CONFIG.selectors.emailInput).first();
-      const emailVisible = await emailField.isVisible().catch(() => false);
-      testResult.details.emailFieldFound = emailVisible;
+      // Buscar el botón de login dropdown
+      const loginButton = page.locator('button#login-dropdown, .login-btn, [data-toggle="dropdown"]:has-text("Hola")').first();
       
-      // Buscar campo de password
-      const passwordField = await page.locator(CONFIG.selectors.passwordInput).first();
-      const passwordVisible = await passwordField.isVisible().catch(() => false);
-      testResult.details.passwordFieldFound = passwordVisible;
+      // Verificar que existe
+      await expect(loginButton).toBeVisible({ timeout: 10000 });
+      testResult.details.dropdownButtonFound = true;
       
-      // Buscar botón de login
-      const loginBtn = await page.locator(CONFIG.selectors.loginButton).first();
-      const loginBtnVisible = await loginBtn.isVisible().catch(() => false);
-      testResult.details.loginButtonFound = loginBtnVisible;
+      // Hacer click para abrir el dropdown
+      await loginButton.click();
+      await page.waitForTimeout(500);
       
-      // Screenshot del formulario
+      // Verificar que el dropdown se abrió
+      const dropdown = page.locator('.dropdown-menu.show, .dropdown.show .dropdown-menu').first();
+      const isDropdownVisible = await dropdown.isVisible().catch(() => false);
+      testResult.details.dropdownOpened = isDropdownVisible;
+      
       await page.screenshot({ 
-        path: 'test-results/screenshots/02-login-form.png',
-        fullPage: true 
+        path: 'test-results/screenshots/02-dropdown-open.png',
+        fullPage: false 
       });
       
-      // Verificar que al menos tenemos los campos básicos
-      expect(emailVisible || passwordVisible).toBeTruthy();
+      // Buscar link "Inicia sesión"
+      const iniciarSesionLink = page.locator('a.dropdown-item:has-text("Inicia sesión"), a:has-text("Inicia sesión")').first();
+      const linkVisible = await iniciarSesionLink.isVisible().catch(() => false);
+      testResult.details.iniciarSesionLinkFound = linkVisible;
+      
+      expect(linkVisible).toBeTruthy();
       
       testResult.status = 'passed';
-      testResult.details.message = 'Formulario de login encontrado';
+      testResult.details.message = 'Dropdown de login funciona correctamente';
       
     } catch (error) {
       testResult.status = 'failed';
       testResult.details.error = error.message;
+      await page.screenshot({ 
+        path: 'test-results/screenshots/02-dropdown-error.png',
+        fullPage: false 
+      });
       throw error;
     } finally {
       testResult.duration = Date.now() - startTime;
@@ -166,9 +172,9 @@ test.describe('PCFactory Login Monitor', () => {
     }
   });
 
-  test('3. Opciones de login social presentes', async ({ page }) => {
+  test('3. Navegación a página de login', async ({ page }) => {
     const testResult = {
-      name: 'Login social',
+      name: 'Navegar a login',
       status: 'pending',
       duration: 0,
       details: {}
@@ -176,31 +182,51 @@ test.describe('PCFactory Login Monitor', () => {
     const startTime = Date.now();
     
     try {
-      await page.goto(CONFIG.loginUrl, { waitUntil: 'domcontentloaded' });
+      await page.goto(CONFIG.baseUrl, { waitUntil: 'domcontentloaded' });
       await page.waitForTimeout(2000);
       
-      // Buscar botón de Google
-      const googleBtn = await page.locator(CONFIG.selectors.googleLogin).first();
-      const googleVisible = await googleBtn.isVisible().catch(() => false);
-      testResult.details.googleLoginFound = googleVisible;
+      // Abrir dropdown
+      const loginButton = page.locator('button#login-dropdown, .login-btn, [data-toggle="dropdown"]:has-text("Hola")').first();
+      await loginButton.click();
+      await page.waitForTimeout(500);
       
-      // Buscar botón de Facebook
-      const facebookBtn = await page.locator(CONFIG.selectors.facebookLogin).first();
-      const facebookVisible = await facebookBtn.isVisible().catch(() => false);
-      testResult.details.facebookLoginFound = facebookVisible;
+      // Click en "Inicia sesión"
+      const iniciarSesionLink = page.locator('a.dropdown-item:has-text("Inicia sesión"), a:has-text("Inicia sesión")').first();
       
-      // Screenshot
+      // Esperar navegación al hacer click
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),
+        iniciarSesionLink.click()
+      ]);
+      
+      await page.waitForTimeout(2000);
+      
+      // Verificar que llegamos a la página de login
+      const currentUrl = page.url();
+      testResult.details.navigatedTo = currentUrl;
+      
+      const isLoginPage = currentUrl.includes('auth.pcfactory.cl') || 
+                          currentUrl.includes('login') ||
+                          currentUrl.includes('openid-connect');
+      testResult.details.isLoginPage = isLoginPage;
+      
       await page.screenshot({ 
-        path: 'test-results/screenshots/03-social-login.png',
-        fullPage: true 
+        path: 'test-results/screenshots/03-login-page.png',
+        fullPage: false 
       });
       
+      expect(isLoginPage).toBeTruthy();
+      
       testResult.status = 'passed';
-      testResult.details.message = `Google: ${googleVisible ? 'Sí' : 'No'}, Facebook: ${facebookVisible ? 'Sí' : 'No'}`;
+      testResult.details.message = 'Navegación a página de login exitosa';
       
     } catch (error) {
       testResult.status = 'failed';
       testResult.details.error = error.message;
+      await page.screenshot({ 
+        path: 'test-results/screenshots/03-login-page-error.png',
+        fullPage: false 
+      });
       throw error;
     } finally {
       testResult.duration = Date.now() - startTime;
@@ -208,9 +234,9 @@ test.describe('PCFactory Login Monitor', () => {
     }
   });
 
-  test('4. Sistema responde a intento de login', async ({ page }) => {
+  test('4. Formulario de login presente', async ({ page }) => {
     const testResult = {
-      name: 'Respuesta del sistema',
+      name: 'Formulario de login',
       status: 'pending',
       duration: 0,
       details: {}
@@ -218,81 +244,157 @@ test.describe('PCFactory Login Monitor', () => {
     const startTime = Date.now();
     
     try {
-      await page.goto(CONFIG.loginUrl, { waitUntil: 'domcontentloaded' });
+      await page.goto(CONFIG.baseUrl, { waitUntil: 'domcontentloaded' });
       await page.waitForTimeout(2000);
       
-      // Intentar llenar el formulario
-      const emailField = await page.locator(CONFIG.selectors.emailInput).first();
-      const passwordField = await page.locator(CONFIG.selectors.passwordInput).first();
+      // Navegar a login
+      const loginButton = page.locator('button#login-dropdown, .login-btn, [data-toggle="dropdown"]:has-text("Hola")').first();
+      await loginButton.click();
+      await page.waitForTimeout(500);
       
-      if (await emailField.isVisible().catch(() => false)) {
-        await emailField.fill(CONFIG.testCredentials.email);
-        testResult.details.emailFilled = true;
-      }
+      const iniciarSesionLink = page.locator('a.dropdown-item:has-text("Inicia sesión"), a:has-text("Inicia sesión")').first();
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),
+        iniciarSesionLink.click()
+      ]);
       
-      if (await passwordField.isVisible().catch(() => false)) {
-        await passwordField.fill(CONFIG.testCredentials.password);
-        testResult.details.passwordFilled = true;
-      }
+      await page.waitForTimeout(3000);
       
-      // Screenshot antes de enviar
+      // Verificar campos del formulario
+      const rutInput = page.locator('input#username, input[name="username"]').first();
+      const passwordInput = page.locator('input#password, input[name="password"]').first();
+      
+      const rutVisible = await rutInput.isVisible({ timeout: 10000 }).catch(() => false);
+      const passwordVisible = await passwordInput.isVisible({ timeout: 5000 }).catch(() => false);
+      
+      testResult.details.rutInputFound = rutVisible;
+      testResult.details.passwordInputFound = passwordVisible;
+      
       await page.screenshot({ 
-        path: 'test-results/screenshots/04-before-submit.png',
-        fullPage: true 
+        path: 'test-results/screenshots/04-login-form.png',
+        fullPage: false 
       });
       
-      // Buscar y hacer clic en el botón de login
-      const loginBtn = await page.locator(CONFIG.selectors.loginButton).first();
+      expect(rutVisible && passwordVisible).toBeTruthy();
       
-      if (await loginBtn.isVisible().catch(() => false)) {
-        // Interceptar la respuesta del servidor
-        const responsePromise = page.waitForResponse(
-          response => response.url().includes('login') || response.url().includes('auth'),
-          { timeout: 15000 }
-        ).catch(() => null);
-        
-        await loginBtn.click();
-        testResult.details.loginButtonClicked = true;
-        
-        // Esperar respuesta o timeout
-        const response = await responsePromise;
-        if (response) {
-          testResult.details.serverResponseStatus = response.status();
-          testResult.details.serverResponded = true;
+      testResult.status = 'passed';
+      testResult.details.message = 'Formulario de login está presente y funcional';
+      
+    } catch (error) {
+      testResult.status = 'failed';
+      testResult.details.error = error.message;
+      await page.screenshot({ 
+        path: 'test-results/screenshots/04-login-form-error.png',
+        fullPage: false 
+      });
+      throw error;
+    } finally {
+      testResult.duration = Date.now() - startTime;
+      results.tests.push(testResult);
+    }
+  });
+
+  test('5. Login con credenciales', async ({ page }) => {
+    const testResult = {
+      name: 'Login con credenciales',
+      status: 'pending',
+      duration: 0,
+      details: {}
+    };
+    const startTime = Date.now();
+    
+    // Verificar si hay credenciales configuradas
+    if (!CONFIG.credentials.rut || !CONFIG.credentials.password) {
+      testResult.status = 'warning';
+      testResult.details.message = 'Credenciales no configuradas (PCFACTORY_RUT y PCFACTORY_PASSWORD)';
+      testResult.details.skipped = true;
+      testResult.duration = Date.now() - startTime;
+      results.tests.push(testResult);
+      test.skip();
+      return;
+    }
+    
+    try {
+      await page.goto(CONFIG.baseUrl, { waitUntil: 'domcontentloaded' });
+      await page.waitForTimeout(2000);
+      
+      // Navegar a login
+      const loginButton = page.locator('button#login-dropdown, .login-btn, [data-toggle="dropdown"]:has-text("Hola")').first();
+      await loginButton.click();
+      await page.waitForTimeout(500);
+      
+      const iniciarSesionLink = page.locator('a.dropdown-item:has-text("Inicia sesión"), a:has-text("Inicia sesión")').first();
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),
+        iniciarSesionLink.click()
+      ]);
+      
+      await page.waitForTimeout(3000);
+      
+      // Llenar formulario
+      const rutInput = page.locator('input#username, input[name="username"]').first();
+      const passwordInput = page.locator('input#password, input[name="password"]').first();
+      
+      await rutInput.fill(CONFIG.credentials.rut);
+      testResult.details.rutFilled = true;
+      
+      await passwordInput.fill(CONFIG.credentials.password);
+      testResult.details.passwordFilled = true;
+      
+      await page.screenshot({ 
+        path: 'test-results/screenshots/05-credentials-filled.png',
+        fullPage: false 
+      });
+      
+      // Buscar y hacer click en el botón de submit
+      const submitButton = page.locator('button[type="submit"], input[type="submit"], #kc-login, button:has-text("Iniciar sesión"), button:has-text("Ingresar")').first();
+      
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 30000 }).catch(() => {}),
+        submitButton.click()
+      ]);
+      
+      await page.waitForTimeout(5000);
+      
+      // Verificar resultado del login
+      const currentUrl = page.url();
+      testResult.details.redirectedTo = currentUrl;
+      
+      // Verificar si volvimos a PCFactory (login exitoso)
+      const loginSuccess = currentUrl.includes('pcfactory.cl') && !currentUrl.includes('auth.');
+      
+      // También verificar si hay algún elemento que indique usuario logueado
+      const userElement = page.locator('[data-content-name*="Hola"], .user-logged, .mi-cuenta').first();
+      const isLoggedIn = await userElement.isVisible().catch(() => false);
+      
+      testResult.details.loginSuccess = loginSuccess || isLoggedIn;
+      
+      await page.screenshot({ 
+        path: 'test-results/screenshots/05-after-login.png',
+        fullPage: false 
+      });
+      
+      // Si hay error, verificar el mensaje
+      if (!loginSuccess && !isLoggedIn) {
+        const errorElement = page.locator('.alert-error, .kc-feedback-text, [class*="error"]').first();
+        const errorVisible = await errorElement.isVisible().catch(() => false);
+        if (errorVisible) {
+          const errorText = await errorElement.textContent().catch(() => '');
+          testResult.details.errorMessage = errorText;
         }
-        
-        // Esperar un momento para ver el resultado
-        await page.waitForTimeout(3000);
-        
-        // Verificar si hay mensaje de error (esperado con credenciales inválidas)
-        const errorMsg = await page.locator(CONFIG.selectors.errorMessage).first();
-        const hasError = await errorMsg.isVisible().catch(() => false);
-        
-        if (hasError) {
-          const errorText = await errorMsg.textContent().catch(() => '');
-          testResult.details.errorMessageShown = true;
-          testResult.details.errorText = errorText?.substring(0, 100);
-        }
-        
-        // Screenshot después del intento
-        await page.screenshot({ 
-          path: 'test-results/screenshots/04-after-submit.png',
-          fullPage: true 
-        });
-        
-        testResult.status = 'passed';
-        testResult.details.message = 'Sistema respondió al intento de login';
-      } else {
-        testResult.status = 'warning';
-        testResult.details.message = 'No se encontró botón de login';
       }
+      
+      expect(loginSuccess || isLoggedIn).toBeTruthy();
+      
+      testResult.status = 'passed';
+      testResult.details.message = 'Login exitoso';
       
     } catch (error) {
       testResult.status = 'failed';
       testResult.details.error = error.message;
       await page.screenshot({ 
-        path: 'test-results/screenshots/04-error.png',
-        fullPage: true 
+        path: 'test-results/screenshots/05-login-error.png',
+        fullPage: false 
       });
       throw error;
     } finally {
@@ -301,9 +403,9 @@ test.describe('PCFactory Login Monitor', () => {
     }
   });
 
-  test('5. Link de recuperar contraseña funciona', async ({ page }) => {
+  test('6. Link olvidé contraseña funciona', async ({ page }) => {
     const testResult = {
-      name: 'Recuperar contraseña',
+      name: 'Olvidé contraseña',
       status: 'pending',
       duration: 0,
       details: {}
@@ -311,93 +413,50 @@ test.describe('PCFactory Login Monitor', () => {
     const startTime = Date.now();
     
     try {
-      await page.goto(CONFIG.loginUrl, { waitUntil: 'domcontentloaded' });
+      await page.goto(CONFIG.baseUrl, { waitUntil: 'domcontentloaded' });
       await page.waitForTimeout(2000);
       
-      // Buscar link de recuperar contraseña
-      const forgotLink = await page.locator(CONFIG.selectors.forgotPassword).first();
+      // Navegar a login
+      const loginButton = page.locator('button#login-dropdown, .login-btn, [data-toggle="dropdown"]:has-text("Hola")').first();
+      await loginButton.click();
+      await page.waitForTimeout(500);
+      
+      const iniciarSesionLink = page.locator('a.dropdown-item:has-text("Inicia sesión"), a:has-text("Inicia sesión")').first();
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),
+        iniciarSesionLink.click()
+      ]);
+      
+      await page.waitForTimeout(3000);
+      
+      // Buscar link de olvidé contraseña
+      const forgotLink = page.locator('a:has-text("Olvidaste"), a:has-text("olvidaste"), a[href*="forgot"]').first();
       const linkVisible = await forgotLink.isVisible().catch(() => false);
-      testResult.details.forgotPasswordLinkFound = linkVisible;
+      testResult.details.forgotLinkFound = linkVisible;
       
       if (linkVisible) {
         const href = await forgotLink.getAttribute('href').catch(() => '');
-        testResult.details.forgotPasswordUrl = href;
+        testResult.details.forgotLinkHref = href;
         
-        // Hacer clic y verificar navegación
-        await forgotLink.click();
-        await page.waitForTimeout(2000);
-        
-        const newUrl = page.url();
-        testResult.details.navigatedTo = newUrl;
-        
-        // Screenshot de la página de recuperación
         await page.screenshot({ 
-          path: 'test-results/screenshots/05-forgot-password.png',
-          fullPage: true 
+          path: 'test-results/screenshots/06-forgot-password.png',
+          fullPage: false 
         });
         
         testResult.status = 'passed';
-        testResult.details.message = 'Link de recuperar contraseña funciona';
+        testResult.details.message = 'Link de recuperar contraseña encontrado';
       } else {
         testResult.status = 'warning';
-        testResult.details.message = 'No se encontró link de recuperar contraseña';
+        testResult.details.message = 'Link de recuperar contraseña no encontrado';
       }
       
     } catch (error) {
       testResult.status = 'failed';
       testResult.details.error = error.message;
-      throw error;
-    } finally {
-      testResult.duration = Date.now() - startTime;
-      results.tests.push(testResult);
-    }
-  });
-
-  test('6. Link de registro funciona', async ({ page }) => {
-    const testResult = {
-      name: 'Link de registro',
-      status: 'pending',
-      duration: 0,
-      details: {}
-    };
-    const startTime = Date.now();
-    
-    try {
-      await page.goto(CONFIG.loginUrl, { waitUntil: 'domcontentloaded' });
-      await page.waitForTimeout(2000);
-      
-      // Buscar link de registro
-      const registerLink = await page.locator(CONFIG.selectors.registerLink).first();
-      const linkVisible = await registerLink.isVisible().catch(() => false);
-      testResult.details.registerLinkFound = linkVisible;
-      
-      if (linkVisible) {
-        const href = await registerLink.getAttribute('href').catch(() => '');
-        testResult.details.registerUrl = href;
-        
-        // Hacer clic y verificar navegación
-        await registerLink.click();
-        await page.waitForTimeout(2000);
-        
-        const newUrl = page.url();
-        testResult.details.navigatedTo = newUrl;
-        
-        // Screenshot de la página de registro
-        await page.screenshot({ 
-          path: 'test-results/screenshots/06-register.png',
-          fullPage: true 
-        });
-        
-        testResult.status = 'passed';
-        testResult.details.message = 'Link de registro funciona';
-      } else {
-        testResult.status = 'warning';
-        testResult.details.message = 'No se encontró link de registro';
-      }
-      
-    } catch (error) {
-      testResult.status = 'failed';
-      testResult.details.error = error.message;
+      await page.screenshot({ 
+        path: 'test-results/screenshots/06-forgot-password-error.png',
+        fullPage: false 
+      });
       throw error;
     } finally {
       testResult.duration = Date.now() - startTime;
@@ -419,13 +478,14 @@ test.describe('PCFactory Login Monitor', () => {
     const passed = results.tests.filter(t => t.status === 'passed').length;
     const failed = results.tests.filter(t => t.status === 'failed').length;
     const warnings = results.tests.filter(t => t.status === 'warning').length;
+    const total = results.tests.length;
     
     results.summary = {
-      total: results.tests.length,
+      total,
       passed,
       failed,
       warnings,
-      successRate: Math.round((passed / results.tests.length) * 100)
+      successRate: total > 0 ? Math.round((passed / total) * 100) : 0
     };
     
     // Determinar estado general

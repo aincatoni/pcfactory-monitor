@@ -2,12 +2,13 @@
 """
 PCFactory Login Monitor - Generador de Dashboard
 Genera un dashboard HTML con los resultados del monitoreo de login.
+Estilos homologados con el dashboard de categorías.
 """
 
 import json
 import sys
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 def load_results(results_path):
@@ -51,14 +52,14 @@ def get_status_icon(status):
 def get_status_class(status):
     """Retorna la clase CSS según el estado."""
     classes = {
-        'ok': 'status-ok',
-        'passed': 'status-ok',
-        'error': 'status-error',
-        'failed': 'status-error',
-        'warning': 'status-warning',
-        'pending': 'status-pending'
+        'ok': 'green',
+        'passed': 'green',
+        'error': 'red',
+        'failed': 'red',
+        'warning': 'yellow',
+        'pending': 'blue'
     }
-    return classes.get(status, 'status-unknown')
+    return classes.get(status, '')
 
 def format_duration(ms):
     """Formatea la duración en formato legible."""
@@ -70,23 +71,60 @@ def format_duration(ms):
         return f"{ms/60000:.1f}min"
 
 def generate_html(results, history):
-    """Genera el HTML del dashboard."""
+    """Genera el HTML del dashboard con estilos del dashboard de categorías."""
     
     timestamp = results.get('timestamp', datetime.now().isoformat())
     tests = results.get('tests', [])
     summary = results.get('summary', {})
-    overall_status = results.get('overallStatus', 'unknown')
+    overall_status = results.get('overallStatus', 'pending')
+    
+    # Formatear timestamp para mostrar
+    try:
+        dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+        timestamp_display = dt.strftime('%d/%m/%Y %H:%M:%S') + ' UTC'
+    except:
+        timestamp_display = timestamp[:19] if timestamp else 'N/A'
     
     # Calcular uptime de las últimas 24 horas
-    recent_runs = [r for r in history.get('runs', []) 
-                   if datetime.fromisoformat(r.get('timestamp', '2000-01-01').replace('Z', '+00:00')) 
-                   > datetime.now().astimezone() - __import__('datetime').timedelta(hours=24)]
+    recent_runs = []
+    now = datetime.now().astimezone()
+    for r in history.get('runs', []):
+        try:
+            run_time = datetime.fromisoformat(r.get('timestamp', '2000-01-01').replace('Z', '+00:00'))
+            if run_time > now - timedelta(hours=24):
+                recent_runs.append(r)
+        except:
+            pass
     
     if recent_runs:
         ok_runs = len([r for r in recent_runs if r.get('status') == 'ok'])
         uptime_24h = (ok_runs / len(recent_runs)) * 100
     else:
         uptime_24h = 100 if overall_status == 'ok' else 0
+    
+    # Determinar estado y colores
+    passed = summary.get('passed', 0)
+    total = summary.get('total', 0)
+    failed = summary.get('failed', 0)
+    
+    if overall_status == 'ok' or (total > 0 and failed == 0):
+        status_class = 'healthy'
+        status_text = 'Login Operativo'
+        status_color = 'var(--accent-green)'
+    elif overall_status == 'warning' or (total > 0 and failed < total):
+        status_class = 'warning'
+        status_text = 'Login con Advertencias'
+        status_color = 'var(--accent-yellow)'
+    else:
+        status_class = 'critical'
+        status_text = 'Login con Problemas'
+        status_color = 'var(--accent-red)'
+    
+    # Si no hay datos, mostrar estado pendiente
+    if total == 0:
+        status_class = 'warning'
+        status_text = 'Sin datos de monitoreo'
+        status_color = 'var(--accent-yellow)'
     
     # Generar filas de tests
     test_rows = ""
@@ -97,18 +135,23 @@ def generate_html(results, history):
         details = test.get('details', {})
         message = details.get('message', details.get('error', ''))
         
+        status_badge_class = get_status_class(status)
+        
         test_rows += f"""
-        <tr>
-            <td class="test-name">{name}</td>
-            <td class="{get_status_class(status)}">{get_status_icon(status)} {status.upper()}</td>
-            <td>{format_duration(duration)}</td>
-            <td class="test-details">{message[:100] if message else '-'}</td>
-        </tr>
+                <tr>
+                    <td><span class="badge badge-id">{name}</span></td>
+                    <td><span class="stat-value {status_badge_class}" style="font-size: 0.875rem;">{get_status_icon(status)} {status.upper()}</span></td>
+                    <td><span class="badge">{format_duration(duration)}</span></td>
+                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{message[:80] if message else '-'}</td>
+                </tr>
         """
+    
+    if not test_rows:
+        test_rows = '<tr><td colspan="4" class="empty-state">Sin datos de tests</td></tr>'
     
     # Generar historial reciente
     history_rows = ""
-    for run in reversed(history.get('runs', [])[-20:]):
+    for run in reversed(history.get('runs', [])[-15:]):
         run_time = run.get('timestamp', '')
         run_status = run.get('status', 'unknown')
         run_passed = run.get('passed', 0)
@@ -118,304 +161,321 @@ def generate_html(results, history):
             dt = datetime.fromisoformat(run_time.replace('Z', '+00:00'))
             formatted_time = dt.strftime('%d/%m %H:%M')
         except:
-            formatted_time = run_time[:16]
+            formatted_time = run_time[:16] if run_time else 'N/A'
+        
+        status_badge_class = get_status_class(run_status)
         
         history_rows += f"""
-        <tr>
-            <td>{formatted_time}</td>
-            <td class="{get_status_class(run_status)}">{get_status_icon(run_status)}</td>
-            <td>{run_passed}/{run_total}</td>
-        </tr>
+                <tr>
+                    <td>{formatted_time}</td>
+                    <td><span class="stat-value {status_badge_class}" style="font-size: 0.875rem;">{get_status_icon(run_status)}</span></td>
+                    <td><span class="badge badge-id">{run_passed}/{run_total}</span></td>
+                </tr>
         """
     
-    html = f"""<!DOCTYPE html>
+    if not history_rows:
+        history_rows = '<tr><td colspan="3" class="empty-state">Sin historial</td></tr>'
+    
+    # Calcular health score
+    health_score = summary.get('successRate', 0)
+    
+    html = f'''<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCFactory Login Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {{
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-hover: #22222e;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            --border: #27272a;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Space Grotesk', sans-serif;
         }}
-        
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #e0e0e0;
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
             min-height: 100vh;
-            padding: 20px;
+            line-height: 1.6;
         }}
-        
-        .container {{
-            max-width: 1200px;
-            margin: 0 auto;
-        }}
-        
-        header {{
-            text-align: center;
-            margin-bottom: 30px;
-        }}
-        
-        h1 {{
-            font-size: 2rem;
-            color: #fff;
-            margin-bottom: 10px;
-        }}
-        
-        .nav-buttons {{
+        .container {{ max-width: 1400px; margin: 0 auto; padding: 2rem; }}
+        .header {{
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
         }}
-        
-        .nav-btn {{
-            padding: 10px 20px;
-            background: #2d3748;
-            color: #e0e0e0;
-            text-decoration: none;
+        .logo {{ display: flex; align-items: center; gap: 1rem; }}
+        .logo-icon img {{
+            max-width: 48px;
+        }}
+        .logo-text h1 {{ font-size: 1.5rem; font-weight: 700; }}
+        .logo-text span {{ font-size: 0.875rem; color: var(--text-muted); }}
+        .timestamp {{
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
             border-radius: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border: 1px solid #4a5568;
+            border: 1px solid var(--border);
         }}
-        
-        .nav-btn:hover {{
-            background: #4a5568;
-            transform: translateY(-2px);
-        }}
-        
-        .nav-btn.active {{
-            background: #9f7aea;
-            border-color: #9f7aea;
-            color: #fff;
-        }}
-        
         .status-banner {{
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.5rem;
-            font-weight: bold;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }}
-        
-        .status-banner.ok {{
-            background: linear-gradient(135deg, #22543d 0%, #276749 100%);
-            border: 2px solid #48bb78;
+        .status-banner.critical {{ border-color: var(--accent-red); background: rgba(239, 68, 68, 0.1); }}
+        .status-banner.warning {{ border-color: var(--accent-yellow); background: rgba(245, 158, 11, 0.1); }}
+        .status-banner.healthy {{ border-color: var(--accent-green); background: rgba(16, 185, 129, 0.1); }}
+        .status-indicator {{
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }}
-        
-        .status-banner.error {{
-            background: linear-gradient(135deg, #742a2a 0%, #9b2c2c 100%);
-            border: 2px solid #fc8181;
-        }}
-        
-        .status-banner.warning {{
-            background: linear-gradient(135deg, #744210 0%, #975a16 100%);
-            border: 2px solid #f6ad55;
-        }}
-        
+        .status-banner.critical .status-indicator {{ background: var(--accent-red); }}
+        .status-banner.warning .status-indicator {{ background: var(--accent-yellow); }}
+        .status-banner.healthy .status-indicator {{ background: var(--accent-green); }}
+        @keyframes pulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.5; }} }}
+        .status-text {{ font-size: 1.125rem; font-weight: 600; }}
         .stats-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }}
-        
         .stat-card {{
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            transition: all 0.2s ease;
         }}
-        
-        .stat-value {{
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #fff;
-        }}
-        
+        .stat-card:hover {{ background: var(--bg-hover); transform: translateY(-2px); }}
         .stat-label {{
-            font-size: 0.9rem;
-            color: #a0aec0;
-            margin-top: 5px;
-        }}
-        
-        .card {{
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }}
-        
-        .card h2 {{
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }}
-        
-        table {{
-            width: 100%;
-            border-collapse: collapse;
-        }}
-        
-        th, td {{
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }}
-        
-        th {{
-            color: #a0aec0;
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }}
-        
-        .test-name {{
+        .stat-value {{ font-family: var(--font-mono); font-size: 2rem; font-weight: 700; }}
+        .stat-value.green {{ color: var(--accent-green); }}
+        .stat-value.yellow {{ color: var(--accent-yellow); }}
+        .stat-value.red {{ color: var(--accent-red); }}
+        .stat-value.blue {{ color: var(--accent-blue); }}
+        .health-card {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }}
+        .health-score {{
+            font-family: var(--font-mono);
+            font-size: 4rem;
+            font-weight: 700;
+            color: {status_color};
+        }}
+        .health-label {{ color: var(--text-muted); margin-top: 0.5rem; }}
+        .section {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }}
+        .section-header {{
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }}
+        .section-header h2 {{ font-size: 1rem; font-weight: 600; }}
+        .section-count {{
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: var(--bg-hover);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            color: var(--text-secondary);
+        }}
+        .table-container {{ overflow-x: auto; }}
+        table {{ width: 100%; border-collapse: collapse; }}
+        th {{
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            font-weight: 600;
+        }}
+        td {{ padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.875rem; }}
+        tr:last-child td {{ border-bottom: none; }}
+        tr:hover {{ background: var(--bg-hover); }}
+        .badge {{
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
             font-weight: 500;
         }}
-        
-        .test-details {{
-            font-size: 0.85rem;
-            color: #a0aec0;
-            max-width: 300px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+        .badge-id {{ background: var(--bg-hover); color: var(--text-secondary); }}
+        .empty-state {{ padding: 3rem; text-align: center; color: var(--text-muted); }}
+        .footer {{ text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }}
+        .nav-links {{
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }}
-        
-        .status-ok {{ color: #48bb78; }}
-        .status-error {{ color: #fc8181; }}
-        .status-warning {{ color: #f6ad55; }}
-        .status-pending {{ color: #a0aec0; }}
-        
-        .timestamp {{
-            text-align: center;
-            color: #718096;
-            font-size: 0.85rem;
-            margin-top: 30px;
-        }}
-        
-        .screenshots {{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }}
-        
-        .screenshot {{
-            background: rgba(0, 0, 0, 0.3);
+        .nav-link {{
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
             border-radius: 8px;
-            padding: 10px;
-            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
         }}
-        
-        .screenshot img {{
-            max-width: 100%;
-            border-radius: 4px;
-        }}
-        
-        .screenshot-label {{
-            font-size: 0.8rem;
-            color: #a0aec0;
-            margin-top: 8px;
-        }}
-        
+        .nav-link:hover {{ background: var(--bg-hover); }}
+        .nav-link.active {{ background: var(--accent-blue); color: white; }}
         @media (max-width: 768px) {{
-            h1 {{ font-size: 1.5rem; }}
-            .stat-value {{ font-size: 2rem; }}
-            .nav-btn {{ padding: 8px 15px; font-size: 0.8rem; }}
+            .container {{ padding: 1rem; }}
+            .header {{ flex-direction: column; gap: 1rem; text-align: center; }}
+            .stats-grid {{ grid-template-columns: repeat(2, 1fr); }}
+            .health-score {{ font-size: 3rem; }}
         }}
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🔐 PCFactory Login Monitor</h1>
-            <p>Monitoreo del sistema de autenticación</p>
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                <img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg">
+                </div>
+                <div class="logo-text">
+                    <h1>pc Factory Monitor</h1>
+                    <span>Monitor de Login</span>
+                </div>
+            </div>
+            <div class="timestamp">{timestamp_display}</div>
         </header>
         
-        <nav class="nav-buttons">
-            <a href="index.html" class="nav-btn">📦 Categorías</a>
-            <a href="delivery.html" class="nav-btn">🚚 Despacho</a>
-            <a href="payments.html" class="nav-btn">💳 Medios de Pago</a>
-            <a href="login.html" class="nav-btn active">🔐 Login</a>
-        </nav>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">📦 Categorías</a>
+            <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
+            <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
+            <a href="login.html" class="nav-link active">🔐 Login</a>
+        </div>
         
-        <div class="status-banner {overall_status}">
-            {get_status_icon(overall_status)} Login {
-                'Operativo' if overall_status == 'ok' 
-                else 'Con Problemas' if overall_status == 'error' 
-                else 'Advertencias'
-            }
+        <div class="status-banner {status_class}">
+            <div class="status-indicator"></div>
+            <span class="status-text">{status_text}</span>
+        </div>
+        
+        <div class="health-card">
+            <div class="health-score">{health_score}%</div>
+            <div class="health-label">Tasa de éxito en tests de login</div>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value">{summary.get('passed', 0)}/{summary.get('total', 0)}</div>
                 <div class="stat-label">Tests Pasados</div>
+                <div class="stat-value green">{passed}/{total}</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">{summary.get('successRate', 0)}%</div>
-                <div class="stat-label">Tasa de Éxito</div>
+                <div class="stat-label">Tests Fallidos</div>
+                <div class="stat-value {'red' if failed > 0 else 'green'}">{failed}</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">{uptime_24h:.0f}%</div>
                 <div class="stat-label">Uptime 24h</div>
+                <div class="stat-value {'green' if uptime_24h >= 90 else 'yellow' if uptime_24h >= 70 else 'red'}">{uptime_24h:.0f}%</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">{len(history.get('runs', []))}</div>
                 <div class="stat-label">Ejecuciones</div>
+                <div class="stat-value blue">{len(history.get('runs', []))}</div>
             </div>
         </div>
         
-        <div class="card">
-            <h2>📋 Resultados de Tests</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Test</th>
-                        <th>Estado</th>
-                        <th>Duración</th>
-                        <th>Detalles</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {test_rows if test_rows else '<tr><td colspan="4" style="text-align:center">Sin datos</td></tr>'}
-                </tbody>
-            </table>
+        <div class="section">
+            <div class="section-header">
+                <h2>📋 Resultados de Tests</h2>
+                <span class="section-count">{total} tests</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Estado</th>
+                            <th>Duración</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {test_rows}
+                    </tbody>
+                </table>
+            </div>
         </div>
         
-        <div class="card">
-            <h2>📊 Historial Reciente</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Estado</th>
-                        <th>Tests</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {history_rows if history_rows else '<tr><td colspan="3" style="text-align:center">Sin historial</td></tr>'}
-                </tbody>
-            </table>
+        <div class="section">
+            <div class="section-header">
+                <h2>📊 Historial Reciente</h2>
+                <span class="section-count">Últimas {min(15, len(history.get('runs', [])))} ejecuciones</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Tests</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {history_rows}
+                    </tbody>
+                </table>
+            </div>
         </div>
         
-        <p class="timestamp">
-            Última actualización: {datetime.fromisoformat(timestamp.replace('Z', '+00:00')).strftime('%d/%m/%Y %H:%M:%S') if timestamp else 'N/A'}
-        </p>
+        <footer class="footer">
+            <p>Actualización automática 3 veces al día (9am, 2pm, 8pm Chile)</p>
+            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
+        </footer>
     </div>
 </body>
-</html>
-"""
+</html>'''
     
     return html
 
@@ -446,14 +506,14 @@ def main():
         results = {
             'timestamp': datetime.now().isoformat(),
             'tests': [],
-            'summary': {'total': 0, 'passed': 0, 'failed': 0, 'successRate': 0},
+            'summary': {'total': 0, 'passed': 0, 'failed': 0, 'warnings': 0, 'successRate': 0},
             'overallStatus': 'pending'
         }
     
     # Cargar historial
     history = load_history(history_path)
     
-    # Agregar ejecución actual al historial
+    # Agregar ejecución actual al historial solo si hay tests
     if results.get('tests'):
         history['runs'].append({
             'timestamp': results.get('timestamp'),
