@@ -268,8 +268,12 @@ jobs:
   # ============================================
   deploy:
     runs-on: ubuntu-latest
-    needs: [monitor-categories, monitor-delivery, check-payment-schedule, check-login-schedule]
-    if: always() && (needs.monitor-categories.result == 'success' || needs.monitor-delivery.result == 'success')
+    # IMPORTANTE: Esperar a TODOS los jobs que generan artifacts
+    needs: [monitor-categories, monitor-delivery, monitor-payments, monitor-login]
+    # Correr si al menos categories o delivery tuvo éxito (los otros pueden ser skipped)
+    if: |
+      always() && 
+      (needs.monitor-categories.result == 'success' || needs.monitor-delivery.result == 'success')
     
     steps:
       - uses: actions/checkout@v4
@@ -316,11 +320,18 @@ jobs:
           path: ./new-results/
         continue-on-error: true
       
+      - name: Debug - List downloaded files
+        run: |
+          echo "📁 Contents of new-results:"
+          ls -laR ./new-results/ || echo "No new-results directory"
+      
       - name: Merge results
         run: |
           # Copiar nuevos resultados
           if [ -d "./new-results" ]; then
-            cp -r ./new-results/* ./ 2>/dev/null || true
+            # Copiar archivos HTML directamente
+            find ./new-results -name "*.html" -exec cp {} ./ \; 2>/dev/null || true
+            find ./new-results -name "*.json" -exec cp {} ./ \; 2>/dev/null || true
           fi
           
           # Crear placeholders solo si no existen los archivos
@@ -335,9 +346,9 @@ jobs:
           # Limpiar
           rm -rf ./new-results
           
-          # Listar archivos
-          echo "📁 Archivos en gh-pages:"
-          ls -la
+          # Listar archivos finales
+          echo "📁 Final files in gh-pages:"
+          ls -la *.html 2>/dev/null || echo "No HTML files"
       
       - name: Commit and push
         run: |
