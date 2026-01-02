@@ -34,7 +34,7 @@ const CONFIG = {
     },
     {
       id: 'BANCOESTADO',
-      name: 'Beneficio BancoEstado',
+      name: 'Compraquí',
       selector: 'input#pmBCA[name="payment"], label[for="pmBCA"], li#pmBCA',
       expectedUrl: ['bancoestado', 'compraaqui'],
       expectedTitle: ['bancoestado', 'compra']
