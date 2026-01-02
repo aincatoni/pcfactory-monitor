@@ -2,7 +2,6 @@
 """
 PCFactory Login Monitor - Generador de Dashboard
 Genera un dashboard HTML con los resultados del monitoreo de login.
-Estilos homologados con el dashboard de categorías.
 """
 
 import json
@@ -11,14 +10,106 @@ import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
+def find_results_file(base_path):
+    """Busca el archivo de resultados en múltiples ubicaciones."""
+    possible_paths = [
+        base_path,
+        Path(base_path),
+        Path('login/test-results/login-monitor-report.json'),
+        Path('./login/test-results/login-monitor-report.json'),
+        Path('test-results/login-monitor-report.json'),
+        Path('./test-results/login-monitor-report.json'),
+    ]
+    
+    print(f"🔍 Buscando archivo de resultados...")
+    print(f"   Directorio actual: {os.getcwd()}")
+    print(f"   Contenido del directorio:")
+    for item in os.listdir('.'):
+        print(f"      - {item}")
+    
+    for p in possible_paths:
+        path = Path(p)
+        print(f"   Probando: {path} ... ", end="")
+        if path.exists():
+            print(f"✅ ENCONTRADO")
+            return path
+        else:
+            print(f"❌ no existe")
+    
+    # Buscar recursivamente
+    print(f"   Buscando recursivamente...")
+    for root, dirs, files in os.walk('.'):
+        for file in files:
+            if file == 'login-monitor-report.json':
+                found_path = Path(root) / file
+                print(f"   ✅ Encontrado en: {found_path}")
+                return found_path
+    
+    return None
+
 def load_results(results_path):
-    """Carga los resultados del test de Playwright."""
-    try:
-        with open(results_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Error cargando resultados: {e}")
+    """Carga los resultados del test."""
+    path = find_results_file(results_path)
+    
+    if not path:
+        print(f"⚠️ No se encontró el archivo de resultados")
         return None
+    
+    try:
+        print(f"📄 Cargando: {path}")
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Verificar si es formato Playwright o formato custom
+        if 'suites' in data:
+            print(f"   Formato: Playwright reporter")
+            return parse_playwright_format(data)
+        elif 'tests' in data:
+            print(f"   Formato: Custom")
+            return data
+        else:
+            print(f"   Formato: Desconocido, keys: {list(data.keys())}")
+            return data
+            
+    except Exception as e:
+        print(f"❌ Error cargando resultados: {e}")
+        return None
+
+def parse_playwright_format(data):
+    """Convierte formato Playwright a formato esperado."""
+    tests = []
+    
+    for suite in data.get('suites', []):
+        for spec in suite.get('specs', []):
+            for test in spec.get('tests', []):
+                status = 'passed' if test.get('status') == 'expected' else 'failed'
+                if test.get('status') == 'skipped':
+                    status = 'warning'
+                
+                tests.append({
+                    'name': spec.get('title', 'Unknown'),
+                    'status': status,
+                    'duration': test.get('results', [{}])[0].get('duration', 0) if test.get('results') else 0,
+                    'details': {}
+                })
+    
+    passed = len([t for t in tests if t['status'] == 'passed'])
+    failed = len([t for t in tests if t['status'] == 'failed'])
+    warnings = len([t for t in tests if t['status'] == 'warning'])
+    total = len(tests)
+    
+    return {
+        'timestamp': datetime.now().isoformat(),
+        'tests': tests,
+        'summary': {
+            'total': total,
+            'passed': passed,
+            'failed': failed,
+            'warnings': warnings,
+            'successRate': round((passed / total) * 100) if total > 0 else 0
+        },
+        'overallStatus': 'ok' if failed == 0 else 'error'
+    }
 
 def load_history(history_path):
     """Carga el historial de ejecuciones anteriores."""
@@ -27,37 +118,31 @@ def load_history(history_path):
             with open(history_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
     except Exception as e:
-        print(f"Error cargando historial: {e}")
+        print(f"⚠️ Error cargando historial: {e}")
     return {'runs': []}
 
 def save_history(history, history_path):
     """Guarda el historial actualizado."""
-    # Mantener solo las últimas 100 ejecuciones
     history['runs'] = history['runs'][-100:]
+    os.makedirs(os.path.dirname(history_path) if os.path.dirname(history_path) else '.', exist_ok=True)
     with open(history_path, 'w', encoding='utf-8') as f:
         json.dump(history, f, indent=2, ensure_ascii=False)
 
 def get_status_icon(status):
     """Retorna el ícono según el estado."""
     icons = {
-        'ok': '✅',
-        'passed': '✅',
-        'error': '❌',
-        'failed': '❌',
-        'warning': '⚠️',
-        'pending': '⏳'
+        'ok': '✅', 'passed': '✅',
+        'error': '❌', 'failed': '❌',
+        'warning': '⚠️', 'pending': '⏳'
     }
     return icons.get(status, '❓')
 
 def get_status_class(status):
     """Retorna la clase CSS según el estado."""
     classes = {
-        'ok': 'green',
-        'passed': 'green',
-        'error': 'red',
-        'failed': 'red',
-        'warning': 'yellow',
-        'pending': 'blue'
+        'ok': 'green', 'passed': 'green',
+        'error': 'red', 'failed': 'red',
+        'warning': 'yellow', 'pending': 'blue'
     }
     return classes.get(status, '')
 
@@ -71,43 +156,46 @@ def format_duration(ms):
         return f"{ms/60000:.1f}min"
 
 def generate_html(results, history):
-    """Genera el HTML del dashboard con estilos del dashboard de categorías."""
+    """Genera el HTML del dashboard."""
     
     timestamp = results.get('timestamp', datetime.now().isoformat())
     tests = results.get('tests', [])
     summary = results.get('summary', {})
     overall_status = results.get('overallStatus', 'pending')
     
-    # Formatear timestamp para mostrar
+    # Formatear timestamp
     try:
         dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
         timestamp_display = dt.strftime('%d/%m/%Y %H:%M:%S') + ' UTC'
     except:
         timestamp_display = timestamp[:19] if timestamp else 'N/A'
     
-    # Calcular uptime de las últimas 24 horas
+    # Calcular uptime 24h
     recent_runs = []
-    now = datetime.now().astimezone()
+    now = datetime.now()
     for r in history.get('runs', []):
         try:
             run_time = datetime.fromisoformat(r.get('timestamp', '2000-01-01').replace('Z', '+00:00'))
-            if run_time > now - timedelta(hours=24):
+            if (now - run_time.replace(tzinfo=None)).total_seconds() < 86400:
                 recent_runs.append(r)
         except:
             pass
     
     if recent_runs:
-        ok_runs = len([r for r in recent_runs if r.get('status') == 'ok'])
+        ok_runs = len([r for r in recent_runs if r.get('status') in ['ok', 'passed']])
         uptime_24h = (ok_runs / len(recent_runs)) * 100
     else:
-        uptime_24h = 100 if overall_status == 'ok' else 0
+        uptime_24h = 100 if overall_status in ['ok', 'passed'] else 0
     
-    # Determinar estado y colores
+    # Estadísticas
     passed = summary.get('passed', 0)
     total = summary.get('total', 0)
     failed = summary.get('failed', 0)
+    warnings = summary.get('warnings', 0)
+    health_score = summary.get('successRate', 0)
     
-    if overall_status == 'ok' or (total > 0 and failed == 0):
+    # Determinar estado y colores
+    if overall_status in ['ok', 'passed'] or (total > 0 and failed == 0):
         status_class = 'healthy'
         status_text = 'Login Operativo'
         status_color = 'var(--accent-green)'
@@ -115,16 +203,14 @@ def generate_html(results, history):
         status_class = 'warning'
         status_text = 'Login con Advertencias'
         status_color = 'var(--accent-yellow)'
+    elif total == 0:
+        status_class = 'warning'
+        status_text = 'Sin datos de monitoreo'
+        status_color = 'var(--accent-yellow)'
     else:
         status_class = 'critical'
         status_text = 'Login con Problemas'
         status_color = 'var(--accent-red)'
-    
-    # Si no hay datos, mostrar estado pendiente
-    if total == 0:
-        status_class = 'warning'
-        status_text = 'Sin datos de monitoreo'
-        status_color = 'var(--accent-yellow)'
     
     # Generar filas de tests
     test_rows = ""
@@ -149,7 +235,7 @@ def generate_html(results, history):
     if not test_rows:
         test_rows = '<tr><td colspan="4" class="empty-state">Sin datos de tests</td></tr>'
     
-    # Generar historial reciente
+    # Generar historial
     history_rows = ""
     for run in reversed(history.get('runs', [])[-15:]):
         run_time = run.get('timestamp', '')
@@ -175,9 +261,6 @@ def generate_html(results, history):
     
     if not history_rows:
         history_rows = '<tr><td colspan="3" class="empty-state">Sin historial</td></tr>'
-    
-    # Calcular health score
-    health_score = summary.get('successRate', 0)
     
     html = f'''<!DOCTYPE html>
 <html lang="es">
@@ -223,9 +306,7 @@ def generate_html(results, history):
             border-bottom: 1px solid var(--border);
         }}
         .logo {{ display: flex; align-items: center; gap: 1rem; }}
-        .logo-icon img {{
-            max-width: 48px;
-        }}
+        .logo-icon img {{ max-width: 48px; }}
         .logo-text h1 {{ font-size: 1.5rem; font-weight: 700; }}
         .logo-text span {{ font-size: 0.875rem; color: var(--text-muted); }}
         .timestamp {{
@@ -349,11 +430,7 @@ def generate_html(results, history):
         .badge-id {{ background: var(--bg-hover); color: var(--text-secondary); }}
         .empty-state {{ padding: 3rem; text-align: center; color: var(--text-muted); }}
         .footer {{ text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }}
-        .nav-links {{
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }}
+        .nav-links {{ display: flex; gap: 1rem; margin-bottom: 1.5rem; }}
         .nav-link {{
             font-family: var(--font-mono);
             font-size: 0.875rem;
@@ -422,7 +499,7 @@ def generate_html(results, history):
             </div>
             <div class="stat-card">
                 <div class="stat-label">Ejecuciones</div>
-                <div class="stat-value blue">{len(history.get('runs', []))}</div>
+                <div class="stat-value blue">{len(history.get('runs', [])) + 1}</div>
             </div>
         </div>
         
@@ -451,7 +528,7 @@ def generate_html(results, history):
         <div class="section">
             <div class="section-header">
                 <h2>📊 Historial Reciente</h2>
-                <span class="section-count">Últimas {min(15, len(history.get('runs', [])))} ejecuciones</span>
+                <span class="section-count">Últimas {min(15, len(history.get('runs', [])) + 1)} ejecuciones</span>
             </div>
             <div class="table-container">
                 <table>
@@ -471,7 +548,6 @@ def generate_html(results, history):
         
         <footer class="footer">
             <p>Actualización automática 3 veces al día (9am, 2pm, 8pm Chile)</p>
-            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
         </footer>
     </div>
 </body>
@@ -492,12 +568,15 @@ def main():
     
     args = parser.parse_args()
     
+    print(f"🚀 Generando dashboard de Login Monitor")
+    print(f"   Args: {args}")
+    
     # Crear directorio de salida
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Ruta del historial
-    history_path = args.history or output_dir / 'login-history.json'
+    history_path = args.history or str(output_dir / 'login-history.json')
     
     # Cargar resultados
     results = load_results(args.results)
@@ -509,11 +588,13 @@ def main():
             'summary': {'total': 0, 'passed': 0, 'failed': 0, 'warnings': 0, 'successRate': 0},
             'overallStatus': 'pending'
         }
+    else:
+        print(f"✅ Resultados cargados: {results.get('summary', {})}")
     
     # Cargar historial
     history = load_history(history_path)
     
-    # Agregar ejecución actual al historial solo si hay tests
+    # Agregar ejecución actual al historial
     if results.get('tests'):
         history['runs'].append({
             'timestamp': results.get('timestamp'),
