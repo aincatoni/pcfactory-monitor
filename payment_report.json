@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-01T17:02:36.521Z",
+  "timestamp": "2026-01-02T13:36:56.107Z",
   "results": [
     {
       "paymentMethod": "Transferencia ETPay",
@@ -41,11 +41,11 @@
       ],
       "error": null,
       "gatewayReached": true,
-      "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/rlQ4l4940ORPqLXLoD7TVsuXlFlHPJZpsgvNG1hWDmENEOWFw9GMGTEcU895JQM1",
-      "duration": 26648
+      "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/oShjHgKXTIITaylrh90yIw0a1lAOinqqoefVqTw7bCooXQXu0JhsBQD8YqSP8Yfw",
+      "duration": 24754
     },
     {
-      "paymentMethod": "Beneficio BancoEstado",
+      "paymentMethod": "Compraquí",
       "paymentId": "BANCOESTADO",
       "status": "PASSED",
       "steps": [
@@ -74,7 +74,7 @@
           "status": "passed"
         },
         {
-          "step": "Seleccionar Beneficio BancoEstado",
+          "step": "Seleccionar Compraquí",
           "status": "passed"
         },
         {
@@ -85,7 +85,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-      "duration": 26171
+      "duration": 24838
     },
     {
       "paymentMethod": "Mastercard Click to Pay",
@@ -128,7 +128,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-      "duration": 25256
+      "duration": 24807
     },
     {
       "paymentMethod": "Tarjeta de Débito (Webpay)",
@@ -171,7 +171,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-      "duration": 25781
+      "duration": 24882
     },
     {
       "paymentMethod": "Tarjeta de Crédito (Webpay)",
@@ -214,7 +214,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-      "duration": 25868
+      "duration": 24867
     }
   ],
   "summary": {
