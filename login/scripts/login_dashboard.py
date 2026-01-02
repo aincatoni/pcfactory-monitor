@@ -61,14 +61,28 @@ def load_results(results_path):
             data = json.load(f)
         
         # Verificar si es formato Playwright o formato custom
+        print(f"   Keys en JSON: {list(data.keys())}")
+        
         if 'suites' in data:
             print(f"   Formato: Playwright reporter")
+            print(f"   Número de suites: {len(data.get('suites', []))}")
+            # Debug: mostrar estructura del primer suite
+            if data.get('suites'):
+                first_suite = data['suites'][0]
+                print(f"   Primer suite keys: {list(first_suite.keys())}")
+                print(f"   Primer suite title: {first_suite.get('title', 'N/A')}")
+                print(f"   Primer suite tiene {len(first_suite.get('suites', []))} sub-suites")
+                print(f"   Primer suite tiene {len(first_suite.get('specs', []))} specs")
             return parse_playwright_format(data)
         elif 'tests' in data:
             print(f"   Formato: Custom")
             return data
         else:
             print(f"   Formato: Desconocido, keys: {list(data.keys())}")
+            # Imprimir estructura para debug
+            import pprint
+            print(f"   Estructura (primeros 2000 chars):")
+            print(pprint.pformat(data)[:2000])
             return data
             
     except Exception as e:
@@ -79,13 +93,63 @@ def parse_playwright_format(data):
     """Convierte formato Playwright a formato esperado."""
     tests = []
     
-    for suite in data.get('suites', []):
+    print(f"   Parsing Playwright format...")
+    print(f"   Top-level keys: {list(data.keys())}")
+    
+    def process_suite(suite, depth=0):
+        """Procesa un suite recursivamente."""
+        indent = "   " * (depth + 2)
+        suite_title = suite.get('title', 'Unknown Suite')
+        print(f"{indent}Suite: {suite_title}")
+        
+        # Procesar specs directamente en este suite
         for spec in suite.get('specs', []):
+            spec_title = spec.get('title', 'Unknown Spec')
+            print(f"{indent}  Spec: {spec_title}")
+            
+            # Cada spec puede tener múltiples tests (por proyecto/browser)
             for test in spec.get('tests', []):
-                status = 'passed' if test.get('status') == 'expected' else 'failed'
-                if test.get('status') == 'skipped':
+                status_raw = test.get('status', 'unknown')
+                
+                # Mapear estados de Playwright
+                if status_raw == 'expected':
+                    status = 'passed'
+                elif status_raw == 'skipped':
+                    status = 'warning'
+                elif status_raw in ['unexpected', 'failed']:
+                    status = 'failed'
+                else:
                     status = 'warning'
                 
+                # Obtener duración del primer resultado
+                duration = 0
+                results = test.get('results', [])
+                if results:
+                    duration = results[0].get('duration', 0)
+                
+                tests.append({
+                    'name': spec_title,
+                    'status': status,
+                    'duration': duration,
+                    'details': {'projectName': test.get('projectName', '')}
+                })
+                print(f"{indent}    Test: {status_raw} -> {status}, duration={duration}ms")
+        
+        # Procesar suites anidados
+        for nested_suite in suite.get('suites', []):
+            process_suite(nested_suite, depth + 1)
+    
+    # Procesar todos los suites de nivel superior
+    for suite in data.get('suites', []):
+        process_suite(suite)
+    
+    # Si no encontramos tests en suites, intentar en el nivel raíz
+    if not tests and 'specs' in data:
+        print(f"   No tests in suites, trying root level specs...")
+        for spec in data.get('specs', []):
+            for test in spec.get('tests', []):
+                status_raw = test.get('status', 'unknown')
+                status = 'passed' if status_raw == 'expected' else ('warning' if status_raw == 'skipped' else 'failed')
                 tests.append({
                     'name': spec.get('title', 'Unknown'),
                     'status': status,
@@ -98,6 +162,8 @@ def parse_playwright_format(data):
     warnings = len([t for t in tests if t['status'] == 'warning'])
     total = len(tests)
     
+    print(f"   Parsed {total} tests: {passed} passed, {failed} failed, {warnings} warnings")
+    
     return {
         'timestamp': datetime.now().isoformat(),
         'tests': tests,
@@ -108,7 +174,7 @@ def parse_playwright_format(data):
             'warnings': warnings,
             'successRate': round((passed / total) * 100) if total > 0 else 0
         },
-        'overallStatus': 'ok' if failed == 0 else 'error'
+        'overallStatus': 'ok' if failed == 0 and total > 0 else ('warning' if warnings > 0 else 'error')
     }
 
 def load_history(history_path):
