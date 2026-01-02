@@ -1,0 +1,17 @@
+{
+  "name": "pcfactory-login-monitor",
+  "version": "1.0.0",
+  "description": "Monitor E2E del sistema de login de PCFactory",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "install:browsers": "npx playwright install chromium --with-deps",
+    "report": "npx playwright show-report"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
