@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-        "commitHash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661147109"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+        "commitHash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20663947179"
       },
       "gitCommit": {
-        "shortHash": "a5ef80c",
-        "hash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-        "subject": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow",
-        "body": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow\n",
+        "shortHash": "ac6c685",
+        "hash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+        "subject": "feat: Add Playwright configuration and package.json for login monitoring tests",
+        "body": "feat: Add Playwright configuration and package.json for login monitoring tests\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767368154000
+          "time": 1767377947000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767368154000
+          "time": 1767377947000
         },
         "branch": "main"
       },
@@ -67,24 +67,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-            "commitHash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20661147109"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+            "commitHash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20663947179"
           },
           "gitCommit": {
-            "shortHash": "a5ef80c",
-            "hash": "a5ef80cb9f3126a816d8658d8e9e0b965ea9b93b",
-            "subject": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow",
-            "body": "refactor: Update deploy job dependencies and enhance file handling in monitor workflow\n",
+            "shortHash": "ac6c685",
+            "hash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+            "subject": "feat: Add Playwright configuration and package.json for login monitoring tests",
+            "body": "feat: Add Playwright configuration and package.json for login monitoring tests\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767368154000
+              "time": 1767377947000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767368154000
+              "time": 1767377947000
             },
             "branch": "main"
           },
@@ -119,11 +119,11 @@
         {
           "title": "PCFactory Login Monitor",
           "file": "login.spec.js",
-          "line": 54,
+          "line": 65,
           "column": 6,
           "specs": [
             {
-              "title": "1. Página de login carga correctamente",
+              "title": "1. Página principal carga correctamente",
               "ok": true,
               "tags": [],
               "tests": [
@@ -138,18 +138,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2731,
+                      "duration": 2114,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T15:39:44.587Z",
+                      "startTime": "2026-01-02T18:20:21.197Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-dc7dc-e-login-carga-correctamente-chromium/test-finished-1.png"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-85bec-incipal-carga-correctamente-chromium/test-finished-1.png"
                         }
                       ]
                     }
@@ -157,13 +157,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "badc1754af1944f68b2b-626db241adf6bc0faa74",
+              "id": "badc1754af1944f68b2b-33e6b1b99e934cdd3390",
               "file": "login.spec.js",
-              "line": 69,
+              "line": 73,
               "column": 3
             },
             {
-              "title": "2. Formulario de login está presente",
+              "title": "2. Dropdown de login se despliega",
               "ok": true,
               "tags": [],
               "tests": [
@@ -178,18 +178,18 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4837,
+                      "duration": 4613,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T15:39:48.835Z",
+                      "startTime": "2026-01-02T18:20:24.609Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-0b9f2-ario-de-login-está-presente-chromium/test-finished-1.png"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-ce60f-pdown-de-login-se-despliega-chromium/test-finished-1.png"
                         }
                       ]
                     }
@@ -197,14 +197,14 @@
                   "status": "expected"
                 }
               ],
-              "id": "badc1754af1944f68b2b-f1a64c52f83485c0f26c",
+              "id": "badc1754af1944f68b2b-a8223acf9252392cae27",
               "file": "login.spec.js",
               "line": 117,
               "column": 3
             },
             {
-              "title": "3. Opciones de login social presentes",
-              "ok": true,
+              "title": "3. Navegación a página de login",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -217,165 +217,665 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4446,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-02T15:39:53.684Z",
-                      "annotations": [],
-                      "attachments": [
+                      "status": "failed",
+                      "duration": 20930,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:199:27",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                          "column": 27,
+                          "line": 199
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 197 |\u001b[39m       \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n \u001b[90m 198 |\u001b[39m         page\u001b[33m.\u001b[39mwaitForNavigation({ waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 199 |\u001b[39m         iniciarSesionLink\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 200 |\u001b[39m       ])\u001b[33m;\u001b[39m\n \u001b[90m 201 |\u001b[39m       \n \u001b[90m 202 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-9ff0b-s-de-login-social-presentes-chromium/test-finished-1.png"
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                            "column": 27,
+                            "line": 199
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  197 |       await Promise.all([\n  198 |         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),\n> 199 |         iniciarSesionLink.click()\n      |                           ^\n  200 |       ]);\n  201 |       \n  202 |       await page.waitForTimeout(2000);\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:199:27"
                         }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "badc1754af1944f68b2b-65ee94fc604ada64bb68",
-              "file": "login.spec.js",
-              "line": 169,
-              "column": 3
-            },
-            {
-              "title": "4. Sistema responde a intento de login",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4226,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-02T15:39:58.144Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-d61b0-responde-a-intento-de-login-chromium/test-finished-1.png"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "badc1754af1944f68b2b-9ff823559cca17b49a66",
-              "file": "login.spec.js",
-              "line": 211,
-              "column": 3
-            },
-            {
-              "title": "5. Link de recuperar contraseña funciona",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4258,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-02T15:40:02.385Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-333b2-cuperar-contraseña-funciona-chromium/test-finished-1.png"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "badc1754af1944f68b2b-06419018bc543eb97a84",
-              "file": "login.spec.js",
-              "line": 304,
-              "column": 3
-            },
-            {
-              "title": "6. Link de registro funciona",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3604,
-                      "errors": [],
+                      ],
                       "stdout": [
                         {
                           "text": "\n📊 Resultados del Monitor de Login:\n"
                         },
                         {
-                          "text": "   ✅ Pasaron: 3\n"
+                          "text": "   ✅ Pasaron: 2\n"
                         },
                         {
-                          "text": "   ❌ Fallaron: 0\n"
+                          "text": "   ❌ Fallaron: 1\n"
                         },
                         {
-                          "text": "   ⚠️ Advertencias: 3\n"
+                          "text": "   ⚠️ Advertencias: 0\n"
                         },
                         {
-                          "text": "   📈 Tasa de éxito: 50%\n"
+                          "text": "   📈 Tasa de éxito: 67%\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T15:40:06.665Z",
+                      "startTime": "2026-01-02T18:20:29.235Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-6-Link-de-registro-funciona-chromium/test-finished-1.png"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-3-Navegación-a-página-de-login-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-3-Navegación-a-página-de-login-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-3-Navegación-a-página-de-login-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-3-Navegación-a-página-de-login-chromium/trace.zip"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                        "column": 27,
+                        "line": 199
+                      }
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20598,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:199:27",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                          "column": 27,
+                          "line": 199
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 197 |\u001b[39m       \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n \u001b[90m 198 |\u001b[39m         page\u001b[33m.\u001b[39mwaitForNavigation({ waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 199 |\u001b[39m         iniciarSesionLink\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 200 |\u001b[39m       ])\u001b[33m;\u001b[39m\n \u001b[90m 201 |\u001b[39m       \n \u001b[90m 202 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                            "column": 27,
+                            "line": 199
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  197 |       await Promise.all([\n  198 |         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),\n> 199 |         iniciarSesionLink.click()\n      |                           ^\n  200 |       ]);\n  201 |       \n  202 |       await page.waitForTimeout(2000);\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:199:27"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Resultados del Monitor de Login:\n"
+                        },
+                        {
+                          "text": "   ✅ Pasaron: 0\n"
+                        },
+                        {
+                          "text": "   ❌ Fallaron: 1\n"
+                        },
+                        {
+                          "text": "   ⚠️ Advertencias: 0\n"
+                        },
+                        {
+                          "text": "   📈 Tasa de éxito: 0%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-01-02T18:20:51.815Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-3-Navegación-a-página-de-login-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-3-Navegación-a-página-de-login-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-3-Navegación-a-página-de-login-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-3-Navegación-a-página-de-login-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                        "column": 27,
+                        "line": 199
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "badc1754af1944f68b2b-5adda677558936ab5ab3",
+              "id": "badc1754af1944f68b2b-ecb686944268295ec27f",
               "file": "login.spec.js",
-              "line": 356,
+              "line": 175,
+              "column": 3
+            },
+            {
+              "title": "4. Formulario de login presente",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20725,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:258:27",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                          "column": 27,
+                          "line": 258
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 256 |\u001b[39m       \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n \u001b[90m 257 |\u001b[39m         page\u001b[33m.\u001b[39mwaitForNavigation({ waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 258 |\u001b[39m         iniciarSesionLink\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 259 |\u001b[39m       ])\u001b[33m;\u001b[39m\n \u001b[90m 260 |\u001b[39m       \n \u001b[90m 261 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                            "column": 27,
+                            "line": 258
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  256 |       await Promise.all([\n  257 |         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),\n> 258 |         iniciarSesionLink.click()\n      |                           ^\n  259 |       ]);\n  260 |       \n  261 |       await page.waitForTimeout(3000);\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:258:27"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Resultados del Monitor de Login:\n"
+                        },
+                        {
+                          "text": "   ✅ Pasaron: 0\n"
+                        },
+                        {
+                          "text": "   ❌ Fallaron: 1\n"
+                        },
+                        {
+                          "text": "   ⚠️ Advertencias: 0\n"
+                        },
+                        {
+                          "text": "   📈 Tasa de éxito: 0%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T18:21:14.104Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                        "column": 27,
+                        "line": 258
+                      }
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20699,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:258:27",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                          "column": 27,
+                          "line": 258
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 256 |\u001b[39m       \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n \u001b[90m 257 |\u001b[39m         page\u001b[33m.\u001b[39mwaitForNavigation({ waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 258 |\u001b[39m         iniciarSesionLink\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 259 |\u001b[39m       ])\u001b[33m;\u001b[39m\n \u001b[90m 260 |\u001b[39m       \n \u001b[90m 261 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                            "column": 27,
+                            "line": 258
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  256 |       await Promise.all([\n  257 |         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),\n> 258 |         iniciarSesionLink.click()\n      |                           ^\n  259 |       ]);\n  260 |       \n  261 |       await page.waitForTimeout(3000);\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:258:27"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Resultados del Monitor de Login:\n"
+                        },
+                        {
+                          "text": "   ✅ Pasaron: 0\n"
+                        },
+                        {
+                          "text": "   ❌ Fallaron: 1\n"
+                        },
+                        {
+                          "text": "   ⚠️ Advertencias: 0\n"
+                        },
+                        {
+                          "text": "   📈 Tasa de éxito: 0%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-01-02T18:21:36.562Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                        "column": 27,
+                        "line": 258
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-202bb64ca583c86663e7",
+              "file": "login.spec.js",
+              "line": 237,
+              "column": 3
+            },
+            {
+              "title": "5. Login con credenciales",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20635,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:329:27",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                          "column": 27,
+                          "line": 329
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 327 |\u001b[39m       \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n \u001b[90m 328 |\u001b[39m         page\u001b[33m.\u001b[39mwaitForNavigation({ waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 329 |\u001b[39m         iniciarSesionLink\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 330 |\u001b[39m       ])\u001b[33m;\u001b[39m\n \u001b[90m 331 |\u001b[39m       \n \u001b[90m 332 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                            "column": 27,
+                            "line": 329
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  327 |       await Promise.all([\n  328 |         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),\n> 329 |         iniciarSesionLink.click()\n      |                           ^\n  330 |       ]);\n  331 |       \n  332 |       await page.waitForTimeout(3000);\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:329:27"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Resultados del Monitor de Login:\n"
+                        },
+                        {
+                          "text": "   ✅ Pasaron: 0\n"
+                        },
+                        {
+                          "text": "   ❌ Fallaron: 1\n"
+                        },
+                        {
+                          "text": "   ⚠️ Advertencias: 0\n"
+                        },
+                        {
+                          "text": "   📈 Tasa de éxito: 0%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T18:21:58.957Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                        "column": 27,
+                        "line": 329
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20639,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:329:27",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                          "column": 27,
+                          "line": 329
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 327 |\u001b[39m       \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n \u001b[90m 328 |\u001b[39m         page\u001b[33m.\u001b[39mwaitForNavigation({ waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 329 |\u001b[39m         iniciarSesionLink\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 330 |\u001b[39m       ])\u001b[33m;\u001b[39m\n \u001b[90m 331 |\u001b[39m       \n \u001b[90m 332 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                            "column": 27,
+                            "line": 329
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  327 |       await Promise.all([\n  328 |         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),\n> 329 |         iniciarSesionLink.click()\n      |                           ^\n  330 |       ]);\n  331 |       \n  332 |       await page.waitForTimeout(3000);\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:329:27"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Resultados del Monitor de Login:\n"
+                        },
+                        {
+                          "text": "   ✅ Pasaron: 0\n"
+                        },
+                        {
+                          "text": "   ❌ Fallaron: 1\n"
+                        },
+                        {
+                          "text": "   ⚠️ Advertencias: 0\n"
+                        },
+                        {
+                          "text": "   📈 Tasa de éxito: 0%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-01-02T18:22:21.299Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                        "column": 27,
+                        "line": 329
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-892143c4d2add4007f24",
+              "file": "login.spec.js",
+              "line": 297,
+              "column": 3
+            },
+            {
+              "title": "6. Link olvidé contraseña funciona",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20596,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:427:27",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                          "column": 27,
+                          "line": 427
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 425 |\u001b[39m       \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n \u001b[90m 426 |\u001b[39m         page\u001b[33m.\u001b[39mwaitForNavigation({ waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 427 |\u001b[39m         iniciarSesionLink\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 428 |\u001b[39m       ])\u001b[33m;\u001b[39m\n \u001b[90m 429 |\u001b[39m       \n \u001b[90m 430 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                            "column": 27,
+                            "line": 427
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  425 |       await Promise.all([\n  426 |         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),\n> 427 |         iniciarSesionLink.click()\n      |                           ^\n  428 |       ]);\n  429 |       \n  430 |       await page.waitForTimeout(3000);\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:427:27"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Resultados del Monitor de Login:\n"
+                        },
+                        {
+                          "text": "   ✅ Pasaron: 0\n"
+                        },
+                        {
+                          "text": "   ❌ Fallaron: 1\n"
+                        },
+                        {
+                          "text": "   ⚠️ Advertencias: 0\n"
+                        },
+                        {
+                          "text": "   📈 Tasa de éxito: 0%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-02T18:22:43.667Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                        "column": 27,
+                        "line": 427
+                      }
+                    },
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20616,
+                      "error": {
+                        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:427:27",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                          "column": 27,
+                          "line": 427
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 425 |\u001b[39m       \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n \u001b[90m 426 |\u001b[39m         page\u001b[33m.\u001b[39mwaitForNavigation({ waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 427 |\u001b[39m         iniciarSesionLink\u001b[33m.\u001b[39mclick()\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 428 |\u001b[39m       ])\u001b[33m;\u001b[39m\n \u001b[90m 429 |\u001b[39m       \n \u001b[90m 430 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                            "column": 27,
+                            "line": 427
+                          },
+                          "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.dropdown-item:has-text(\"Inicia sesión\"), a:has-text(\"Inicia sesión\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"https://www.pcfactory.cl/login\" class=\"pcf-btn pcf-btn--tertiary pcf-btn--sm p-1 w-100 d-flex justify-content-center\">Inicia sesión</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  425 |       await Promise.all([\n  426 |         page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 15000 }).catch(() => {}),\n> 427 |         iniciarSesionLink.click()\n      |                           ^\n  428 |       ]);\n  429 |       \n  430 |       await page.waitForTimeout(3000);\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:427:27"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n📊 Resultados del Monitor de Login:\n"
+                        },
+                        {
+                          "text": "   ✅ Pasaron: 0\n"
+                        },
+                        {
+                          "text": "   ❌ Fallaron: 1\n"
+                        },
+                        {
+                          "text": "   ⚠️ Advertencias: 0\n"
+                        },
+                        {
+                          "text": "   📈 Tasa de éxito: 0%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-01-02T18:23:06.026Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
+                        "column": 27,
+                        "line": 427
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-c9ad645cd285433dfb74",
+              "file": "login.spec.js",
+              "line": 406,
               "column": 3
             }
           ]
@@ -385,11 +885,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-02T15:39:43.833Z",
-    "duration": 26502.571,
-    "expected": 6,
+    "startTime": "2026-01-02T18:20:20.456Z",
+    "duration": 187323.286,
+    "expected": 2,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 4,
     "flaky": 0
   }
 }

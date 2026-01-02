@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
-        "commitHash": "e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20662563034"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+        "commitHash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20663947179"
       },
       "gitCommit": {
-        "shortHash": "e550755",
-        "hash": "e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
-        "subject": "Refactor PCFactory login tests to use environment variables for credentials, improve selector accuracy, and enhance test descriptions and structure",
-        "body": "Refactor PCFactory login tests to use environment variables for credentials, improve selector accuracy, and enhance test descriptions and structure\n",
+        "shortHash": "ac6c685",
+        "hash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+        "subject": "feat: Add Playwright configuration and package.json for login monitoring tests",
+        "body": "feat: Add Playwright configuration and package.json for login monitoring tests\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767370222000
+          "time": 1767377947000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767370222000
+          "time": 1767377947000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
-            "commitHash": "e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20662563034"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+            "commitHash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20663947179"
           },
           "gitCommit": {
-            "shortHash": "e550755",
-            "hash": "e55075544b1c0d0628e3bca69c0f4ea3a3ae6bbc",
-            "subject": "Refactor PCFactory login tests to use environment variables for credentials, improve selector accuracy, and enhance test descriptions and structure",
-            "body": "Refactor PCFactory login tests to use environment variables for credentials, improve selector accuracy, and enhance test descriptions and structure\n",
+            "shortHash": "ac6c685",
+            "hash": "ac6c685ce2a2c1bb39dc5fe95bf8db6630f86950",
+            "subject": "feat: Add Playwright configuration and package.json for login monitoring tests",
+            "body": "feat: Add Playwright configuration and package.json for login monitoring tests\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767370222000
+              "time": 1767377947000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767370222000
+              "time": 1767377947000
             },
             "branch": "main"
           },
@@ -137,12 +137,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41091,
+                      "duration": 43615,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T17:01:03.842Z",
+                      "startTime": "2026-01-02T18:20:28.685Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,12 +171,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41630,
+                      "duration": 42838,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T17:01:45.576Z",
+                      "startTime": "2026-01-02T18:21:13.132Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,12 +205,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41467,
+                      "duration": 42253,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T17:02:27.221Z",
+                      "startTime": "2026-01-02T18:21:55.981Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42078,
+                      "duration": 42387,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T17:03:08.700Z",
+                      "startTime": "2026-01-02T18:22:38.246Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,7 +273,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41489,
+                      "duration": 42035,
                       "errors": [],
                       "stdout": [
                         {
@@ -286,7 +286,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-02T17:01:03.815Z\n"
+                          "text": "Timestamp: 2026-01-02T18:20:28.664Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -304,7 +304,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/Mb2KzUGmAxweKe5gXd2kCoHnDTVzcG0PZQ3FflzCyIDHs5yqQXSWjpoAKMu7BwGN\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/ajHJtN9zmpuVtlPxJDCkZYZ8Veo2fP8gozKnMCtgeVb0qtggmMglreGm0tDQ7QQP\n"
                         },
                         {
                           "text": "✅ Compraquí: PASSED\n"
@@ -336,7 +336,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-02T17:03:50.790Z",
+                      "startTime": "2026-01-02T18:23:20.645Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -356,8 +356,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-02T17:01:03.132Z",
-    "duration": 209215.46300000002,
+    "startTime": "2026-01-02T18:20:27.970Z",
+    "duration": 214779.92,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
