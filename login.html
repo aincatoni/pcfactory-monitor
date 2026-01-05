@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="300">
     <title>PCFactory Login Monitor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +30,7 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
-            padding-bottom: 2rem;
+            line-height: 1.6;
         }
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
         .header {
@@ -39,96 +38,45 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border);
         }
         .logo { display: flex; align-items: center; gap: 1rem; }
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-        .logo-text h1 { font-size: 1.5rem; font-weight: 600; }
-        .logo-text span { font-size: 0.875rem; color: var(--text-secondary); }
+        .logo-icon img { max-width: 48px; }
+        .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
+        .logo-text span { font-size: 0.875rem; color: var(--text-muted); }
         .timestamp {
             font-family: var(--font-mono);
             font-size: 0.875rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             background: var(--bg-card);
             padding: 0.5rem 1rem;
             border-radius: 8px;
             border: 1px solid var(--border);
         }
-        .nav-links {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .nav-link {
-            padding: 0.625rem 1.25rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text-secondary);
-        }
-        .nav-link:hover { background: var(--bg-hover); color: var(--text-primary); }
-        .nav-link.active {
-            background: var(--accent-green);
-            color: white;
-            border-color: var(--accent-green);
-        }
         .status-banner {
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
             margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-weight: 500;
+            gap: 1rem;
         }
-        .status-banner.healthy { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); color: var(--accent-green); }
-        .status-banner.warning { background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-yellow); color: var(--accent-yellow); }
-        .status-banner.critical { background: rgba(239, 68, 68, 0.15); border: 1px solid var(--accent-red); color: var(--accent-red); }
-        .status-dot {
-            width: 10px;
-            height: 10px;
+        .status-banner.critical { border-color: var(--accent-red); background: rgba(239, 68, 68, 0.1); }
+        .status-banner.warning { border-color: var(--accent-yellow); background: rgba(245, 158, 11, 0.1); }
+        .status-banner.healthy { border-color: var(--accent-green); background: rgba(16, 185, 129, 0.1); }
+        .status-indicator {
+            width: 12px; height: 12px;
             border-radius: 50%;
-            background: currentColor;
             animation: pulse 2s infinite;
         }
+        .status-banner.critical .status-indicator { background: var(--accent-red); }
+        .status-banner.warning .status-indicator { background: var(--accent-yellow); }
+        .status-banner.healthy .status-indicator { background: var(--accent-green); }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .hero-score {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 3rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border);
-        }
-        .score-value {
-            font-family: var(--font-mono);
-            font-size: 5rem;
-            font-weight: 700;
-            color: #f59e0b;
-            line-height: 1;
-        }
-        .score-label {
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
+        .status-text { font-size: 1.125rem; font-weight: 600; }
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -137,73 +85,106 @@
         }
         .stat-card {
             background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
-            border: 1px solid var(--border);
+            transition: all 0.2s ease;
         }
+        .stat-card:hover { background: var(--bg-hover); transform: translateY(-2px); }
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             color: var(--text-muted);
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
         }
-        .stat-value {
+        .stat-value { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; }
+        .stat-value.green { color: var(--accent-green); }
+        .stat-value.yellow { color: var(--accent-yellow); }
+        .stat-value.red { color: var(--accent-red); }
+        .stat-value.blue { color: var(--accent-blue); }
+        .health-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .health-score {
             font-family: var(--font-mono);
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 4rem;
+            font-weight: 700;
             color: var(--accent-green);
         }
-        .stat-value.warning { color: var(--accent-yellow); }
-        .stat-value.error { color: var(--accent-red); }
-        .section-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
+        .health-label { color: var(--text-muted); margin-top: 0.5rem; }
+        .section {
             background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
             border: 1px solid var(--border);
-            margin-bottom: 2rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
         }
-        .data-table th, .data-table td {
-            padding: 1rem;
-            text-align: left;
+        .section-header {
+            padding: 1.25rem 1.5rem;
             border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
-        .data-table th {
-            background: var(--bg-secondary);
+        .section-header h2 { font-size: 1rem; font-weight: 600; }
+        .section-count {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: var(--bg-hover);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            color: var(--text-secondary);
+        }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th {
+            text-align: left;
+            padding: 1rem 1.5rem;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-muted);
+            background: var(--bg-secondary);
+            font-weight: 600;
         }
-        .data-table tr:last-child td { border-bottom: none; }
+        td { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: var(--bg-hover); }
         .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
+            font-family: var(--font-mono);
             font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
             font-weight: 500;
         }
-        .badge-ok { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
-        .badge-error { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
+        .badge-id { background: var(--bg-hover); color: var(--text-secondary); }
+        .empty-state { padding: 3rem; text-align: center; color: var(--text-muted); }
+        .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
+        .nav-links { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .nav-link {
+            font-family: var(--font-mono);
             font-size: 0.875rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
         }
+        .nav-link:hover { background: var(--bg-hover); }
+        .nav-link.active { background: var(--accent-blue); color: white; }
         @media (max-width: 768px) {
             .container { padding: 1rem; }
-            .score-value { font-size: 3rem; }
+            .header { flex-direction: column; gap: 1rem; text-align: center; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .health-score { font-size: 3rem; }
         }
     </style>
 </head>
@@ -211,82 +192,146 @@
     <div class="container">
         <header class="header">
             <div class="logo">
-                <div class="logo-icon">PC</div>
+                <div class="logo-icon">
+                <img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg">
+                </div>
                 <div class="logo-text">
                     <h1>pc Factory Monitor</h1>
                     <span>Monitor de Login</span>
                 </div>
             </div>
-            <div class="timestamp">05/01/2026 12:44:56 Chile</div>
+            <div class="timestamp">05/01/2026 13:18:32 Chile</div>
         </header>
         
-        <nav class="nav-links">
-            <a href="index.html" class="nav-link">📦 Categorias</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">📦 Categorías</a>
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link active">🔐 Login</a>
-        </nav>
-        
-        <div class="status-banner warning">
-            <span class="status-dot"></span>
-            Sin datos de monitoreo
         </div>
         
-        <div class="hero-score">
-            <div class="score-value">0%</div>
-            <div class="score-label">Tasa de éxito en tests de login</div>
+        <div class="status-banner healthy">
+            <div class="status-indicator"></div>
+            <span class="status-text">Login Operativo</span>
+        </div>
+        
+        <div class="health-card">
+            <div class="health-score">100%</div>
+            <div class="health-label">Tasa de éxito en tests de login</div>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-label">TESTS PASADOS</div>
-                <div class="stat-value">0/0</div>
+                <div class="stat-label">Tests Pasados</div>
+                <div class="stat-value green">6/6</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">TESTS FALLIDOS</div>
-                <div class="stat-value ">0</div>
+                <div class="stat-label">Tests Fallidos</div>
+                <div class="stat-value green">0</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">UPTIME 24H</div>
-                <div class="stat-value">0%</div>
+                <div class="stat-label">Uptime 24h</div>
+                <div class="stat-value green">100%</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">EJECUCIONES</div>
-                <div class="stat-value">0</div>
+                <div class="stat-label">Ejecuciones</div>
+                <div class="stat-value blue">2</div>
             </div>
         </div>
         
-        <h2 class="section-title">Detalle de Tests</h2>
-        <table class="data-table">
-            <thead>
+        <div class="section">
+            <div class="section-header">
+                <h2>📋 Resultados de Tests</h2>
+                <span class="section-count">6 tests</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Estado</th>
+                            <th>Duración</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
                 <tr>
-                    <th>Test</th>
-                    <th>Estado</th>
-                    <th>Duración</th>
-                    <th>Detalles</th>
+                    <td><span class="badge badge-id">1. Página principal carga correctamente</span></td>
+                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
+                    <td><span class="badge">2.0s</span></td>
+                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr><td colspan="4" style="text-align:center;color:var(--text-muted);">Sin datos de tests</td></tr>
-            </tbody>
-        </table>
         
-        <h2 class="section-title">Historial de Ejecuciones</h2>
-        <table class="data-table">
-            <thead>
                 <tr>
-                    <th>Fecha/Hora</th>
-                    <th>Estado</th>
-                    <th>Resultado</th>
+                    <td><span class="badge badge-id">2. Botón de login existe en header</span></td>
+                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
+                    <td><span class="badge">3.8s</span></td>
+                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr><td colspan="3" style="text-align:center;color:var(--text-muted);">Sin historial</td></tr>
-            </tbody>
-        </table>
+        
+                <tr>
+                    <td><span class="badge badge-id">3. Página de login carga correctamente</span></td>
+                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
+                    <td><span class="badge">4.3s</span></td>
+                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                </tr>
+        
+                <tr>
+                    <td><span class="badge badge-id">4. Formulario de login presente</span></td>
+                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
+                    <td><span class="badge">4.6s</span></td>
+                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                </tr>
+        
+                <tr>
+                    <td><span class="badge badge-id">5. Login con credenciales</span></td>
+                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
+                    <td><span class="badge">10.2s</span></td>
+                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                </tr>
+        
+                <tr>
+                    <td><span class="badge badge-id">6. Link olvidé contraseña funciona</span></td>
+                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
+                    <td><span class="badge">4.3s</span></td>
+                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">
+                <h2>📊 Historial Reciente</h2>
+                <span class="section-count">Últimas 2 ejecuciones</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Tests</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr>
+                    <td>05/01 13:18</td>
+                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅</span></td>
+                    <td><span class="badge badge-id">6/6</span></td>
+                </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
         
         <footer class="footer">
-            <p>Actualización automática: 9am, 2pm, 8pm, 10pm Chile</p>
+            <p>Actualización automática 3 veces al día (9am, 2pm, 8pm Chile)</p>
         </footer>
     </div>
 </body>

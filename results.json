@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/440b66b2f5d36fc1183911cf44bd2c2951b86df7",
-        "commitHash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20720646958"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/87001c0d7cf2aa0f50aa9d4faf093e1b2e232690",
+        "commitHash": "87001c0d7cf2aa0f50aa9d4faf093e1b2e232690",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20721627656"
       },
       "gitCommit": {
-        "shortHash": "440b66b",
-        "hash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
-        "subject": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard",
-        "body": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard\n",
+        "shortHash": "87001c0",
+        "hash": "87001c0d7cf2aa0f50aa9d4faf093e1b2e232690",
+        "subject": "Refactor payment_dashboard.py: Enhance HTML dashboard generation and improve code readability",
+        "body": "Refactor payment_dashboard.py: Enhance HTML dashboard generation and improve code readability\n\n- Updated date/time formatting functions for clarity and consistency.\n- Introduced new function `formato_clp` for Chilean number formatting.\n- Improved error handling in JSON loading functions.\n- Refactored HTML generation logic for better structure and maintainability.\n- Enhanced CSS styles for improved UI/UX.\n- Added auto-refresh script for the dashboard.\n- Updated summary and history display logic for better clarity.\n- Improved variable naming for better understanding of the code.\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767627720000
+          "time": 1767629558000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767627720000
+          "time": 1767629558000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/440b66b2f5d36fc1183911cf44bd2c2951b86df7",
-            "commitHash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20720646958"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/87001c0d7cf2aa0f50aa9d4faf093e1b2e232690",
+            "commitHash": "87001c0d7cf2aa0f50aa9d4faf093e1b2e232690",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20721627656"
           },
           "gitCommit": {
-            "shortHash": "440b66b",
-            "hash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
-            "subject": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard",
-            "body": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard\n",
+            "shortHash": "87001c0",
+            "hash": "87001c0d7cf2aa0f50aa9d4faf093e1b2e232690",
+            "subject": "Refactor payment_dashboard.py: Enhance HTML dashboard generation and improve code readability",
+            "body": "Refactor payment_dashboard.py: Enhance HTML dashboard generation and improve code readability\n\n- Updated date/time formatting functions for clarity and consistency.\n- Introduced new function `formato_clp` for Chilean number formatting.\n- Improved error handling in JSON loading functions.\n- Refactored HTML generation logic for better structure and maintainability.\n- Enhanced CSS styles for improved UI/UX.\n- Added auto-refresh script for the dashboard.\n- Updated summary and history display logic for better clarity.\n- Improved variable naming for better understanding of the code.\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767627720000
+              "time": 1767629558000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767627720000
+              "time": 1767629558000
             },
             "branch": "main"
           },
@@ -137,12 +137,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 44144,
+                      "duration": 41859,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T15:44:14.716Z",
+                      "startTime": "2026-01-05T16:18:01.611Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -176,7 +176,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T15:44:59.445Z",
+                      "startTime": "2026-01-05T16:18:43.723Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,12 +205,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41676,
+                      "duration": 41891,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T15:45:41.301Z",
+                      "startTime": "2026-01-05T16:19:25.579Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42186,
+                      "duration": 43446,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T15:46:22.988Z",
+                      "startTime": "2026-01-05T16:20:07.484Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,7 +273,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42039,
+                      "duration": 42399,
                       "errors": [],
                       "stdout": [
                         {
@@ -286,7 +286,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-05T15:44:14.695Z\n"
+                          "text": "Timestamp: 2026-01-05T16:18:01.586Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -304,7 +304,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/eNOz0N0LfQhK8oyZc79pCyErfnWgQChViNSJ10U10U13jdogl4shESmYhuIhdm3Z\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/W6QbpItC5iFazsrGkrYjb5wZLkhTFMGcopt3aEEquL123rbJ3cjaJ0iDkVLitin4\n"
                         },
                         {
                           "text": "✅ Compraquí: PASSED\n"
@@ -336,7 +336,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T15:47:05.186Z",
+                      "startTime": "2026-01-05T16:20:50.941Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -356,8 +356,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-05T15:44:14.028Z",
-    "duration": 213262.80299999999,
+    "startTime": "2026-01-05T16:18:00.892Z",
+    "duration": 212516.021,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
