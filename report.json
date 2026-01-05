@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-05T15:43:49.238548+00:00",
+  "timestamp": "2026-01-05T15:59:43.520156+00:00",
   "summary": {
     "total_categorias": 16,
     "urls_ok": 16,
@@ -14,14 +14,9 @@
       "url": "https://www.pcfactory.cl/categoria//computadores-y-tablets"
     },
     {
-      "id": 1320,
+      "id": 645,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//gamer-y-poder-grafico"
-    },
-    {
-      "id": 1321,
-      "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//ups-energia-y-energia-solar"
+      "url": "https://www.pcfactory.cl/categoria//smartphones-y-wearables"
     },
     {
       "id": 633,
@@ -29,14 +24,14 @@
       "url": "https://www.pcfactory.cl/categoria//partes-y-piezas-componentes"
     },
     {
-      "id": 645,
+      "id": 1321,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//smartphones-y-wearables"
+      "url": "https://www.pcfactory.cl/categoria//ups-energia-y-energia-solar"
     },
     {
-      "id": 256,
+      "id": 1320,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//monitores-y-proyectores"
+      "url": "https://www.pcfactory.cl/categoria//gamer-y-poder-grafico"
     },
     {
       "id": 296,
@@ -49,14 +44,14 @@
       "url": "https://www.pcfactory.cl/categoria//almacenamiento-y-discos-duros"
     },
     {
+      "id": 256,
+      "nombre": "",
+      "url": "https://www.pcfactory.cl/categoria//monitores-y-proyectores"
+    },
+    {
       "id": 638,
       "nombre": "",
       "url": "https://www.pcfactory.cl/categoria//impresoras-y-suministros"
-    },
-    {
-      "id": 788,
-      "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//smart-tv-y-audio"
     },
     {
       "id": 818,
@@ -64,14 +59,14 @@
       "url": "https://www.pcfactory.cl/categoria//oficinas-y-punto-de-venta"
     },
     {
-      "id": 746,
-      "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//hogar-y-seguridad"
-    },
-    {
       "id": 634,
       "nombre": "",
       "url": "https://www.pcfactory.cl/categoria//conectividad-y-redes"
+    },
+    {
+      "id": 788,
+      "nombre": "",
+      "url": "https://www.pcfactory.cl/categoria//smart-tv-y-audio"
     },
     {
       "id": 643,
@@ -79,14 +74,19 @@
       "url": "https://www.pcfactory.cl/categoria//video-fotografia-y-drones"
     },
     {
-      "id": 642,
+      "id": 746,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//automovil-gps-y-outdoor"
+      "url": "https://www.pcfactory.cl/categoria//hogar-y-seguridad"
     },
     {
       "id": 914,
       "nombre": "",
       "url": "https://www.pcfactory.cl/categoria//electronica-y-robotica"
+    },
+    {
+      "id": 642,
+      "nombre": "",
+      "url": "https://www.pcfactory.cl/categoria//automovil-gps-y-outdoor"
     }
   ],
   "categorias_error": [],
@@ -95,33 +95,6 @@
       "id": 636,
       "nombre": "",
       "url": "https://www.pcfactory.cl/categoria//computadores-y-tablets",
-      "status": 200,
-      "tiene_productos": false,
-      "cantidad_productos": 0,
-      "error": null
-    },
-    {
-      "id": 1320,
-      "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//gamer-y-poder-grafico",
-      "status": 200,
-      "tiene_productos": false,
-      "cantidad_productos": 0,
-      "error": null
-    },
-    {
-      "id": 1321,
-      "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//ups-energia-y-energia-solar",
-      "status": 200,
-      "tiene_productos": false,
-      "cantidad_productos": 0,
-      "error": null
-    },
-    {
-      "id": 633,
-      "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//partes-y-piezas-componentes",
       "status": 200,
       "tiene_productos": false,
       "cantidad_productos": 0,
@@ -137,9 +110,27 @@
       "error": null
     },
     {
-      "id": 256,
+      "id": 633,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//monitores-y-proyectores",
+      "url": "https://www.pcfactory.cl/categoria//partes-y-piezas-componentes",
+      "status": 200,
+      "tiene_productos": false,
+      "cantidad_productos": 0,
+      "error": null
+    },
+    {
+      "id": 1321,
+      "nombre": "",
+      "url": "https://www.pcfactory.cl/categoria//ups-energia-y-energia-solar",
+      "status": 200,
+      "tiene_productos": false,
+      "cantidad_productos": 0,
+      "error": null
+    },
+    {
+      "id": 1320,
+      "nombre": "",
+      "url": "https://www.pcfactory.cl/categoria//gamer-y-poder-grafico",
       "status": 200,
       "tiene_productos": false,
       "cantidad_productos": 0,
@@ -164,18 +155,18 @@
       "error": null
     },
     {
-      "id": 638,
+      "id": 256,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//impresoras-y-suministros",
+      "url": "https://www.pcfactory.cl/categoria//monitores-y-proyectores",
       "status": 200,
       "tiene_productos": false,
       "cantidad_productos": 0,
       "error": null
     },
     {
-      "id": 788,
+      "id": 638,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//smart-tv-y-audio",
+      "url": "https://www.pcfactory.cl/categoria//impresoras-y-suministros",
       "status": 200,
       "tiene_productos": false,
       "cantidad_productos": 0,
@@ -191,18 +182,18 @@
       "error": null
     },
     {
-      "id": 746,
+      "id": 634,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//hogar-y-seguridad",
+      "url": "https://www.pcfactory.cl/categoria//conectividad-y-redes",
       "status": 200,
       "tiene_productos": false,
       "cantidad_productos": 0,
       "error": null
     },
     {
-      "id": 634,
+      "id": 788,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//conectividad-y-redes",
+      "url": "https://www.pcfactory.cl/categoria//smart-tv-y-audio",
       "status": 200,
       "tiene_productos": false,
       "cantidad_productos": 0,
@@ -218,9 +209,9 @@
       "error": null
     },
     {
-      "id": 642,
+      "id": 746,
       "nombre": "",
-      "url": "https://www.pcfactory.cl/categoria//automovil-gps-y-outdoor",
+      "url": "https://www.pcfactory.cl/categoria//hogar-y-seguridad",
       "status": 200,
       "tiene_productos": false,
       "cantidad_productos": 0,
@@ -230,6 +221,15 @@
       "id": 914,
       "nombre": "",
       "url": "https://www.pcfactory.cl/categoria//electronica-y-robotica",
+      "status": 200,
+      "tiene_productos": false,
+      "cantidad_productos": 0,
+      "error": null
+    },
+    {
+      "id": 642,
+      "nombre": "",
+      "url": "https://www.pcfactory.cl/categoria//automovil-gps-y-outdoor",
       "status": 200,
       "tiene_productos": false,
       "cantidad_productos": 0,
