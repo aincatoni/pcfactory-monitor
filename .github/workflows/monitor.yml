@@ -117,17 +117,23 @@ jobs:
           HOUR=$(date -u +%H)
           MINUTE=$(date -u +%M)
           
-          # Correr a las 12:00, 17:00, 23:00 UTC (9am, 2pm, 8pm Chile)
-          # O cuando es ejecución manual con run_payments=true
+          # Horarios UTC para Chile (UTC-3 en verano):
+          # 9am Chile  = 12:00 UTC
+          # 2pm Chile  = 17:00 UTC
+          # 8pm Chile  = 23:00 UTC
+          # 10pm Chile = 01:00 UTC (día siguiente)
+          #
+          # Ventana ampliada a 20 minutos por delays de GitHub Actions
+          
           if [[ "${{ github.event.inputs.run_payments }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "Manual run requested"
-          elif [[ "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "10" ]]; then
+            echo "✅ Manual run requested"
+          elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "20" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "Scheduled run at hour $HOUR"
+            echo "✅ Scheduled run at hour $HOUR:$MINUTE UTC"
           else
             echo "should_run=false" >> $GITHUB_OUTPUT
-            echo "Skipping payments (hour=$HOUR, minute=$MINUTE)"
+            echo "⏭️ Skipping payments (hour=$HOUR, minute=$MINUTE)"
           fi
 
   # ============================================
@@ -144,17 +150,23 @@ jobs:
           HOUR=$(date -u +%H)
           MINUTE=$(date -u +%M)
           
-          # Correr a las 12:00, 17:00, 23:00 UTC (9am, 2pm, 8pm Chile)
-          # O cuando es ejecución manual con run_login=true
+          # Horarios UTC para Chile (UTC-3 en verano):
+          # 9am Chile  = 12:00 UTC
+          # 2pm Chile  = 17:00 UTC
+          # 8pm Chile  = 23:00 UTC
+          # 10pm Chile = 01:00 UTC (día siguiente)
+          #
+          # Ventana ampliada a 20 minutos por delays de GitHub Actions
+          
           if [[ "${{ github.event.inputs.run_login }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "Manual run requested"
-          elif [[ "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "10" ]]; then
+            echo "✅ Manual run requested"
+          elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "20" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "Scheduled run at hour $HOUR"
+            echo "✅ Scheduled run at hour $HOUR:$MINUTE UTC"
           else
             echo "should_run=false" >> $GITHUB_OUTPUT
-            echo "Skipping login (hour=$HOUR, minute=$MINUTE)"
+            echo "⏭️ Skipping login (hour=$HOUR, minute=$MINUTE)"
           fi
 
   # ============================================
