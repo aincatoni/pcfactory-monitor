@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 PCFactory Category Monitor
-Verifica el estado de todas las categorías y genera un reporte JSON + HTML
+Verifica el estado de todas las categorias y genera un reporte JSON + HTML
 """
 import json
 import time
@@ -9,243 +10,290 @@ import random
 import argparse
 import concurrent.futures as cf
 from datetime import datetime, timezone, timedelta
-from typing import Any, Dict, List
+from typing import Any, Dict, Iterable, List
 from pathlib import Path
 
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# CONFIGURACIÓN
-# ═══════════════════════════════════════════════════════════════════════════════
+# ==============================================================================
+# CONFIGURACION
+# ==============================================================================
 
-MENU_ENDPOINT = "https://api.pcfactory.cl/api-dex-catalog/v1/catalog/category/PCF"
-PRODUCTS_API = "https://api.pcfactory.cl/pcfactory-services-catalogo/v1/catalogo/productos/query"
+DEFAULT_ENDPOINT = "https://api.pcfactory.cl/api-dex-catalog/v1/catalog/category/PCF"
+PRODUCTS_API_BASE = "https://api.pcfactory.cl/pcfactory-services-catalogo/v1/catalogo/productos/query"
 BASE_CATEG_URL = "https://www.pcfactory.cl/categoria"
 
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 15_6_1) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
 
-# ═══════════════════════════════════════════════════════════════════════════════
+# ==============================================================================
 # FUNCIONES DE FECHA/HORA CHILE
-# ═══════════════════════════════════════════════════════════════════════════════
+# ==============================================================================
 
 def utc_to_chile(dt_utc):
     """Convierte datetime UTC a hora Chile (UTC-3 verano, UTC-4 invierno)."""
     if dt_utc.tzinfo is None:
         dt_utc = dt_utc.replace(tzinfo=timezone.utc)
-    
-    # Chile usa UTC-3 en verano (sept-abril) y UTC-4 en invierno (abril-sept)
-    # Simplificación: usar UTC-3 (horario de verano actual)
     chile_offset = timedelta(hours=-3)
     chile_tz = timezone(chile_offset)
-    
     return dt_utc.astimezone(chile_tz)
 
-def get_chile_timestamp():
-    """Retorna timestamp actual en hora Chile."""
-    now_utc = datetime.now(timezone.utc)
-    now_chile = utc_to_chile(now_utc)
-    return now_chile.strftime('%d/%m/%Y %H:%M:%S') + ' Chile'
+def format_chile_timestamp(iso_timestamp):
+    """Formatea un timestamp ISO a formato Chile."""
+    try:
+        dt = datetime.fromisoformat(iso_timestamp.replace('Z', '+00:00'))
+        dt_chile = utc_to_chile(dt)
+        return dt_chile.strftime('%d/%m/%Y %H:%M:%S') + ' Chile'
+    except:
+        return iso_timestamp[:19] if iso_timestamp else 'N/A'
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# SESIÓN HTTP
-# ═══════════════════════════════════════════════════════════════════════════════
+# ==============================================================================
+# SESION HTTP
+# ==============================================================================
 
 def create_session() -> requests.Session:
-    session = requests.Session()
-    session.headers.update({
-        "User-Agent": UA,
-        "Accept": "application/json, text/html, */*;q=0.8",
-        "Accept-Language": "es-CL,es;q=0.9,en;q=0.8",
+    s = requests.Session()
+    s.headers.update({
+        "User-Agent": UA, 
+        "Accept": "application/json, text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "es-CL,es;q=0.9,en-US;q=0.8,en;q=0.7",
     })
     retry = Retry(
-        total=3,
-        backoff_factor=0.5,
+        total=5,
+        backoff_factor=0.8,
         status_forcelist=[429, 500, 502, 503, 504],
         allowed_methods=frozenset(["GET", "HEAD"]),
         raise_on_status=False,
+        respect_retry_after_header=True,
     )
-    adapter = HTTPAdapter(max_retries=retry, pool_connections=10, pool_maxsize=10)
-    session.mount("https://", adapter)
-    session.mount("http://", adapter)
-    return session
+    adapter = HTTPAdapter(max_retries=retry, pool_connections=20, pool_maxsize=20)
+    s.mount("https://", adapter)
+    s.mount("http://", adapter)
+    return s
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# FUNCIONES DE EXTRACCIÓN
-# ═══════════════════════════════════════════════════════════════════════════════
+def polite_pause(min_s: float, max_s: float):
+    time.sleep(random.uniform(min_s, max_s))
 
-def fetch_menu(session: requests.Session) -> List[Dict]:
-    """Obtiene el menú de categorías desde la API."""
-    resp = session.get(MENU_ENDPOINT, timeout=30)
-    resp.raise_for_status()
-    return resp.json()
+# ==============================================================================
+# FUNCIONES DE EXTRACCION
+# ==============================================================================
 
-def walk_categories(nodes: List[Dict]) -> List[Dict[str, Any]]:
-    """Extrae todas las categorías con su ID, nombre y link."""
-    result = []
-    def _walk(items: List[Dict]):
-        for item in items:
-            cat_id = item.get("id", "")
-            name = item.get("name", "")
-            link = item.get("link", "")
-            if cat_id and link:
-                result.append({
-                    "id": cat_id,
-                    "nombre": name,
-                    "link": link,
-                    "url": f"{BASE_CATEG_URL}/{link}"
-                })
-            children = item.get("children", [])
-            if children:
-                _walk(children)
-    _walk(nodes)
-    return result
+def fetch_menu(session: requests.Session, endpoint: str):
+    r = session.get(endpoint, timeout=30)
+    r.raise_for_status()
+    return r.json()
 
-def check_category(session: requests.Session, category: Dict, delay: float) -> Dict:
-    """Verifica una categoría: URL accesible y productos disponibles."""
-    time.sleep(delay)
-    
-    cat_id = category["id"]
-    url = category["url"]
-    
-    result = {
-        "id": cat_id,
-        "nombre": category["nombre"],
-        "url": url,
-        "status": None,
-        "tiene_productos": False,
-        "cantidad_productos": 0,
-        "error": None
-    }
-    
-    # Verificar URL
+def walk_links(nodes: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    stack = list(nodes or [])
+    while stack:
+        n = stack.pop()
+        link = n.get("link") or n.get("Link")
+        if link:
+            out.append({"id": n.get("id"), "nombre": n.get("nombre") or n.get("Nombre"), "link": str(link)})
+        childs = n.get("childCategories") or n.get("childcategories") or []
+        if isinstance(childs, list) and childs:
+            stack.extend(childs)
+    seen, unique = set(), []
+    for it in out:
+        if it["link"] not in seen:
+            seen.add(it["link"])
+            unique.append(it)
+    return unique
+
+def build_full_url(link: str) -> str:
+    link = link.strip()
+    if link.startswith("http://") or link.startswith("https://"):
+        return link
+    return BASE_CATEG_URL.rstrip("/") + "/" + link.lstrip("/")
+
+# ==============================================================================
+# VERIFICACION DE CATEGORIAS
+# ==============================================================================
+
+def check_products(session: requests.Session, category_id: int, min_delay: float, max_delay: float) -> Dict[str, Any]:
+    polite_pause(min_delay, max_delay)
     try:
-        resp = session.get(url, timeout=15, allow_redirects=True)
-        result["status"] = resp.status_code
-    except Exception as e:
-        result["error"] = str(e)
-        return result
-    
-    # Verificar productos via API
-    try:
-        payload = {
-            "idCategoria": cat_id,
-            "pagina": 1,
-            "orden": "score",
-            "filtros": "",
-            "precioMin": None,
-            "precioMax": None
-        }
-        resp = session.post(PRODUCTS_API, json=payload, timeout=15)
+        url = f"{PRODUCTS_API_BASE}?page=0&size=1&categorias={category_id}"
+        resp = session.get(url, timeout=20)
+        
+        if resp.status_code == 429 and "Retry-After" in resp.headers:
+            try:
+                wait = int(resp.headers["Retry-After"])
+                time.sleep(min(wait, 20))
+            except Exception:
+                pass
+        
         if resp.ok:
             data = resp.json()
-            total = data.get("totalResultados", 0)
-            result["cantidad_productos"] = total
-            result["tiene_productos"] = total > 0
-    except Exception as e:
-        result["error"] = f"Error API productos: {e}"
+            content = data.get("content", {})
+            pageable = content.get("pageable", {})
+            total = pageable.get("totalElements", 0)
+            return {
+                "total_productos": total,
+                "tiene_productos": total > 0,
+                "productos_api_status": resp.status_code,
+                "productos_error": "",
+            }
+        else:
+            return {
+                "total_productos": None,
+                "tiene_productos": None,
+                "productos_api_status": resp.status_code,
+                "productos_error": f"HTTP {resp.status_code}",
+            }
+    except requests.RequestException as e:
+        return {
+            "total_productos": None,
+            "tiene_productos": None,
+            "productos_api_status": None,
+            "productos_error": str(e),
+        }
+
+def probe(session: requests.Session, url: str, min_delay: float, max_delay: float) -> Dict[str, Any]:
+    t0 = time.perf_counter()
+    polite_pause(min_delay, max_delay)
+    try:
+        resp = session.get(url, allow_redirects=True, timeout=25)
+        elapsed_ms = int((time.perf_counter() - t0) * 1000)
+        if resp.status_code == 429 and "Retry-After" in resp.headers:
+            try:
+                wait = int(resp.headers["Retry-After"])
+                time.sleep(min(wait, 20))
+            except Exception:
+                pass
+        return {
+            "status_code": resp.status_code,
+            "ok": resp.ok,
+            "elapsed_ms": elapsed_ms,
+            "error": "",
+        }
+    except requests.RequestException as e:
+        elapsed_ms = int((time.perf_counter() - t0) * 1000)
+        return {"status_code": None, "ok": False, "elapsed_ms": elapsed_ms, "error": str(e)}
+
+def probe_with_products(session: requests.Session, item: Dict[str, Any], url: str, 
+                        min_delay: float, max_delay: float) -> Dict[str, Any]:
+    url_result = probe(session, url, min_delay, max_delay)
+    
+    result = {
+        "id": item.get("id"),
+        "nombre": item.get("nombre"),
+        "link": item.get("link"),
+        "url": url,
+        **url_result,
+    }
+    
+    if item.get("id"):
+        prod_result = check_products(session, item["id"], min_delay, max_delay)
+        result.update(prod_result)
+    else:
+        result.update({
+            "total_productos": None,
+            "tiene_productos": None,
+            "productos_api_status": None,
+            "productos_error": "ID no disponible",
+        })
     
     return result
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# MONITOREO PRINCIPAL
-# ═══════════════════════════════════════════════════════════════════════════════
-
-def run_monitor(workers: int = 5, delay_min: float = 0.2, delay_max: float = 0.5) -> Dict:
-    """Ejecuta el monitoreo completo."""
+def run_monitor(workers: int = 3, delay_min: float = 0.35, delay_max: float = 0.9) -> Dict:
     session = create_session()
     
-    print("[*] Obteniendo menu de categorias...")
-    menu = fetch_menu(session)
-    categories = walk_categories(menu)
-    print(f"[+] {len(categories)} categorias encontradas")
+    print("[*] Descargando menu: " + DEFAULT_ENDPOINT)
+    data = fetch_menu(session, DEFAULT_ENDPOINT)
+    nodes = data if isinstance(data, list) else data.get("data", [])
+    items = walk_links(nodes)
+    
+    print("[*] Links encontrados: " + str(len(items)))
+    print("[+] Verificacion de productos ACTIVADA")
     
     results = []
-    print(f"[*] Verificando categorias ({workers} workers)...")
+    total = len(items)
+    
+    print("\n[*] Verificando categorias con " + str(workers) + " workers...")
     
     with cf.ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = {}
-        for cat in categories:
-            delay = random.uniform(delay_min, delay_max)
-            fut = executor.submit(check_category, session, cat, delay)
-            futures[fut] = cat
+        future_map = {
+            executor.submit(probe_with_products, session, item, build_full_url(item["link"]), 
+                          delay_min, delay_max): item 
+            for item in items
+        }
         
-        done = 0
-        for fut in cf.as_completed(futures):
-            done += 1
-            if done % 50 == 0 or done == len(categories):
-                print(f"    {done}/{len(categories)} verificadas...")
+        for i, future in enumerate(cf.as_completed(future_map), 1):
             try:
-                results.append(fut.result())
+                result = future.result()
+                results.append(result)
+                
+                status_mark = "[OK]" if result["ok"] else "[ERR]"
+                prod_info = ""
+                if result.get("total_productos") is not None:
+                    prod_mark = "(+)" if result["tiene_productos"] else "(!)"
+                    prod_info = " " + prod_mark + " " + str(result['total_productos']) + " prods"
+                nombre_short = result['nombre'][:40] if result['nombre'] else "N/A"
+                print("[" + str(i) + "/" + str(total) + "] " + status_mark + " " + nombre_short.ljust(40) + prod_info)
+                
             except Exception as e:
-                cat = futures[fut]
-                results.append({
-                    "id": cat["id"],
-                    "nombre": cat["nombre"],
-                    "url": cat["url"],
-                    "status": None,
-                    "tiene_productos": False,
-                    "cantidad_productos": 0,
-                    "error": str(e)
-                })
+                item = future_map[future]
+                print("[" + str(i) + "/" + str(total) + "] [WARN] Error en " + str(item['nombre']) + ": " + str(e))
     
-    # Calcular resumen
-    urls_ok = len([r for r in results if r["status"] == 200])
-    urls_error = len([r for r in results if r["status"] != 200])
-    con_productos = len([r for r in results if r["tiene_productos"]])
-    sin_productos = len([r for r in results if not r["tiene_productos"] and r["status"] == 200])
+    def sort_key(r):
+        ok_order = 0 if r["ok"] else 1
+        prod_order = 0
+        if r.get("tiene_productos") is False:
+            prod_order = 1
+        elif r.get("tiene_productos") is None:
+            prod_order = 2
+        return (ok_order, prod_order, r["status_code"] if r["status_code"] is not None else 9999, r["url"])
     
-    categorias_vacias = [
-        {"id": r["id"], "nombre": r["nombre"], "url": r["url"]}
-        for r in results if not r["tiene_productos"] and r["status"] == 200
-    ]
+    results.sort(key=sort_key)
     
-    categorias_error = [
-        {"id": r["id"], "nombre": r["nombre"], "url": r["url"], "status": r["status"], "error": r.get("error")}
-        for r in results if r["status"] != 200
-    ]
+    total_cats = len(results)
+    urls_ok = sum(1 for r in results if r["ok"])
+    urls_error = total_cats - urls_ok
+    con_productos = sum(1 for r in results if r.get("tiene_productos") == True)
+    sin_productos = sum(1 for r in results if r.get("tiene_productos") == False)
     
-    return {
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+    timestamp = datetime.now(timezone.utc).isoformat()
+    
+    report = {
+        "timestamp": timestamp,
         "summary": {
-            "total_categorias": len(categories),
+            "total_categorias": total_cats,
             "urls_ok": urls_ok,
             "urls_error": urls_error,
             "con_productos": con_productos,
-            "sin_productos": sin_productos
+            "sin_productos": sin_productos,
+            "health_score": round((con_productos / total_cats) * 100, 1) if total_cats > 0 else 0,
         },
-        "categorias_vacias": categorias_vacias,
-        "categorias_error": categorias_error,
-        "all_results": results
+        "categorias_vacias": [
+            {"id": r["id"], "nombre": r["nombre"], "url": r["url"]}
+            for r in results if r.get("tiene_productos") == False
+        ],
+        "categorias_error": [
+            {"id": r["id"], "nombre": r["nombre"], "url": r["url"], "status": r["status_code"], "error": r["error"]}
+            for r in results if not r["ok"]
+        ],
+        "all_categories": results,
     }
+    
+    return report
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# GENERADOR DE DASHBOARD HTML
-# ═══════════════════════════════════════════════════════════════════════════════
+# ==============================================================================
+# GENERACION DE HTML
+# ==============================================================================
 
 def generate_html_dashboard(report: Dict) -> str:
-    """Genera el dashboard HTML."""
     summary = report["summary"]
-    vacias = report.get("categorias_vacias", [])
-    errores = report.get("categorias_error", [])
-    timestamp = report.get("timestamp", "")
+    timestamp = report["timestamp"]
+    vacias = report["categorias_vacias"]
+    errores = report["categorias_error"]
+    all_cats = report.get("all_categories", [])
     
-    # Convertir timestamp a hora Chile
-    try:
-        dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
-        dt_chile = utc_to_chile(dt)
-        timestamp_display = dt_chile.strftime('%d/%m/%Y %H:%M:%S') + ' Chile'
-    except:
-        timestamp_display = timestamp
-    
-    # Calcular health score
-    total = summary["total_categorias"]
-    if total > 0:
-        health_score = (summary["con_productos"] / total) * 100
-    else:
-        health_score = 0
+    # Usar hora Chile
+    timestamp_display = format_chile_timestamp(timestamp)
     
     if summary["urls_error"] > 0:
         status_class = "critical"
@@ -253,32 +301,150 @@ def generate_html_dashboard(report: Dict) -> str:
         status_color = "#ef4444"
     elif summary["sin_productos"] > 0:
         status_class = "warning"
-        status_text = f"{summary['sin_productos']} categorias vacias"
+        status_text = str(summary['sin_productos']) + " categorias vacias"
         status_color = "#f59e0b"
     else:
         status_class = "healthy"
         status_text = "Todo OK"
         status_color = "#10b981"
     
+    # Build rows for empty categories
     vacias_rows = ""
     for cat in vacias:
-        vacias_rows += f'''
-        <tr>
-            <td><span class="badge badge-id">{cat["id"]}</span></td>
-            <td>{cat["nombre"]}</td>
-            <td><a href="{cat["url"]}" target="_blank" class="link">Ver</a></td>
-        </tr>'''
+        cat_id = cat["id"] if cat["id"] else "N/A"
+        cat_nombre = cat["nombre"] if cat["nombre"] else "N/A"
+        cat_url = cat["url"] if cat["url"] else "#"
+        vacias_rows += '<tr>'
+        vacias_rows += '<td><span class="badge badge-id">' + str(cat_id) + '</span></td>'
+        vacias_rows += '<td>' + str(cat_nombre) + '</td>'
+        vacias_rows += '<td><a href="' + str(cat_url) + '" target="_blank" class="link">Ver</a></td>'
+        vacias_rows += '</tr>\n'
     
+    # Build rows for error categories
     errores_rows = ""
     for cat in errores:
-        errores_rows += f'''
-        <tr class="error-row">
-            <td><span class="badge badge-error">{cat["status"] or "ERR"}</span></td>
-            <td>{cat["nombre"]}</td>
-            <td><a href="{cat["url"]}" target="_blank" class="link">Ver</a></td>
-        </tr>'''
+        cat_status = cat["status"] if cat["status"] else "ERR"
+        cat_nombre = cat["nombre"] if cat["nombre"] else "N/A"
+        cat_url = cat["url"] if cat["url"] else "#"
+        errores_rows += '<tr class="error-row">'
+        errores_rows += '<td><span class="badge badge-error">' + str(cat_status) + '</span></td>'
+        errores_rows += '<td>' + str(cat_nombre) + '</td>'
+        errores_rows += '<td><a href="' + str(cat_url) + '" target="_blank" class="link">Ver</a></td>'
+        errores_rows += '</tr>\n'
     
-    html = f'''<!DOCTYPE html>
+    # Build rows for ALL categories (nueva funcionalidad)
+    all_cats_rows = ""
+    for cat in all_cats:
+        cat_id = cat.get("id") or "N/A"
+        cat_nombre = cat.get("nombre") or "N/A"
+        cat_url = cat.get("url") or "#"
+        cat_status = cat.get("status_code") or "ERR"
+        total_prods = cat.get("total_productos")
+        tiene_prods = cat.get("tiene_productos")
+        
+        # Determinar clase de fila
+        row_class = ""
+        if not cat.get("ok"):
+            row_class = "error-row"
+        elif tiene_prods == False:
+            row_class = "warning-row"
+        
+        # Badge de estado
+        if cat.get("ok"):
+            status_badge = '<span class="badge badge-ok">' + str(cat_status) + '</span>'
+        else:
+            status_badge = '<span class="badge badge-error">' + str(cat_status) + '</span>'
+        
+        # Badge de productos
+        if total_prods is not None:
+            if tiene_prods:
+                prod_badge = '<span class="badge badge-ok">' + str(total_prods) + '</span>'
+            else:
+                prod_badge = '<span class="badge badge-warning">0</span>'
+        else:
+            prod_badge = '<span class="badge badge-error">?</span>'
+        
+        all_cats_rows += '<tr class="' + row_class + '">'
+        all_cats_rows += '<td><span class="badge badge-id">' + str(cat_id) + '</span></td>'
+        all_cats_rows += '<td>' + str(cat_nombre) + '</td>'
+        all_cats_rows += '<td>' + status_badge + '</td>'
+        all_cats_rows += '<td>' + prod_badge + '</td>'
+        all_cats_rows += '<td><a href="' + str(cat_url) + '" target="_blank" class="link">Ver</a></td>'
+        all_cats_rows += '</tr>\n'
+    
+    # Error section HTML
+    errores_section = ""
+    if errores:
+        errores_section = '''
+        <div class="section">
+            <div class="section-header">
+                <span>❌</span>
+                <h2>URLs con Error</h2>
+                <span class="section-count">''' + str(len(errores)) + '''</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Status</th><th>Categoria</th><th>Accion</th></tr></thead>
+                    <tbody>''' + errores_rows + '''</tbody>
+                </table>
+            </div>
+        </div>
+        '''
+    
+    # Empty categories section HTML
+    vacias_section = ""
+    if vacias:
+        vacias_section = '''
+        <div class="section">
+            <div class="section-header">
+                <span>⚠️</span>
+                <h2>Categorias Sin Productos</h2>
+                <span class="section-count">''' + str(len(vacias)) + '''</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>ID</th><th>Categoria</th><th>Accion</th></tr></thead>
+                    <tbody>''' + vacias_rows + '''</tbody>
+                </table>
+            </div>
+        </div>
+        '''
+    
+    # All OK section
+    all_ok_section = ""
+    if not errores and not vacias:
+        all_ok_section = '''
+        <div class="section">
+            <div class="empty-state">
+                <div class="empty-state-icon">✅</div>
+                <p>Todas las categorias estan funcionando correctamente!</p>
+            </div>
+        </div>
+        '''
+    
+    # ALL categories section (nueva)
+    all_cats_section = '''
+        <div class="section">
+            <div class="section-header">
+                <span>📋</span>
+                <h2>Todas las Categorias</h2>
+                <span class="section-count">''' + str(len(all_cats)) + '''</span>
+            </div>
+            <input type="text" class="filter-input" placeholder="Buscar categoria..." id="filterInput" style="margin: 1rem; width: calc(100% - 2rem); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-primary);">
+            <div class="table-container">
+                <table id="allCatsTable">
+                    <thead><tr><th>ID</th><th>Categoria</th><th>Status</th><th>Productos</th><th>Accion</th></tr></thead>
+                    <tbody>''' + all_cats_rows + '''</tbody>
+                </table>
+            </div>
+        </div>
+        '''
+    
+    # Stats color classes
+    urls_error_class = "red" if summary["urls_error"] > 0 else "green"
+    sin_prod_class = "yellow" if summary["sin_productos"] > 0 else "green"
+    
+    html = '''<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -289,7 +455,7 @@ def generate_html_dashboard(report: Dict) -> str:
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {{
+        :root {
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
             --bg-card: #1a1a24;
@@ -304,321 +470,256 @@ def generate_html_dashboard(report: Dict) -> str:
             --border: #27272a;
             --font-mono: 'JetBrains Mono', monospace;
             --font-sans: 'Space Grotesk', sans-serif;
-        }}
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        body {{
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
             font-family: var(--font-sans);
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
-            padding-bottom: 2rem;
-        }}
-        .container {{ max-width: 1400px; margin: 0 auto; padding: 2rem; }}
-        .header {{
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border);
-        }}
-        .logo {{ display: flex; align-items: center; gap: 1rem; }}
-        .logo-icon {{
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }}
-        .logo-text h1 {{ font-size: 1.5rem; font-weight: 600; }}
-        .logo-text span {{ font-size: 0.875rem; color: var(--text-secondary); }}
-        .timestamp {{
+        }
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 48px; height: 48px; }
+        .logo-icon img { width: 100%; height: 100%; }
+        .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
+        .logo-text span { font-size: 0.875rem; color: var(--text-muted); }
+        .timestamp {
             font-family: var(--font-mono);
             font-size: 0.875rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             background: var(--bg-card);
             padding: 0.5rem 1rem;
             border-radius: 8px;
             border: 1px solid var(--border);
-        }}
-        .nav-links {{
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }}
-        .nav-link {{
-            padding: 0.625rem 1.25rem;
-            border-radius: 8px;
-            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .nav-link {
+            font-family: var(--font-mono);
             font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            border: 1px solid var(--border);
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
             background: var(--bg-card);
-            color: var(--text-secondary);
-        }}
-        .nav-link:hover {{ background: var(--bg-hover); color: var(--text-primary); }}
-        .nav-link.active {{
-            background: var(--accent-green);
-            color: white;
-            border-color: var(--accent-green);
-        }}
-        .status-banner {{
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .nav-link:hover { background: var(--bg-hover); }
+        .nav-link.active { background: var(--accent-blue); color: white; }
+        .status-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
             margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-weight: 500;
-        }}
-        .status-banner.healthy {{ background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); color: var(--accent-green); }}
-        .status-banner.warning {{ background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-yellow); color: var(--accent-yellow); }}
-        .status-banner.critical {{ background: rgba(239, 68, 68, 0.15); border: 1px solid var(--accent-red); color: var(--accent-red); }}
-        .status-dot {{
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: currentColor;
-            animation: pulse 2s infinite;
-        }}
-        @keyframes pulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.5; }} }}
-        .hero-score {{
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 3rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border);
-        }}
-        .score-value {{
-            font-family: var(--font-mono);
-            font-size: 5rem;
-            font-weight: 700;
-            color: {status_color};
-            line-height: 1;
-        }}
-        .score-label {{
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-            font-size: 1rem;
-        }}
-        .stats-grid {{
+            gap: 1rem;
+        }
+        .status-banner.healthy { border-color: var(--accent-green); background: rgba(16, 185, 129, 0.1); }
+        .status-banner.warning { border-color: var(--accent-yellow); background: rgba(245, 158, 11, 0.1); }
+        .status-banner.critical { border-color: var(--accent-red); background: rgba(239, 68, 68, 0.1); }
+        .status-indicator { width: 12px; height: 12px; border-radius: 50%; animation: pulse 2s infinite; }
+        .status-banner.healthy .status-indicator { background: var(--accent-green); }
+        .status-banner.warning .status-indicator { background: var(--accent-yellow); }
+        .status-banner.critical .status-indicator { background: var(--accent-red); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .status-text { font-size: 1.125rem; font-weight: 600; }
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin-bottom: 2rem;
-        }}
-        .stat-card {{
+        }
+        .stat-card {
             background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
-            border: 1px solid var(--border);
-        }}
-        .stat-label {{
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }}
-        .stat-value {{
-            font-family: var(--font-mono);
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--accent-green);
-        }}
-        .stat-value.warning {{ color: var(--accent-yellow); }}
-        .stat-value.error {{ color: var(--accent-red); }}
-        .section {{ margin-bottom: 2rem; }}
-        .section-title {{
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }}
-        .data-table {{
-            width: 100%;
-            border-collapse: collapse;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .stat-card:hover { background: var(--bg-hover); transform: translateY(-2px); }
+        .stat-value { font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; }
+        .stat-value.green { color: var(--accent-green); }
+        .stat-value.yellow { color: var(--accent-yellow); }
+        .stat-value.red { color: var(--accent-red); }
+        .stat-value.blue { color: var(--accent-blue); }
+        .stat-label { color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem; }
+        .health-card {
             background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
             border: 1px solid var(--border);
-        }}
-        .data-table th, .data-table td {{
-            padding: 1rem;
-            text-align: left;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .health-score {
+            font-family: var(--font-mono);
+            font-size: 4rem;
+            font-weight: 700;
+            color: ''' + status_color + ''';
+        }
+        .health-label { color: var(--text-muted); margin-top: 0.5rem; }
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .section-header {
+            padding: 1.25rem 1.5rem;
             border-bottom: 1px solid var(--border);
-        }}
-        .data-table th {{
-            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-header h2 { font-size: 1rem; font-weight: 600; }
+        .section-count {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: var(--bg-hover);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            color: var(--text-secondary);
+        }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th {
+            text-align: left;
+            padding: 1rem 1.5rem;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-muted);
-            font-weight: 500;
-        }}
-        .data-table tr:last-child td {{ border-bottom: none; }}
-        .data-table tr:hover td {{ background: var(--bg-hover); }}
-        .badge {{
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 500;
+            background: var(--bg-secondary);
+            font-weight: 600;
+        }
+        td { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: var(--bg-hover); }
+        .error-row { background: rgba(239, 68, 68, 0.05); }
+        .warning-row { background: rgba(245, 158, 11, 0.05); }
+        .badge {
             font-family: var(--font-mono);
-        }}
-        .badge-id {{ background: var(--bg-secondary); color: var(--text-secondary); }}
-        .badge-error {{ background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }}
-        .link {{
-            color: var(--accent-blue);
-            text-decoration: none;
-        }}
-        .link:hover {{ text-decoration: underline; }}
-        .error-row td {{ background: rgba(239, 68, 68, 0.05); }}
-        .all-ok {{
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-muted);
-        }}
-        .all-ok-icon {{ font-size: 3rem; margin-bottom: 1rem; }}
-        .footer {{
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }}
-        @media (max-width: 768px) {{
-            .container {{ padding: 1rem; }}
-            .score-value {{ font-size: 3rem; }}
-            .stats-grid {{ grid-template-columns: repeat(2, 1fr); }}
-        }}
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .badge-id { background: var(--bg-hover); color: var(--text-secondary); }
+        .badge-error { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .badge-ok { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .badge-warning { background: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); }
+        .link { color: var(--accent-blue); text-decoration: none; font-weight: 500; }
+        .link:hover { color: var(--text-primary); }
+        .empty-state { padding: 3rem; text-align: center; color: var(--text-muted); }
+        .empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .header { flex-direction: column; gap: 1rem; text-align: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .health-score { font-size: 3rem; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <div class="logo">
-                <div class="logo-icon">PC</div>
+                <div class="logo-icon">
+                <img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg">
+                </div>
                 <div class="logo-text">
                     <h1>pc Factory Monitor</h1>
                     <span>Monitoreo de Categorias</span>
                 </div>
             </div>
-            <div class="timestamp">{timestamp_display}</div>
+            <div class="timestamp">''' + timestamp_display + '''</div>
         </header>
         
-        <nav class="nav-links">
-            <a href="index.html" class="nav-link active">📦 Categorias</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">📦 Categorías</a>
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
-        </nav>
-        
-        <div class="status-banner {status_class}">
-            <span class="status-dot"></span>
-            {status_text}
         </div>
         
-        <div class="hero-score">
-            <div class="score-value">{health_score:.1f}%</div>
-            <div class="score-label">Health Score (categorias con productos)</div>
+        <div class="status-banner ''' + status_class + '''">
+            <div class="status-indicator"></div>
+            <span class="status-text">''' + status_text + '''</span>
+        </div>
+        
+        <div class="health-card">
+            <div class="health-score">''' + str(summary["health_score"]) + '''%</div>
+            <div class="health-label">Health Score (categorias con productos)</div>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-label">TOTAL CATEGORIAS</div>
-                <div class="stat-value">{summary["total_categorias"]}</div>
+                <div class="stat-label">Total Categorias</div>
+                <div class="stat-value blue">''' + str(summary["total_categorias"]) + '''</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">URLS OK</div>
-                <div class="stat-value">{summary["urls_ok"]}</div>
+                <div class="stat-label">URLs OK</div>
+                <div class="stat-value green">''' + str(summary["urls_ok"]) + '''</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">URLS ERROR</div>
-                <div class="stat-value {"error" if summary["urls_error"] > 0 else ""}">{summary["urls_error"]}</div>
+                <div class="stat-label">URLs Error</div>
+                <div class="stat-value ''' + urls_error_class + '''">''' + str(summary["urls_error"]) + '''</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">CON PRODUCTOS</div>
-                <div class="stat-value">{summary["con_productos"]}</div>
+                <div class="stat-label">Con Productos</div>
+                <div class="stat-value green">''' + str(summary["con_productos"]) + '''</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">SIN PRODUCTOS</div>
-                <div class="stat-value {"warning" if summary["sin_productos"] > 0 else ""}">{summary["sin_productos"]}</div>
+                <div class="stat-label">Sin Productos</div>
+                <div class="stat-value ''' + sin_prod_class + '''">''' + str(summary["sin_productos"]) + '''</div>
             </div>
         </div>
-        '''
-    
-    # Sección de errores
-    if errores:
-        html += f'''
-        <div class="section">
-            <h2 class="section-title">❌ URLs con Error ({len(errores)})</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Status</th>
-                        <th>Categoria</th>
-                        <th>Enlace</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {errores_rows}
-                </tbody>
-            </table>
-        </div>
-        '''
-    
-    # Sección de vacías
-    if vacias:
-        html += f'''
-        <div class="section">
-            <h2 class="section-title">⚠️ Categorias Vacias ({len(vacias)})</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Categoria</th>
-                        <th>Enlace</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {vacias_rows}
-                </tbody>
-            </table>
-        </div>
-        '''
-    
-    # Si todo OK
-    if not errores and not vacias:
-        html += '''
-        <div class="all-ok">
-            <div class="all-ok-icon">🎉</div>
-            <p>Todas las categorias tienen productos y URLs funcionando correctamente</p>
-        </div>
-        '''
-    
-    html += '''
+        
+        ''' + errores_section + '''
+        ''' + vacias_section + '''
+        ''' + all_ok_section + '''
+        ''' + all_cats_section + '''
+        
         <footer class="footer">
-            <p>Actualizacion automatica cada 10 minutos - Powered by GitHub Actions</p>
+            <p>Actualizacion automatica cada 10 minutos</p>
+            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
         </footer>
     </div>
+    
+    <script>
+        // Filtro de busqueda
+        document.getElementById('filterInput').addEventListener('input', function(e) {
+            const filter = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#allCatsTable tbody tr');
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>'''
     
     return html
 
-# ═══════════════════════════════════════════════════════════════════════════════
+# ==============================================================================
 # MAIN
-# ═══════════════════════════════════════════════════════════════════════════════
+# ==============================================================================
 
 def main():
     parser = argparse.ArgumentParser(description="PCFactory Category Monitor")
