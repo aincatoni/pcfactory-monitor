@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/246b3068f30ca73c5437aa4e5aa572358efa2c29",
-        "commitHash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20716106252"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+        "commitHash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20720646958"
       },
       "gitCommit": {
-        "shortHash": "246b306",
-        "hash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
-        "subject": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping",
-        "body": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping\n",
+        "shortHash": "440b66b",
+        "hash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+        "subject": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard",
+        "body": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767382287000
+          "time": 1767627720000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767382287000
+          "time": 1767627720000
         },
         "branch": "main"
       },
@@ -67,24 +67,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/246b3068f30ca73c5437aa4e5aa572358efa2c29",
-            "commitHash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20716106252"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+            "commitHash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20720646958"
           },
           "gitCommit": {
-            "shortHash": "246b306",
-            "hash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
-            "subject": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping",
-            "body": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping\n",
+            "shortHash": "440b66b",
+            "hash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+            "subject": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard",
+            "body": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767382287000
+              "time": 1767627720000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767382287000
+              "time": 1767627720000
             },
             "branch": "main"
           },
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1878,
+                      "duration": 2136,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:58:36.071Z",
+                      "startTime": "2026-01-05T15:44:23.349Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -178,12 +178,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3569,
+                      "duration": 4108,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:58:38.825Z",
+                      "startTime": "2026-01-05T15:44:26.187Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -218,12 +218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5680,
+                      "duration": 4614,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:58:42.408Z",
+                      "startTime": "2026-01-05T15:44:30.307Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -258,12 +258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5678,
+                      "duration": 4692,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:58:48.102Z",
+                      "startTime": "2026-01-05T15:44:34.935Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -298,12 +298,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10975,
+                      "duration": 11048,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:58:53.800Z",
+                      "startTime": "2026-01-05T15:44:39.642Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -338,7 +338,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4582,
+                      "duration": 4773,
                       "errors": [],
                       "stdout": [
                         {
@@ -359,7 +359,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:59:04.786Z",
+                      "startTime": "2026-01-05T15:44:50.705Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -385,8 +385,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-05T12:58:35.343Z",
-    "duration": 34105.956,
+    "startTime": "2026-01-05T15:44:22.652Z",
+    "duration": 33084.562,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

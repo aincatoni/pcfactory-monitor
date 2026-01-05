@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/246b3068f30ca73c5437aa4e5aa572358efa2c29",
-        "commitHash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20716106252"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+        "commitHash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20720646958"
       },
       "gitCommit": {
-        "shortHash": "246b306",
-        "hash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
-        "subject": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping",
-        "body": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping\n",
+        "shortHash": "440b66b",
+        "hash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+        "subject": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard",
+        "body": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767382287000
+          "time": 1767627720000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767382287000
+          "time": 1767627720000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/246b3068f30ca73c5437aa4e5aa572358efa2c29",
-            "commitHash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20716106252"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+            "commitHash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20720646958"
           },
           "gitCommit": {
-            "shortHash": "246b306",
-            "hash": "246b3068f30ca73c5437aa4e5aa572358efa2c29",
-            "subject": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping",
-            "body": "refactor: Enhance Playwright results parsing with detailed debug information and improved status mapping\n",
+            "shortHash": "440b66b",
+            "hash": "440b66b2f5d36fc1183911cf44bd2c2951b86df7",
+            "subject": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard",
+            "body": "Refactor payment_dashboard.py: Enhance date formatting, improve error handling, and optimize HTML generation for payment monitoring dashboard\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767382287000
+              "time": 1767627720000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767382287000
+              "time": 1767627720000
             },
             "branch": "main"
           },
@@ -137,12 +137,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42256,
+                      "duration": 44144,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:58:29.894Z",
+                      "startTime": "2026-01-05T15:44:14.716Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,12 +171,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42043,
+                      "duration": 41845,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:59:12.370Z",
+                      "startTime": "2026-01-05T15:44:59.445Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,12 +205,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42033,
+                      "duration": 41676,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T12:59:54.426Z",
+                      "startTime": "2026-01-05T15:45:41.301Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42142,
+                      "duration": 42186,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T13:00:36.471Z",
+                      "startTime": "2026-01-05T15:46:22.988Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,7 +273,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41578,
+                      "duration": 42039,
                       "errors": [],
                       "stdout": [
                         {
@@ -286,7 +286,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-05T12:58:29.871Z\n"
+                          "text": "Timestamp: 2026-01-05T15:44:14.695Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -304,7 +304,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/pttmjrBWlyqcH3rEsNcSVMP9ooqZyaB6OGMHW3sRhojRXMy2dqjRb04HDGZAxq0o\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/eNOz0N0LfQhK8oyZc79pCyErfnWgQChViNSJ10U10U13jdogl4shESmYhuIhdm3Z\n"
                         },
                         {
                           "text": "✅ Compraquí: PASSED\n"
@@ -336,7 +336,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T13:01:18.625Z",
+                      "startTime": "2026-01-05T15:47:05.186Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -356,8 +356,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-05T12:58:29.204Z",
-    "duration": 211063.63400000002,
+    "startTime": "2026-01-05T15:44:14.028Z",
+    "duration": 213262.80299999999,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
