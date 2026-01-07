@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
-        "commitHash": "647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20794769302"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
+        "commitHash": "616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795235206"
       },
       "gitCommit": {
-        "shortHash": "647a6ed",
-        "hash": "647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
-        "subject": "feat: Add TXT export functionality for Google Sheets compatibility in monitor.py",
-        "body": "feat: Add TXT export functionality for Google Sheets compatibility in monitor.py\n",
+        "shortHash": "616e613",
+        "hash": "616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
+        "subject": "refactor: Update font styles and improve layout in HTML dashboards across multiple files",
+        "body": "refactor: Update font styles and improve layout in HTML dashboards across multiple files\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767809463000
+          "time": 1767811524000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767809463000
+          "time": 1767811524000
         },
         "branch": "main"
       },
@@ -67,24 +67,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
-            "commitHash": "647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20794769302"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
+            "commitHash": "616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795235206"
           },
           "gitCommit": {
-            "shortHash": "647a6ed",
-            "hash": "647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
-            "subject": "feat: Add TXT export functionality for Google Sheets compatibility in monitor.py",
-            "body": "feat: Add TXT export functionality for Google Sheets compatibility in monitor.py\n",
+            "shortHash": "616e613",
+            "hash": "616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
+            "subject": "refactor: Update font styles and improve layout in HTML dashboards across multiple files",
+            "body": "refactor: Update font styles and improve layout in HTML dashboards across multiple files\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767809463000
+              "time": 1767811524000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767809463000
+              "time": 1767811524000
             },
             "branch": "main"
           },
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2159,
+                      "duration": 2057,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:00:45.660Z",
+                      "startTime": "2026-01-07T20:17:49.190Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -178,12 +178,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4112,
+                      "duration": 3792,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:00:50.675Z",
+                      "startTime": "2026-01-07T20:17:51.475Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -218,12 +218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4181,
+                      "duration": 4553,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:00:54.805Z",
+                      "startTime": "2026-01-07T20:17:55.282Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -258,12 +258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4030,
+                      "duration": 4329,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:00:59.008Z",
+                      "startTime": "2026-01-07T20:17:59.848Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -298,12 +298,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10075,
+                      "duration": 10579,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:01:03.050Z",
+                      "startTime": "2026-01-07T20:18:04.191Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -338,7 +338,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3912,
+                      "duration": 4493,
                       "errors": [],
                       "stdout": [
                         {
@@ -359,7 +359,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:01:13.135Z",
+                      "startTime": "2026-01-07T20:18:14.780Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -385,8 +385,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-07T20:00:44.974Z",
-    "duration": 32156.048000000003,
+    "startTime": "2026-01-07T20:17:48.510Z",
+    "duration": 30843.679,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

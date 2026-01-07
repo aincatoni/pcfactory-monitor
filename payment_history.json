@@ -1,136 +1,7 @@
 [
   {
-    "timestamp": "2026-01-07T20:00:39.588Z",
+    "timestamp": "2026-01-07T20:25:47.511Z",
     "results": [
-      {
-        "paymentMethod": "Transferencia ETPay",
-        "paymentId": "ETPAY",
-        "status": "PASSED",
-        "steps": [
-          {
-            "step": "Navegar al producto",
-            "status": "passed"
-          },
-          {
-            "step": "Agregar al carrito",
-            "status": "passed"
-          },
-          {
-            "step": "Ir al checkout",
-            "status": "passed"
-          },
-          {
-            "step": "Continuar como invitado",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar retiro en tienda",
-            "status": "passed"
-          },
-          {
-            "step": "Completar datos personales",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar Transferencia ETPay",
-            "status": "passed"
-          },
-          {
-            "step": "Clic en Pagar y verificar pasarela",
-            "status": "passed"
-          }
-        ],
-        "error": null,
-        "gatewayReached": true,
-        "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/ot81Y7aTX0UVYOmoVTU2Nf0I2lJ6crTv8thZR079rdqW6LIOUeviUwunAlGfbTft",
-        "duration": 26045
-      },
-      {
-        "paymentMethod": "Compraquí",
-        "paymentId": "BANCOESTADO",
-        "status": "PASSED",
-        "steps": [
-          {
-            "step": "Navegar al producto",
-            "status": "passed"
-          },
-          {
-            "step": "Agregar al carrito",
-            "status": "passed"
-          },
-          {
-            "step": "Ir al checkout",
-            "status": "passed"
-          },
-          {
-            "step": "Continuar como invitado",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar retiro en tienda",
-            "status": "passed"
-          },
-          {
-            "step": "Completar datos personales",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar Compraquí",
-            "status": "passed"
-          },
-          {
-            "step": "Clic en Pagar y verificar pasarela",
-            "status": "passed"
-          }
-        ],
-        "error": null,
-        "gatewayReached": true,
-        "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-        "duration": 25425
-      },
-      {
-        "paymentMethod": "Mastercard Click to Pay",
-        "paymentId": "CLICKTOPAY",
-        "status": "PASSED",
-        "steps": [
-          {
-            "step": "Navegar al producto",
-            "status": "passed"
-          },
-          {
-            "step": "Agregar al carrito",
-            "status": "passed"
-          },
-          {
-            "step": "Ir al checkout",
-            "status": "passed"
-          },
-          {
-            "step": "Continuar como invitado",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar retiro en tienda",
-            "status": "passed"
-          },
-          {
-            "step": "Completar datos personales",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar Mastercard Click to Pay",
-            "status": "passed"
-          },
-          {
-            "step": "Clic en Pagar y verificar pasarela",
-            "status": "passed"
-          }
-        ],
-        "error": null,
-        "gatewayReached": true,
-        "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-        "duration": 25714
-      },
       {
         "paymentMethod": "Tarjeta de Débito (Webpay)",
         "paymentId": "WEBPAY_DEBITO",
@@ -172,7 +43,7 @@
         "error": null,
         "gatewayReached": true,
         "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-        "duration": 25760
+        "duration": 26454
       },
       {
         "paymentMethod": "Tarjeta de Crédito (Webpay)",
@@ -215,12 +86,12 @@
         "error": null,
         "gatewayReached": true,
         "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-        "duration": 25298
+        "duration": 25543
       }
     ],
     "summary": {
-      "total": 5,
-      "passed": 5,
+      "total": 2,
+      "passed": 2,
       "failed": 0
     }
   }
