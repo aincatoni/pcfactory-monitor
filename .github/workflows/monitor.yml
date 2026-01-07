@@ -55,15 +55,10 @@ jobs:
           cache: 'pip'
       
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install google-auth google-auth-oauthlib google-api-python-client
+        run: pip install -r requirements.txt
       
       - name: Run category monitor
         run: python monitor.py --workers 5 --output-dir ./output
-        env:
-          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
-          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       
       - name: Upload category results
         uses: actions/upload-artifact@v4
@@ -128,10 +123,7 @@ jobs:
           # 8pm Chile  = 23:00 UTC
           # 10pm Chile = 01:00 UTC (día siguiente)
           #
-          # SOLUCIÓN: Ventana ampliada a 40 minutos (00-39) para cubrir delays de GitHub Actions
-          # El cron corre en :00, :10, :20, :30 de cada hora
-          # Con delays de hasta 20 min, las ejecuciones pueden caer en cualquier momento :00-:50
-          # Usando :00-:39 evitamos ejecuciones duplicadas en la misma hora
+          # Ventana ampliada a 40 minutos para cubrir delays de GitHub Actions
           
           if [[ "${{ github.event.inputs.run_payments }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
@@ -164,7 +156,7 @@ jobs:
           # 8pm Chile  = 23:00 UTC
           # 10pm Chile = 01:00 UTC (día siguiente)
           #
-          # SOLUCIÓN: Ventana ampliada a 40 minutos (00-39) para cubrir delays de GitHub Actions
+          # Ventana ampliada a 40 minutos para cubrir delays de GitHub Actions
           
           if [[ "${{ github.event.inputs.run_login }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
@@ -291,9 +283,7 @@ jobs:
   # ============================================
   deploy:
     runs-on: ubuntu-latest
-    # IMPORTANTE: Esperar a TODOS los jobs que generan artifacts
     needs: [monitor-categories, monitor-delivery, monitor-payments, monitor-login]
-    # Correr si al menos categories o delivery tuvo éxito (los otros pueden ser skipped)
     if: |
       always() && 
       (needs.monitor-categories.result == 'success' || needs.monitor-delivery.result == 'success')
@@ -352,9 +342,10 @@ jobs:
         run: |
           # Copiar nuevos resultados
           if [ -d "./new-results" ]; then
-            # Copiar archivos HTML directamente
+            # Copiar archivos HTML, JSON y CSV
             find ./new-results -name "*.html" -exec cp {} ./ \; 2>/dev/null || true
             find ./new-results -name "*.json" -exec cp {} ./ \; 2>/dev/null || true
+            find ./new-results -name "*.csv" -exec cp {} ./ \; 2>/dev/null || true
           fi
           
           # Crear placeholders solo si no existen los archivos
@@ -371,7 +362,7 @@ jobs:
           
           # Listar archivos finales
           echo "📁 Final files in gh-pages:"
-          ls -la *.html 2>/dev/null || echo "No HTML files"
+          ls -la *.html *.csv *.json 2>/dev/null || echo "No files found"
       
       - name: Commit and push
         run: |
