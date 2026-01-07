@@ -188,6 +188,9 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
     <meta http-equiv="refresh" content="300">
     <title>PCFactory - Monitor de Medios de Pago</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💳</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {{
             --bg-primary: #0a0a0f;
@@ -203,7 +206,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             --accent-blue: #3b82f6;
             --border: #27272a;
             --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-            --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-sans: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
         }}
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
@@ -226,9 +229,9 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             gap: 1rem;
         }}
         .logo {{ display: flex; align-items: center; gap: 1rem; }}
-        .logo-icon {{ width: 48px; height: 48px; }}
-        .logo-icon img {{ width: 100%; height: 100%; }}
-        .logo-text h1 {{ font-size: 1.5rem; font-weight: 700; }}
+        .logo-icon {{ width: 48px; height: 48px; flex-shrink: 0; }}
+        .logo-icon img {{ width: 100%; height: 100%; object-fit: contain; }}
+        .logo-text h1 {{ font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }}
         .logo-text span {{ font-size: 0.875rem; color: var(--text-muted); }}
         .timestamp {{
             font-family: var(--font-mono);
@@ -241,23 +244,23 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         }}
         .nav-links {{
             display: flex;
-            gap: 0.75rem;
+            gap: 0.5rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }}
         .nav-link {{
             font-family: var(--font-mono);
             font-size: 0.875rem;
-            color: var(--accent-blue);
+            color: var(--text-secondary);
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.625rem 1rem;
             background: var(--bg-card);
             border-radius: 8px;
             border: 1px solid var(--border);
             transition: all 0.2s;
         }}
-        .nav-link:hover {{ background: var(--bg-hover); }}
-        .nav-link.active {{ background: var(--accent-blue); color: white; }}
+        .nav-link:hover {{ background: var(--bg-hover); color: var(--text-primary); }}
+        .nav-link.active {{ background: var(--accent-green); color: #000000; border-color: var(--accent-green); font-weight: 500; }}
         .status-banner {{
             background: var(--bg-card);
             border: 1px solid var(--border);

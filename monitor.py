@@ -465,6 +465,9 @@ def generate_html_dashboard(report: Dict) -> str:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCFactory Monitor - Categorías</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -479,24 +482,23 @@ def generate_html_dashboard(report: Dict) -> str:
             --accent-red: #ef4444;
             --accent-yellow: #f59e0b;
             --accent-blue: #3b82f6;
-            --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-sans: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
         }
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
         .logo { display: flex; align-items: center; gap: 1rem; }
-        .logo-icon { width: 48px; height: 48px; }
-        .logo-icon img { width: 100%; height: 100%; }
-        .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
+        .logo-icon { width: 48px; height: 48px; flex-shrink: 0; }
+        .logo-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .logo-text h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
         .logo-text span { color: var(--text-muted); font-size: 0.875rem; }
         .timestamp { font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border); }
         .nav-links { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
         .nav-link { font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.625rem 1rem; border-radius: 8px; border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
         .nav-link:hover { background: var(--bg-hover); color: var(--text-primary); }
-        .nav-link.active { background: var(--accent-green); color: var(--bg-primary); border-color: var(--accent-green); }
+        .nav-link.active { background: var(--accent-green); color: #000000; border-color: var(--accent-green); font-weight: 500; }
         .status-banner { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; font-weight: 500; }
         .status-ok { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); }
         .status-warning { background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-yellow); }
