@@ -310,6 +310,28 @@ def generate_csv(report: Dict, output_path: Path):
     
     print(f"[+] CSV guardado: {output_path}")
 
+def generate_txt(report: Dict, output_path: Path):
+    """
+    Genera un TXT con formato CSV para Google Sheets IMPORTDATA.
+    Los archivos .txt son servidos como text/plain por GitHub Pages,
+    lo que permite que IMPORTDATA los lea correctamente.
+    
+    Uso en Sheets: =IMPORTDATA("https://aincatoni.github.io/pcfactory-monitor/categories_status.txt")
+    """
+    resultados = report.get("resultados", [])
+    timestamp = report.get("timestamp", "")
+    timestamp_chile = format_chile_timestamp(timestamp)
+    resultados_sorted = sorted(resultados, key=lambda x: x.get('nombre', ''))
+    
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write('id,nombre,link_json,url,status_code,ok,elapsed_ms,total_productos,tiene_productos,timestamp\n')
+        for r in resultados_sorted:
+            nombre = str(r.get('nombre', '')).replace('"', '""')
+            if ',' in nombre:
+                nombre = f'"{nombre}"'
+            f.write(f"{r.get('id', '')},{nombre},{r.get('link', '')},{r.get('url', '')},{r.get('status_code', '')},{r.get('ok', '')},{r.get('elapsed_ms', '')},{r.get('total_productos', '')},{r.get('tiene_productos', '')},{timestamp_chile}\n")
+    print(f"[+] TXT guardado: {output_path}")
+
 # ==============================================================================
 # HTML DASHBOARD GENERATION
 # ==============================================================================
@@ -535,6 +557,12 @@ def generate_html_dashboard(report: Dict) -> str:
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
         </div>
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center;">
+            <span style="color: var(--text-muted); font-size: 0.875rem;">Exportar:</span>
+            <a href="categories_status.csv" download style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.4rem 0.75rem; border-radius: 6px; border: 1px solid var(--border); text-decoration: none;">📥 CSV</a>
+            <a href="categories_status.txt" target="_blank" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.4rem 0.75rem; border-radius: 6px; border: 1px solid var(--border); text-decoration: none;">📄 TXT</a>
+            <span style="color: var(--text-muted); font-size: 0.75rem; margin-left: 0.5rem;">Google Sheets: <code style="background: var(--bg-hover); padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.7rem;">=IMPORTDATA("https://aincatoni.github.io/pcfactory-monitor/categories_status.txt")</code></span>
+        </div>
         <div class="status-banner ''' + status_class + '''"><div class="status-indicator"></div><span class="status-text">''' + status_text + '''</span></div>
         <div class="health-card"><div class="health-score">''' + str(summary["health_score"]) + '''%</div><div class="health-label">Health Score (categorias con productos)</div></div>
         <div class="stats-grid">
@@ -589,6 +617,10 @@ def main():
     # Guardar CSV (para Google Sheets IMPORTDATA)
     csv_path = output_dir / "categories_status.csv"
     generate_csv(report, csv_path)
+    
+    # Guardar TXT (para Google Sheets IMPORTDATA - mejor compatibilidad)
+    txt_path = output_dir / "categories_status.txt"
+    generate_txt(report, txt_path)
     
     summary = report["summary"]
     print("\n" + "=" * 60)

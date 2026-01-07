@@ -2,7 +2,6 @@ name: PCFactory Monitor
 
 on:
   schedule:
-    # Categorías y delivery cada 10 minutos
     - cron: '*/10 * * * *'
   
   workflow_dispatch:
@@ -38,28 +37,20 @@ permissions:
   id-token: write
 
 jobs:
-  # ============================================
-  # Monitor de Categorías (cada 10 min)
-  # ============================================
   monitor-categories:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    
     steps:
       - uses: actions/checkout@v4
-      
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
-      
       - name: Install dependencies
         run: pip install -r requirements.txt
-      
       - name: Run category monitor
         run: python monitor.py --workers 5 --output-dir ./output
-      
       - name: Upload category results
         uses: actions/upload-artifact@v4
         with:
@@ -67,25 +58,18 @@ jobs:
           path: output/
           retention-days: 7
 
-  # ============================================
-  # Monitor de Delivery (cada 10 min)
-  # ============================================
   monitor-delivery:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    
     steps:
       - uses: actions/checkout@v4
-      
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
-      
       - name: Install dependencies
         run: pip install -r requirements.txt
-      
       - name: Run delivery monitor
         run: |
           python delivery_monitor.py \
@@ -95,7 +79,6 @@ jobs:
             --comunas data/comuna.csv \
             --relacion data/ciudad_comuna.csv \
             --output-dir ./output
-      
       - name: Upload delivery results
         uses: actions/upload-artifact@v4
         with:
@@ -103,9 +86,6 @@ jobs:
           path: output/
           retention-days: 7
 
-  # ============================================
-  # Verificar si toca correr Payments (4x día)
-  # ============================================
   check-payment-schedule:
     runs-on: ubuntu-latest
     outputs:
@@ -116,29 +96,14 @@ jobs:
         run: |
           HOUR=$(date -u +%H)
           MINUTE=$(date -u +%M)
-          
-          # Horarios UTC para Chile (UTC-3 en verano):
-          # 9am Chile  = 12:00 UTC
-          # 2pm Chile  = 17:00 UTC
-          # 8pm Chile  = 23:00 UTC
-          # 10pm Chile = 01:00 UTC (día siguiente)
-          #
-          # Ventana ampliada a 40 minutos para cubrir delays de GitHub Actions
-          
           if [[ "${{ github.event.inputs.run_payments }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "✅ Manual run requested"
           elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "✅ Scheduled run at hour $HOUR:$MINUTE UTC"
           else
             echo "should_run=false" >> $GITHUB_OUTPUT
-            echo "⏭️ Skipping payments (hour=$HOUR, minute=$MINUTE)"
           fi
 
-  # ============================================
-  # Verificar si toca correr Login (4x día)
-  # ============================================
   check-login-schedule:
     runs-on: ubuntu-latest
     outputs:
@@ -149,68 +114,45 @@ jobs:
         run: |
           HOUR=$(date -u +%H)
           MINUTE=$(date -u +%M)
-          
-          # Horarios UTC para Chile (UTC-3 en verano):
-          # 9am Chile  = 12:00 UTC
-          # 2pm Chile  = 17:00 UTC
-          # 8pm Chile  = 23:00 UTC
-          # 10pm Chile = 01:00 UTC (día siguiente)
-          #
-          # Ventana ampliada a 40 minutos para cubrir delays de GitHub Actions
-          
           if [[ "${{ github.event.inputs.run_login }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "✅ Manual run requested"
           elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
-            echo "✅ Scheduled run at hour $HOUR:$MINUTE UTC"
           else
             echo "should_run=false" >> $GITHUB_OUTPUT
-            echo "⏭️ Skipping login (hour=$HOUR, minute=$MINUTE)"
           fi
 
-  # ============================================
-  # Monitor de Medios de Pago (4x día)
-  # ============================================
   monitor-payments:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     needs: check-payment-schedule
     if: needs.check-payment-schedule.outputs.should_run == 'true'
-    
     steps:
       - uses: actions/checkout@v4
-      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
       - name: Install dependencies
         working-directory: payments
         run: npm install
-      
       - name: Install Playwright browsers
         working-directory: payments
         run: npx playwright install chromium --with-deps
-      
       - name: Run payment tests
         working-directory: payments
         run: npm test
         continue-on-error: true
-      
       - name: Setup Python for dashboard
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
       - name: Generate payment dashboard
         run: |
           python payment_dashboard.py \
             --results ./payments/test-results/payment-monitor-report.json \
             --output-dir ./output
         continue-on-error: true
-      
       - name: Upload payment results
         uses: actions/upload-artifact@v4
         with:
@@ -220,35 +162,26 @@ jobs:
             payments/test-results/
           retention-days: 7
 
-  # ============================================
-  # Monitor de Login (4x día)
-  # ============================================
   monitor-login:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: check-login-schedule
     if: needs.check-login-schedule.outputs.should_run == 'true'
-    
     steps:
       - uses: actions/checkout@v4
-      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
       - name: Install dependencies
         working-directory: login
         run: npm install
-      
       - name: Install Playwright browsers
         working-directory: login
         run: npx playwright install chromium --with-deps
-      
       - name: Create test-results directory
         working-directory: login
         run: mkdir -p test-results/screenshots
-      
       - name: Run login tests
         working-directory: login
         run: npm test
@@ -256,19 +189,16 @@ jobs:
         env:
           PCFACTORY_RUT: ${{ secrets.PCFACTORY_RUT }}
           PCFACTORY_PASSWORD: ${{ secrets.PCFACTORY_PASSWORD }}
-      
       - name: Setup Python for dashboard
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
       - name: Generate login dashboard
         run: |
           python login/scripts/login_dashboard.py \
             --results ./login/test-results/login-monitor-report.json \
             --output-dir ./output
         continue-on-error: true
-      
       - name: Upload login results
         uses: actions/upload-artifact@v4
         with:
@@ -278,16 +208,12 @@ jobs:
             login/test-results/
           retention-days: 7
 
-  # ============================================
-  # Deploy a GitHub Pages
-  # ============================================
   deploy:
     runs-on: ubuntu-latest
     needs: [monitor-categories, monitor-delivery, monitor-payments, monitor-login]
     if: |
       always() && 
       (needs.monitor-categories.result == 'success' || needs.monitor-delivery.result == 'success')
-    
     steps:
       - uses: actions/checkout@v4
         with:
@@ -298,7 +224,6 @@ jobs:
       - name: Initialize gh-pages if needed
         run: |
           if [ ! -f index.html ]; then
-            echo "Initializing gh-pages branch"
             git checkout --orphan gh-pages-temp || true
             echo "<html><body><h1>PCFactory Monitor</h1></body></html>" > index.html
             git add index.html
@@ -333,36 +258,26 @@ jobs:
           path: ./new-results/
         continue-on-error: true
       
-      - name: Debug - List downloaded files
-        run: |
-          echo "📁 Contents of new-results:"
-          ls -laR ./new-results/ || echo "No new-results directory"
-      
       - name: Merge results
         run: |
-          # Copiar nuevos resultados
           if [ -d "./new-results" ]; then
-            # Copiar archivos HTML, JSON y CSV
             find ./new-results -name "*.html" -exec cp {} ./ \; 2>/dev/null || true
             find ./new-results -name "*.json" -exec cp {} ./ \; 2>/dev/null || true
             find ./new-results -name "*.csv" -exec cp {} ./ \; 2>/dev/null || true
+            find ./new-results -name "*.txt" -exec cp {} ./ \; 2>/dev/null || true
           fi
           
-          # Crear placeholders solo si no existen los archivos
           if [ ! -f "payments.html" ]; then
-            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Payments Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>💳 Medios de Pago</h1><p>El monitor de pagos se ejecuta 4 veces al día.</p><p>Próxima ejecución: 9am, 2pm, 8pm o 10pm (Chile)</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > payments.html
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Payments Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>💳 Medios de Pago</h1><p>El monitor de pagos se ejecuta 4 veces al dia.</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > payments.html
           fi
           
           if [ ! -f "login.html" ]; then
-            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Login Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🔐 Login Monitor</h1><p>El monitor de login se ejecuta 4 veces al día.</p><p>Próxima ejecución: 9am, 2pm, 8pm o 10pm (Chile)</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > login.html
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Login Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🔐 Login Monitor</h1><p>El monitor de login se ejecuta 4 veces al dia.</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > login.html
           fi
           
-          # Limpiar
           rm -rf ./new-results
-          
-          # Listar archivos finales
-          echo "📁 Final files in gh-pages:"
-          ls -la *.html *.csv *.json 2>/dev/null || echo "No files found"
+          echo "Final files:"
+          ls -la *.html *.csv *.txt *.json 2>/dev/null || echo "No files"
       
       - name: Commit and push
         run: |
