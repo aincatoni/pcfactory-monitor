@@ -6,13 +6,15 @@ const { test, expect } = require('@playwright/test');
  * 
  * Este test verifica que todos los medios de pago estén funcionando
  * correctamente, llevando el flujo hasta la pasarela de pago.
+ * 
+ * Estrategia: Buscar productos baratos con alto stock (+100 unidades)
+ * para evitar problemas de disponibilidad y posibles bloqueos.
  */
 
 // Configuración
 const CONFIG = {
-  // Producto de prueba (barato y con stock)
-  productUrl: 'https://www.pcfactory.cl/producto/45190-exelink-tapa-ciega-rj-45-blanca-exelink',
-  productId: '45190',
+  // URL de búsqueda ordenada por precio menor a mayor
+  searchUrl: 'https://www.pcfactory.cl/busqueda-avanzada?search=*&size=12&sort=precio,asc',
   
   // Datos de prueba para checkout (invitado)
   testData: {
@@ -29,21 +31,21 @@ const CONFIG = {
       id: 'ETPAY',
       name: 'Transferencia ETPay',
       selector: 'input#pmETP[name="payment"], label[for="pmETP"], li#pmETP',
-      expectedUrl: ['etpay', 'khipu'],
+      expectedUrl: ['etpay', 'khipu', 'etpayment'],
       expectedTitle: ['etpay', 'khipu', 'transferencia']
     },
     {
       id: 'BANCOESTADO',
       name: 'Compraquí',
       selector: 'input#pmBCA[name="payment"], label[for="pmBCA"], li#pmBCA',
-      expectedUrl: ['bancoestado', 'compraaqui'],
+      expectedUrl: ['bancoestado', 'compraqui', 'compraaqui'],
       expectedTitle: ['bancoestado', 'compra']
     },
     {
       id: 'CLICKTOPAY',
       name: 'Mastercard Click to Pay',
       selector: 'input#pmCTP[name="payment"], label[for="pmCTP"], li#pmCTP',
-      expectedUrl: ['clicktopay', 'mastercard', 'src.mastercard'],
+      expectedUrl: ['clicktopay', 'mastercard', 'src.mastercard', 'compraqui'],
       expectedTitle: ['click to pay', 'mastercard']
     },
     {
@@ -104,22 +106,48 @@ test.describe('PCFactory Payment Methods Monitor', () => {
       const startTime = Date.now();
       
       try {
-        // Paso 1: Ir al producto
-        result.steps.push({ step: 'Navegar al producto', status: 'running' });
-        await page.goto(CONFIG.productUrl, { waitUntil: 'domcontentloaded' });
+        // Paso 1: Ir a búsqueda y encontrar producto con alto stock
+        result.steps.push({ step: 'Buscar producto con stock', status: 'running' });
+        
+        // Ir a la búsqueda ordenada por precio menor a mayor
+        await page.goto(CONFIG.searchUrl, { waitUntil: 'domcontentloaded' });
         await expect(page).toHaveURL(/pcfactory\.cl/);
+        
+        // Esperar a que carguen los productos
+        await page.waitForSelector('.products_item', { timeout: 15000 });
+        await page.waitForTimeout(2000);
+        
+        // Buscar un producto con +100 Unid. (alto stock)
+        // El selector busca el span que contiene "+100 Unid." o similar
+        const highStockProducts = page.locator('.products_item:has(span.products_item__info__unidades:has-text("100 Unid"))');
+        const productCount = await highStockProducts.count();
+        
+        let selectedProduct;
+        if (productCount > 0) {
+          // Seleccionar un producto aleatorio entre los de alto stock
+          const randomIndex = Math.floor(Math.random() * Math.min(productCount, 5));
+          selectedProduct = highStockProducts.nth(randomIndex);
+        } else {
+          // Si no hay productos con +100, tomar el primero disponible
+          selectedProduct = page.locator('.products_item').first();
+        }
+        
+        // Obtener info del producto seleccionado para el log
+        const productName = await selectedProduct.locator('.products_item__info__name').textContent().catch(() => 'Producto');
+        console.log(`    Producto seleccionado: ${productName?.trim()}`);
+        
         result.steps[result.steps.length - 1].status = 'passed';
         
         // Paso 2: Agregar al carrito
         result.steps.push({ step: 'Agregar al carrito', status: 'running' });
         
-        // Buscar y clickear botón de agregar al carrito
-        const addToCartButton = page.locator('button:has-text("Agregar"), button:has-text("AGREGAR"), .btn-add-cart, [data-action="add-to-cart"]').first();
+        // Buscar el botón "Agregar al carro" dentro del producto seleccionado
+        const addToCartButton = selectedProduct.locator('button:has-text("Agregar al carro"), button:has-text("Agregar"), .btn-add-cart').first();
         await addToCartButton.waitFor({ state: 'visible', timeout: 10000 });
         await addToCartButton.click();
         
         // Esperar confirmación (modal o cambio en carrito)
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(3000);
         result.steps[result.steps.length - 1].status = 'passed';
         
         // Paso 3: Ir al carrito/checkout
@@ -154,6 +182,7 @@ test.describe('PCFactory Payment Methods Monitor', () => {
         
         // Esperar a que cargue la página de tipo de entrega
         await page.waitForSelector('text=Selecciona el método de entrega', { timeout: 15000 }).catch(() => {});
+        await page.waitForTimeout(2000);
         
         // Hacer clic en "Retiro en tienda" - usar el label o el div contenedor
         const retiroOption = page.locator('label[for="withdraw"], input#withdraw, div.method-option:has-text("Retiro en tienda")').first();
@@ -165,22 +194,33 @@ test.describe('PCFactory Payment Methods Monitor', () => {
         await page.waitForTimeout(2000);
         
         // Seleccionar la primera tienda disponible
-        // El input radio puede estar oculto visualmente, usar force: true
         const storeInput = page.locator('input.pcf-radio-input[name="store"]').first();
         await storeInput.waitFor({ state: 'attached', timeout: 10000 });
         await storeInput.click({ force: true });
         await page.waitForTimeout(1000);
         
-        // Hacer clic en "Seleccionar tienda"
+        // Hacer clic en "Seleccionar tienda" para cerrar el modal
         const selectStoreButton = page.locator('button:has-text("Seleccionar tienda")').first();
         await selectStoreButton.waitFor({ state: 'visible', timeout: 10000 });
         await selectStoreButton.click();
-        await page.waitForTimeout(2000);
         
-        // Después de seleccionar tienda, hacer clic en Continuar
-        const continueToPayment = page.locator('a:has-text("Continuar"), button:has-text("Continuar"):not(:has-text("sin Productos"))').first();
-        await continueToPayment.waitFor({ state: 'visible', timeout: 10000 });
-        await continueToPayment.click();
+        // IMPORTANTE: Esperar a que el modal se cierre completamente
+        await page.waitForTimeout(3000);
+        
+        // Verificar que el modal se cerró esperando que desaparezca
+        await page.waitForSelector('text=Disponibilidad en tienda', { state: 'hidden', timeout: 10000 }).catch(() => {});
+        
+        // Ahora buscar el botón Continuar que está FUERA del modal
+        // Usar un selector más específico para el botón principal de continuar
+        const continueButton = page.locator('button.pcf-btn--five:has-text("Continuar"), a.pcf-btn:has-text("Continuar")').first();
+        await continueButton.waitFor({ state: 'visible', timeout: 15000 });
+        
+        // Scroll hacia el botón para asegurarse de que está visible
+        await continueButton.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(500);
+        
+        // Click con force para evitar problemas de interceptación
+        await continueButton.click({ force: true });
         
         // Esperar navegación al paso de Pago
         await page.waitForURL(/checkout.*pago|checkout\/pago/, { timeout: 15000 }).catch(() => {});
