@@ -38,6 +38,15 @@ def formato_clp(numero: int) -> str:
         return "0"
     return f"{numero:,}".replace(",", ".")
 
+# Lista de medios de pago esperados (para detectar los que faltan)
+EXPECTED_PAYMENT_METHODS = [
+    "Transferencia ETPay",
+    "Compraquí", 
+    "Mastercard Click to Pay",
+    "Tarjeta de Débito (Webpay)",
+    "Tarjeta de Crédito (Webpay)"
+]
+
 def load_results(results_path: str) -> Dict:
     """Carga los resultados del test de Playwright"""
     try:
@@ -71,15 +80,23 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
     summary = report.get("summary", {"total": 0, "passed": 0, "failed": 0})
     results = report.get("results", [])
     
-    total = summary.get("total", 0)
+    # Calcular métodos reportados vs esperados
+    reported_methods = set(r.get("paymentMethod", "") for r in results)
+    missing_count = len([m for m in EXPECTED_PAYMENT_METHODS if m not in reported_methods])
+    
+    total = len(EXPECTED_PAYMENT_METHODS)  # Usar total esperado
     passed = summary.get("passed", 0)
-    failed = summary.get("failed", 0)
+    failed = summary.get("failed", 0) + missing_count  # Incluir faltantes como problemas
     
     # Status
-    if failed == 0 and total > 0:
+    if failed == 0 and passed == total:
         status_class = "healthy"
         status_text = "Todos los medios de pago operativos"
         status_color = "#10b981"
+    elif missing_count > 0 and summary.get("failed", 0) == 0:
+        status_class = "warning"
+        status_text = f"{missing_count} medio(s) sin verificar"
+        status_color = "#f59e0b"
     elif failed > 0:
         status_class = "critical"
         status_text = f"{failed} medio(s) de pago con problemas"
@@ -89,8 +106,9 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         status_text = "Sin datos de monitoreo"
         status_color = "#f59e0b"
     
-    # Porcentaje de disponibilidad
-    availability = round((passed / total * 100) if total > 0 else 0, 1)
+    # Porcentaje de disponibilidad (solo de los verificados)
+    verified_total = summary.get("total", 0)
+    availability = round((passed / verified_total * 100) if verified_total > 0 else 0, 1)
     
     # Calcular uptime 24h
     uptime_stats = {}
@@ -106,8 +124,12 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
     
     # Generar tarjetas de medios de pago
     payment_cards = ""
+    reported_methods = set()
+    
+    # Primero, mostrar los que están en el reporte
     for r in results:
         method_name = r.get("paymentMethod", "Desconocido")
+        reported_methods.add(method_name)
         status = r.get("status", "UNKNOWN")
         duration = r.get("duration", 0)
         error = r.get("error", "")
@@ -152,6 +174,36 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
                 </div>
                 {error_info}
                 {gateway_info}
+            </div>
+        </div>
+        '''
+    
+    # Luego, agregar los medios esperados que no aparecen en el reporte
+    missing_methods = [m for m in EXPECTED_PAYMENT_METHODS if m not in reported_methods]
+    for method_name in missing_methods:
+        # Buscar en historial si hay datos previos
+        uptime = uptime_stats.get(method_name, {"total": 0, "passed": 0})
+        uptime_pct = round((uptime["passed"] / uptime["total"] * 100) if uptime["total"] > 0 else 0, 1)
+        
+        payment_cards += f'''
+        <div class="payment-card status-missing">
+            <div class="payment-header">
+                <span class="status-icon">⚠️</span>
+                <h3>{method_name}</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-missing">Sin datos</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">{uptime_pct}%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                </div>
+                <div class="error-message">No se ejecutó el test en esta verificación</div>
             </div>
         </div>
         '''
@@ -311,6 +363,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         .stat-value.green {{ color: var(--accent-green); }}
         .stat-value.red {{ color: var(--accent-red); }}
         .stat-value.blue {{ color: var(--accent-blue); }}
+        .stat-value.yellow {{ color: var(--accent-yellow); }}
         .stat-label {{ color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem; }}
         .section-title {{
             font-size: 1.25rem;
@@ -337,6 +390,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         }}
         .payment-card.status-ok {{ border-left: 4px solid var(--accent-green); }}
         .payment-card.status-error {{ border-left: 4px solid var(--accent-red); }}
+        .payment-card.status-missing {{ border-left: 4px solid var(--accent-yellow); opacity: 0.8; }}
         .payment-header {{
             display: flex;
             align-items: center;
@@ -357,6 +411,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         }}
         .status-badge.status-ok {{ background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }}
         .status-badge.status-error {{ background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }}
+        .status-badge.status-missing {{ background: rgba(245, 158, 11, 0.15); color: var(--accent-yellow); }}
         .payment-stats {{ display: flex; gap: 1.5rem; }}
         .payment-stats .stat {{ display: flex; flex-direction: column; }}
         .payment-stats .stat-label {{ font-size: 0.75rem; color: var(--text-muted); }}
@@ -368,6 +423,10 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             border-radius: 6px;
             font-size: 0.8rem;
             color: var(--accent-red);
+        }}
+        .status-missing .error-message {{
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent-yellow);
         }}
         .gateway-url {{
             margin-top: 0.75rem;
@@ -447,7 +506,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
                 <div class="stat-label">Operativos</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value {"red" if failed > 0 else ""}">{failed}</div>
+                <div class="stat-value {"red" if summary.get("failed", 0) > 0 else ("yellow" if missing_count > 0 else "")}">{failed}</div>
                 <div class="stat-label">Con Problemas</div>
             </div>
             <div class="stat-card">
