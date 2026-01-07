@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3595519f9d06c2883539c87c2b7f235877968458",
-        "commitHash": "3595519f9d06c2883539c87c2b7f235877968458",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795998998"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a505c4d164ec1323f03a971670b308012909846c",
+        "commitHash": "a505c4d164ec1323f03a971670b308012909846c",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20796643639"
       },
       "gitCommit": {
-        "shortHash": "3595519",
-        "hash": "3595519f9d06c2883539c87c2b7f235877968458",
-        "subject": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting",
-        "body": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting\n",
+        "shortHash": "a505c4d",
+        "hash": "a505c4d164ec1323f03a971670b308012909846c",
+        "subject": "feat: Update payment methods test to search for high stock products and improve flow to checkout",
+        "body": "feat: Update payment methods test to search for high stock products and improve flow to checkout\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767818750000
+          "time": 1767820221000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767818750000
+          "time": 1767820221000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3595519f9d06c2883539c87c2b7f235877968458",
-            "commitHash": "3595519f9d06c2883539c87c2b7f235877968458",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795998998"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a505c4d164ec1323f03a971670b308012909846c",
+            "commitHash": "a505c4d164ec1323f03a971670b308012909846c",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20796643639"
           },
           "gitCommit": {
-            "shortHash": "3595519",
-            "hash": "3595519f9d06c2883539c87c2b7f235877968458",
-            "subject": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting",
-            "body": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting\n",
+            "shortHash": "a505c4d",
+            "hash": "a505c4d164ec1323f03a971670b308012909846c",
+            "subject": "feat: Update payment methods test to search for high stock products and improve flow to checkout",
+            "body": "feat: Update payment methods test to search for high stock products and improve flow to checkout\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767818750000
+              "time": 1767820221000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767818750000
+              "time": 1767820221000
             },
             "branch": "main"
           },
@@ -118,7 +118,7 @@
         {
           "title": "PCFactory Payment Methods Monitor",
           "file": "payment-methods.spec.js",
-          "line": 82,
+          "line": 84,
           "column": 6,
           "specs": [
             {
@@ -137,25 +137,25 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 49018,
+                      "duration": 17212,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -169,7 +169,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:47:21.896Z\n"
+                          "text": "Timestamp: 2026-01-07T21:11:36.408Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -187,7 +187,7 @@
                           "text": "❌ Transferencia ETPay: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -195,7 +195,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:47:21.920Z",
+                      "startTime": "2026-01-07T21:11:36.433Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -217,32 +217,32 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     },
                     {
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 47745,
+                      "duration": 18279,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -256,7 +256,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:48:12.526Z\n"
+                          "text": "Timestamp: 2026-01-07T21:11:54.491Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -274,7 +274,7 @@
                           "text": "❌ Transferencia ETPay: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -282,7 +282,7 @@
                       ],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-01-07T20:48:12.548Z",
+                      "startTime": "2026-01-07T21:11:54.517Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -309,32 +309,32 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     },
                     {
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46221,
+                      "duration": 16837,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -348,7 +348,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:49:01.591Z\n"
+                          "text": "Timestamp: 2026-01-07T21:12:13.792Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -366,7 +366,7 @@
                           "text": "❌ Transferencia ETPay: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -374,7 +374,7 @@
                       ],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-01-07T20:49:01.612Z",
+                      "startTime": "2026-01-07T21:12:13.815Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -396,7 +396,7 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     }
                   ],
@@ -405,7 +405,7 @@
               ],
               "id": "3f2683f08aeb6c605225-6b16f542516fc8e8a9ee",
               "file": "payment-methods.spec.js",
-              "line": 92,
+              "line": 94,
               "column": 5
             },
             {
@@ -424,25 +424,25 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46324,
+                      "duration": 17046,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -456,7 +456,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:49:48.528Z\n"
+                          "text": "Timestamp: 2026-01-07T21:12:31.367Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -474,7 +474,7 @@
                           "text": "❌ Compraquí: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -482,7 +482,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:49:48.551Z",
+                      "startTime": "2026-01-07T21:12:31.390Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -504,32 +504,32 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     },
                     {
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 47945,
+                      "duration": 18257,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -543,7 +543,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:50:35.587Z\n"
+                          "text": "Timestamp: 2026-01-07T21:12:49.136Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -561,7 +561,7 @@
                           "text": "❌ Compraquí: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -569,7 +569,7 @@
                       ],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-01-07T20:50:35.610Z",
+                      "startTime": "2026-01-07T21:12:49.160Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -596,32 +596,32 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     },
                     {
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46366,
+                      "duration": 17017,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -635,7 +635,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:51:24.842Z\n"
+                          "text": "Timestamp: 2026-01-07T21:13:08.413Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -653,7 +653,7 @@
                           "text": "❌ Compraquí: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -661,7 +661,7 @@
                       ],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-01-07T20:51:24.865Z",
+                      "startTime": "2026-01-07T21:13:08.437Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -683,7 +683,7 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     }
                   ],
@@ -692,7 +692,7 @@
               ],
               "id": "3f2683f08aeb6c605225-4bec07209d3775128d89",
               "file": "payment-methods.spec.js",
-              "line": 92,
+              "line": 94,
               "column": 5
             },
             {
@@ -711,25 +711,25 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46278,
+                      "duration": 16919,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -743,7 +743,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:52:11.931Z\n"
+                          "text": "Timestamp: 2026-01-07T21:13:26.154Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -761,7 +761,7 @@
                           "text": "❌ Mastercard Click to Pay: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -769,7 +769,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:52:11.953Z",
+                      "startTime": "2026-01-07T21:13:26.178Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -791,32 +791,32 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     },
                     {
                       "workerIndex": 7,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 47844,
+                      "duration": 18064,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -830,7 +830,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:52:58.928Z\n"
+                          "text": "Timestamp: 2026-01-07T21:13:43.801Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -848,7 +848,7 @@
                           "text": "❌ Mastercard Click to Pay: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -856,7 +856,7 @@
                       ],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-01-07T20:52:58.950Z",
+                      "startTime": "2026-01-07T21:13:43.824Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -883,32 +883,32 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     },
                     {
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46099,
+                      "duration": 16964,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -922,7 +922,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:53:48.085Z\n"
+                          "text": "Timestamp: 2026-01-07T21:14:02.862Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -940,7 +940,7 @@
                           "text": "❌ Mastercard Click to Pay: FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -948,7 +948,7 @@
                       ],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-01-07T20:53:48.109Z",
+                      "startTime": "2026-01-07T21:14:02.887Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -970,7 +970,7 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     }
                   ],
@@ -979,12 +979,12 @@
               ],
               "id": "3f2683f08aeb6c605225-d56cad27cc6e083b82f3",
               "file": "payment-methods.spec.js",
-              "line": 92,
+              "line": 94,
               "column": 5
             },
             {
               "title": "Verificar Tarjeta de Débito (Webpay)",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -998,25 +998,25 @@
                       "workerIndex": 9,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46201,
+                      "duration": 16861,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -1030,7 +1030,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:54:34.920Z\n"
+                          "text": "Timestamp: 2026-01-07T21:14:20.564Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -1048,7 +1048,7 @@
                           "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -1056,7 +1056,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:54:34.941Z",
+                      "startTime": "2026-01-07T21:14:20.584Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1078,32 +1078,32 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     },
                     {
                       "workerIndex": 10,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 47703,
+                      "duration": 18421,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
                         "location": {
                           "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                           "column": 29,
-                          "line": 296
+                          "line": 336
                         },
-                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                             "column": 29,
-                            "line": 296
+                            "line": 336
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
                         }
                       ],
                       "stdout": [
@@ -1117,7 +1117,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:55:21.844Z\n"
+                          "text": "Timestamp: 2026-01-07T21:14:38.130Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -1135,7 +1135,7 @@
                           "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
                         },
                         {
-                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -1143,7 +1143,7 @@
                       ],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-01-07T20:55:21.864Z",
+                      "startTime": "2026-01-07T21:14:38.150Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1170,49 +1170,34 @@
                       "errorLocation": {
                         "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
                         "column": 29,
-                        "line": 296
+                        "line": 336
                       }
                     },
                     {
                       "workerIndex": 11,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 42268,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 2,
-                      "startTime": "2026-01-07T20:56:10.857Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "flaky"
-                }
-              ],
-              "id": "3f2683f08aeb6c605225-9cf1d5c0ae7ab961cbf8",
-              "file": "payment-methods.spec.js",
-              "line": 92,
-              "column": 5
-            },
-            {
-              "title": "Verificar Tarjeta de Crédito (Webpay)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 11,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 42228,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 16892,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                          "column": 29,
+                          "line": 336
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                            "column": 29,
+                            "line": 336
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
+                        }
+                      ],
                       "stdout": [
                         {
                           "text": "\n========================================\n"
@@ -1224,31 +1209,133 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:56:10.837Z\n"
+                          "text": "Timestamp: 2026-01-07T21:14:57.572Z\n"
                         },
                         {
-                          "text": "Total: 2\n"
+                          "text": "Total: 1\n"
                         },
                         {
-                          "text": "✅ Passed: 2\n"
+                          "text": "✅ Passed: 0\n"
                         },
                         {
-                          "text": "❌ Failed: 0\n"
+                          "text": "❌ Failed: 1\n"
                         },
                         {
                           "text": "----------------------------------------\n"
                         },
                         {
-                          "text": "✅ Tarjeta de Débito (Webpay): PASSED\n"
+                          "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
                         },
                         {
-                          "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
-                          "text": "✅ Tarjeta de Crédito (Webpay): PASSED\n"
+                          "text": "========================================\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-01-07T21:14:57.590Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry2/test-failed-1.png"
                         },
                         {
-                          "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry2/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry2/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                        "column": 29,
+                        "line": 336
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "3f2683f08aeb6c605225-9cf1d5c0ae7ab961cbf8",
+              "file": "payment-methods.spec.js",
+              "line": 94,
+              "column": 5
+            },
+            {
+              "title": "Verificar Tarjeta de Crédito (Webpay)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 17029,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                          "column": 29,
+                          "line": 336
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                            "column": 29,
+                            "line": 336
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n========================================\n"
+                        },
+                        {
+                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
+                        },
+                        {
+                          "text": "========================================\n"
+                        },
+                        {
+                          "text": "Timestamp: 2026-01-07T21:15:15.186Z\n"
+                        },
+                        {
+                          "text": "Total: 1\n"
+                        },
+                        {
+                          "text": "✅ Passed: 0\n"
+                        },
+                        {
+                          "text": "❌ Failed: 1\n"
+                        },
+                        {
+                          "text": "----------------------------------------\n"
+                        },
+                        {
+                          "text": "❌ Tarjeta de Crédito (Webpay): FAILED\n"
+                        },
+                        {
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -1256,17 +1343,217 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:56:53.224Z",
+                      "startTime": "2026-01-07T21:15:15.202Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                        "column": 29,
+                        "line": 336
+                      }
+                    },
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 18335,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                          "column": 29,
+                          "line": 336
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                            "column": 29,
+                            "line": 336
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n========================================\n"
+                        },
+                        {
+                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
+                        },
+                        {
+                          "text": "========================================\n"
+                        },
+                        {
+                          "text": "Timestamp: 2026-01-07T21:15:32.939Z\n"
+                        },
+                        {
+                          "text": "Total: 1\n"
+                        },
+                        {
+                          "text": "✅ Passed: 0\n"
+                        },
+                        {
+                          "text": "❌ Failed: 1\n"
+                        },
+                        {
+                          "text": "----------------------------------------\n"
+                        },
+                        {
+                          "text": "❌ Tarjeta de Crédito (Webpay): FAILED\n"
+                        },
+                        {
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "========================================\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-01-07T21:15:32.957Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                        "column": 29,
+                        "line": 336
+                      }
+                    },
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 16999,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                          "column": 29,
+                          "line": 336
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                            "column": 29,
+                            "line": 336
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n========================================\n"
+                        },
+                        {
+                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
+                        },
+                        {
+                          "text": "========================================\n"
+                        },
+                        {
+                          "text": "Timestamp: 2026-01-07T21:15:52.292Z\n"
+                        },
+                        {
+                          "text": "Total: 1\n"
+                        },
+                        {
+                          "text": "✅ Passed: 0\n"
+                        },
+                        {
+                          "text": "❌ Failed: 1\n"
+                        },
+                        {
+                          "text": "----------------------------------------\n"
+                        },
+                        {
+                          "text": "❌ Tarjeta de Crédito (Webpay): FAILED\n"
+                        },
+                        {
+                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "========================================\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-01-07T21:15:52.311Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry2/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry2/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry2/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                        "column": 29,
+                        "line": 336
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
               "id": "3f2683f08aeb6c605225-25c5a9f2e564119fce55",
               "file": "payment-methods.spec.js",
-              "line": 92,
+              "line": 94,
               "column": 5
             }
           ]
@@ -1276,11 +1563,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-07T20:47:21.220Z",
-    "duration": 614300.837,
-    "expected": 1,
+    "startTime": "2026-01-07T21:11:35.728Z",
+    "duration": 273744.005,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 3,
-    "flaky": 1
+    "unexpected": 5,
+    "flaky": 0
   }
 }

@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3595519f9d06c2883539c87c2b7f235877968458",
-        "commitHash": "3595519f9d06c2883539c87c2b7f235877968458",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795998998"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a505c4d164ec1323f03a971670b308012909846c",
+        "commitHash": "a505c4d164ec1323f03a971670b308012909846c",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20796643639"
       },
       "gitCommit": {
-        "shortHash": "3595519",
-        "hash": "3595519f9d06c2883539c87c2b7f235877968458",
-        "subject": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting",
-        "body": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting\n",
+        "shortHash": "a505c4d",
+        "hash": "a505c4d164ec1323f03a971670b308012909846c",
+        "subject": "feat: Update payment methods test to search for high stock products and improve flow to checkout",
+        "body": "feat: Update payment methods test to search for high stock products and improve flow to checkout\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767818750000
+          "time": 1767820221000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767818750000
+          "time": 1767820221000
         },
         "branch": "main"
       },
@@ -67,24 +67,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3595519f9d06c2883539c87c2b7f235877968458",
-            "commitHash": "3595519f9d06c2883539c87c2b7f235877968458",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795998998"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a505c4d164ec1323f03a971670b308012909846c",
+            "commitHash": "a505c4d164ec1323f03a971670b308012909846c",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20796643639"
           },
           "gitCommit": {
-            "shortHash": "3595519",
-            "hash": "3595519f9d06c2883539c87c2b7f235877968458",
-            "subject": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting",
-            "body": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting\n",
+            "shortHash": "a505c4d",
+            "hash": "a505c4d164ec1323f03a971670b308012909846c",
+            "subject": "feat: Update payment methods test to search for high stock products and improve flow to checkout",
+            "body": "feat: Update payment methods test to search for high stock products and improve flow to checkout\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767818750000
+              "time": 1767820221000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767818750000
+              "time": 1767820221000
             },
             "branch": "main"
           },
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2869,
+                      "duration": 2107,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:47:24.361Z",
+                      "startTime": "2026-01-07T21:12:08.120Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -178,12 +178,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5017,
+                      "duration": 3897,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:47:28.226Z",
+                      "startTime": "2026-01-07T21:12:14.041Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -218,12 +218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5339,
+                      "duration": 4071,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:47:33.262Z",
+                      "startTime": "2026-01-07T21:12:17.952Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -258,12 +258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4929,
+                      "duration": 3961,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:47:38.617Z",
+                      "startTime": "2026-01-07T21:12:22.038Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -298,12 +298,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10846,
+                      "duration": 9920,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:47:43.559Z",
+                      "startTime": "2026-01-07T21:12:26.013Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -338,7 +338,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4357,
+                      "duration": 3927,
                       "errors": [],
                       "stdout": [
                         {
@@ -359,7 +359,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:47:54.417Z",
+                      "startTime": "2026-01-07T21:12:35.943Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -385,8 +385,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-07T20:47:23.627Z",
-    "duration": 35227.562999999995,
+    "startTime": "2026-01-07T21:12:07.425Z",
+    "duration": 32532.048000000003,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

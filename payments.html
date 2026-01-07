@@ -247,7 +247,7 @@
                     <span>Medios de Pago</span>
                 </div>
             </div>
-            <div class="timestamp">07/01/2026 17:56:10 Chile</div>
+            <div class="timestamp">07/01/2026 18:15:52 Chile</div>
         </header>
         
         <nav class="nav-links">
@@ -257,9 +257,9 @@
             <a href="login.html" class="nav-link">🔐 Login</a>
         </nav>
         
-        <div class="status-banner warning">
+        <div class="status-banner critical">
             <div class="status-indicator"></div>
-            <span class="status-text">3 medio(s) sin verificar</span>
+            <span class="status-text">5 medio(s) de pago con problemas</span>
         </div>
         
         <div class="stats-grid">
@@ -268,15 +268,15 @@
                 <div class="stat-label">Total Medios</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value green">2</div>
+                <div class="stat-value green">0</div>
                 <div class="stat-label">Operativos</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value yellow">3</div>
+                <div class="stat-value red">5</div>
                 <div class="stat-label">Con Problemas</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value green">100.0%</div>
+                <div class="stat-value red">0.0%</div>
                 <div class="stat-label">Disponibilidad</div>
             </div>
         </div>
@@ -284,47 +284,28 @@
         <h2 class="section-title">Estado de Medios de Pago</h2>
         <div class="payments-grid">
             
-        <div class="payment-card status-ok">
+        <div class="payment-card status-error">
             <div class="payment-header">
-                <span class="status-icon">✅</span>
-                <h3>Tarjeta de Débito (Webpay)</h3>
-            </div>
-            <div class="payment-body">
-                <div class="status-badge status-ok">Operativo</div>
-                <div class="payment-stats">
-                    <div class="stat">
-                        <span class="stat-label">Uptime 24h</span>
-                        <span class="stat-value">100.0%</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Duración</span>
-                        <span class="stat-value">25.5s</span>
-                    </div>
-                </div>
-                
-                <div class="gateway-url">Gateway: webpay3g.transbank.cl</div>
-            </div>
-        </div>
-        
-        <div class="payment-card status-ok">
-            <div class="payment-header">
-                <span class="status-icon">✅</span>
+                <span class="status-icon">❌</span>
                 <h3>Tarjeta de Crédito (Webpay)</h3>
             </div>
             <div class="payment-body">
-                <div class="status-badge status-ok">Operativo</div>
+                <div class="status-badge status-error">Con problemas</div>
                 <div class="payment-stats">
                     <div class="stat">
                         <span class="stat-label">Uptime 24h</span>
-                        <span class="stat-value">100.0%</span>
+                        <span class="stat-value">0.0%</span>
                     </div>
                     <div class="stat">
                         <span class="stat-label">Duración</span>
-                        <span class="stat-value">25.0s</span>
+                        <span class="stat-value">15.8s</span>
                     </div>
                 </div>
+                <div class="error-message">page.waitForSelector: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for locator('.products_item') to be visible[22m
+</div>
                 
-                <div class="gateway-url">Gateway: webpay3g.transbank.cl</div>
             </div>
         </div>
         
@@ -391,6 +372,27 @@
             </div>
         </div>
         
+        <div class="payment-card status-missing">
+            <div class="payment-header">
+                <span class="status-icon">⚠️</span>
+                <h3>Tarjeta de Débito (Webpay)</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-missing">Sin datos</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                </div>
+                <div class="error-message">No se ejecutó el test en esta verificación</div>
+            </div>
+        </div>
+        
         </div>
         
         <div class="history-section">
@@ -406,9 +408,9 @@
                 <tbody>
                     
         <tr>
-            <td>07/01 17:56</td>
-            <td class="status-icons"><span title="Tarjeta de Débito (Webpay)">✅</span> <span title="Tarjeta de Crédito (Webpay)">✅</span> </td>
-            <td>2/2</td>
+            <td>07/01 18:15</td>
+            <td class="status-icons"><span title="Tarjeta de Crédito (Webpay)">❌</span> </td>
+            <td>0/1</td>
         </tr>
         
                 </tbody>

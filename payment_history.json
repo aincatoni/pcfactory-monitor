@@ -1,98 +1,27 @@
 [
   {
-    "timestamp": "2026-01-07T20:56:10.837Z",
+    "timestamp": "2026-01-07T21:15:52.292Z",
     "results": [
-      {
-        "paymentMethod": "Tarjeta de Débito (Webpay)",
-        "paymentId": "WEBPAY_DEBITO",
-        "status": "PASSED",
-        "steps": [
-          {
-            "step": "Navegar al producto",
-            "status": "passed"
-          },
-          {
-            "step": "Agregar al carrito",
-            "status": "passed"
-          },
-          {
-            "step": "Ir al checkout",
-            "status": "passed"
-          },
-          {
-            "step": "Continuar como invitado",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar retiro en tienda",
-            "status": "passed"
-          },
-          {
-            "step": "Completar datos personales",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar Tarjeta de Débito (Webpay)",
-            "status": "passed"
-          },
-          {
-            "step": "Clic en Pagar y verificar pasarela",
-            "status": "passed"
-          }
-        ],
-        "error": null,
-        "gatewayReached": true,
-        "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-        "duration": 25504
-      },
       {
         "paymentMethod": "Tarjeta de Crédito (Webpay)",
         "paymentId": "WEBPAY_CREDITO",
-        "status": "PASSED",
+        "status": "FAILED",
         "steps": [
           {
-            "step": "Navegar al producto",
-            "status": "passed"
-          },
-          {
-            "step": "Agregar al carrito",
-            "status": "passed"
-          },
-          {
-            "step": "Ir al checkout",
-            "status": "passed"
-          },
-          {
-            "step": "Continuar como invitado",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar retiro en tienda",
-            "status": "passed"
-          },
-          {
-            "step": "Completar datos personales",
-            "status": "passed"
-          },
-          {
-            "step": "Seleccionar Tarjeta de Crédito (Webpay)",
-            "status": "passed"
-          },
-          {
-            "step": "Clic en Pagar y verificar pasarela",
-            "status": "passed"
+            "step": "Buscar producto con stock",
+            "status": "failed"
           }
         ],
-        "error": null,
-        "gatewayReached": true,
-        "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-        "duration": 24975
+        "error": "page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n",
+        "gatewayReached": false,
+        "gatewayUrl": null,
+        "duration": 15817
       }
     ],
     "summary": {
-      "total": 2,
-      "passed": 2,
-      "failed": 0
+      "total": 1,
+      "passed": 0,
+      "failed": 1
     }
   }
 ]
