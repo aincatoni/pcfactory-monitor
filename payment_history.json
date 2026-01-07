@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2026-01-07T20:25:47.511Z",
+    "timestamp": "2026-01-07T20:56:10.837Z",
     "results": [
       {
         "paymentMethod": "Tarjeta de Débito (Webpay)",
@@ -43,7 +43,7 @@
         "error": null,
         "gatewayReached": true,
         "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-        "duration": 26454
+        "duration": 25504
       },
       {
         "paymentMethod": "Tarjeta de Crédito (Webpay)",
@@ -86,7 +86,7 @@
         "error": null,
         "gatewayReached": true,
         "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-        "duration": 25543
+        "duration": 24975
       }
     ],
     "summary": {

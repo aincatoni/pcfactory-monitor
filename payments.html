@@ -129,6 +129,7 @@
         .stat-value.green { color: var(--accent-green); }
         .stat-value.red { color: var(--accent-red); }
         .stat-value.blue { color: var(--accent-blue); }
+        .stat-value.yellow { color: var(--accent-yellow); }
         .stat-label { color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem; }
         .section-title {
             font-size: 1.25rem;
@@ -155,6 +156,7 @@
         }
         .payment-card.status-ok { border-left: 4px solid var(--accent-green); }
         .payment-card.status-error { border-left: 4px solid var(--accent-red); }
+        .payment-card.status-missing { border-left: 4px solid var(--accent-yellow); opacity: 0.8; }
         .payment-header {
             display: flex;
             align-items: center;
@@ -175,6 +177,7 @@
         }
         .status-badge.status-ok { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }
         .status-badge.status-error { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+        .status-badge.status-missing { background: rgba(245, 158, 11, 0.15); color: var(--accent-yellow); }
         .payment-stats { display: flex; gap: 1.5rem; }
         .payment-stats .stat { display: flex; flex-direction: column; }
         .payment-stats .stat-label { font-size: 0.75rem; color: var(--text-muted); }
@@ -186,6 +189,10 @@
             border-radius: 6px;
             font-size: 0.8rem;
             color: var(--accent-red);
+        }
+        .status-missing .error-message {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent-yellow);
         }
         .gateway-url {
             margin-top: 0.75rem;
@@ -240,7 +247,7 @@
                     <span>Medios de Pago</span>
                 </div>
             </div>
-            <div class="timestamp">07/01/2026 17:25:47 Chile</div>
+            <div class="timestamp">07/01/2026 17:56:10 Chile</div>
         </header>
         
         <nav class="nav-links">
@@ -250,14 +257,14 @@
             <a href="login.html" class="nav-link">🔐 Login</a>
         </nav>
         
-        <div class="status-banner healthy">
+        <div class="status-banner warning">
             <div class="status-indicator"></div>
-            <span class="status-text">Todos los medios de pago operativos</span>
+            <span class="status-text">3 medio(s) sin verificar</span>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value blue">2</div>
+                <div class="stat-value blue">5</div>
                 <div class="stat-label">Total Medios</div>
             </div>
             <div class="stat-card">
@@ -265,7 +272,7 @@
                 <div class="stat-label">Operativos</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value ">0</div>
+                <div class="stat-value yellow">3</div>
                 <div class="stat-label">Con Problemas</div>
             </div>
             <div class="stat-card">
@@ -291,7 +298,7 @@
                     </div>
                     <div class="stat">
                         <span class="stat-label">Duración</span>
-                        <span class="stat-value">26.5s</span>
+                        <span class="stat-value">25.5s</span>
                     </div>
                 </div>
                 
@@ -313,11 +320,74 @@
                     </div>
                     <div class="stat">
                         <span class="stat-label">Duración</span>
-                        <span class="stat-value">25.5s</span>
+                        <span class="stat-value">25.0s</span>
                     </div>
                 </div>
                 
                 <div class="gateway-url">Gateway: webpay3g.transbank.cl</div>
+            </div>
+        </div>
+        
+        <div class="payment-card status-missing">
+            <div class="payment-header">
+                <span class="status-icon">⚠️</span>
+                <h3>Transferencia ETPay</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-missing">Sin datos</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                </div>
+                <div class="error-message">No se ejecutó el test en esta verificación</div>
+            </div>
+        </div>
+        
+        <div class="payment-card status-missing">
+            <div class="payment-header">
+                <span class="status-icon">⚠️</span>
+                <h3>Compraquí</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-missing">Sin datos</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                </div>
+                <div class="error-message">No se ejecutó el test en esta verificación</div>
+            </div>
+        </div>
+        
+        <div class="payment-card status-missing">
+            <div class="payment-header">
+                <span class="status-icon">⚠️</span>
+                <h3>Mastercard Click to Pay</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-missing">Sin datos</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                </div>
+                <div class="error-message">No se ejecutó el test en esta verificación</div>
             </div>
         </div>
         
@@ -336,7 +406,7 @@
                 <tbody>
                     
         <tr>
-            <td>07/01 17:25</td>
+            <td>07/01 17:56</td>
             <td class="status-icons"><span title="Tarjeta de Débito (Webpay)">✅</span> <span title="Tarjeta de Crédito (Webpay)">✅</span> </td>
             <td>2/2</td>
         </tr>

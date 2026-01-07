@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
-        "commitHash": "616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795235206"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3595519f9d06c2883539c87c2b7f235877968458",
+        "commitHash": "3595519f9d06c2883539c87c2b7f235877968458",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795998998"
       },
       "gitCommit": {
-        "shortHash": "616e613",
-        "hash": "616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
-        "subject": "refactor: Update font styles and improve layout in HTML dashboards across multiple files",
-        "body": "refactor: Update font styles and improve layout in HTML dashboards across multiple files\n",
+        "shortHash": "3595519",
+        "hash": "3595519f9d06c2883539c87c2b7f235877968458",
+        "subject": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting",
+        "body": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767811524000
+          "time": 1767818750000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767811524000
+          "time": 1767818750000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
-            "commitHash": "616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795235206"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3595519f9d06c2883539c87c2b7f235877968458",
+            "commitHash": "3595519f9d06c2883539c87c2b7f235877968458",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20795998998"
           },
           "gitCommit": {
-            "shortHash": "616e613",
-            "hash": "616e613b0b5c4e8beed4f85a745a58cae5fe0e14",
-            "subject": "refactor: Update font styles and improve layout in HTML dashboards across multiple files",
-            "body": "refactor: Update font styles and improve layout in HTML dashboards across multiple files\n",
+            "shortHash": "3595519",
+            "hash": "3595519f9d06c2883539c87c2b7f235877968458",
+            "subject": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting",
+            "body": "feat: Enhance payment dashboard to track missing payment methods and improve status reporting\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767811524000
+              "time": 1767818750000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767811524000
+              "time": 1767818750000
             },
             "branch": "main"
           },
@@ -137,7 +137,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 47070,
+                      "duration": 49018,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -169,7 +169,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:17:47.924Z\n"
+                          "text": "Timestamp: 2026-01-07T20:47:21.896Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -195,7 +195,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:17:47.946Z",
+                      "startTime": "2026-01-07T20:47:21.920Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -224,7 +224,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 47871,
+                      "duration": 47745,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -256,7 +256,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:18:35.855Z\n"
+                          "text": "Timestamp: 2026-01-07T20:48:12.526Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -282,7 +282,7 @@
                       ],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-01-07T20:18:35.878Z",
+                      "startTime": "2026-01-07T20:48:12.548Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -316,7 +316,7 @@
                       "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46617,
+                      "duration": 46221,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -348,7 +348,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:19:25.036Z\n"
+                          "text": "Timestamp: 2026-01-07T20:49:01.591Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -374,7 +374,7 @@
                       ],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-01-07T20:19:25.058Z",
+                      "startTime": "2026-01-07T20:49:01.612Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -424,7 +424,7 @@
                       "workerIndex": 3,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46530,
+                      "duration": 46324,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -456,7 +456,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:20:12.370Z\n"
+                          "text": "Timestamp: 2026-01-07T20:49:48.528Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -482,7 +482,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:20:12.392Z",
+                      "startTime": "2026-01-07T20:49:48.551Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -511,7 +511,7 @@
                       "workerIndex": 4,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 47706,
+                      "duration": 47945,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -543,7 +543,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:20:59.626Z\n"
+                          "text": "Timestamp: 2026-01-07T20:50:35.587Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -569,7 +569,7 @@
                       ],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-01-07T20:20:59.648Z",
+                      "startTime": "2026-01-07T20:50:35.610Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -603,7 +603,7 @@
                       "workerIndex": 5,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46610,
+                      "duration": 46366,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -635,7 +635,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:21:48.636Z\n"
+                          "text": "Timestamp: 2026-01-07T20:51:24.842Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -661,7 +661,7 @@
                       ],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-01-07T20:21:48.660Z",
+                      "startTime": "2026-01-07T20:51:24.865Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -711,7 +711,7 @@
                       "workerIndex": 6,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46491,
+                      "duration": 46278,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -743,7 +743,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:22:35.958Z\n"
+                          "text": "Timestamp: 2026-01-07T20:52:11.931Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -769,7 +769,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:22:35.981Z",
+                      "startTime": "2026-01-07T20:52:11.953Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -798,7 +798,7 @@
                       "workerIndex": 7,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 48355,
+                      "duration": 47844,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -830,7 +830,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:23:23.163Z\n"
+                          "text": "Timestamp: 2026-01-07T20:52:58.928Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -856,7 +856,7 @@
                       ],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-01-07T20:23:23.187Z",
+                      "startTime": "2026-01-07T20:52:58.950Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -890,7 +890,7 @@
                       "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46530,
+                      "duration": 46099,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -922,7 +922,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:24:12.843Z\n"
+                          "text": "Timestamp: 2026-01-07T20:53:48.085Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -948,7 +948,7 @@
                       ],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-01-07T20:24:12.866Z",
+                      "startTime": "2026-01-07T20:53:48.109Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -998,7 +998,7 @@
                       "workerIndex": 9,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 46708,
+                      "duration": 46201,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
@@ -1030,7 +1030,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:25:00.098Z\n"
+                          "text": "Timestamp: 2026-01-07T20:54:34.920Z\n"
                         },
                         {
                           "text": "Total: 1\n"
@@ -1056,7 +1056,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:25:00.119Z",
+                      "startTime": "2026-01-07T20:54:34.941Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1084,21 +1084,107 @@
                     {
                       "workerIndex": 10,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 44281,
-                      "errors": [],
-                      "stdout": [],
+                      "status": "failed",
+                      "duration": 47703,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                          "column": 29,
+                          "line": 296
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 294 |\u001b[39m       \n \u001b[90m 295 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 296 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 297 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m   }\n \u001b[90m 299 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                            "column": 29,
+                            "line": 296
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  294 |       \n  295 |       // Assertion final\n> 296 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  297 |     });\n  298 |   }\n  299 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:296:29"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "\n========================================\n"
+                        },
+                        {
+                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
+                        },
+                        {
+                          "text": "========================================\n"
+                        },
+                        {
+                          "text": "Timestamp: 2026-01-07T20:55:21.844Z\n"
+                        },
+                        {
+                          "text": "Total: 1\n"
+                        },
+                        {
+                          "text": "✅ Passed: 0\n"
+                        },
+                        {
+                          "text": "❌ Failed: 1\n"
+                        },
+                        {
+                          "text": "----------------------------------------\n"
+                        },
+                        {
+                          "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
+                        },
+                        {
+                          "text": "   Error: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a:has-text(\"Continuar\"), button:has-text(\"Continuar\"):not(:has-text(\"sin Productos\"))').first()\u001b[22m\n\u001b[2m    - locator resolved to <button data-v-4ac3741f=\"\" class=\"pcf-btn pcf-btn--five w-100\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    7 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <button type=\"button\" data-v-80acda56=\"\" class=\"pcf-btn pcf-btn--six float-right w-100 w-md-auto\"> Seleccionar tienda </button> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m      - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - <li data-v-80acda56=\"\" class=\"d-flex-colum align-items-center\">…</li> from <div data-v-30c2aa74=\"\" class=\"col-12 col-md-12 col-lg-7 col-xl-8 px-md-5 pl-lg-1\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "========================================\n\n"
+                        }
+                      ],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-01-07T20:25:47.531Z",
+                      "startTime": "2026-01-07T20:55:21.864Z",
                       "annotations": [],
                       "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/error-context.md"
+                        },
                         {
                           "name": "trace",
                           "contentType": "application/zip",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/trace.zip"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                        "column": 29,
+                        "line": 296
+                      }
+                    },
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 42268,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-01-07T20:56:10.857Z",
+                      "annotations": [],
+                      "attachments": []
                     }
                   ],
                   "status": "flaky"
@@ -1122,10 +1208,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 11,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42221,
+                      "duration": 42228,
                       "errors": [],
                       "stdout": [
                         {
@@ -1138,7 +1224,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T20:25:47.511Z\n"
+                          "text": "Timestamp: 2026-01-07T20:56:10.837Z\n"
                         },
                         {
                           "text": "Total: 2\n"
@@ -1170,7 +1256,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T20:26:32.485Z",
+                      "startTime": "2026-01-07T20:56:53.224Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1190,8 +1276,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-07T20:17:47.259Z",
-    "duration": 567528.35,
+    "startTime": "2026-01-07T20:47:21.220Z",
+    "duration": 614300.837,
     "expected": 1,
     "skipped": 0,
     "unexpected": 3,
