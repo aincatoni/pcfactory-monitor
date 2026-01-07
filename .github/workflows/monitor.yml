@@ -55,10 +55,15 @@ jobs:
           cache: 'pip'
       
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install google-auth google-auth-oauthlib google-api-python-client
       
       - name: Run category monitor
         run: python monitor.py --workers 5 --output-dir ./output
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       
       - name: Upload category results
         uses: actions/upload-artifact@v4
@@ -104,7 +109,7 @@ jobs:
           retention-days: 7
 
   # ============================================
-  # Verificar si toca correr Payments (3x día)
+  # Verificar si toca correr Payments (4x día)
   # ============================================
   check-payment-schedule:
     runs-on: ubuntu-latest
@@ -123,12 +128,15 @@ jobs:
           # 8pm Chile  = 23:00 UTC
           # 10pm Chile = 01:00 UTC (día siguiente)
           #
-          # Ventana ampliada a 20 minutos por delays de GitHub Actions
+          # SOLUCIÓN: Ventana ampliada a 40 minutos (00-39) para cubrir delays de GitHub Actions
+          # El cron corre en :00, :10, :20, :30 de cada hora
+          # Con delays de hasta 20 min, las ejecuciones pueden caer en cualquier momento :00-:50
+          # Usando :00-:39 evitamos ejecuciones duplicadas en la misma hora
           
           if [[ "${{ github.event.inputs.run_payments }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Manual run requested"
-          elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "20" ]]; then
+          elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Scheduled run at hour $HOUR:$MINUTE UTC"
           else
@@ -137,7 +145,7 @@ jobs:
           fi
 
   # ============================================
-  # Verificar si toca correr Login (3x día)
+  # Verificar si toca correr Login (4x día)
   # ============================================
   check-login-schedule:
     runs-on: ubuntu-latest
@@ -156,12 +164,12 @@ jobs:
           # 8pm Chile  = 23:00 UTC
           # 10pm Chile = 01:00 UTC (día siguiente)
           #
-          # Ventana ampliada a 20 minutos por delays de GitHub Actions
+          # SOLUCIÓN: Ventana ampliada a 40 minutos (00-39) para cubrir delays de GitHub Actions
           
           if [[ "${{ github.event.inputs.run_login }}" == "true" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Manual run requested"
-          elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "20" ]]; then
+          elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
             echo "should_run=true" >> $GITHUB_OUTPUT
             echo "✅ Scheduled run at hour $HOUR:$MINUTE UTC"
           else
@@ -170,7 +178,7 @@ jobs:
           fi
 
   # ============================================
-  # Monitor de Medios de Pago (3x día)
+  # Monitor de Medios de Pago (4x día)
   # ============================================
   monitor-payments:
     runs-on: ubuntu-latest
@@ -221,7 +229,7 @@ jobs:
           retention-days: 7
 
   # ============================================
-  # Monitor de Login (3x día)
+  # Monitor de Login (4x día)
   # ============================================
   monitor-login:
     runs-on: ubuntu-latest
@@ -351,11 +359,11 @@ jobs:
           
           # Crear placeholders solo si no existen los archivos
           if [ ! -f "payments.html" ]; then
-            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Payments Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>💳 Medios de Pago</h1><p>El monitor de pagos se ejecuta 3 veces al día.</p><p>Próxima ejecución: 9am, 2pm, u 8pm (Chile)</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > payments.html
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Payments Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>💳 Medios de Pago</h1><p>El monitor de pagos se ejecuta 4 veces al día.</p><p>Próxima ejecución: 9am, 2pm, 8pm o 10pm (Chile)</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > payments.html
           fi
           
           if [ ! -f "login.html" ]; then
-            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Login Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🔐 Login Monitor</h1><p>El monitor de login se ejecuta 3 veces al día.</p><p>Próxima ejecución: 9am, 2pm, u 8pm (Chile)</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > login.html
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Login Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🔐 Login Monitor</h1><p>El monitor de login se ejecuta 4 veces al día.</p><p>Próxima ejecución: 9am, 2pm, 8pm o 10pm (Chile)</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > login.html
           fi
           
           # Limpiar
