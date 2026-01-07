@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a505c4d164ec1323f03a971670b308012909846c",
-        "commitHash": "a505c4d164ec1323f03a971670b308012909846c",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20796643639"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
+        "commitHash": "14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20798477303"
       },
       "gitCommit": {
-        "shortHash": "a505c4d",
-        "hash": "a505c4d164ec1323f03a971670b308012909846c",
-        "subject": "feat: Update payment methods test to search for high stock products and improve flow to checkout",
-        "body": "feat: Update payment methods test to search for high stock products and improve flow to checkout\n",
+        "shortHash": "14ba245",
+        "hash": "14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
+        "subject": "feat: Increase timeouts and improve stability in payment methods tests",
+        "body": "feat: Increase timeouts and improve stability in payment methods tests\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767820221000
+          "time": 1767824553000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767820221000
+          "time": 1767824553000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a505c4d164ec1323f03a971670b308012909846c",
-            "commitHash": "a505c4d164ec1323f03a971670b308012909846c",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20796643639"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
+            "commitHash": "14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20798477303"
           },
           "gitCommit": {
-            "shortHash": "a505c4d",
-            "hash": "a505c4d164ec1323f03a971670b308012909846c",
-            "subject": "feat: Update payment methods test to search for high stock products and improve flow to checkout",
-            "body": "feat: Update payment methods test to search for high stock products and improve flow to checkout\n",
+            "shortHash": "14ba245",
+            "hash": "14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
+            "subject": "feat: Increase timeouts and improve stability in payment methods tests",
+            "body": "feat: Increase timeouts and improve stability in payment methods tests\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767820221000
+              "time": 1767824553000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767820221000
+              "time": 1767824553000
             },
             "branch": "main"
           },
@@ -96,7 +96,7 @@
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 120000
+        "timeout": 180000
       }
     ],
     "shard": null,
@@ -123,11 +123,11 @@
           "specs": [
             {
               "title": "Verificar Transferencia ETPay",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -136,271 +136,25 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 17212,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 56171,
+                      "errors": [],
                       "stdout": [
                         {
-                          "text": "\n========================================\n"
+                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
                         },
                         {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:11:36.408Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Transferencia ETPay: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
+                          "text": "    Haciendo clic en botón Pagar...\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T21:11:36.433Z",
+                      "startTime": "2026-01-07T22:24:21.041Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 18279,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:11:54.491Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Transferencia ETPay: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-07T21:11:54.517Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 16837,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:12:13.792Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Transferencia ETPay: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 2,
-                      "startTime": "2026-01-07T21:12:13.815Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium-retry2/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium-retry2/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium-retry2/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "3f2683f08aeb6c605225-6b16f542516fc8e8a9ee",
@@ -410,284 +164,38 @@
             },
             {
               "title": "Verificar Compraquí",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 17046,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 56124,
+                      "errors": [],
                       "stdout": [
                         {
-                          "text": "\n========================================\n"
+                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
                         },
                         {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:12:31.367Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Compraquí: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
+                          "text": "    Haciendo clic en botón Pagar...\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T21:12:31.390Z",
+                      "startTime": "2026-01-07T22:25:18.661Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 18257,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:12:49.136Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Compraquí: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-07T21:12:49.160Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 5,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 17017,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:13:08.413Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Compraquí: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 2,
-                      "startTime": "2026-01-07T21:13:08.437Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium-retry2/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium-retry2/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium-retry2/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "3f2683f08aeb6c605225-4bec07209d3775128d89",
@@ -697,284 +205,38 @@
             },
             {
               "title": "Verificar Mastercard Click to Pay",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 16919,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 55785,
+                      "errors": [],
                       "stdout": [
                         {
-                          "text": "\n========================================\n"
+                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
                         },
                         {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:13:26.154Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Mastercard Click to Pay: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
+                          "text": "    Haciendo clic en botón Pagar...\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T21:13:26.178Z",
+                      "startTime": "2026-01-07T22:26:14.799Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 7,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 18064,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:13:43.801Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Mastercard Click to Pay: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-07T21:13:43.824Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 8,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 16964,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:14:02.862Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Mastercard Click to Pay: FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 2,
-                      "startTime": "2026-01-07T21:14:02.887Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry2/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry2/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry2/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "3f2683f08aeb6c605225-d56cad27cc6e083b82f3",
@@ -984,284 +246,38 @@
             },
             {
               "title": "Verificar Tarjeta de Débito (Webpay)",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 9,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 16861,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 56024,
+                      "errors": [],
                       "stdout": [
                         {
-                          "text": "\n========================================\n"
+                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
                         },
                         {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:14:20.564Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
+                          "text": "    Haciendo clic en botón Pagar...\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T21:14:20.584Z",
+                      "startTime": "2026-01-07T22:27:10.596Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 10,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 18421,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:14:38.130Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-07T21:14:38.150Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 11,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 16892,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:14:57.572Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 2,
-                      "startTime": "2026-01-07T21:14:57.590Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry2/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry2/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry2/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "3f2683f08aeb6c605225-9cf1d5c0ae7ab961cbf8",
@@ -1271,42 +287,29 @@
             },
             {
               "title": "Verificar Tarjeta de Crédito (Webpay)",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 180000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 17029,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 56295,
+                      "errors": [],
                       "stdout": [
+                        {
+                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
+                        },
+                        {
+                          "text": "    Haciendo clic en botón Pagar...\n"
+                        },
                         {
                           "text": "\n========================================\n"
                         },
@@ -1317,25 +320,49 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T21:15:15.186Z\n"
+                          "text": "Timestamp: 2026-01-07T22:24:21.017Z\n"
                         },
                         {
-                          "text": "Total: 1\n"
+                          "text": "Total: 5\n"
                         },
                         {
-                          "text": "✅ Passed: 0\n"
+                          "text": "✅ Passed: 5\n"
                         },
                         {
-                          "text": "❌ Failed: 1\n"
+                          "text": "❌ Failed: 0\n"
                         },
                         {
                           "text": "----------------------------------------\n"
                         },
                         {
-                          "text": "❌ Tarjeta de Crédito (Webpay): FAILED\n"
+                          "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/Od7A22pJl2HGEhockqzfwen2UuFafmMJZ136ZyToM3PFPo93idPi65w9bXMC9GDs\n"
+                        },
+                        {
+                          "text": "✅ Compraquí: PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
+                        },
+                        {
+                          "text": "✅ Mastercard Click to Pay: PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
+                        },
+                        {
+                          "text": "✅ Tarjeta de Débito (Webpay): PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
+                        },
+                        {
+                          "text": "✅ Tarjeta de Crédito (Webpay): PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -1343,212 +370,12 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T21:15:15.202Z",
+                      "startTime": "2026-01-07T22:28:06.631Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 13,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 18335,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:15:32.939Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Tarjeta de Crédito (Webpay): FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-07T21:15:32.957Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
-                    },
-                    {
-                      "workerIndex": 14,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 16999,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 336
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 334 |\u001b[39m       \n \u001b[90m 335 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 336 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 337 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 338 |\u001b[39m   }\n \u001b[90m 339 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 336
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  334 |       \n  335 |       // Assertion final\n> 336 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  337 |     });\n  338 |   }\n  339 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:336:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-07T21:15:52.292Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Tarjeta de Crédito (Webpay): FAILED\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 2,
-                      "startTime": "2026-01-07T21:15:52.311Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry2/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry2/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry2/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 336
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "3f2683f08aeb6c605225-25c5a9f2e564119fce55",
@@ -1563,11 +390,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-07T21:11:35.728Z",
-    "duration": 273744.005,
-    "expected": 0,
+    "startTime": "2026-01-07T22:24:20.315Z",
+    "duration": 282677.226,
+    "expected": 5,
     "skipped": 0,
-    "unexpected": 5,
+    "unexpected": 0,
     "flaky": 0
   }
 }

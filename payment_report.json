@@ -1,25 +1,225 @@
 {
-  "timestamp": "2026-01-07T21:15:52.292Z",
+  "timestamp": "2026-01-07T22:24:21.017Z",
   "results": [
     {
-      "paymentMethod": "Tarjeta de Crédito (Webpay)",
-      "paymentId": "WEBPAY_CREDITO",
-      "status": "FAILED",
+      "paymentMethod": "Transferencia ETPay",
+      "paymentId": "ETPAY",
+      "status": "PASSED",
       "steps": [
         {
           "step": "Buscar producto con stock",
-          "status": "failed"
+          "status": "passed"
+        },
+        {
+          "step": "Agregar al carrito",
+          "status": "passed"
+        },
+        {
+          "step": "Ir al checkout",
+          "status": "passed"
+        },
+        {
+          "step": "Continuar como invitado",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar retiro en tienda",
+          "status": "passed"
+        },
+        {
+          "step": "Completar datos personales",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar Transferencia ETPay",
+          "status": "passed"
+        },
+        {
+          "step": "Clic en Pagar y verificar pasarela",
+          "status": "passed"
         }
       ],
-      "error": "page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.products_item') to be visible\u001b[22m\n",
-      "gatewayReached": false,
-      "gatewayUrl": null,
-      "duration": 15817
+      "error": null,
+      "gatewayReached": true,
+      "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/Od7A22pJl2HGEhockqzfwen2UuFafmMJZ136ZyToM3PFPo93idPi65w9bXMC9GDs",
+      "duration": 33781
+    },
+    {
+      "paymentMethod": "Compraquí",
+      "paymentId": "BANCOESTADO",
+      "status": "PASSED",
+      "steps": [
+        {
+          "step": "Buscar producto con stock",
+          "status": "passed"
+        },
+        {
+          "step": "Agregar al carrito",
+          "status": "passed"
+        },
+        {
+          "step": "Ir al checkout",
+          "status": "passed"
+        },
+        {
+          "step": "Continuar como invitado",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar retiro en tienda",
+          "status": "passed"
+        },
+        {
+          "step": "Completar datos personales",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar Compraquí",
+          "status": "passed"
+        },
+        {
+          "step": "Clic en Pagar y verificar pasarela",
+          "status": "passed"
+        }
+      ],
+      "error": null,
+      "gatewayReached": true,
+      "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
+      "duration": 33884
+    },
+    {
+      "paymentMethod": "Mastercard Click to Pay",
+      "paymentId": "CLICKTOPAY",
+      "status": "PASSED",
+      "steps": [
+        {
+          "step": "Buscar producto con stock",
+          "status": "passed"
+        },
+        {
+          "step": "Agregar al carrito",
+          "status": "passed"
+        },
+        {
+          "step": "Ir al checkout",
+          "status": "passed"
+        },
+        {
+          "step": "Continuar como invitado",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar retiro en tienda",
+          "status": "passed"
+        },
+        {
+          "step": "Completar datos personales",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar Mastercard Click to Pay",
+          "status": "passed"
+        },
+        {
+          "step": "Clic en Pagar y verificar pasarela",
+          "status": "passed"
+        }
+      ],
+      "error": null,
+      "gatewayReached": true,
+      "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
+      "duration": 33500
+    },
+    {
+      "paymentMethod": "Tarjeta de Débito (Webpay)",
+      "paymentId": "WEBPAY_DEBITO",
+      "status": "PASSED",
+      "steps": [
+        {
+          "step": "Buscar producto con stock",
+          "status": "passed"
+        },
+        {
+          "step": "Agregar al carrito",
+          "status": "passed"
+        },
+        {
+          "step": "Ir al checkout",
+          "status": "passed"
+        },
+        {
+          "step": "Continuar como invitado",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar retiro en tienda",
+          "status": "passed"
+        },
+        {
+          "step": "Completar datos personales",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar Tarjeta de Débito (Webpay)",
+          "status": "passed"
+        },
+        {
+          "step": "Clic en Pagar y verificar pasarela",
+          "status": "passed"
+        }
+      ],
+      "error": null,
+      "gatewayReached": true,
+      "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
+      "duration": 33918
+    },
+    {
+      "paymentMethod": "Tarjeta de Crédito (Webpay)",
+      "paymentId": "WEBPAY_CREDITO",
+      "status": "PASSED",
+      "steps": [
+        {
+          "step": "Buscar producto con stock",
+          "status": "passed"
+        },
+        {
+          "step": "Agregar al carrito",
+          "status": "passed"
+        },
+        {
+          "step": "Ir al checkout",
+          "status": "passed"
+        },
+        {
+          "step": "Continuar como invitado",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar retiro en tienda",
+          "status": "passed"
+        },
+        {
+          "step": "Completar datos personales",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar Tarjeta de Crédito (Webpay)",
+          "status": "passed"
+        },
+        {
+          "step": "Clic en Pagar y verificar pasarela",
+          "status": "passed"
+        }
+      ],
+      "error": null,
+      "gatewayReached": true,
+      "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
+      "duration": 34103
     }
   ],
   "summary": {
-    "total": 1,
-    "passed": 0,
-    "failed": 1
+    "total": 5,
+    "passed": 5,
+    "failed": 0
   }
 }
