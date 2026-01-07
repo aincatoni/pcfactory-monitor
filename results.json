@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/99c8631a679b02585145d8fd8c5e3624ef9c0603",
-        "commitHash": "99c8631a679b02585145d8fd8c5e3624ef9c0603",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20790282079"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
+        "commitHash": "647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20791696678"
       },
       "gitCommit": {
-        "shortHash": "99c8631",
-        "hash": "99c8631a679b02585145d8fd8c5e3624ef9c0603",
-        "subject": "refactor: Simplify dependency installation and enhance result file handling in monitor workflow",
-        "body": "refactor: Simplify dependency installation and enhance result file handling in monitor workflow\n",
+        "shortHash": "647a6ed",
+        "hash": "647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
+        "subject": "feat: Add TXT export functionality for Google Sheets compatibility in monitor.py",
+        "body": "feat: Add TXT export functionality for Google Sheets compatibility in monitor.py\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767788019000
+          "time": 1767809463000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767788019000
+          "time": 1767809463000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/99c8631a679b02585145d8fd8c5e3624ef9c0603",
-            "commitHash": "99c8631a679b02585145d8fd8c5e3624ef9c0603",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20790282079"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
+            "commitHash": "647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20791696678"
           },
           "gitCommit": {
-            "shortHash": "99c8631",
-            "hash": "99c8631a679b02585145d8fd8c5e3624ef9c0603",
-            "subject": "refactor: Simplify dependency installation and enhance result file handling in monitor workflow",
-            "body": "refactor: Simplify dependency installation and enhance result file handling in monitor workflow\n",
+            "shortHash": "647a6ed",
+            "hash": "647a6ed01e00cf645c9317871ea39c7ea21fbcbb",
+            "subject": "feat: Add TXT export functionality for Google Sheets compatibility in monitor.py",
+            "body": "feat: Add TXT export functionality for Google Sheets compatibility in monitor.py\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767788019000
+              "time": 1767809463000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767788019000
+              "time": 1767809463000
             },
             "branch": "main"
           },
@@ -137,12 +137,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41882,
+                      "duration": 43080,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T17:26:24.168Z",
+                      "startTime": "2026-01-07T18:13:04.883Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -171,12 +171,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42311,
+                      "duration": 42388,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T17:27:06.752Z",
+                      "startTime": "2026-01-07T18:13:48.564Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -205,12 +205,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42093,
+                      "duration": 42515,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T17:27:49.078Z",
+                      "startTime": "2026-01-07T18:14:30.969Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -239,12 +239,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 43111,
+                      "duration": 42203,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T17:28:31.184Z",
+                      "startTime": "2026-01-07T18:15:13.498Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -273,7 +273,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42408,
+                      "duration": 42322,
                       "errors": [],
                       "stdout": [
                         {
@@ -286,7 +286,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-07T17:26:24.145Z\n"
+                          "text": "Timestamp: 2026-01-07T18:13:04.858Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -304,7 +304,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/qdzdpqp48sECT623b2cZyMzopLok3TuWGYwOvu1vEgZopRnlsq9Pp8OMThCe8XE1\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/siHSq92ZWYeo9w3QVor4CJ1HNOYNd5G1X8P4XnBwFxG5SwmipBXS4Xahq4Oi9mpV\n"
                         },
                         {
                           "text": "✅ Compraquí: PASSED\n"
@@ -336,7 +336,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-07T17:29:14.306Z",
+                      "startTime": "2026-01-07T18:15:55.713Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -356,8 +356,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-07T17:26:23.488Z",
-    "duration": 213291.82,
+    "startTime": "2026-01-07T18:13:04.192Z",
+    "duration": 213911.24000000002,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
