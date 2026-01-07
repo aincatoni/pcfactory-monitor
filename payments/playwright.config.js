@@ -41,9 +41,9 @@ module.exports = defineConfig({
     /* Video on failure */
     video: 'retain-on-failure',
     
-    /* Timeouts */
-    actionTimeout: 15000,
-    navigationTimeout: 30000,
+    /* Timeouts - aumentados para evitar race conditions */
+    actionTimeout: 20000,
+    navigationTimeout: 45000,
     
     /* Viewport */
     viewport: { width: 1280, height: 720 },
@@ -51,6 +51,11 @@ module.exports = defineConfig({
     /* Locale for Chile */
     locale: 'es-CL',
     timezoneId: 'America/Santiago',
+    
+    /* SlowMo - pequeña pausa entre acciones para estabilidad */
+    launchOptions: {
+      slowMo: 100, // 100ms entre cada acción
+    },
   },
 
   /* Configure projects for major browsers */
@@ -69,10 +74,10 @@ module.exports = defineConfig({
   outputDir: 'test-results/',
   
   /* Global timeout for each test */
-  timeout: 120000, // 2 minutos por test (flujo completo de checkout)
+  timeout: 180000, // 3 minutos por test (flujo completo de checkout)
   
   /* Expect timeout */
   expect: {
-    timeout: 10000
+    timeout: 15000
   },
 });

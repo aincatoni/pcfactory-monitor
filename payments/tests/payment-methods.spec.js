@@ -7,8 +7,8 @@ const { test, expect } = require('@playwright/test');
  * Este test verifica que todos los medios de pago estén funcionando
  * correctamente, llevando el flujo hasta la pasarela de pago.
  * 
- * Estrategia: Buscar productos baratos con alto stock (+100 unidades)
- * para evitar problemas de disponibilidad y posibles bloqueos.
+ * Estrategia: Buscar productos baratos con alto stock para evitar
+ * problemas de disponibilidad.
  */
 
 // Configuración
@@ -64,10 +64,10 @@ const CONFIG = {
     }
   ],
   
-  // Timeouts
-  navigationTimeout: 30000,
-  actionTimeout: 15000,
-  gatewayTimeout: 45000
+  // Timeouts - valores más generosos para evitar race conditions
+  navigationTimeout: 45000,
+  actionTimeout: 20000,
+  gatewayTimeout: 60000
 };
 
 // Resultados globales para el reporte
@@ -113,36 +113,56 @@ test.describe('PCFactory Payment Methods Monitor', () => {
         await page.goto(CONFIG.searchUrl, { waitUntil: 'domcontentloaded' });
         await expect(page).toHaveURL(/pcfactory\.cl/);
         
-        // Esperar a que carguen los productos
-        await page.waitForSelector('.products_item', { timeout: 15000 });
+        // Esperar a que cargue la sección de productos de la PLP (NO el carrusel)
+        // El contenedor principal es: section[data-section-name="Lista productos"]
+        await page.waitForSelector('section[data-section-name="Lista productos"]', { timeout: 30000 });
+        
+        // Esperar a que aparezcan los botones de agregar al carro dentro de la PLP
+        await page.waitForSelector('section[data-section-name="Lista productos"] button.products__item__info__add-to-cart', { timeout: 30000 });
+        
+        // Esperar un poco más para que Vue termine de renderizar
         await page.waitForTimeout(2000);
         
-        // Buscar un producto con +100 Unid. (alto stock)
-        // El selector busca el span que contiene "+100 Unid." o similar
-        const highStockProducts = page.locator('.products_item:has(span.products_item__info__unidades:has-text("100 Unid"))');
-        const productCount = await highStockProducts.count();
+        // Buscar productos con alto stock (+100 Unid.) dentro de la PLP
+        const plpSection = page.locator('section[data-section-name="Lista productos"]');
+        const highStockProducts = plpSection.locator('a.products__item:has(span.products__item__info__unidades:has-text("+100"))');
+        const highStockCount = await highStockProducts.count();
         
         let selectedProduct;
-        if (productCount > 0) {
-          // Seleccionar un producto aleatorio entre los de alto stock
-          const randomIndex = Math.floor(Math.random() * Math.min(productCount, 5));
+        
+        if (highStockCount > 0) {
+          // Seleccionar un producto aleatorio con alto stock
+          const randomIndex = Math.floor(Math.random() * Math.min(highStockCount, 5));
           selectedProduct = highStockProducts.nth(randomIndex);
+          console.log(`    Encontrados ${highStockCount} productos con +100 unidades, seleccionando índice ${randomIndex}`);
         } else {
-          // Si no hay productos con +100, tomar el primero disponible
-          selectedProduct = page.locator('.products_item').first();
+          // Si no hay productos con +100, tomar cualquier producto de la PLP
+          const allProducts = plpSection.locator('a.products__item');
+          const productCount = await allProducts.count();
+          if (productCount > 0) {
+            const randomIndex = Math.floor(Math.random() * Math.min(productCount, 5));
+            selectedProduct = allProducts.nth(randomIndex);
+            console.log(`    No hay productos con +100 unidades, seleccionando producto ${randomIndex} de ${productCount}`);
+          }
         }
         
-        // Obtener info del producto seleccionado para el log
-        const productName = await selectedProduct.locator('.products_item__info__name').textContent().catch(() => 'Producto');
-        console.log(`    Producto seleccionado: ${productName?.trim()}`);
+        if (!selectedProduct) {
+          throw new Error('No se encontraron productos en la PLP');
+        }
+        
+        // Obtener el botón de agregar al carrito dentro del producto seleccionado
+        const addToCartButton = selectedProduct.locator('button.products__item__info__add-to-cart');
+        
+        if (await addToCartButton.count() === 0) {
+          throw new Error('No se encontró el botón de agregar al carrito');
+        }
         
         result.steps[result.steps.length - 1].status = 'passed';
         
         // Paso 2: Agregar al carrito
         result.steps.push({ step: 'Agregar al carrito', status: 'running' });
         
-        // Buscar el botón "Agregar al carro" dentro del producto seleccionado
-        const addToCartButton = selectedProduct.locator('button:has-text("Agregar al carro"), button:has-text("Agregar"), .btn-add-cart').first();
+        await addToCartButton.scrollIntoViewIfNeeded();
         await addToCartButton.waitFor({ state: 'visible', timeout: 10000 });
         await addToCartButton.click();
         
@@ -269,8 +289,15 @@ test.describe('PCFactory Payment Methods Monitor', () => {
         // Paso 8: Hacer clic en Pagar y verificar redirección a pasarela
         result.steps.push({ step: 'Clic en Pagar y verificar pasarela', status: 'running' });
         
-        const pagarButton = page.locator('button:has-text("Pagar"), button:has-text("PAGAR"), .btn-pagar, [data-action="pagar"]').first();
+        // Esperar un momento para que el medio de pago se registre
+        await page.waitForTimeout(1000);
+        
+        // Buscar el botón Pagar con múltiples selectores
+        const pagarButton = page.locator('button.pcf-btn--five:has-text("Pagar"), button:has-text("Pagar"), button.pcf-btn:has-text("Pagar")').first();
+        await pagarButton.scrollIntoViewIfNeeded();
         await pagarButton.waitFor({ state: 'visible', timeout: 10000 });
+        
+        console.log(`    Haciendo clic en botón Pagar...`);
         
         // Hacer clic y esperar navegación a la pasarela
         await Promise.all([

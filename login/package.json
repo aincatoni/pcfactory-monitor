@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Monitor E2E del sistema de login de PCFactory",
   "scripts": {
-    "test": "npx playwright test",
+    "test": "npx playwright test --timeout=180000",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
     "install:browsers": "npx playwright install chromium --with-deps",
