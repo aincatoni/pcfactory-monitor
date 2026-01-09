@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-09T08:39:15.454722+00:00",
+  "timestamp": "2026-01-09T09:01:12.579633+00:00",
   "producto": 53880,
   "total": 554990,
   "tienda_id": 11,
@@ -21,7 +21,7 @@
     "cobertura_pct": 95.7,
     "total_regiones": 16,
     "despacho_gratis": 0,
-    "precio_promedio": 14436,
+    "precio_promedio": 14577,
     "precio_min": 3990.0,
     "precio_max": 158092.0
   },
@@ -169,12 +169,12 @@
       "errores": 0,
       "dias_sum": 56,
       "dias_count": 30,
-      "precio_sum": 709143.0,
-      "precio_count": 29,
+      "precio_sum": 770212.0,
+      "precio_count": 30,
       "gratis_count": 0,
       "cobertura_pct": 100.0,
       "promedio_dias": 1.9,
-      "precio_promedio": 24453
+      "precio_promedio": 25674
     },
     "11": {
       "nombre": "Aysén",
@@ -3735,7 +3735,7 @@
       "fecha_entrega": "2026-01-15",
       "dias_entrega": 4,
       "transporte": "TurBus",
-      "precio_despacho": null,
+      "precio_despacho": 61069.0,
       "despacho_gratis": false,
       "http_code": 200,
       "url": "https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/11/1264/268/web?cantidad=1&id_producto=53880&total=554990"
