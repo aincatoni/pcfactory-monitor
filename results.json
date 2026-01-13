@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
-        "commitHash": "6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20974480499"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b67f583110eb1080828c4ed5aad4389ec51f2c",
+        "commitHash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20974910949"
       },
       "gitCommit": {
-        "shortHash": "6b8fbff",
-        "hash": "6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
-        "subject": "feat: Add category comparison and backup functionality in monitor.py",
-        "body": "feat: Add category comparison and backup functionality in monitor.py\n",
+        "shortHash": "05b67f5",
+        "hash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
+        "subject": "feat: Add video recording functionality to payment methods tests and dashboard",
+        "body": "feat: Add video recording functionality to payment methods tests and dashboard\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1768342357000
+          "time": 1768343286000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1768342357000
+          "time": 1768343286000
         },
         "branch": "main"
       },
@@ -66,24 +66,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
-            "commitHash": "6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20974480499"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b67f583110eb1080828c4ed5aad4389ec51f2c",
+            "commitHash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20974910949"
           },
           "gitCommit": {
-            "shortHash": "6b8fbff",
-            "hash": "6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
-            "subject": "feat: Add category comparison and backup functionality in monitor.py",
-            "body": "feat: Add category comparison and backup functionality in monitor.py\n",
+            "shortHash": "05b67f5",
+            "hash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
+            "subject": "feat: Add video recording functionality to payment methods tests and dashboard",
+            "body": "feat: Add video recording functionality to payment methods tests and dashboard\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1768342357000
+              "time": 1768343286000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1768342357000
+              "time": 1768343286000
             },
             "branch": "main"
           },
@@ -137,7 +137,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56931,
+                      "duration": 56304,
                       "errors": [],
                       "stdout": [
                         {
@@ -149,9 +149,15 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T22:14:07.210Z",
+                      "startTime": "2026-01-13T22:29:30.198Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium/video.webm"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -178,7 +184,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57144,
+                      "duration": 56492,
                       "errors": [],
                       "stdout": [
                         {
@@ -190,9 +196,15 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T22:15:04.891Z",
+                      "startTime": "2026-01-13T22:30:29.399Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium/video.webm"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -219,7 +231,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57364,
+                      "duration": 55987,
                       "errors": [],
                       "stdout": [
                         {
@@ -231,9 +243,15 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T22:16:02.049Z",
+                      "startTime": "2026-01-13T22:31:25.906Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/video.webm"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -260,7 +278,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57227,
+                      "duration": 56562,
                       "errors": [],
                       "stdout": [
                         {
@@ -272,9 +290,15 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T22:16:59.425Z",
+                      "startTime": "2026-01-13T22:32:21.903Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/video.webm"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -301,7 +325,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56742,
+                      "duration": 56707,
                       "errors": [],
                       "stdout": [
                         {
@@ -309,6 +333,21 @@
                         },
                         {
                           "text": "    Haciendo clic en botón Pagar...\n"
+                        },
+                        {
+                          "text": "   Video copiado: videos/video-ETPAY.webm\n"
+                        },
+                        {
+                          "text": "   Video copiado: videos/video-BANCOESTADO.webm\n"
+                        },
+                        {
+                          "text": "   Video copiado: videos/video-CLICKTOPAY.webm\n"
+                        },
+                        {
+                          "text": "   Video copiado: videos/video-WEBPAY_DEBITO.webm\n"
+                        },
+                        {
+                          "text": "   Video copiado: videos/video-WEBPAY_CREDITO.webm\n"
                         },
                         {
                           "text": "\n========================================\n"
@@ -320,7 +359,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-13T22:14:07.186Z\n"
+                          "text": "Timestamp: 2026-01-13T22:29:30.167Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -338,7 +377,10 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/WZyvrFIoXg5xlo4d7Hedd4jR7bRByru5uYtrISgy59GmNcY5z6wa9EJLV4QSjxaY\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/hL2ODafbLDw0tgDgQS0nrgwzl3EMHDV9sHEw9qDNtcDKqwnMkWJ4mHJWW3kmkNth\n"
+                        },
+                        {
+                          "text": "   Video: videos/video-ETPAY.webm\n"
                         },
                         {
                           "text": "✅ Compraquí: PASSED\n"
@@ -347,10 +389,16 @@
                           "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
                         },
                         {
+                          "text": "   Video: videos/video-BANCOESTADO.webm\n"
+                        },
+                        {
                           "text": "✅ Mastercard Click to Pay: PASSED\n"
                         },
                         {
                           "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
+                        },
+                        {
+                          "text": "   Video: videos/video-CLICKTOPAY.webm\n"
                         },
                         {
                           "text": "✅ Tarjeta de Débito (Webpay): PASSED\n"
@@ -359,10 +407,16 @@
                           "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
                         },
                         {
+                          "text": "   Video: videos/video-WEBPAY_DEBITO.webm\n"
+                        },
+                        {
                           "text": "✅ Tarjeta de Crédito (Webpay): PASSED\n"
                         },
                         {
                           "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
+                        },
+                        {
+                          "text": "   Video: videos/video-WEBPAY_CREDITO.webm\n"
                         },
                         {
                           "text": "========================================\n\n"
@@ -370,9 +424,15 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T22:17:56.664Z",
+                      "startTime": "2026-01-13T22:33:18.475Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/video.webm"
+                        }
+                      ]
                     }
                   ],
                   "status": "expected"
@@ -390,8 +450,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-13T22:14:06.518Z",
-    "duration": 286956.593,
+    "startTime": "2026-01-13T22:29:29.480Z",
+    "duration": 285775.075,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
