@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
-        "commitHash": "14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20972501060"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
+        "commitHash": "6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20974480499"
       },
       "gitCommit": {
-        "shortHash": "14ba245",
-        "hash": "14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
-        "subject": "feat: Increase timeouts and improve stability in payment methods tests",
-        "body": "feat: Increase timeouts and improve stability in payment methods tests\n",
+        "shortHash": "6b8fbff",
+        "hash": "6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
+        "subject": "feat: Add category comparison and backup functionality in monitor.py",
+        "body": "feat: Add category comparison and backup functionality in monitor.py\n",
         "author": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767824553000
+          "time": 1768342357000
         },
         "committer": {
           "name": "Ain Cortés",
           "email": "acortes@pcfactory.cl",
-          "time": 1767824553000
+          "time": 1768342357000
         },
         "branch": "main"
       },
@@ -67,24 +67,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
-            "commitHash": "14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20972501060"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
+            "commitHash": "6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20974480499"
           },
           "gitCommit": {
-            "shortHash": "14ba245",
-            "hash": "14ba2452c3bb587bfbda11f2f8c1fa7d31d6d1ec",
-            "subject": "feat: Increase timeouts and improve stability in payment methods tests",
-            "body": "feat: Increase timeouts and improve stability in payment methods tests\n",
+            "shortHash": "6b8fbff",
+            "hash": "6b8fbffdd9694c8aa79eea6e7e1e70d50d9c5aed",
+            "subject": "feat: Add category comparison and backup functionality in monitor.py",
+            "body": "feat: Add category comparison and backup functionality in monitor.py\n",
             "author": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767824553000
+              "time": 1768342357000
             },
             "committer": {
               "name": "Ain Cortés",
               "email": "acortes@pcfactory.cl",
-              "time": 1767824553000
+              "time": 1768342357000
             },
             "branch": "main"
           },
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2161,
+                      "duration": 2049,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T21:03:35.355Z",
+                      "startTime": "2026-01-13T22:14:11.279Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -178,12 +178,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3810,
+                      "duration": 3762,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T21:03:37.727Z",
+                      "startTime": "2026-01-13T22:14:14.758Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -218,12 +218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5049,
+                      "duration": 4196,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T21:03:41.551Z",
+                      "startTime": "2026-01-13T22:14:18.532Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -258,12 +258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4855,
+                      "duration": 3927,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T21:03:46.620Z",
+                      "startTime": "2026-01-13T22:14:22.745Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -298,12 +298,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10958,
+                      "duration": 10227,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T21:03:51.490Z",
+                      "startTime": "2026-01-13T22:14:26.683Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -338,7 +338,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4667,
+                      "duration": 3871,
                       "errors": [],
                       "stdout": [
                         {
@@ -359,7 +359,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-13T21:04:02.461Z",
+                      "startTime": "2026-01-13T22:14:36.924Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -385,8 +385,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-13T21:03:34.654Z",
-    "duration": 32573.641999999996,
+    "startTime": "2026-01-13T22:14:10.580Z",
+    "duration": 30296.670000000002,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
