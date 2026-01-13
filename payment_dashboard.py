@@ -134,6 +134,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         duration = r.get("duration", 0)
         error = r.get("error", "")
         gateway_url = r.get("gatewayUrl", "")
+        video_path = r.get("videoPath", "")  # Ruta del video
         
         card_class = "status-ok" if status == "PASSED" else "status-error"
         status_icon = "✅" if status == "PASSED" else "❌"
@@ -153,6 +154,15 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
                 gateway_info = f'<div class="gateway-url">Gateway alcanzado</div>'
         
         error_info = f'<div class="error-message">{error}</div>' if error else ""
+        
+        # Botón de video si existe
+        video_button = ""
+        if video_path:
+            video_button = f'''
+                <button class="video-btn" onclick="openVideoModal('{video_path}', '{method_name}')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+            '''
         
         payment_cards += f'''
         <div class="payment-card {card_class}">
@@ -174,6 +184,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
                 </div>
                 {error_info}
                 {gateway_info}
+                {video_button}
             </div>
         </div>
         '''
@@ -433,6 +444,76 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             font-size: 0.8rem;
             color: var(--text-muted);
         }}
+        .video-btn {{
+            margin-top: 1rem;
+            width: 100%;
+            padding: 0.6rem 1rem;
+            background: linear-gradient(135deg, var(--accent-blue), #6366f1);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }}
+        .video-btn:hover {{
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }}
+        .video-icon {{ font-size: 1rem; }}
+        
+        /* Modal de video */
+        .video-modal {{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }}
+        .video-modal.active {{ display: flex; }}
+        .video-modal-content {{
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }}
+        .video-modal-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }}
+        .video-modal-header h3 {{ font-size: 1.1rem; }}
+        .video-modal-close {{
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+        }}
+        .video-modal-close:hover {{ color: var(--text-primary); }}
+        .video-modal video {{
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 8px;
+        }}
         .history-section {{
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -542,9 +623,56 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         </footer>
     </div>
     
+    <!-- Modal de video -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <h3 id="videoModalTitle">Video del test</h3>
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <video id="videoPlayer" controls>
+                <source src="" type="video/webm">
+                Tu navegador no soporta video HTML5.
+            </video>
+        </div>
+    </div>
+    
     <script>
         // Auto-refresh every 5 minutes
         setTimeout(() => location.reload(), 5 * 60 * 1000);
+        
+        // Funciones del modal de video
+        function openVideoModal(videoPath, methodName) {{
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+            const title = document.getElementById('videoModalTitle');
+            
+            title.textContent = 'Test: ' + methodName;
+            video.querySelector('source').src = videoPath;
+            video.load();
+            modal.classList.add('active');
+            
+            // Cerrar con Escape
+            document.addEventListener('keydown', handleEscape);
+        }}
+        
+        function closeVideoModal() {{
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+            
+            video.pause();
+            modal.classList.remove('active');
+            document.removeEventListener('keydown', handleEscape);
+        }}
+        
+        function handleEscape(e) {{
+            if (e.key === 'Escape') closeVideoModal();
+        }}
+        
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('videoModal').addEventListener('click', function(e) {{
+            if (e.target === this) closeVideoModal();
+        }});
     </script>
 </body>
 </html>'''

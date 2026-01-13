@@ -336,6 +336,31 @@ test.describe('PCFactory Payment Methods Monitor', () => {
         
       } finally {
         result.duration = Date.now() - startTime;
+        
+        // Obtener la ruta del video si existe
+        try {
+          const video = page.video();
+          if (video) {
+            const videoPath = await video.path();
+            if (videoPath) {
+              // Copiar video a ubicación conocida con nombre del método de pago
+              const fs = require('fs');
+              const path = require('path');
+              const videoFileName = `video-${paymentMethod.id}.webm`;
+              const destPath = `./test-results/videos/${videoFileName}`;
+              
+              // Crear directorio si no existe
+              fs.mkdirSync('./test-results/videos', { recursive: true });
+              
+              // Copiar el video al finalizar (el video se cierra al terminar el test)
+              result.videoPath = `videos/${videoFileName}`;
+              result.videoSourcePath = videoPath; // Para copiar después
+            }
+          }
+        } catch (e) {
+          // Video no disponible
+        }
+        
         testResults.results.push(result);
         testResults.summary.total++;
         
@@ -368,10 +393,29 @@ test.describe('PCFactory Payment Methods Monitor', () => {
 // Hook para generar reporte al finalizar
 test.afterAll(async () => {
   const fs = require('fs');
+  const path = require('path');
   const reportPath = './test-results/payment-monitor-report.json';
   
   try {
     fs.mkdirSync('./test-results', { recursive: true });
+    fs.mkdirSync('./test-results/videos', { recursive: true });
+    
+    // Copiar los videos a la ubicación final
+    for (const result of testResults.results) {
+      if (result.videoSourcePath && fs.existsSync(result.videoSourcePath)) {
+        const destPath = `./test-results/${result.videoPath}`;
+        try {
+          fs.copyFileSync(result.videoSourcePath, destPath);
+          console.log(`   Video copiado: ${result.videoPath}`);
+        } catch (e) {
+          console.log(`   No se pudo copiar video: ${e.message}`);
+          result.videoPath = null;
+        }
+      }
+      // Limpiar la ruta temporal
+      delete result.videoSourcePath;
+    }
+    
     fs.writeFileSync(reportPath, JSON.stringify(testResults, null, 2));
     console.log('\n========================================');
     console.log('RESUMEN DE MONITOREO DE MEDIOS DE PAGO');
@@ -387,6 +431,9 @@ test.afterAll(async () => {
       console.log(`${icon} ${result.paymentMethod}: ${result.status}`);
       if (result.gatewayUrl) {
         console.log(`   Gateway: ${result.gatewayUrl}`);
+      }
+      if (result.videoPath) {
+        console.log(`   Video: ${result.videoPath}`);
       }
       if (result.error) {
         console.log(`   Error: ${result.error}`);

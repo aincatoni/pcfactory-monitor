@@ -38,8 +38,8 @@ module.exports = defineConfig({
     /* Screenshot on failure */
     screenshot: 'only-on-failure',
     
-    /* Video on failure */
-    video: 'retain-on-failure',
+    /* Video - grabar siempre para el dashboard */
+    video: 'on',
     
     /* Timeouts - aumentados para evitar race conditions */
     actionTimeout: 20000,
