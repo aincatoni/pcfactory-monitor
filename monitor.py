@@ -262,6 +262,55 @@ def run_monitor(workers: int = 3, delay_min: float = 0.35, delay_max: float = 0.
 # CSV EXPORT (para Google Sheets IMPORTDATA)
 # ==============================================================================
 
+def load_previous_categories(csv_path: Path) -> Dict[str, Dict]:
+    """Carga las categorías del CSV anterior para comparación."""
+    categories = {}
+    if csv_path.exists():
+        try:
+            with open(csv_path, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    cat_id = row.get('id', '')
+                    if cat_id:
+                        categories[cat_id] = {
+                            'id': cat_id,
+                            'nombre': row.get('nombre', ''),
+                            'total_productos': row.get('total_productos', ''),
+                        }
+        except Exception as e:
+            print(f"[!] Error leyendo CSV anterior: {e}")
+    return categories
+
+def compare_categories(current: List[Dict], previous: Dict[str, Dict]) -> Dict:
+    """Compara categorías actuales con las anteriores."""
+    current_ids = {str(r.get('id', '')) for r in current if r.get('id')}
+    previous_ids = set(previous.keys())
+    
+    # Nuevas categorías (están en current pero no en previous)
+    new_ids = current_ids - previous_ids
+    new_categories = [r for r in current if str(r.get('id', '')) in new_ids]
+    
+    # Categorías eliminadas (estaban en previous pero no en current)
+    removed_ids = previous_ids - current_ids
+    removed_categories = [previous[id] for id in removed_ids]
+    
+    return {
+        'new': sorted(new_categories, key=lambda x: x.get('nombre', '')),
+        'removed': sorted(removed_categories, key=lambda x: x.get('nombre', '')),
+        'new_count': len(new_categories),
+        'removed_count': len(removed_categories),
+    }
+
+def backup_csv(csv_path: Path, backup_path: Path):
+    """Mueve el CSV actual a backup si existe."""
+    if csv_path.exists():
+        try:
+            import shutil
+            shutil.copy2(csv_path, backup_path)
+            print(f"[+] Backup creado: {backup_path}")
+        except Exception as e:
+            print(f"[!] Error creando backup: {e}")
+
 def generate_csv(report: Dict, output_path: Path):
     """
     Genera un CSV con los resultados para importar en Google Sheets.
@@ -423,6 +472,64 @@ def generate_html_dashboard(report: Dict) -> str:
             </div>
         </div>'''
     
+    # Sección de cambios (categorías nuevas y eliminadas)
+    comparison = report.get("comparison", {"new": [], "removed": [], "new_count": 0, "removed_count": 0})
+    changes_section = ""
+    
+    if comparison["new_count"] > 0 or comparison["removed_count"] > 0:
+        new_rows = ""
+        for cat in comparison["new"]:
+            new_rows += f'''<tr class="new-row">
+                <td><span class="badge badge-id">{cat.get('id', 'N/A')}</span></td>
+                <td>{cat.get('nombre', '')}</td>
+                <td><span class="badge badge-ok">{cat.get('status_code', 200)}</span></td>
+                <td><span class="badge badge-ok">{cat.get('total_productos', '?')}</span></td>
+                <td><a href="{cat.get('url', '#')}" target="_blank" class="link">Ver</a></td>
+            </tr>'''
+        
+        removed_rows = ""
+        for cat in comparison["removed"]:
+            removed_rows += f'''<tr class="removed-row">
+                <td><span class="badge badge-id">{cat.get('id', 'N/A')}</span></td>
+                <td>{cat.get('nombre', '')}</td>
+                <td colspan="3"><span class="badge badge-error">Eliminada</span></td>
+            </tr>'''
+        
+        new_section_html = ""
+        if comparison["new_count"] > 0:
+            new_section_html = f'''
+            <div class="changes-subsection">
+                <h3>➕ Categorías Nuevas ({comparison["new_count"]})</h3>
+                <table>
+                    <thead><tr><th>ID</th><th>Nombre</th><th>Status</th><th>Productos</th><th>URL</th></tr></thead>
+                    <tbody>{new_rows}</tbody>
+                </table>
+            </div>'''
+        
+        removed_section_html = ""
+        if comparison["removed_count"] > 0:
+            removed_section_html = f'''
+            <div class="changes-subsection">
+                <h3>➖ Categorías Eliminadas ({comparison["removed_count"]})</h3>
+                <table>
+                    <thead><tr><th>ID</th><th>Nombre</th><th colspan="3">Estado</th></tr></thead>
+                    <tbody>{removed_rows}</tbody>
+                </table>
+            </div>'''
+        
+        changes_section = f'''
+        <div class="section changes-section">
+            <div class="section-header">
+                <span>🔄</span>
+                <h2>Cambios Detectados</h2>
+                <span class="section-count">+{comparison["new_count"]} / -{comparison["removed_count"]}</span>
+            </div>
+            <div class="changes-content">
+                {new_section_html}
+                {removed_section_html}
+            </div>
+        </div>'''
+    
     all_rows = ""
     for cat in sorted(resultados, key=lambda x: x.get('nombre', '')):
         status_badge = "badge-ok" if cat["ok"] else "badge-error"
@@ -453,7 +560,14 @@ def generate_html_dashboard(report: Dict) -> str:
         </div>
         <div class="table-container">
             <table id="allCatsTable">
-                <thead><tr><th>ID</th><th>Nombre</th><th>Status</th><th>Productos</th><th>Tiempo</th><th>URL</th></tr></thead>
+                <thead><tr>
+                    <th class="sortable" data-sort="id">ID <span class="sort-icon">↕</span></th>
+                    <th class="sortable" data-sort="nombre">Nombre <span class="sort-icon">↕</span></th>
+                    <th class="sortable" data-sort="status">Status <span class="sort-icon">↕</span></th>
+                    <th class="sortable" data-sort="productos">Productos <span class="sort-icon">↕</span></th>
+                    <th class="sortable" data-sort="tiempo">Tiempo <span class="sort-icon">↕</span></th>
+                    <th>URL</th>
+                </tr></thead>
                 <tbody>{all_rows}</tbody>
             </table>
         </div>
@@ -541,6 +655,24 @@ def generate_html_dashboard(report: Dict) -> str:
         .empty-state { padding: 3rem; text-align: center; color: var(--text-muted); }
         .empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
         .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
+        /* Estilos para sección de cambios */
+        .changes-section { border-left: 4px solid var(--accent-blue); }
+        .changes-content { padding: 1rem 1.5rem; }
+        .changes-subsection { margin-bottom: 1.5rem; }
+        .changes-subsection:last-child { margin-bottom: 0; }
+        .changes-subsection h3 { font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .new-row { background: rgba(16, 185, 129, 0.08); }
+        .removed-row { background: rgba(239, 68, 68, 0.08); }
+        /* Estilos para ordenamiento de tabla */
+        th.sortable { cursor: pointer; user-select: none; transition: background 0.2s; }
+        th.sortable:hover { background: var(--bg-hover); }
+        th.sortable .sort-icon { opacity: 0.4; margin-left: 0.25rem; font-size: 0.7rem; }
+        th.sortable.asc .sort-icon { opacity: 1; }
+        th.sortable.desc .sort-icon { opacity: 1; }
+        th.sortable.asc .sort-icon::after { content: '↑'; }
+        th.sortable.desc .sort-icon::after { content: '↓'; }
+        th.sortable.asc .sort-icon, th.sortable.desc .sort-icon { font-size: 0; }
+        th.sortable.asc .sort-icon::after, th.sortable.desc .sort-icon::after { font-size: 0.75rem; }
         @media (max-width: 768px) { .container { padding: 1rem; } .header { flex-direction: column; gap: 1rem; text-align: center; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .health-score { font-size: 3rem; } }
     </style>
 </head>
@@ -574,10 +706,51 @@ def generate_html_dashboard(report: Dict) -> str:
             <div class="stat-card"><div class="stat-label">Con Productos</div><div class="stat-value green">''' + str(summary["con_productos"]) + '''</div></div>
             <div class="stat-card"><div class="stat-label">Sin Productos</div><div class="stat-value ''' + sin_prod_class + '''">''' + str(summary["sin_productos"]) + '''</div></div>
         </div>
-        ''' + errores_section + vacias_section + all_ok_section + all_cats_section + '''
+        ''' + errores_section + vacias_section + changes_section + all_ok_section + all_cats_section + '''
         <footer class="footer"><p>Actualizacion automatica cada 10 minutos</p><p>Hecho con ❤️ por Ain Cortés Catoni</p></footer>
     </div>
-    <script>document.getElementById('filterInput').addEventListener('input', function(e) { const filter = e.target.value.toLowerCase(); document.querySelectorAll('#allCatsTable tbody tr').forEach(row => { row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none'; }); });</script>
+    <script>
+        // Filtro de búsqueda
+        document.getElementById('filterInput').addEventListener('input', function(e) { 
+            const filter = e.target.value.toLowerCase(); 
+            document.querySelectorAll('#allCatsTable tbody tr').forEach(row => { 
+                row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none'; 
+            }); 
+        });
+        
+        // Ordenamiento de tabla
+        document.querySelectorAll('#allCatsTable th.sortable').forEach(th => {
+            th.addEventListener('click', function() {
+                const table = document.getElementById('allCatsTable');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const colIndex = Array.from(th.parentElement.children).indexOf(th);
+                const sortType = th.dataset.sort;
+                
+                // Toggle sort direction
+                const isAsc = th.classList.contains('asc');
+                document.querySelectorAll('#allCatsTable th.sortable').forEach(h => h.classList.remove('asc', 'desc'));
+                th.classList.add(isAsc ? 'desc' : 'asc');
+                
+                rows.sort((a, b) => {
+                    let aVal = a.cells[colIndex].textContent.trim();
+                    let bVal = b.cells[colIndex].textContent.trim();
+                    
+                    // Extraer números para columnas numéricas
+                    if (sortType === 'id' || sortType === 'status' || sortType === 'productos' || sortType === 'tiempo') {
+                        aVal = parseInt(aVal.replace(/[^0-9]/g, '')) || 0;
+                        bVal = parseInt(bVal.replace(/[^0-9]/g, '')) || 0;
+                        return isAsc ? bVal - aVal : aVal - bVal;
+                    }
+                    
+                    // Ordenamiento alfabético
+                    return isAsc ? bVal.localeCompare(aVal, 'es') : aVal.localeCompare(bVal, 'es');
+                });
+                
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    </script>
 </body>
 </html>'''
     return html
@@ -601,7 +774,19 @@ def main():
     print("PCFactory Category Monitor")
     print("=" * 60)
     
+    # Cargar categorías anteriores antes de ejecutar el monitor
+    csv_path = output_dir / "categories_status.csv"
+    previous_categories = load_previous_categories(csv_path)
+    print(f"[*] Categorías anteriores cargadas: {len(previous_categories)}")
+    
     report = run_monitor(workers=args.workers, delay_min=args.delay_min, delay_max=args.delay_max)
+    
+    # Comparar con categorías anteriores
+    comparison = compare_categories(report.get("resultados", []), previous_categories)
+    report["comparison"] = comparison
+    
+    if comparison["new_count"] > 0 or comparison["removed_count"] > 0:
+        print(f"\n[!] Cambios detectados: +{comparison['new_count']} nuevas, -{comparison['removed_count']} eliminadas")
     
     # Guardar JSON
     json_path = output_dir / "report.json"
@@ -616,12 +801,19 @@ def main():
         f.write(html_content)
     print("[+] HTML guardado: " + str(html_path))
     
+    # Hacer backup del CSV anterior antes de sobrescribir
+    backup_path = output_dir / "categories_status_previous.csv"
+    backup_csv(csv_path, backup_path)
+    
+    # También crear backup del TXT
+    txt_path = output_dir / "categories_status.txt"
+    txt_backup_path = output_dir / "categories_status_previous.txt"
+    backup_csv(txt_path, txt_backup_path)
+    
     # Guardar CSV (para Google Sheets IMPORTDATA)
-    csv_path = output_dir / "categories_status.csv"
     generate_csv(report, csv_path)
     
     # Guardar TXT (para Google Sheets IMPORTDATA - mejor compatibilidad)
-    txt_path = output_dir / "categories_status.txt"
     generate_txt(report, txt_path)
     
     summary = report["summary"]

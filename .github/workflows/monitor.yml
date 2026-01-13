@@ -49,6 +49,11 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Download previous CSV for comparison
+        run: |
+          mkdir -p ./output
+          curl -f -o ./output/categories_status.csv https://aincatoni.github.io/pcfactory-monitor/categories_status.csv || echo "No previous CSV found"
+        continue-on-error: true
       - name: Run category monitor
         run: python monitor.py --workers 5 --output-dir ./output
       - name: Upload category results
@@ -96,11 +101,21 @@ jobs:
         run: |
           HOUR=$(date -u +%H)
           MINUTE=$(date -u +%M)
+          echo "Current UTC time: $HOUR:$MINUTE"
+          
           if [[ "${{ github.event.inputs.run_payments }}" == "true" ]]; then
+            echo "Manual trigger - running payments"
             echo "should_run=true" >> $GITHUB_OUTPUT
-          elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
+          # Horas objetivo: 12:00, 17:00, 23:00 UTC (9am, 2pm, 8pm Chile)
+          # Incluimos hora-1 con minuto>=50 para cubrir delays de GitHub
+          elif [[ "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
+            echo "Scheduled hour match - running payments"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          elif [[ "$HOUR" == "11" || "$HOUR" == "16" || "$HOUR" == "22" ]] && [[ "$MINUTE" -ge "50" ]]; then
+            echo "Late previous hour (GitHub delay compensation) - running payments"
             echo "should_run=true" >> $GITHUB_OUTPUT
           else
+            echo "Not a scheduled time for payments (Hour: $HOUR, Minute: $MINUTE)"
             echo "should_run=false" >> $GITHUB_OUTPUT
           fi
 
@@ -114,11 +129,21 @@ jobs:
         run: |
           HOUR=$(date -u +%H)
           MINUTE=$(date -u +%M)
+          echo "Current UTC time: $HOUR:$MINUTE"
+          
           if [[ "${{ github.event.inputs.run_login }}" == "true" ]]; then
+            echo "Manual trigger - running login"
             echo "should_run=true" >> $GITHUB_OUTPUT
-          elif [[ "$HOUR" == "01" || "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
+          # Horas objetivo: 12:00, 17:00, 23:00 UTC (9am, 2pm, 8pm Chile)
+          # Incluimos hora-1 con minuto>=50 para cubrir delays de GitHub
+          elif [[ "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
+            echo "Scheduled hour match - running login"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          elif [[ "$HOUR" == "11" || "$HOUR" == "16" || "$HOUR" == "22" ]] && [[ "$MINUTE" -ge "50" ]]; then
+            echo "Late previous hour (GitHub delay compensation) - running login"
             echo "should_run=true" >> $GITHUB_OUTPUT
           else
+            echo "Not a scheduled time for login (Hour: $HOUR, Minute: $MINUTE)"
             echo "should_run=false" >> $GITHUB_OUTPUT
           fi
 
@@ -265,6 +290,14 @@ jobs:
             find ./new-results -name "*.json" -exec cp {} ./ \; 2>/dev/null || true
             find ./new-results -name "*.csv" -exec cp {} ./ \; 2>/dev/null || true
             find ./new-results -name "*.txt" -exec cp {} ./ \; 2>/dev/null || true
+            
+            # Copiar videos de payments si existen
+            if [ -d "./new-results/payments/test-results/videos" ]; then
+              mkdir -p ./videos
+              cp -r ./new-results/payments/test-results/videos/* ./videos/ 2>/dev/null || true
+              echo "Videos copiados:"
+              ls -la ./videos/ 2>/dev/null || echo "No videos"
+            fi
           fi
           
           if [ ! -f "payments.html" ]; then
@@ -278,6 +311,7 @@ jobs:
           rm -rf ./new-results
           echo "Final files:"
           ls -la *.html *.csv *.txt *.json 2>/dev/null || echo "No files"
+          ls -la ./videos/ 2>/dev/null || echo "No videos folder"
       
       - name: Commit and push
         run: |
