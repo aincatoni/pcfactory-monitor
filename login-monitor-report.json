@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b67f583110eb1080828c4ed5aad4389ec51f2c",
         "commitHash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20993070545"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20994387270"
       },
       "gitCommit": {
         "shortHash": "05b67f5",
@@ -69,7 +69,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b67f583110eb1080828c4ed5aad4389ec51f2c",
             "commitHash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20993070545"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/20994387270"
           },
           "gitCommit": {
             "shortHash": "05b67f5",
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2168,
+                      "duration": 2188,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-14T11:51:57.890Z",
+                      "startTime": "2026-01-14T12:39:56.789Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -178,12 +178,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3949,
+                      "duration": 3781,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-14T11:52:01.812Z",
+                      "startTime": "2026-01-14T12:40:00.242Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -218,12 +218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5238,
+                      "duration": 5507,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-14T11:52:05.773Z",
+                      "startTime": "2026-01-14T12:40:04.038Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -258,12 +258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4301,
+                      "duration": 5119,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-14T11:52:11.022Z",
+                      "startTime": "2026-01-14T12:40:09.556Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -298,12 +298,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10884,
+                      "duration": 11862,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-14T11:52:15.333Z",
+                      "startTime": "2026-01-14T12:40:14.685Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -338,7 +338,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4806,
+                      "duration": 5444,
                       "errors": [],
                       "stdout": [
                         {
@@ -359,7 +359,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-14T11:52:26.227Z",
+                      "startTime": "2026-01-14T12:40:26.557Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -385,8 +385,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-14T11:51:57.141Z",
-    "duration": 33971.762,
+    "startTime": "2026-01-14T12:39:56.090Z",
+    "duration": 35993.805,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
