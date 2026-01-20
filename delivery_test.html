@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="600">
+    <title>PCFactory Delivery Monitor - Nacional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-hover: #22222e;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent-green: #10b981;
+            --accent-yellow: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            --border: #27272a;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 2rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 48px; height: 48px; flex-shrink: 0; }
+        .logo-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .logo-text h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+        .logo-text span { font-size: 0.875rem; color: var(--text-muted); }
+        .timestamp {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.625rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .nav-link:hover { background: var(--bg-hover); color: var(--text-primary); }
+        .nav-link.active { background: var(--accent-green); color: #000000; border-color: var(--accent-green); font-weight: 500; }
+        
+        .product-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .product-current {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .product-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        .product-value {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        .product-value strong {
+            color: var(--text-primary);
+        }
+        .product-sep {
+            color: var(--border);
+            margin: 0 0.25rem;
+        }
+        .change-product-btn {
+            margin-left: auto;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .change-product-btn:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--accent-blue);
+        }
+        .product-form {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            flex: 1;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .form-group input {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.6rem 0.8rem;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        .form-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .btn-primary {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        .form-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .status-banner {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        .status-banner.healthy { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .status-banner.warning { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); }
+        .status-banner.critical { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .status-indicator {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        .healthy .status-indicator { background: var(--accent-green); }
+        .warning .status-indicator { background: var(--accent-yellow); }
+        .critical .status-indicator { background: var(--accent-red); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.2s ease;
+        }
+        .stat-card:hover { background: var(--bg-hover); transform: translateY(-2px); }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .stat-value { font-family: var(--font-mono); font-size: 1.75rem; font-weight: 700; }
+        .stat-value.green { color: var(--accent-green); }
+        .stat-value.yellow { color: var(--accent-yellow); }
+        .stat-value.red { color: var(--accent-red); }
+        .stat-value.blue { color: var(--accent-blue); }
+        
+        .health-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .health-score {
+            font-family: var(--font-mono);
+            font-size: 4rem;
+            font-weight: 700;
+            color: #f59e0b;
+        }
+        .health-label { color: var(--text-muted); margin-top: 0.5rem; }
+        
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .region-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .region-card:hover { background: var(--bg-hover); transform: translateY(-2px); }
+        .region-card.selected { border-color: var(--accent-blue); background: var(--bg-hover); }
+        .region-name { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .region-cob { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; }
+        .region-cob.green { color: var(--accent-green); }
+        .region-cob.yellow { color: var(--accent-yellow); }
+        .region-cob.red { color: var(--accent-red); }
+        .region-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+        
+        .dist-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .dist-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        .dist-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .dist-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            width: 30px;
+            color: var(--text-muted);
+        }
+        .dist-track {
+            flex: 1;
+            height: 20px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .dist-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        .dist-count {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            width: 40px;
+            text-align: right;
+            color: var(--text-secondary);
+        }
+        
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .section-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-header h2 { font-size: 1rem; font-weight: 600; }
+        .section-count {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: var(--bg-hover);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            color: var(--text-secondary);
+        }
+        .table-container { overflow-x: auto; max-height: 600px; overflow-y: auto; }
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
+        }
+        th:nth-child(1) { width: 6%; }  /* ID */
+        th:nth-child(2) { width: 16%; } /* Comuna */
+        th:nth-child(3) { width: 8%; }  /* Días */
+        th:nth-child(4) { width: 12%; } /* Precio */
+        th:nth-child(5) { width: 12%; } /* Fecha */
+        th:nth-child(6) { width: 14%; } /* Transporte */
+        th:nth-child(7) { width: 16%; } /* Ciudad */
+        th:nth-child(8) { width: 12%; } /* Estado */
+        th:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+        th.sortable::after {
+            content: ' ⇅';
+            opacity: 0.3;
+            font-size: 0.8rem;
+        }
+        th.sort-asc::after {
+            content: ' ↑';
+            opacity: 1;
+            color: var(--accent-blue);
+        }
+        th.sort-desc::after {
+            content: ' ↓';
+            opacity: 1;
+            color: var(--accent-blue);
+        }
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: var(--bg-hover); }
+        .region-header-row {
+            background: var(--bg-secondary) !important;
+        }
+        .region-header-row td {
+            padding: 0.5rem 1rem;
+            color: var(--accent-blue);
+        }
+        .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .badge-id { background: var(--bg-hover); color: var(--text-secondary); }
+        .badge-ok { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .badge-warn { background: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); }
+        .badge-error { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .badge-muted { background: var(--bg-secondary); color: var(--text-muted); }
+        .product-info {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .filter-input {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        .filter-input:hover {
+            border-color: var(--accent-blue);
+        }
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        .filters-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .filter-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+        .filter-select {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-select:hover {
+            border-color: var(--accent-blue);
+        }
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        .filter-reset {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        .filter-reset:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent-red);
+        }
+        .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .header { flex-direction: column; gap: 1rem; text-align: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .regions-grid { grid-template-columns: repeat(2, 1fr); }
+            .health-score { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg">
+                </div>
+                <div class="logo-text">
+                    <h1>pc Factory Monitor</h1>
+                    <span>Despacho Nacional - Chile</span>
+                </div>
+            </div>
+            <div class="timestamp">20/01/2026 18:41:52 Chile</div>
+        </header>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">📦 Categorías</a>
+            <a href="delivery.html" class="nav-link active">🚚 Despacho Nacional</a>
+            <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
+            <a href="login.html" class="nav-link">🔐 Login</a>
+        </div>
+        
+        <div class="product-panel">
+            <div class="product-current">
+                <span class="product-label">Monitoreando:</span>
+                <span class="product-value">Producto <strong>53880</strong></span>
+                <span class="product-sep">|</span>
+                <span class="product-value">Total <strong>$554.990</strong></span>
+                <span class="product-sep">|</span>
+                <span class="product-value">Cantidad <strong>1</strong></span>
+            </div>
+            <button class="change-product-btn" onclick="toggleProductForm()">⚙️ Cambiar Producto</button>
+            <div class="product-form" id="productForm" style="display: none;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>ID Producto</label>
+                        <input type="number" id="inputProducto" value="53880" placeholder="Ej: 53880">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Carrito</label>
+                        <input type="number" id="inputTotal" value="554990" placeholder="Ej: 554990">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <a id="runWorkflowBtn" class="btn-primary" href="#" target="_blank">🚀 Ejecutar Monitor</a>
+                    <span class="form-hint">Se abrirá GitHub Actions para confirmar</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-banner warning">
+            <div class="status-indicator"></div>
+            <span class="status-text">3 comunas sin despacho</span>
+        </div>
+        
+        <div class="health-card">
+            <div class="health-score">92.5%</div>
+            <div class="health-label">Cobertura Nacional (320/346 comunas)</div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Comunas</div>
+                <div class="stat-value blue">346</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Disponibles</div>
+                <div class="stat-value green">320</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Sin Despacho</div>
+                <div class="stat-value red">26</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Despacho Gratis</div>
+                <div class="stat-value green">45</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Promedio Días</div>
+                <div class="stat-value blue">3.5</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Precio Promedio</div>
+                <div class="stat-value yellow">$3.990</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">
+                <span>🗺️</span>
+                <h2>Cobertura por Región</h2>
+            </div>
+            <div style="padding: 1rem;">
+                <div class="regions-grid">
+                    
+        <div class="region-card" data-region="1">
+            <div class="region-name">Tarapacá</div>
+            <div class="region-cob red">71.4%</div>
+            <div class="region-stats">
+                <span>5/7</span>
+                <span>~3.0d</span>
+            </div>
+        </div>
+        <div class="region-card" data-region="5">
+            <div class="region-name">Valparaíso</div>
+            <div class="region-cob yellow">92.1%</div>
+            <div class="region-stats">
+                <span>35/38</span>
+                <span>~4.0d</span>
+            </div>
+        </div>
+        <div class="region-card" data-region="13">
+            <div class="region-name">Metropolitana</div>
+            <div class="region-cob green">100.0%</div>
+            <div class="region-stats">
+                <span>52/52</span>
+                <span>~3.0d</span>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dist-container">
+            <div class="dist-title">Distribución por Días de Entrega</div>
+            
+            <div class="dist-bar">
+                <span class="dist-label">3d</span>
+                <div class="dist-track">
+                    <div class="dist-fill" style="width: 100.0%"></div>
+                </div>
+                <span class="dist-count">150</span>
+            </div>
+            <div class="dist-bar">
+                <span class="dist-label">4d</span>
+                <div class="dist-track">
+                    <div class="dist-fill" style="width: 66.66666666666666%"></div>
+                </div>
+                <span class="dist-count">100</span>
+            </div>
+            <div class="dist-bar">
+                <span class="dist-label">5d</span>
+                <div class="dist-track">
+                    <div class="dist-fill" style="width: 33.33333333333333%"></div>
+                </div>
+                <span class="dist-count">50</span>
+            </div>
+            <div class="dist-bar">
+                <span class="dist-label">7d</span>
+                <div class="dist-track">
+                    <div class="dist-fill" style="width: 13.333333333333334%"></div>
+                </div>
+                <span class="dist-count">20</span>
+            </div>
+        </div>
+        
+        
+        <div class="section">
+            <div class="section-header">
+                <span>⚠</span>
+                <h2>Comunas Sin Despacho</h2>
+                <span class="section-count">3</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>ID</th><th>Comuna</th><th>Región</th><th>Ciudad</th></tr></thead>
+                    <tbody><tr>
+            <td><span class="badge badge-id">9</span></td>
+            <td>PICA</td>
+            <td>Tarapacá</td>
+            <td>PICA</td>
+        </tr>
+<tr>
+            <td><span class="badge badge-id">10</span></td>
+            <td>POZO ALMONTE</td>
+            <td>Tarapacá</td>
+            <td>POZO ALMONTE</td>
+        </tr>
+<tr>
+            <td><span class="badge badge-id">72</span></td>
+            <td>QUINTERO</td>
+            <td>Valparaíso</td>
+            <td>QUINTERO</td>
+        </tr>
+</tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+        <div class="section">
+            <div class="section-header">
+                <span>📍</span>
+                <h2>Todas las Comunas</h2>
+                <span class="section-count" id="visibleCount">16</span>
+            </div>
+
+            <div class="filters-panel">
+                <div class="filter-group">
+                    <label class="filter-label">🔍 Buscar</label>
+                    <input type="text" class="filter-input" placeholder="Buscar comuna..." id="filterInput">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">📊 Estado</label>
+                    <select class="filter-select" id="filterEstado">
+                        <option value="">Todos</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="No disponible">No disponible</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">📦 Días</label>
+                    <select class="filter-select" id="filterDias">
+                        <option value="">Todos</option>
+                        <option value="1-2">1-2 días</option>
+                        <option value="3-5">3-5 días</option>
+                        <option value="6+">6+ días</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">💰 Precio</label>
+                    <select class="filter-select" id="filterPrecio">
+                        <option value="">Todos</option>
+                        <option value="gratis">Gratis</option>
+                        <option value="0-5000">$0 - $5.000</option>
+                        <option value="5000-10000">$5.000 - $10.000</option>
+                        <option value="10000+">$10.000+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">🚚 Transporte</label>
+                    <select class="filter-select" id="filterTransporte">
+                        <option value="">Todos</option>
+                        <option value="TurBus">TurBus</option>
+                        <option value="Chileexpress">Chileexpress</option>
+                        <option value="Chilexpress">Chilexpress</option>
+                        <option value="Starken">Starken</option>
+                        <option value="Bluexpress">Bluexpress</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-reset" onclick="resetFilters()">🔄 Limpiar Filtros</button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="comunasTable">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-column="id" data-type="number">ID</th>
+                            <th class="sortable" data-column="comuna" data-type="string">Comuna</th>
+                            <th class="sortable" data-column="dias" data-type="number">Días</th>
+                            <th class="sortable" data-column="precio" data-type="number">Precio</th>
+                            <th data-column="fecha">Fecha</th>
+                            <th data-column="transporte">Transporte</th>
+                            <th data-column="ciudad">Ciudad</th>
+                            <th class="sortable" data-column="estado" data-type="string">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr class="region-header-row">
+                <td colspan="8"><strong>Tarapacá</strong></td>
+            </tr>
+<tr data-region="1" data-id="348" data-comuna="ALTO HOSPICIO" data-dias="3" data-precio="11932" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
+            <td><span class="badge badge-id">348</span></td>
+            <td>ALTO HOSPICIO</td>
+            <td><span class="badge badge-id">3d</span></td>
+            <td><span class="badge badge-id">$11.932</span></td>
+            <td>2026-01-23</td>
+            <td>TurBus</td>
+            <td>ALTO HOSPICIO</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="1" data-id="7" data-comuna="CAMIÑA" data-dias="3" data-precio="15702" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
+            <td><span class="badge badge-id">7</span></td>
+            <td>CAMIÑA</td>
+            <td><span class="badge badge-id">3d</span></td>
+            <td><span class="badge badge-id">$15.702</span></td>
+            <td>2026-01-26</td>
+            <td>TurBus</td>
+            <td>CAMIÑA</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="1" data-id="8" data-comuna="COLCHANE" data-dias="3" data-precio="15702" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
+            <td><span class="badge badge-id">8</span></td>
+            <td>COLCHANE</td>
+            <td><span class="badge badge-id">3d</span></td>
+            <td><span class="badge badge-id">$15.702</span></td>
+            <td>2026-01-26</td>
+            <td>TurBus</td>
+            <td>COLCHANE</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="1" data-id="6" data-comuna="HUARA" data-dias="3" data-precio="23864" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
+            <td><span class="badge badge-id">6</span></td>
+            <td>HUARA</td>
+            <td><span class="badge badge-id">3d</span></td>
+            <td><span class="badge badge-id">$23.864</span></td>
+            <td>2026-01-26</td>
+            <td>TurBus</td>
+            <td>HUARA</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="1" data-id="5" data-comuna="IQUIQUE" data-dias="3" data-precio="11932" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
+            <td><span class="badge badge-id">5</span></td>
+            <td>IQUIQUE</td>
+            <td><span class="badge badge-id">3d</span></td>
+            <td><span class="badge badge-id">$11.932</span></td>
+            <td>2026-01-23</td>
+            <td>TurBus</td>
+            <td>IQUIQUE</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="1" data-id="9" data-comuna="PICA" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
+            <td><span class="badge badge-id">9</span></td>
+            <td>PICA</td>
+            <td><span class="badge badge-error">-</span></td>
+            <td><span class="badge badge-muted">-</span></td>
+            <td>-</td>
+            <td>-</td>
+            <td>PICA</td>
+            <td><span class="badge badge-error">No disponible</span></td>
+        </tr>
+<tr data-region="1" data-id="10" data-comuna="POZO ALMONTE" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
+            <td><span class="badge badge-id">10</span></td>
+            <td>POZO ALMONTE</td>
+            <td><span class="badge badge-error">-</span></td>
+            <td><span class="badge badge-muted">-</span></td>
+            <td>-</td>
+            <td>-</td>
+            <td>POZO ALMONTE</td>
+            <td><span class="badge badge-error">No disponible</span></td>
+        </tr>
+<tr class="region-header-row">
+                <td colspan="8"><strong>Valparaíso</strong></td>
+            </tr>
+<tr data-region="5" data-id="69" data-comuna="VALPARAÍSO" data-dias="4" data-precio="3990" data-estado="Disponible" data-gratis="False" data-transporte="Chileexpress">
+            <td><span class="badge badge-id">69</span></td>
+            <td>VALPARAÍSO</td>
+            <td><span class="badge badge-id">4d</span></td>
+            <td><span class="badge badge-id">$3.990</span></td>
+            <td>2026-01-24</td>
+            <td>Chileexpress</td>
+            <td>VALPARAÍSO</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="5" data-id="70" data-comuna="VIÑA DEL MAR" data-dias="4" data-precio="3990" data-estado="Disponible" data-gratis="False" data-transporte="Chileexpress">
+            <td><span class="badge badge-id">70</span></td>
+            <td>VIÑA DEL MAR</td>
+            <td><span class="badge badge-id">4d</span></td>
+            <td><span class="badge badge-id">$3.990</span></td>
+            <td>2026-01-24</td>
+            <td>Chileexpress</td>
+            <td>VIÑA DEL MAR</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="5" data-id="71" data-comuna="CONCÓN" data-dias="5" data-precio="3990" data-estado="Disponible" data-gratis="False" data-transporte="Chileexpress">
+            <td><span class="badge badge-id">71</span></td>
+            <td>CONCÓN</td>
+            <td><span class="badge badge-id">5d</span></td>
+            <td><span class="badge badge-id">$3.990</span></td>
+            <td>2026-01-25</td>
+            <td>Chileexpress</td>
+            <td>CONCÓN</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="5" data-id="72" data-comuna="QUINTERO" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
+            <td><span class="badge badge-id">72</span></td>
+            <td>QUINTERO</td>
+            <td><span class="badge badge-error">-</span></td>
+            <td><span class="badge badge-muted">-</span></td>
+            <td>-</td>
+            <td>-</td>
+            <td>QUINTERO</td>
+            <td><span class="badge badge-error">No disponible</span></td>
+        </tr>
+<tr class="region-header-row">
+                <td colspan="8"><strong>Metropolitana</strong></td>
+            </tr>
+<tr data-region="13" data-id="119" data-comuna="SANTIAGO" data-dias="3" data-precio="0" data-estado="Disponible" data-gratis="True" data-transporte="TurBus">
+            <td><span class="badge badge-id">119</span></td>
+            <td>SANTIAGO</td>
+            <td><span class="badge badge-id">3d</span></td>
+            <td><span class="badge badge-ok">Gratis</span></td>
+            <td>2026-01-23</td>
+            <td>TurBus</td>
+            <td>SANTIAGO</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="13" data-id="120" data-comuna="LAS CONDES" data-dias="3" data-precio="0" data-estado="Disponible" data-gratis="True" data-transporte="TurBus">
+            <td><span class="badge badge-id">120</span></td>
+            <td>LAS CONDES</td>
+            <td><span class="badge badge-id">3d</span></td>
+            <td><span class="badge badge-ok">Gratis</span></td>
+            <td>2026-01-23</td>
+            <td>TurBus</td>
+            <td>SANTIAGO</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="13" data-id="121" data-comuna="PROVIDENCIA" data-dias="3" data-precio="0" data-estado="Disponible" data-gratis="True" data-transporte="TurBus">
+            <td><span class="badge badge-id">121</span></td>
+            <td>PROVIDENCIA</td>
+            <td><span class="badge badge-id">3d</span></td>
+            <td><span class="badge badge-ok">Gratis</span></td>
+            <td>2026-01-23</td>
+            <td>TurBus</td>
+            <td>SANTIAGO</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="13" data-id="122" data-comuna="MAIPÚ" data-dias="4" data-precio="0" data-estado="Disponible" data-gratis="True" data-transporte="TurBus">
+            <td><span class="badge badge-id">122</span></td>
+            <td>MAIPÚ</td>
+            <td><span class="badge badge-id">4d</span></td>
+            <td><span class="badge badge-ok">Gratis</span></td>
+            <td>2026-01-24</td>
+            <td>TurBus</td>
+            <td>SANTIAGO</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+<tr data-region="13" data-id="123" data-comuna="PUENTE ALTO" data-dias="4" data-precio="0" data-estado="Disponible" data-gratis="True" data-transporte="TurBus">
+            <td><span class="badge badge-id">123</span></td>
+            <td>PUENTE ALTO</td>
+            <td><span class="badge badge-id">4d</span></td>
+            <td><span class="badge badge-ok">Gratis</span></td>
+            <td>2026-01-24</td>
+            <td>TurBus</td>
+            <td>SANTIAGO</td>
+            <td><span class="badge badge-ok">Disponible</span></td>
+        </tr>
+</tbody>
+                </table>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Actualización automática cada 10 minutos</p>
+            <p>Hecho con ❤️ por Ain Cortés Catoni</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Estado global
+        let currentSort = { column: null, direction: 'asc' };
+        let selectedRegion = null;
+
+        // Aplicar todos los filtros
+        function applyFilters() {
+            const searchTerm = document.getElementById('filterInput').value.toLowerCase();
+            const estadoFilter = document.getElementById('filterEstado').value;
+            const diasFilter = document.getElementById('filterDias').value;
+            const precioFilter = document.getElementById('filterPrecio').value;
+            const transporteFilter = document.getElementById('filterTransporte').value;
+
+            const rows = document.querySelectorAll('#comunasTable tbody tr');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                if (row.classList.contains('region-header-row')) {
+                    row.style.display = '';
+                    return;
+                }
+
+                let show = true;
+
+                // Filtro de búsqueda
+                if (searchTerm && !row.textContent.toLowerCase().includes(searchTerm)) {
+                    show = false;
+                }
+
+                // Filtro de región
+                if (selectedRegion && row.dataset.region !== selectedRegion) {
+                    show = false;
+                }
+
+                // Filtro de estado
+                if (estadoFilter && row.dataset.estado !== estadoFilter) {
+                    show = false;
+                }
+
+                // Filtro de días
+                if (diasFilter) {
+                    const dias = parseInt(row.dataset.dias);
+                    if (diasFilter === '1-2' && (dias > 2 || dias === 999)) show = false;
+                    if (diasFilter === '3-5' && (dias < 3 || dias > 5)) show = false;
+                    if (diasFilter === '6+' && (dias < 6 || dias === 999)) show = false;
+                }
+
+                // Filtro de precio
+                if (precioFilter) {
+                    const precio = parseInt(row.dataset.precio);
+                    const gratis = row.dataset.gratis === 'True';
+
+                    if (precioFilter === 'gratis' && !gratis) show = false;
+                    if (precioFilter === '0-5000' && (precio > 5000 || gratis)) show = false;
+                    if (precioFilter === '5000-10000' && (precio < 5000 || precio > 10000)) show = false;
+                    if (precioFilter === '10000+' && precio < 10000) show = false;
+                }
+
+                // Filtro de transporte
+                if (transporteFilter && row.dataset.transporte !== transporteFilter) {
+                    show = false;
+                }
+
+                row.style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            });
+
+            // Actualizar contador
+            document.getElementById('visibleCount').textContent = visibleCount;
+        }
+
+        // Reiniciar filtros
+        function resetFilters() {
+            document.getElementById('filterInput').value = '';
+            document.getElementById('filterEstado').value = '';
+            document.getElementById('filterDias').value = '';
+            document.getElementById('filterPrecio').value = '';
+            document.getElementById('filterTransporte').value = '';
+            document.querySelectorAll('.region-card').forEach(c => c.classList.remove('selected'));
+            selectedRegion = null;
+            resetTableOrder();  // También resetear orden
+            applyFilters();
+        }
+
+        // Guardar orden original
+        const originalOrder = Array.from(document.querySelectorAll('#comunasTable tbody tr'));
+
+        // Ordenamiento de tabla
+        function sortTable(column, type) {
+            const tbody = document.querySelector('#comunasTable tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => !r.classList.contains('region-header-row'));
+
+            // Si ya está ordenado por esta columna en desc, resetear al orden original
+            if (currentSort.column === column && currentSort.direction === 'desc') {
+                resetTableOrder();
+                return;
+            }
+
+            // Toggle dirección si es la misma columna
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = 'asc';
+            }
+
+            // Ordenar
+            rows.sort((a, b) => {
+                let aVal = a.dataset[column];
+                let bVal = b.dataset[column];
+
+                if (type === 'number') {
+                    aVal = parseFloat(aVal) || 999999;
+                    bVal = parseFloat(bVal) || 999999;
+                    return currentSort.direction === 'asc' ? aVal - bVal : bVal - aVal;
+                } else {
+                    aVal = (aVal || '').toLowerCase();
+                    bVal = (bVal || '').toLowerCase();
+                    if (currentSort.direction === 'asc') {
+                        return aVal.localeCompare(bVal);
+                    } else {
+                        return bVal.localeCompare(aVal);
+                    }
+                }
+            });
+
+            // Limpiar y re-insertar filas
+            tbody.innerHTML = '';
+            let lastRegion = null;
+
+            rows.forEach(row => {
+                // Re-insertar headers de región si es necesario
+                const region = row.dataset.region;
+                if (region !== lastRegion) {
+                    lastRegion = region;
+                    const regionHeader = document.createElement('tr');
+                    regionHeader.className = 'region-header-row';
+                    regionHeader.innerHTML = `<td colspan="8"><strong>${getRegionName(region)}</strong></td>`;
+                    tbody.appendChild(regionHeader);
+                }
+                tbody.appendChild(row);
+            });
+
+            // Actualizar indicadores visuales
+            updateSortIndicators();
+        }
+
+        // Resetear tabla al orden original (por región)
+        function resetTableOrder() {
+            const tbody = document.querySelector('#comunasTable tbody');
+            tbody.innerHTML = '';
+
+            // Restaurar orden original
+            originalOrder.forEach(row => {
+                tbody.appendChild(row.cloneNode(true));
+            });
+
+            // Resetear estado de ordenamiento
+            currentSort = { column: null, direction: 'asc' };
+
+            // Limpiar indicadores visuales
+            updateSortIndicators();
+        }
+
+        // Actualizar indicadores visuales de ordenamiento
+        function updateSortIndicators() {
+            document.querySelectorAll('th.sortable').forEach(th => {
+                th.classList.remove('sort-asc', 'sort-desc');
+            });
+
+            if (currentSort.column) {
+                const activeHeader = document.querySelector(`th[data-column="${currentSort.column}"]`);
+                if (activeHeader) {
+                    activeHeader.classList.add(currentSort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
+                }
+            }
+        }
+
+        // Obtener nombre de región (simplificado)
+        function getRegionName(regionId) {
+            const names = {
+                '1': 'Tarapacá', '2': 'Antofagasta', '3': 'Atacama', '4': 'Coquimbo',
+                '5': 'Valparaíso', '6': "O'Higgins", '7': 'Maule', '8': 'Biobío',
+                '9': 'Araucanía', '10': 'Los Lagos', '11': 'Aysén', '12': 'Magallanes',
+                '13': 'Metropolitana', '14': 'Los Ríos', '15': 'Arica y Parinacota', '16': 'Ñuble'
+            };
+            return names[regionId] || `Región ${regionId}`;
+        }
+
+        // Event listeners
+        document.getElementById('filterInput').addEventListener('input', applyFilters);
+        document.getElementById('filterEstado').addEventListener('change', applyFilters);
+        document.getElementById('filterDias').addEventListener('change', applyFilters);
+        document.getElementById('filterPrecio').addEventListener('change', applyFilters);
+        document.getElementById('filterTransporte').addEventListener('change', applyFilters);
+
+        // Click en headers para ordenar
+        document.querySelectorAll('th.sortable').forEach(th => {
+            th.addEventListener('click', function() {
+                const column = this.dataset.column;
+                const type = this.dataset.type || 'string';
+                sortTable(column, type);
+            });
+        });
+
+        // Click en región para filtrar
+        document.querySelectorAll('.region-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const regionId = this.dataset.region;
+                const isSelected = this.classList.contains('selected');
+
+                // Toggle selección
+                document.querySelectorAll('.region-card').forEach(c => c.classList.remove('selected'));
+
+                if (!isSelected) {
+                    this.classList.add('selected');
+                    selectedRegion = regionId;
+                } else {
+                    selectedRegion = null;
+                }
+
+                applyFilters();
+            });
+        });
+
+        // Toggle formulario de producto
+        function toggleProductForm() {
+            const form = document.getElementById('productForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+            if (form.style.display === 'block') {
+                updateWorkflowUrl();
+            }
+        }
+
+        // Actualizar URL del workflow
+        function updateWorkflowUrl() {
+            const producto = document.getElementById('inputProducto').value;
+            const total = document.getElementById('inputTotal').value;
+            const btn = document.getElementById('runWorkflowBtn');
+            const repoUrl = 'https://github.com/aincatoni/pcfactory-monitor/actions/workflows/monitor.yml';
+            btn.href = repoUrl;
+            btn.title = `Producto: ${producto}, Total: ${total}`;
+        }
+
+        // Escuchar cambios en inputs
+        document.getElementById('inputProducto')?.addEventListener('input', updateWorkflowUrl);
+        document.getElementById('inputTotal')?.addEventListener('input', updateWorkflowUrl);
+    </script>
+</body>
+</html>

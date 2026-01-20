@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCFactory Monitor - Categorías</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #16161f;
+            --bg-hover: #1e1e2a;
+            --border: #2a2a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --accent-blue: #3b82f6;
+            --font-sans: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
+        .logo { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 48px; height: 48px; flex-shrink: 0; }
+        .logo-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .logo-text h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+        .logo-text span { color: var(--text-muted); font-size: 0.875rem; }
+        .timestamp { font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border); }
+        .nav-links { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .nav-link { font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.625rem 1rem; border-radius: 8px; border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+        .nav-link:hover { background: var(--bg-hover); color: var(--text-primary); }
+        .nav-link.active { background: var(--accent-green); color: #000000; border-color: var(--accent-green); font-weight: 500; }
+        .status-banner { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; font-weight: 500; }
+        .status-ok { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); }
+        .status-warning { background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-yellow); }
+        .status-error { background: rgba(239, 68, 68, 0.15); border: 1px solid var(--accent-red); }
+        .status-indicator { width: 10px; height: 10px; border-radius: 50%; animation: pulse 2s infinite; }
+        .status-ok .status-indicator { background: var(--accent-green); }
+        .status-warning .status-indicator { background: var(--accent-yellow); }
+        .status-error .status-indicator { background: var(--accent-red); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+        .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; text-align: center; transition: all 0.2s; }
+        .stat-card-clickable { cursor: pointer; }
+        .stat-card-clickable:hover { transform: translateY(-2px); border-color: var(--accent-blue); background: var(--bg-hover); }
+        .stat-hint { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem; }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .stat-value { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; }
+        .stat-value.green { color: var(--accent-green); }
+        .stat-value.red { color: var(--accent-red); }
+        .stat-value.yellow { color: var(--accent-yellow); }
+        .stat-value.blue { color: var(--accent-blue); }
+        .health-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 1.5rem; }
+        .health-score { font-family: var(--font-mono); font-size: 4rem; font-weight: 700; color: var(--accent-green); }
+        .health-label { color: var(--text-muted); margin-top: 0.5rem; }
+        .health-message { color: var(--text-secondary); margin-top: 1rem; font-size: 1rem; }
+        .section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 1.5rem; overflow: hidden; }
+        .section-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.75rem; }
+        .section-header h2 { font-size: 1rem; font-weight: 600; }
+        .section-count { font-family: var(--font-mono); font-size: 0.75rem; background: var(--bg-hover); padding: 0.25rem 0.75rem; border-radius: 999px; color: var(--text-secondary); }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 1rem 1.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); background: var(--bg-secondary); font-weight: 600; }
+        td { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: var(--bg-hover); }
+        .error-row { background: rgba(239, 68, 68, 0.05); }
+        .warning-row { background: rgba(245, 158, 11, 0.05); }
+        .badge { font-family: var(--font-mono); font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 500; }
+        .badge-id { background: var(--bg-hover); color: var(--text-secondary); }
+        .badge-error { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .badge-ok { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .badge-warning { background: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); }
+        .link { color: var(--accent-blue); text-decoration: none; font-weight: 500; }
+        .link:hover { color: var(--text-primary); }
+        .empty-state { padding: 3rem; text-align: center; color: var(--text-muted); }
+        .empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .close-btn { margin-left: auto; background: var(--bg-hover); border: 1px solid var(--border); color: var(--text-secondary); padding: 0.25rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 1rem; transition: all 0.2s; }
+        .close-btn:hover { background: var(--accent-red); color: white; border-color: var(--accent-red); }
+        .collapsible-section { animation: slideDown 0.3s ease-out; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
+        /* Estilos para sección de cambios */
+        .changes-section { border-left: 4px solid var(--accent-blue); }
+        .changes-note { padding: 0.75rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--bg-secondary); }
+        .changes-content { padding: 1rem 1.5rem; }
+        .changes-subsection { margin-bottom: 1.5rem; }
+        .changes-subsection:last-child { margin-bottom: 0; }
+        .changes-subsection h3 { font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-secondary); }
+        .new-row { background: rgba(16, 185, 129, 0.08); }
+        .removed-row { background: rgba(239, 68, 68, 0.08); }
+        /* Estilos para ordenamiento de tabla */
+        th.sortable { cursor: pointer; user-select: none; transition: background 0.2s; }
+        th.sortable:hover { background: var(--bg-hover); }
+        th.sortable .sort-icon { opacity: 0.4; margin-left: 0.25rem; font-size: 0.7rem; }
+        th.sortable.asc .sort-icon { opacity: 1; }
+        th.sortable.desc .sort-icon { opacity: 1; }
+        th.sortable.asc .sort-icon::after { content: '↑'; }
+        th.sortable.desc .sort-icon::after { content: '↓'; }
+        th.sortable.asc .sort-icon, th.sortable.desc .sort-icon { font-size: 0; }
+        th.sortable.asc .sort-icon::after, th.sortable.desc .sort-icon::after { font-size: 0.75rem; }
+        @media (max-width: 768px) { .container { padding: 1rem; } .header { flex-direction: column; gap: 1rem; text-align: center; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .health-score { font-size: 3rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon"><img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg"></div>
+                <div class="logo-text"><h1>pc Factory Monitor</h1><span>Monitoreo de Categorias</span></div>
+            </div>
+            <div class="timestamp">20/01/2026 19:37:45 Chile</div>
+        </header>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">📦 Categorías</a>
+            <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
+            <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
+            <a href="login.html" class="nav-link">🔐 Login</a>
+        </div>
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center;">
+            <span style="color: var(--text-muted); font-size: 0.875rem;">Exportar:</span>
+            <a href="categories_status.csv" download style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.4rem 0.75rem; border-radius: 6px; border: 1px solid var(--border); text-decoration: none;">📥 CSV</a>
+            <a href="categories_status.txt" target="_blank" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.4rem 0.75rem; border-radius: 6px; border: 1px solid var(--border); text-decoration: none;">📄 TXT</a>
+            <span style="color: var(--text-muted); font-size: 0.75rem; margin-left: 0.5rem;">Google Sheets: <code style="background: var(--bg-hover); padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.7rem;">=IMPORTDATA("https://aincatoni.github.io/pcfactory-monitor/categories_status.txt")</code></span>
+        </div>
+        <div class="status-banner status-ok"><div class="status-indicator"></div><span class="status-text">Todo OK</span></div>
+        <div class="health-card"><div class="health-score">100%</div><div class="health-label">Health Score (categorias con productos)</div><div class="health-message">Todas las categorías están funcionando correctamente!</div></div>
+        <div class="stats-grid">
+            <div class="stat-card"><div class="stat-label">Total Categorias</div><div class="stat-value blue">389</div></div>
+            <div class="stat-card"><div class="stat-label">URLs OK</div><div class="stat-value green">389</div></div>
+            <div class="stat-card"><div class="stat-label">URLs Error</div><div class="stat-value green">0</div></div>
+            <div class="stat-card"><div class="stat-label">Con Productos</div><div class="stat-value green">389</div></div>
+            <div class="stat-card"><div class="stat-label">Sin Productos</div><div class="stat-value green">0</div></div>
+            <div class="stat-card stat-card-clickable" onclick="scrollToSection('added-section')">
+                <div class="stat-label">📈 Agregadas</div>
+                <div class="stat-value green">3</div>
+                <div class="stat-hint">Click para ver</div>
+            </div>
+            <div class="stat-card stat-card-clickable" onclick="scrollToSection('removed-section')">
+                <div class="stat-label">📉 Eliminadas</div>
+                <div class="stat-value red">2</div>
+                <div class="stat-hint">Click para ver</div>
+            </div>
+        </div>
+        
+        <div class="section changes-section">
+            <div class="section-header">
+                <span>🔄</span>
+                <h2>Cambios Detectados</h2>
+                <span class="section-count">+2 / -2</span>
+            </div>
+            <div class="changes-note">
+                <span style="color: var(--text-muted); font-size: 0.875rem;">📅 Cambios detectados en esta ejecución</span>
+            </div>
+            <div class="changes-content">
+                
+            <div class="changes-subsection">
+                <h3>➕ Categorías Nuevas (2)</h3>
+                <table>
+                    <thead><tr><th>ID</th><th>Nombre</th><th>Status</th><th>Productos</th><th>URL</th></tr></thead>
+                    <tbody><tr class="new-row">
+                <td><span class="badge badge-id">5</span></td>
+                <td>Nueva Categoría 1</td>
+                <td><span class="badge badge-ok">200</span></td>
+                <td><span class="badge badge-ok">50</span></td>
+                <td><a href="https://www.pcfactory.cl/nueva-cat-1" target="_blank" class="link">Ver</a></td>
+            </tr><tr class="new-row">
+                <td><span class="badge badge-id">6</span></td>
+                <td>Nueva Categoría 2</td>
+                <td><span class="badge badge-ok">200</span></td>
+                <td><span class="badge badge-ok">30</span></td>
+                <td><a href="https://www.pcfactory.cl/nueva-cat-2" target="_blank" class="link">Ver</a></td>
+            </tr></tbody>
+                </table>
+            </div>
+                
+            <div class="changes-subsection">
+                <h3>➖ Categorías Eliminadas (2)</h3>
+                <table>
+                    <thead><tr><th>ID</th><th>Nombre</th><th colspan="3">Estado</th></tr></thead>
+                    <tbody><tr class="removed-row">
+                <td><span class="badge badge-id">99</span></td>
+                <td>Categoría Eliminada 1</td>
+                <td colspan="3"><span class="badge badge-error">Eliminada</span></td>
+            </tr><tr class="removed-row">
+                <td><span class="badge badge-id">100</span></td>
+                <td>Categoría Eliminada 2</td>
+                <td colspan="3"><span class="badge badge-error">Eliminada</span></td>
+            </tr></tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    <div class="section" id="added-section">
+        <div class="section-header">
+            <span>📈</span>
+            <h2>Categorías Agregadas</h2>
+            <span class="section-count">3</span>
+        </div>
+        <div class="changes-note">
+            <span style="color: var(--text-muted); font-size: 0.875rem;">📅 Historial de las últimas 30 ejecuciones</span>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead><tr><th>ID</th><th>Nombre</th><th>Agregada</th></tr></thead>
+                <tbody><tr>
+            <td><span class="badge badge-id">7</span></td>
+            <td>Categoría Antigua 1</td>
+            <td><span class="badge badge-ok">17/01/2026 19:37:45 Chile</span></td>
+        </tr><tr>
+            <td><span class="badge badge-id">5</span></td>
+            <td>Nueva Categoría 1</td>
+            <td><span class="badge badge-ok">20/01/2026 19:37:45 Chile</span></td>
+        </tr><tr>
+            <td><span class="badge badge-id">6</span></td>
+            <td>Nueva Categoría 2</td>
+            <td><span class="badge badge-ok">20/01/2026 19:37:45 Chile</span></td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section" id="removed-section">
+        <div class="section-header">
+            <span>📉</span>
+            <h2>Categorías Eliminadas</h2>
+            <span class="section-count">2</span>
+        </div>
+        <div class="changes-note">
+            <span style="color: var(--text-muted); font-size: 0.875rem;">📅 Historial de las últimas 30 ejecuciones</span>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead><tr><th>ID</th><th>Nombre</th><th>Eliminada</th></tr></thead>
+                <tbody><tr>
+            <td><span class="badge badge-id">99</span></td>
+            <td>Categoría Eliminada 1</td>
+            <td><span class="badge badge-warn">18/01/2026 19:37:45 Chile</span></td>
+        </tr><tr>
+            <td><span class="badge badge-id">100</span></td>
+            <td>Categoría Eliminada 2</td>
+            <td><span class="badge badge-warn">18/01/2026 19:37:45 Chile</span></td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-header">
+            <span>📋</span>
+            <h2>Todas las Categorías</h2>
+            <span class="section-count">6</span>
+            <input type="text" id="filterInput" placeholder="Buscar..." style="margin-left: auto; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-primary);">
+        </div>
+        <div class="table-container">
+            <table id="allCatsTable">
+                <thead><tr>
+                    <th class="sortable" data-sort="id">ID <span class="sort-icon">↕</span></th>
+                    <th class="sortable" data-sort="nombre">Nombre <span class="sort-icon">↕</span></th>
+                    <th class="sortable" data-sort="status">Status <span class="sort-icon">↕</span></th>
+                    <th class="sortable" data-sort="productos">Productos <span class="sort-icon">↕</span></th>
+                    <th class="sortable" data-sort="tiempo">Tiempo <span class="sort-icon">↕</span></th>
+                    <th>URL</th>
+                </tr></thead>
+                <tbody><tr class="">
+            <td><span class="badge badge-id">3</span></td>
+            <td>Memorias RAM</td>
+            <td><span class="badge badge-ok">200</span></td>
+            <td><span class="badge badge-ok">180</span></td>
+            <td>280ms</td>
+            <td><a href="https://www.pcfactory.cl/memorias-ram" target="_blank" class="link">Ver</a></td>
+        </tr><tr class="">
+            <td><span class="badge badge-id">5</span></td>
+            <td>Nueva Categoría 1</td>
+            <td><span class="badge badge-ok">200</span></td>
+            <td><span class="badge badge-ok">50</span></td>
+            <td>200ms</td>
+            <td><a href="https://www.pcfactory.cl/nueva-cat-1" target="_blank" class="link">Ver</a></td>
+        </tr><tr class="">
+            <td><span class="badge badge-id">6</span></td>
+            <td>Nueva Categoría 2</td>
+            <td><span class="badge badge-ok">200</span></td>
+            <td><span class="badge badge-ok">30</span></td>
+            <td>220ms</td>
+            <td><a href="https://www.pcfactory.cl/nueva-cat-2" target="_blank" class="link">Ver</a></td>
+        </tr><tr class="">
+            <td><span class="badge badge-id">2</span></td>
+            <td>Placas Madre</td>
+            <td><span class="badge badge-ok">200</span></td>
+            <td><span class="badge badge-ok">200</span></td>
+            <td>300ms</td>
+            <td><a href="https://www.pcfactory.cl/placas-madre" target="_blank" class="link">Ver</a></td>
+        </tr><tr class="">
+            <td><span class="badge badge-id">1</span></td>
+            <td>Procesadores</td>
+            <td><span class="badge badge-ok">200</span></td>
+            <td><span class="badge badge-ok">150</span></td>
+            <td>250ms</td>
+            <td><a href="https://www.pcfactory.cl/procesadores" target="_blank" class="link">Ver</a></td>
+        </tr><tr class="">
+            <td><span class="badge badge-id">4</span></td>
+            <td>Tarjetas Gráficas</td>
+            <td><span class="badge badge-ok">200</span></td>
+            <td><span class="badge badge-ok">120</span></td>
+            <td>320ms</td>
+            <td><a href="https://www.pcfactory.cl/tarjetas-graficas" target="_blank" class="link">Ver</a></td>
+        </tr></tbody>
+            </table>
+        </div>
+    </div>
+        <footer class="footer"><p>Actualizacion automatica cada 10 minutos</p><p>Hecho con ❤️ por Ain Cortés Catoni</p></footer>
+    </div>
+    <script>
+        // Toggle secciones expandibles
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = section.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+
+        // Scroll suave hacia una sección
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Filtro de búsqueda
+        document.getElementById('filterInput').addEventListener('input', function(e) {
+            const filter = e.target.value.toLowerCase();
+            document.querySelectorAll('#allCatsTable tbody tr').forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none';
+            });
+        });
+        
+        // Ordenamiento de tabla
+        document.querySelectorAll('#allCatsTable th.sortable').forEach(th => {
+            th.addEventListener('click', function() {
+                const table = document.getElementById('allCatsTable');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const colIndex = Array.from(th.parentElement.children).indexOf(th);
+                const sortType = th.dataset.sort;
+                
+                // Toggle sort direction
+                const isAsc = th.classList.contains('asc');
+                document.querySelectorAll('#allCatsTable th.sortable').forEach(h => h.classList.remove('asc', 'desc'));
+                th.classList.add(isAsc ? 'desc' : 'asc');
+                
+                rows.sort((a, b) => {
+                    let aVal = a.cells[colIndex].textContent.trim();
+                    let bVal = b.cells[colIndex].textContent.trim();
+                    
+                    // Extraer números para columnas numéricas
+                    if (sortType === 'id' || sortType === 'status' || sortType === 'productos' || sortType === 'tiempo') {
+                        aVal = parseInt(aVal.replace(/[^0-9]/g, '')) || 0;
+                        bVal = parseInt(bVal.replace(/[^0-9]/g, '')) || 0;
+                        return isAsc ? bVal - aVal : aVal - bVal;
+                    }
+                    
+                    // Ordenamiento alfabético
+                    return isAsc ? bVal.localeCompare(aVal, 'es') : aVal.localeCompare(bVal, 'es');
+                });
+                
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    </script>
+</body>
+</html>

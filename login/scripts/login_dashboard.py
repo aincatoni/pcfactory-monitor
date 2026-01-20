@@ -319,23 +319,35 @@ def generate_html(results, history):
     if not test_rows:
         test_rows = '<tr><td colspan="4" class="empty-state">Sin datos de tests</td></tr>'
     
-    # Generar historial
+    # Generar historial (incluyendo ejecución actual)
     history_rows = ""
-    for run in reversed(history.get('runs', [])[-15:]):
+
+    # Primero agregar la ejecución actual
+    current_run = {
+        'timestamp': results.get('timestamp', datetime.now(timezone.utc).isoformat()),
+        'status': overall_status,
+        'passed': passed,
+        'total': total
+    }
+
+    # Combinar ejecución actual con historial previo
+    all_runs = [current_run] + list(reversed(history.get('runs', [])[-14:]))
+
+    for run in all_runs:
         run_time = run.get('timestamp', '')
         run_status = run.get('status', 'unknown')
         run_passed = run.get('passed', 0)
         run_total = run.get('total', 0)
-        
+
         try:
             dt = datetime.fromisoformat(run_time.replace('Z', '+00:00'))
             dt_chile = utc_to_chile(dt)
             formatted_time = dt_chile.strftime('%d/%m %H:%M')
         except:
             formatted_time = run_time[:16] if run_time else 'N/A'
-        
+
         status_badge_class = get_status_class(run_status)
-        
+
         history_rows += f"""
                 <tr>
                     <td>{formatted_time}</td>
@@ -343,7 +355,7 @@ def generate_html(results, history):
                     <td><span class="badge badge-id">{run_passed}/{run_total}</span></td>
                 </tr>
         """
-    
+
     if not history_rows:
         history_rows = '<tr><td colspan="3" class="empty-state">Sin historial</td></tr>'
     
@@ -591,7 +603,7 @@ def generate_html(results, history):
                 <div class="stat-value {'green' if uptime_24h >= 90 else 'yellow' if uptime_24h >= 70 else 'red'}">{uptime_24h:.0f}%</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Ejecuciones</div>
+                <div class="stat-label">Ejecuciones (Total)</div>
                 <div class="stat-value blue">{len(history.get('runs', [])) + 1}</div>
             </div>
         </div>
@@ -621,7 +633,7 @@ def generate_html(results, history):
         <div class="section">
             <div class="section-header">
                 <h2>📊 Historial Reciente</h2>
-                <span class="section-count">Últimas {min(15, len(history.get('runs', [])) + 1)} ejecuciones</span>
+                <span class="section-count">Últimas 15 ejecuciones</span>
             </div>
             <div class="table-container">
                 <table>

@@ -310,6 +310,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             gap: 0.5rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
+            justify-content: flex-start;
         }}
         .nav-link {{
             font-family: var(--font-mono);
@@ -521,17 +522,32 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             padding: 1.5rem;
             margin-bottom: 2rem;
         }}
-        .history-table {{ width: 100%; border-collapse: collapse; }}
+        .history-table-container {{
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -1.5rem;
+            padding: 0 1.5rem;
+        }}
+        .history-table {{
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }}
         .history-table th, .history-table td {{
             padding: 0.75rem 1rem;
             text-align: left;
             border-bottom: 1px solid var(--border);
+            white-space: nowrap;
         }}
         .history-table th {{
             color: var(--text-muted);
             font-weight: 500;
             font-size: 0.8rem;
             text-transform: uppercase;
+        }}
+        .history-table td:first-child {{
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
         }}
         .status-icons {{ display: flex; gap: 0.25rem; }}
         .footer {{
@@ -546,7 +562,19 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             .payments-grid {{ grid-template-columns: 1fr; }}
             .stats-grid {{ grid-template-columns: repeat(2, 1fr); }}
             .stat-value {{ font-size: 1.75rem; }}
-            .nav-links {{ justify-content: center; }}
+            .history-section {{ padding: 1rem; }}
+            .history-table-container {{
+                margin: 0 -1rem;
+                padding: 0 1rem;
+            }}
+            .history-table th,
+            .history-table td {{
+                padding: 0.5rem 0.75rem;
+                font-size: 0.75rem;
+            }}
+            .section-title {{
+                font-size: 1.1rem;
+            }}
         }}
     </style>
 </head>
@@ -603,18 +631,20 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
         
         <div class="history-section">
             <h2 class="section-title" style="border-bottom: none; margin-bottom: 1rem;">Historial de Verificaciones</h2>
-            <table class="history-table">
-                <thead>
-                    <tr>
-                        <th>Fecha/Hora</th>
-                        <th>Estado</th>
-                        <th>Resultado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {history_rows if history_rows else '<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">Sin historial</td></tr>'}
-                </tbody>
-            </table>
+            <div class="history-table-container">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha/Hora</th>
+                            <th>Estado</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {history_rows if history_rows else '<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">Sin historial</td></tr>'}
+                    </tbody>
+                </table>
+            </div>
         </div>
         
         <footer class="footer">

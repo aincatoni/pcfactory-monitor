@@ -561,8 +561,13 @@ def generate_html_dashboard(report: Dict) -> str:
             precio_display = '<span class="badge badge-muted">-</span>'
         
         estado_badge = "badge-ok" if c["estado"] == "Disponible" else "badge-error"
-        
-        comunas_rows += f'''<tr data-region="{c.get("id_region", 0)}">
+
+        # Valores raw para ordenamiento
+        dias_value = dias if dias is not None else 999
+        precio_value = precio if precio is not None else 999999
+        transporte_value = c.get("transporte", "") or ""
+
+        comunas_rows += f'''<tr data-region="{c.get("id_region", 0)}" data-id="{c["id_comuna"]}" data-comuna="{c["comuna"]}" data-dias="{dias_value}" data-precio="{precio_value}" data-estado="{c["estado"]}" data-gratis="{gratis}" data-transporte="{transporte_value}">
             <td><span class="badge badge-id">{c["id_comuna"]}</span></td>
             <td>{c["comuna"]}</td>
             <td>{dias_display}</td>
@@ -923,7 +928,7 @@ def generate_html_dashboard(report: Dict) -> str:
             color: var(--text-secondary);
         }}
         .table-container {{ overflow-x: auto; max-height: 600px; overflow-y: auto; }}
-        table {{ width: 100%; border-collapse: collapse; }}
+        table {{ width: 100%; border-collapse: collapse; table-layout: fixed; }}
         th {{
             text-align: left;
             padding: 0.75rem 1rem;
@@ -936,8 +941,45 @@ def generate_html_dashboard(report: Dict) -> str:
             position: sticky;
             top: 0;
             z-index: 10;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
         }}
-        td {{ padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.8rem; }}
+        th:nth-child(1) {{ width: 6%; }}  /* ID */
+        th:nth-child(2) {{ width: 16%; }} /* Comuna */
+        th:nth-child(3) {{ width: 8%; }}  /* Días */
+        th:nth-child(4) {{ width: 12%; }} /* Precio */
+        th:nth-child(5) {{ width: 12%; }} /* Fecha */
+        th:nth-child(6) {{ width: 14%; }} /* Transporte */
+        th:nth-child(7) {{ width: 16%; }} /* Ciudad */
+        th:nth-child(8) {{ width: 12%; }} /* Estado */
+        th:hover {{
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }}
+        th.sortable::after {{
+            content: ' ⇅';
+            opacity: 0.3;
+            font-size: 0.8rem;
+        }}
+        th.sort-asc::after {{
+            content: ' ↑';
+            opacity: 1;
+            color: var(--accent-blue);
+        }}
+        th.sort-desc::after {{
+            content: ' ↓';
+            opacity: 1;
+            color: var(--accent-blue);
+        }}
+        td {{
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }}
         tr:last-child td {{ border-bottom: none; }}
         tr:hover {{ background: var(--bg-hover); }}
         .region-header-row {{
@@ -969,18 +1011,80 @@ def generate_html_dashboard(report: Dict) -> str:
             margin-bottom: 1.5rem;
         }}
         .filter-input {{
-            background: var(--bg-secondary);
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
             color: var(--text-primary);
             font-family: var(--font-sans);
             font-size: 0.875rem;
             width: 100%;
-            max-width: 300px;
-            margin-bottom: 1rem;
+            transition: all 0.2s;
         }}
-        .filter-input:focus {{ outline: none; border-color: var(--accent-blue); }}
+        .filter-input:hover {{
+            border-color: var(--accent-blue);
+        }}
+        .filter-input:focus {{
+            outline: none;
+            border-color: var(--accent-blue);
+        }}
+        .filters-panel {{
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }}
+        .filter-group {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }}
+        .filter-label {{
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }}
+        .filter-select {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+        .filter-select:hover {{
+            border-color: var(--accent-blue);
+        }}
+        .filter-select:focus {{
+            outline: none;
+            border-color: var(--accent-blue);
+        }}
+        .filter-reset {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }}
+        .filter-reset:hover {{
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent-red);
+        }}
         .footer {{ text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }}
         @media (max-width: 768px) {{
             .container {{ padding: 1rem; }}
@@ -1101,21 +1205,69 @@ def generate_html_dashboard(report: Dict) -> str:
             <div class="section-header">
                 <span>📍</span>
                 <h2>Todas las Comunas</h2>
-                <span class="section-count">{len(comunas)}</span>
+                <span class="section-count" id="visibleCount">{len(comunas)}</span>
             </div>
-            <input type="text" class="filter-input" placeholder="Buscar comuna..." id="filterInput" style="margin: 1rem;">
+
+            <div class="filters-panel">
+                <div class="filter-group">
+                    <label class="filter-label">🔍 Buscar</label>
+                    <input type="text" class="filter-input" placeholder="Buscar comuna..." id="filterInput">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">📊 Estado</label>
+                    <select class="filter-select" id="filterEstado">
+                        <option value="">Todos</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="No disponible">No disponible</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">📦 Días</label>
+                    <select class="filter-select" id="filterDias">
+                        <option value="">Todos</option>
+                        <option value="1-2">1-2 días</option>
+                        <option value="3-5">3-5 días</option>
+                        <option value="6+">6+ días</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">💰 Precio</label>
+                    <select class="filter-select" id="filterPrecio">
+                        <option value="">Todos</option>
+                        <option value="gratis">Gratis</option>
+                        <option value="0-5000">$0 - $5.000</option>
+                        <option value="5000-10000">$5.000 - $10.000</option>
+                        <option value="10000+">$10.000+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">🚚 Transporte</label>
+                    <select class="filter-select" id="filterTransporte">
+                        <option value="">Todos</option>
+                        <option value="TurBus">TurBus</option>
+                        <option value="Chileexpress">Chileexpress</option>
+                        <option value="Chilexpress">Chilexpress</option>
+                        <option value="Starken">Starken</option>
+                        <option value="Bluexpress">Bluexpress</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-reset" onclick="resetFilters()">🔄 Limpiar Filtros</button>
+                </div>
+            </div>
+
             <div class="table-container">
                 <table id="comunasTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Comuna</th>
-                            <th>Días</th>
-                            <th>Precio</th>
-                            <th>Fecha</th>
-                            <th>Transporte</th>
-                            <th>Ciudad</th>
-                            <th>Estado</th>
+                            <th class="sortable" data-column="id" data-type="number">ID</th>
+                            <th class="sortable" data-column="comuna" data-type="string">Comuna</th>
+                            <th class="sortable" data-column="dias" data-type="number">Días</th>
+                            <th class="sortable" data-column="precio" data-type="number">Precio</th>
+                            <th data-column="fecha">Fecha</th>
+                            <th data-column="transporte">Transporte</th>
+                            <th data-column="ciudad">Ciudad</th>
+                            <th class="sortable" data-column="estado" data-type="string">Estado</th>
                         </tr>
                     </thead>
                     <tbody>{comunas_rows}</tbody>
@@ -1130,41 +1282,230 @@ def generate_html_dashboard(report: Dict) -> str:
     </div>
     
     <script>
-        // Filtro de búsqueda
-        document.getElementById('filterInput').addEventListener('input', function(e) {{
-            const filter = e.target.value.toLowerCase();
+        // Estado global
+        let currentSort = {{ column: null, direction: 'asc' }};
+        let selectedRegion = null;
+
+        // Aplicar todos los filtros
+        function applyFilters() {{
+            const searchTerm = document.getElementById('filterInput').value.toLowerCase();
+            const estadoFilter = document.getElementById('filterEstado').value;
+            const diasFilter = document.getElementById('filterDias').value;
+            const precioFilter = document.getElementById('filterPrecio').value;
+            const transporteFilter = document.getElementById('filterTransporte').value;
+
             const rows = document.querySelectorAll('#comunasTable tbody tr');
+            let visibleCount = 0;
+
             rows.forEach(row => {{
-                const text = row.textContent.toLowerCase();
-                row.style.display = text.includes(filter) ? '' : 'none';
+                if (row.classList.contains('region-header-row')) {{
+                    row.style.display = '';
+                    return;
+                }}
+
+                let show = true;
+
+                // Filtro de búsqueda
+                if (searchTerm && !row.textContent.toLowerCase().includes(searchTerm)) {{
+                    show = false;
+                }}
+
+                // Filtro de región
+                if (selectedRegion && row.dataset.region !== selectedRegion) {{
+                    show = false;
+                }}
+
+                // Filtro de estado
+                if (estadoFilter && row.dataset.estado !== estadoFilter) {{
+                    show = false;
+                }}
+
+                // Filtro de días
+                if (diasFilter) {{
+                    const dias = parseInt(row.dataset.dias);
+                    if (diasFilter === '1-2' && (dias > 2 || dias === 999)) show = false;
+                    if (diasFilter === '3-5' && (dias < 3 || dias > 5)) show = false;
+                    if (diasFilter === '6+' && (dias < 6 || dias === 999)) show = false;
+                }}
+
+                // Filtro de precio
+                if (precioFilter) {{
+                    const precio = parseInt(row.dataset.precio);
+                    const gratis = row.dataset.gratis === 'True';
+
+                    if (precioFilter === 'gratis' && !gratis) show = false;
+                    if (precioFilter === '0-5000' && (precio > 5000 || gratis)) show = false;
+                    if (precioFilter === '5000-10000' && (precio < 5000 || precio > 10000)) show = false;
+                    if (precioFilter === '10000+' && precio < 10000) show = false;
+                }}
+
+                // Filtro de transporte
+                if (transporteFilter && row.dataset.transporte !== transporteFilter) {{
+                    show = false;
+                }}
+
+                row.style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            }});
+
+            // Actualizar contador
+            document.getElementById('visibleCount').textContent = visibleCount;
+        }}
+
+        // Reiniciar filtros
+        function resetFilters() {{
+            document.getElementById('filterInput').value = '';
+            document.getElementById('filterEstado').value = '';
+            document.getElementById('filterDias').value = '';
+            document.getElementById('filterPrecio').value = '';
+            document.getElementById('filterTransporte').value = '';
+            document.querySelectorAll('.region-card').forEach(c => c.classList.remove('selected'));
+            selectedRegion = null;
+            resetTableOrder();  // También resetear orden
+            applyFilters();
+        }}
+
+        // Guardar orden original
+        const originalOrder = Array.from(document.querySelectorAll('#comunasTable tbody tr'));
+
+        // Ordenamiento de tabla
+        function sortTable(column, type) {{
+            const tbody = document.querySelector('#comunasTable tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => !r.classList.contains('region-header-row'));
+
+            // Si ya está ordenado por esta columna en desc, resetear al orden original
+            if (currentSort.column === column && currentSort.direction === 'desc') {{
+                resetTableOrder();
+                return;
+            }}
+
+            // Toggle dirección si es la misma columna
+            if (currentSort.column === column) {{
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            }} else {{
+                currentSort.column = column;
+                currentSort.direction = 'asc';
+            }}
+
+            // Ordenar
+            rows.sort((a, b) => {{
+                let aVal = a.dataset[column];
+                let bVal = b.dataset[column];
+
+                if (type === 'number') {{
+                    aVal = parseFloat(aVal) || 999999;
+                    bVal = parseFloat(bVal) || 999999;
+                    return currentSort.direction === 'asc' ? aVal - bVal : bVal - aVal;
+                }} else {{
+                    aVal = (aVal || '').toLowerCase();
+                    bVal = (bVal || '').toLowerCase();
+                    if (currentSort.direction === 'asc') {{
+                        return aVal.localeCompare(bVal);
+                    }} else {{
+                        return bVal.localeCompare(aVal);
+                    }}
+                }}
+            }});
+
+            // Limpiar y re-insertar filas
+            tbody.innerHTML = '';
+            let lastRegion = null;
+
+            rows.forEach(row => {{
+                // Re-insertar headers de región si es necesario
+                const region = row.dataset.region;
+                if (region !== lastRegion) {{
+                    lastRegion = region;
+                    const regionHeader = document.createElement('tr');
+                    regionHeader.className = 'region-header-row';
+                    regionHeader.innerHTML = `<td colspan="8"><strong>${{getRegionName(region)}}</strong></td>`;
+                    tbody.appendChild(regionHeader);
+                }}
+                tbody.appendChild(row);
+            }});
+
+            // Actualizar indicadores visuales
+            updateSortIndicators();
+        }}
+
+        // Resetear tabla al orden original (por región)
+        function resetTableOrder() {{
+            const tbody = document.querySelector('#comunasTable tbody');
+            tbody.innerHTML = '';
+
+            // Restaurar orden original
+            originalOrder.forEach(row => {{
+                tbody.appendChild(row.cloneNode(true));
+            }});
+
+            // Resetear estado de ordenamiento
+            currentSort = {{ column: null, direction: 'asc' }};
+
+            // Limpiar indicadores visuales
+            updateSortIndicators();
+        }}
+
+        // Actualizar indicadores visuales de ordenamiento
+        function updateSortIndicators() {{
+            document.querySelectorAll('th.sortable').forEach(th => {{
+                th.classList.remove('sort-asc', 'sort-desc');
+            }});
+
+            if (currentSort.column) {{
+                const activeHeader = document.querySelector(`th[data-column="${{currentSort.column}}"]`);
+                if (activeHeader) {{
+                    activeHeader.classList.add(currentSort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
+                }}
+            }}
+        }}
+
+        // Obtener nombre de región (simplificado)
+        function getRegionName(regionId) {{
+            const names = {{
+                '1': 'Tarapacá', '2': 'Antofagasta', '3': 'Atacama', '4': 'Coquimbo',
+                '5': 'Valparaíso', '6': "O'Higgins", '7': 'Maule', '8': 'Biobío',
+                '9': 'Araucanía', '10': 'Los Lagos', '11': 'Aysén', '12': 'Magallanes',
+                '13': 'Metropolitana', '14': 'Los Ríos', '15': 'Arica y Parinacota', '16': 'Ñuble'
+            }};
+            return names[regionId] || `Región ${{regionId}}`;
+        }}
+
+        // Event listeners
+        document.getElementById('filterInput').addEventListener('input', applyFilters);
+        document.getElementById('filterEstado').addEventListener('change', applyFilters);
+        document.getElementById('filterDias').addEventListener('change', applyFilters);
+        document.getElementById('filterPrecio').addEventListener('change', applyFilters);
+        document.getElementById('filterTransporte').addEventListener('change', applyFilters);
+
+        // Click en headers para ordenar
+        document.querySelectorAll('th.sortable').forEach(th => {{
+            th.addEventListener('click', function() {{
+                const column = this.dataset.column;
+                const type = this.dataset.type || 'string';
+                sortTable(column, type);
             }});
         }});
-        
+
         // Click en región para filtrar
         document.querySelectorAll('.region-card').forEach(card => {{
             card.addEventListener('click', function() {{
                 const regionId = this.dataset.region;
                 const isSelected = this.classList.contains('selected');
-                
+
                 // Toggle selección
                 document.querySelectorAll('.region-card').forEach(c => c.classList.remove('selected'));
+
                 if (!isSelected) {{
                     this.classList.add('selected');
+                    selectedRegion = regionId;
+                }} else {{
+                    selectedRegion = null;
                 }}
-                
-                // Filtrar tabla
-                const rows = document.querySelectorAll('#comunasTable tbody tr');
-                rows.forEach(row => {{
-                    if (isSelected || !regionId) {{
-                        row.style.display = '';
-                    }} else {{
-                        const rowRegion = row.dataset.region;
-                        row.style.display = (rowRegion === regionId || row.classList.contains('region-header-row')) ? '' : 'none';
-                    }}
-                }});
+
+                applyFilters();
             }});
         }});
-        
+
         // Toggle formulario de producto
         function toggleProductForm() {{
             const form = document.getElementById('productForm');
@@ -1173,18 +1514,17 @@ def generate_html_dashboard(report: Dict) -> str:
                 updateWorkflowUrl();
             }}
         }}
-        
+
         // Actualizar URL del workflow
         function updateWorkflowUrl() {{
             const producto = document.getElementById('inputProducto').value;
             const total = document.getElementById('inputTotal').value;
             const btn = document.getElementById('runWorkflowBtn');
-            // URL para disparar workflow con parámetros
             const repoUrl = 'https://github.com/aincatoni/pcfactory-monitor/actions/workflows/monitor.yml';
             btn.href = repoUrl;
             btn.title = `Producto: ${{producto}}, Total: ${{total}}`;
         }}
-        
+
         // Escuchar cambios en inputs
         document.getElementById('inputProducto')?.addEventListener('input', updateWorkflowUrl);
         document.getElementById('inputTotal')?.addEventListener('input', updateWorkflowUrl);
