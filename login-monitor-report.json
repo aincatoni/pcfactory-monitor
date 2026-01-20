@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b67f583110eb1080828c4ed5aad4389ec51f2c",
-        "commitHash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21180284990"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9872645a5c8c2d6b21ff78cc983f16e024ac0849",
+        "commitHash": "9872645a5c8c2d6b21ff78cc983f16e024ac0849",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21190325076"
       },
       "gitCommit": {
-        "shortHash": "05b67f5",
-        "hash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
-        "subject": "feat: Add video recording functionality to payment methods tests and dashboard",
-        "body": "feat: Add video recording functionality to payment methods tests and dashboard\n",
+        "shortHash": "9872645",
+        "hash": "9872645a5c8c2d6b21ff78cc983f16e024ac0849",
+        "subject": "Add .gitignore and remove Python bytecode files",
+        "body": "Add .gitignore and remove Python bytecode files\n\n- Add comprehensive .gitignore for Python projects\n- Remove __pycache__/*.pyc files from repository\n- These files are auto-generated and should not be tracked\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\n",
         "author": {
-          "name": "Ain Cortés",
-          "email": "acortes@pcfactory.cl",
-          "time": 1768343286000
+          "name": "Ain Cortés Catoni",
+          "email": "ain.catoni@gmail.com",
+          "time": 1768949621000
         },
         "committer": {
-          "name": "Ain Cortés",
-          "email": "acortes@pcfactory.cl",
-          "time": 1768343286000
+          "name": "Ain Cortés Catoni",
+          "email": "ain.catoni@gmail.com",
+          "time": 1768949621000
         },
         "branch": "main"
       },
@@ -67,24 +67,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b67f583110eb1080828c4ed5aad4389ec51f2c",
-            "commitHash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21180284990"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9872645a5c8c2d6b21ff78cc983f16e024ac0849",
+            "commitHash": "9872645a5c8c2d6b21ff78cc983f16e024ac0849",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21190325076"
           },
           "gitCommit": {
-            "shortHash": "05b67f5",
-            "hash": "05b67f583110eb1080828c4ed5aad4389ec51f2c",
-            "subject": "feat: Add video recording functionality to payment methods tests and dashboard",
-            "body": "feat: Add video recording functionality to payment methods tests and dashboard\n",
+            "shortHash": "9872645",
+            "hash": "9872645a5c8c2d6b21ff78cc983f16e024ac0849",
+            "subject": "Add .gitignore and remove Python bytecode files",
+            "body": "Add .gitignore and remove Python bytecode files\n\n- Add comprehensive .gitignore for Python projects\n- Remove __pycache__/*.pyc files from repository\n- These files are auto-generated and should not be tracked\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\n",
             "author": {
-              "name": "Ain Cortés",
-              "email": "acortes@pcfactory.cl",
-              "time": 1768343286000
+              "name": "Ain Cortés Catoni",
+              "email": "ain.catoni@gmail.com",
+              "time": 1768949621000
             },
             "committer": {
-              "name": "Ain Cortés",
-              "email": "acortes@pcfactory.cl",
-              "time": 1768343286000
+              "name": "Ain Cortés Catoni",
+              "email": "ain.catoni@gmail.com",
+              "time": 1768949621000
             },
             "branch": "main"
           },
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1922,
+                      "duration": 2226,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-20T17:03:06.747Z",
+                      "startTime": "2026-01-20T22:56:03.828Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -178,12 +178,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3797,
+                      "duration": 3720,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-20T17:03:09.311Z",
+                      "startTime": "2026-01-20T22:56:06.272Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -218,12 +218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4713,
+                      "duration": 4567,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-20T17:03:13.135Z",
+                      "startTime": "2026-01-20T22:56:10.005Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -258,12 +258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4731,
+                      "duration": 4137,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-20T17:03:17.859Z",
+                      "startTime": "2026-01-20T22:56:14.586Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -298,12 +298,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10385,
+                      "duration": 10478,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-20T17:03:22.600Z",
+                      "startTime": "2026-01-20T22:56:18.737Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -338,7 +338,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4222,
+                      "duration": 4105,
                       "errors": [],
                       "stdout": [
                         {
@@ -359,7 +359,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-20T17:03:32.996Z",
+                      "startTime": "2026-01-20T22:56:29.226Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -385,8 +385,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-20T17:03:06.107Z",
-    "duration": 31171.006999999998,
+    "startTime": "2026-01-20T22:56:03.122Z",
+    "duration": 30287.101,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

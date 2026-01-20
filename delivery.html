@@ -345,7 +345,7 @@
             color: var(--text-secondary);
         }
         .table-container { overflow-x: auto; max-height: 600px; overflow-y: auto; }
-        table { width: 100%; border-collapse: collapse; }
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
         th {
             text-align: left;
             padding: 0.75rem 1rem;
@@ -358,8 +358,45 @@
             position: sticky;
             top: 0;
             z-index: 10;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
         }
-        td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.8rem; }
+        th:nth-child(1) { width: 6%; }  /* ID */
+        th:nth-child(2) { width: 16%; } /* Comuna */
+        th:nth-child(3) { width: 8%; }  /* Días */
+        th:nth-child(4) { width: 12%; } /* Precio */
+        th:nth-child(5) { width: 12%; } /* Fecha */
+        th:nth-child(6) { width: 14%; } /* Transporte */
+        th:nth-child(7) { width: 16%; } /* Ciudad */
+        th:nth-child(8) { width: 12%; } /* Estado */
+        th:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+        th.sortable::after {
+            content: ' ⇅';
+            opacity: 0.3;
+            font-size: 0.8rem;
+        }
+        th.sort-asc::after {
+            content: ' ↑';
+            opacity: 1;
+            color: var(--accent-blue);
+        }
+        th.sort-desc::after {
+            content: ' ↓';
+            opacity: 1;
+            color: var(--accent-blue);
+        }
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
         tr:last-child td { border-bottom: none; }
         tr:hover { background: var(--bg-hover); }
         .region-header-row {
@@ -391,18 +428,80 @@
             margin-bottom: 1.5rem;
         }
         .filter-input {
-            background: var(--bg-secondary);
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
             color: var(--text-primary);
             font-family: var(--font-sans);
             font-size: 0.875rem;
             width: 100%;
-            max-width: 300px;
-            margin-bottom: 1rem;
+            transition: all 0.2s;
         }
-        .filter-input:focus { outline: none; border-color: var(--accent-blue); }
+        .filter-input:hover {
+            border-color: var(--accent-blue);
+        }
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        .filters-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .filter-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+        .filter-select {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-select:hover {
+            border-color: var(--accent-blue);
+        }
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        .filter-reset {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        .filter-reset:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent-red);
+        }
         .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
         @media (max-width: 768px) {
             .container { padding: 1rem; }
@@ -425,7 +524,7 @@
                     <span>Despacho Nacional - Chile</span>
                 </div>
             </div>
-            <div class="timestamp">20/01/2026 19:47:00 Chile</div>
+            <div class="timestamp">20/01/2026 19:56:27 Chile</div>
         </header>
         
         <div class="nav-links">
@@ -798,27 +897,75 @@
             <div class="section-header">
                 <span>📍</span>
                 <h2>Todas las Comunas</h2>
-                <span class="section-count">346</span>
+                <span class="section-count" id="visibleCount">346</span>
             </div>
-            <input type="text" class="filter-input" placeholder="Buscar comuna..." id="filterInput" style="margin: 1rem;">
+
+            <div class="filters-panel">
+                <div class="filter-group">
+                    <label class="filter-label">🔍 Buscar</label>
+                    <input type="text" class="filter-input" placeholder="Buscar comuna..." id="filterInput">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">📊 Estado</label>
+                    <select class="filter-select" id="filterEstado">
+                        <option value="">Todos</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="No disponible">No disponible</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">📦 Días</label>
+                    <select class="filter-select" id="filterDias">
+                        <option value="">Todos</option>
+                        <option value="1-2">1-2 días</option>
+                        <option value="3-5">3-5 días</option>
+                        <option value="6+">6+ días</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">💰 Precio</label>
+                    <select class="filter-select" id="filterPrecio">
+                        <option value="">Todos</option>
+                        <option value="gratis">Gratis</option>
+                        <option value="0-5000">$0 - $5.000</option>
+                        <option value="5000-10000">$5.000 - $10.000</option>
+                        <option value="10000+">$10.000+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">🚚 Transporte</label>
+                    <select class="filter-select" id="filterTransporte">
+                        <option value="">Todos</option>
+                        <option value="TurBus">TurBus</option>
+                        <option value="Chileexpress">Chileexpress</option>
+                        <option value="Chilexpress">Chilexpress</option>
+                        <option value="Starken">Starken</option>
+                        <option value="Bluexpress">Bluexpress</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-reset" onclick="resetFilters()">🔄 Limpiar Filtros</button>
+                </div>
+            </div>
+
             <div class="table-container">
                 <table id="comunasTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Comuna</th>
-                            <th>Días</th>
-                            <th>Precio</th>
-                            <th>Fecha</th>
-                            <th>Transporte</th>
-                            <th>Ciudad</th>
-                            <th>Estado</th>
+                            <th class="sortable" data-column="id" data-type="number">ID</th>
+                            <th class="sortable" data-column="comuna" data-type="string">Comuna</th>
+                            <th class="sortable" data-column="dias" data-type="number">Días</th>
+                            <th class="sortable" data-column="precio" data-type="number">Precio</th>
+                            <th data-column="fecha">Fecha</th>
+                            <th data-column="transporte">Transporte</th>
+                            <th data-column="ciudad">Ciudad</th>
+                            <th class="sortable" data-column="estado" data-type="string">Estado</th>
                         </tr>
                     </thead>
                     <tbody><tr class="region-header-row">
                 <td colspan="8"><strong>Tarapacá</strong></td>
             </tr>
-<tr data-region="1">
+<tr data-region="1" data-id="345" data-comuna="ALTO HOSPICIO" data-dias="2" data-precio="11932.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">345</span></td>
             <td>ALTO HOSPICIO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -828,7 +975,7 @@
             <td>ALTO HOSPICIO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="1">
+<tr data-region="1" data-id="7" data-comuna="CAMIÑA" data-dias="3" data-precio="157252.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">7</span></td>
             <td>CAMIÑA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -838,7 +985,7 @@
             <td>CAMINA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="1">
+<tr data-region="1" data-id="8" data-comuna="COLCHANE" data-dias="3" data-precio="157252.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">8</span></td>
             <td>COLCHANE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -848,7 +995,7 @@
             <td>COLCHANE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="1">
+<tr data-region="1" data-id="6" data-comuna="HUARA" data-dias="3" data-precio="23864.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">6</span></td>
             <td>HUARA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -858,7 +1005,7 @@
             <td>HUARA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="1">
+<tr data-region="1" data-id="5" data-comuna="IQUIQUE" data-dias="2" data-precio="11932.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">5</span></td>
             <td>IQUIQUE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -868,7 +1015,7 @@
             <td>IQUIQUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="1">
+<tr data-region="1" data-id="9" data-comuna="PICA" data-dias="3" data-precio="71593.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">9</span></td>
             <td>PICA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -878,7 +1025,7 @@
             <td>PICA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="1">
+<tr data-region="1" data-id="10" data-comuna="POZO ALMONTE" data-dias="3" data-precio="11932.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">10</span></td>
             <td>POZO ALMONTE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -891,7 +1038,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Antofagasta</strong></td>
             </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="16" data-comuna="ANTOFAGASTA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">16</span></td>
             <td>ANTOFAGASTA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -901,7 +1048,7 @@
             <td>ANTOFAGASTA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="13" data-comuna="CALAMA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">13</span></td>
             <td>CALAMA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -911,7 +1058,7 @@
             <td>CALAMA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="12" data-comuna="MARÍA ELENA" data-dias="3" data-precio="10746.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">12</span></td>
             <td>MARÍA ELENA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -921,7 +1068,7 @@
             <td>MARIA ELENA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="17" data-comuna="MEJILLONES" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">17</span></td>
             <td>MEJILLONES</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -931,7 +1078,7 @@
             <td>MEJILLONES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="14" data-comuna="OLLAGÜE" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">14</span></td>
             <td>OLLAGÜE</td>
             <td><span class="badge badge-error">-</span></td>
@@ -941,7 +1088,7 @@
             <td>CALAMA</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="15" data-comuna="SAN PEDRO DE ATACAMA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">15</span></td>
             <td>SAN PEDRO DE ATACAMA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -951,7 +1098,7 @@
             <td>SAN PEDRO DE ATACAMA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="18" data-comuna="SIERRA GORDA" data-dias="3" data-precio="135306.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">18</span></td>
             <td>SIERRA GORDA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -961,7 +1108,7 @@
             <td>SIERRA GORDA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="19" data-comuna="TALTAL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">19</span></td>
             <td>TALTAL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -971,7 +1118,7 @@
             <td>TALTAL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="2">
+<tr data-region="2" data-id="11" data-comuna="TOCOPILLA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">11</span></td>
             <td>TOCOPILLA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -984,7 +1131,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Atacama</strong></td>
             </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="28" data-comuna="ALTO DEL CARMEN" data-dias="2" data-precio="17170.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">28</span></td>
             <td>ALTO DEL CARMEN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -994,7 +1141,7 @@
             <td>ALTO DEL CARMEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="23" data-comuna="CALDERA" data-dias="2" data-precio="9128.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">23</span></td>
             <td>CALDERA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1004,7 +1151,7 @@
             <td>CALDERA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="20" data-comuna="CHAÑARAL" data-dias="2" data-precio="9128.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">20</span></td>
             <td>CHAÑARAL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1014,7 +1161,7 @@
             <td>CHANARAL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="22" data-comuna="COPIAPÓ" data-dias="1" data-precio="9128.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">22</span></td>
             <td>COPIAPÓ</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1024,7 +1171,7 @@
             <td>COPIAPO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="21" data-comuna="DIEGO DE ALMAGRO" data-dias="3" data-precio="9128.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">21</span></td>
             <td>DIEGO DE ALMAGRO</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -1034,7 +1181,7 @@
             <td>EL SALVADOR</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="26" data-comuna="FREIRINA" data-dias="2" data-precio="51509.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">26</span></td>
             <td>FREIRINA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1044,7 +1191,7 @@
             <td>FREIRINA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="27" data-comuna="HUASCO" data-dias="2" data-precio="17170.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">27</span></td>
             <td>HUASCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1054,7 +1201,7 @@
             <td>HUASCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="24" data-comuna="TIERRA AMARILLA" data-dias="2" data-precio="18257.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">24</span></td>
             <td>TIERRA AMARILLA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1064,7 +1211,7 @@
             <td>TIERRA AMARILLA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="3">
+<tr data-region="3" data-id="25" data-comuna="VALLENAR" data-dias="1" data-precio="8585.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">25</span></td>
             <td>VALLENAR</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1077,7 +1224,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Coquimbo</strong></td>
             </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="31" data-comuna="ANDACOLLO" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">31</span></td>
             <td>ANDACOLLO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1087,7 +1234,7 @@
             <td>ANDACOLLO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="43" data-comuna="CANELA" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">43</span></td>
             <td>CANELA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1097,7 +1244,7 @@
             <td>CANELA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="38" data-comuna="COMBARBALÁ" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">38</span></td>
             <td>COMBARBALÁ</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1107,7 +1254,7 @@
             <td>COMBARBALA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="34" data-comuna="COQUIMBO" data-dias="1" data-precio="7597.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">34</span></td>
             <td>COQUIMBO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1117,7 +1264,7 @@
             <td>COQUIMBO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="40" data-comuna="ILLAPEL" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">40</span></td>
             <td>ILLAPEL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1127,7 +1274,7 @@
             <td>ILLAPEL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="30" data-comuna="LA HIGUERA" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">30</span></td>
             <td>LA HIGUERA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1137,7 +1284,7 @@
             <td>LA HIGUERA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="29" data-comuna="LA SERENA" data-dias="1" data-precio="7597.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">29</span></td>
             <td>LA SERENA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1147,7 +1294,7 @@
             <td>LA SERENA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="42" data-comuna="LOS VILOS" data-dias="1" data-precio="7597.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">42</span></td>
             <td>LOS VILOS</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1157,7 +1304,7 @@
             <td>LOS VILOS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="37" data-comuna="MONTE PATRIA" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">37</span></td>
             <td>MONTE PATRIA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1167,7 +1314,7 @@
             <td>EL PALQUI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="35" data-comuna="OVALLE" data-dias="1" data-precio="7597.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">35</span></td>
             <td>OVALLE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1177,7 +1324,7 @@
             <td>OVALLE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="33" data-comuna="PAIHUANO" data-dias="2" data-precio="22790.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">33</span></td>
             <td>PAIHUANO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1187,7 +1334,7 @@
             <td>PISCO ELQUI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="39" data-comuna="PUNITAQUI" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">39</span></td>
             <td>PUNITAQUI</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1197,7 +1344,7 @@
             <td>PUNITAQUI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="36" data-comuna="RÍO HURTADO" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">36</span></td>
             <td>RÍO HURTADO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1207,7 +1354,7 @@
             <td>RIO HURTADO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="41" data-comuna="SALAMANCA" data-dias="2" data-precio="15193.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">41</span></td>
             <td>SALAMANCA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1217,7 +1364,7 @@
             <td>SALAMANCA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="4">
+<tr data-region="4" data-id="32" data-comuna="VICUÑA" data-dias="2" data-precio="8736.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">32</span></td>
             <td>VICUÑA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1230,7 +1377,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Valparaíso</strong></td>
             </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="80" data-comuna="ALGARROBO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">80</span></td>
             <td>ALGARROBO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1240,7 +1387,7 @@
             <td>ALGARROBO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="46" data-comuna="CABILDO" data-dias="2" data-precio="9209.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">46</span></td>
             <td>CABILDO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1250,7 +1397,7 @@
             <td>CABILDO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="51" data-comuna="CALERA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">51</span></td>
             <td>CALERA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1260,7 +1407,7 @@
             <td>LA CALERA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="58" data-comuna="CALLE LARGA" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">58</span></td>
             <td>CALLE LARGA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1270,7 +1417,7 @@
             <td>CALLE LARGA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="77" data-comuna="CARTAGENA" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">77</span></td>
             <td>CARTAGENA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1280,7 +1427,7 @@
             <td>SAN SEBASTIAN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="75" data-comuna="CASABLANCA" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">75</span></td>
             <td>CASABLANCA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1290,7 +1437,7 @@
             <td>CASABLANCA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="65" data-comuna="CATEMU" data-dias="2" data-precio="9822.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">65</span></td>
             <td>CATEMU</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1300,7 +1447,7 @@
             <td>CATEMU</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="74" data-comuna="CONCON" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">74</span></td>
             <td>CONCON</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1310,7 +1457,7 @@
             <td>CONCON</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="79" data-comuna="EL QUISCO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">79</span></td>
             <td>EL QUISCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1320,7 +1467,7 @@
             <td>ISLA NEGRA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="78" data-comuna="EL TABO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">78</span></td>
             <td>EL TABO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1330,7 +1477,7 @@
             <td>LAS CRUCES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="53" data-comuna="HIJUELAS" data-dias="2" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">53</span></td>
             <td>HIJUELAS</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1340,7 +1487,7 @@
             <td>HIJUELAS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="72" data-comuna="ISLA DE PASCUA" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">72</span></td>
             <td>ISLA DE PASCUA</td>
             <td><span class="badge badge-error">-</span></td>
@@ -1350,7 +1497,7 @@
             <td>ISLA DE PASCUA</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="71" data-comuna="JUAN FERNÁNDEZ" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">71</span></td>
             <td>JUAN FERNÁNDEZ</td>
             <td><span class="badge badge-error">-</span></td>
@@ -1360,7 +1507,7 @@
             <td>ISLA JUAN FERNANDEZ</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="50" data-comuna="LA CRUZ" data-dias="2" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">50</span></td>
             <td>LA CRUZ</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1370,7 +1517,7 @@
             <td>LA CRUZ</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="44" data-comuna="LA LIGUA" data-dias="1" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">44</span></td>
             <td>LA LIGUA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1380,7 +1527,7 @@
             <td>LA LIGUA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="66" data-comuna="LIMACHE" data-dias="1" data-precio="7060.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">66</span></td>
             <td>LIMACHE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1390,7 +1537,7 @@
             <td>LIMACHE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="64" data-comuna="LLAY LLAY" data-dias="3" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">64</span></td>
             <td>LLAY LLAY</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -1400,7 +1547,7 @@
             <td>LLAILLAY</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="56" data-comuna="LOS ANDES" data-dias="1" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">56</span></td>
             <td>LOS ANDES</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1410,7 +1557,7 @@
             <td>LOS ANDES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="52" data-comuna="NOGALES" data-dias="2" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">52</span></td>
             <td>NOGALES</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1420,7 +1567,7 @@
             <td>EL MELON</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="67" data-comuna="OLMUÉ" data-dias="2" data-precio="8288.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">67</span></td>
             <td>OLMUÉ</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1430,7 +1577,7 @@
             <td>OLMUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="63" data-comuna="PANQUEHUE" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">63</span></td>
             <td>PANQUEHUE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1440,7 +1587,7 @@
             <td>PANQUEHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="48" data-comuna="PAPUDO" data-dias="2" data-precio="8595.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">48</span></td>
             <td>PAPUDO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1450,7 +1597,7 @@
             <td>PAPUDO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="45" data-comuna="PETORCA" data-dias="2" data-precio="18417.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">45</span></td>
             <td>PETORCA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1460,7 +1607,7 @@
             <td>PETORCA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="55" data-comuna="PUCHUNCAVÍ" data-dias="2" data-precio="8595.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">55</span></td>
             <td>PUCHUNCAVÍ</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1470,7 +1617,7 @@
             <td>MAITENCILLO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="61" data-comuna="PUTAENDO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">61</span></td>
             <td>PUTAENDO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1480,7 +1627,7 @@
             <td>PUTAENDO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="49" data-comuna="QUILLOTA" data-dias="1" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">49</span></td>
             <td>QUILLOTA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1490,7 +1637,7 @@
             <td>QUILLOTA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="68" data-comuna="QUILPUÉ" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">68</span></td>
             <td>QUILPUÉ</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1500,7 +1647,7 @@
             <td>QUILPUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="54" data-comuna="QUINTERO" data-dias="2" data-precio="9209.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">54</span></td>
             <td>QUINTERO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1510,7 +1657,7 @@
             <td>QUINTERO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="59" data-comuna="RINCONADA" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">59</span></td>
             <td>RINCONADA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1520,7 +1667,7 @@
             <td>RINCONADA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="76" data-comuna="SAN ANTONIO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">76</span></td>
             <td>SAN ANTONIO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1530,7 +1677,7 @@
             <td>SAN ANTONIO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="57" data-comuna="SAN ESTEBAN" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">57</span></td>
             <td>SAN ESTEBAN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1540,7 +1687,7 @@
             <td>SAN ESTEBAN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="60" data-comuna="SAN FELIPE" data-dias="1" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">60</span></td>
             <td>SAN FELIPE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1550,7 +1697,7 @@
             <td>SAN FELIPE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="62" data-comuna="SANTA MARÍA" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">62</span></td>
             <td>SANTA MARÍA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1560,7 +1707,7 @@
             <td>SANTA MARIA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="81" data-comuna="SANTO DOMINGO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">81</span></td>
             <td>SANTO DOMINGO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1570,7 +1717,7 @@
             <td>ROCAS DE SANTO DOMINGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="70" data-comuna="VALPARAÍSO" data-dias="2" data-precio="8595.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">70</span></td>
             <td>VALPARAÍSO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1580,7 +1727,7 @@
             <td>MARBELLA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="69" data-comuna="VILLA ALEMANA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">69</span></td>
             <td>VILLA ALEMANA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1590,7 +1737,7 @@
             <td>VILLA ALEMANA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="73" data-comuna="VIÑA DEL MAR" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">73</span></td>
             <td>VIÑA DEL MAR</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1600,7 +1747,7 @@
             <td>RENACA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="5">
+<tr data-region="5" data-id="47" data-comuna="ZAPALLAR" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">47</span></td>
             <td>ZAPALLAR</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1613,7 +1760,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>O'Higgins</strong></td>
             </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="100" data-comuna="CHIMBARONGO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">100</span></td>
             <td>CHIMBARONGO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1623,7 +1770,7 @@
             <td>CHIMBARONGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="103" data-comuna="CHÉPICA" data-dias="2" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">103</span></td>
             <td>CHÉPICA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1633,7 +1780,7 @@
             <td>CHEPICA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="85" data-comuna="CODEGUA" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">85</span></td>
             <td>CODEGUA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1643,7 +1790,7 @@
             <td>CODEGUA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="92" data-comuna="COLTAUCO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">92</span></td>
             <td>COLTAUCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1653,7 +1800,7 @@
             <td>COLTAUCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="93" data-comuna="COÍNCO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">93</span></td>
             <td>COÍNCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1663,7 +1810,7 @@
             <td>COINCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="94" data-comuna="DOÑIHUE" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">94</span></td>
             <td>DOÑIHUE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1673,7 +1820,7 @@
             <td>DONIHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="83" data-comuna="GRANEROS" data-dias="1" data-precio="7367.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">83</span></td>
             <td>GRANEROS</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1683,7 +1830,7 @@
             <td>GRANEROS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="112" data-comuna="LA ESTRELLA" data-dias="2" data-precio="18417.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">112</span></td>
             <td>LA ESTRELLA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1693,7 +1840,7 @@
             <td>LA ESTRELLA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="98" data-comuna="LAS CABRAS" data-dias="2" data-precio="24556.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">98</span></td>
             <td>LAS CABRAS</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1703,7 +1850,7 @@
             <td>LAS CABRAS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="111" data-comuna="LITUECHE" data-dias="2" data-precio="18417.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">111</span></td>
             <td>LITUECHE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1713,7 +1860,7 @@
             <td>LITUECHE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="105" data-comuna="LOLOL" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">105</span></td>
             <td>LOLOL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1723,7 +1870,7 @@
             <td>LOLOL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="86" data-comuna="MACHALÍ" data-dias="2" data-precio="7060.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">86</span></td>
             <td>MACHALÍ</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1733,7 +1880,7 @@
             <td>MACHALI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="90" data-comuna="MALLOA" data-dias="2" data-precio="18417.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">90</span></td>
             <td>MALLOA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1743,7 +1890,7 @@
             <td>MALLOA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="113" data-comuna="MARCHIHUE" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">113</span></td>
             <td>MARCHIHUE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1753,7 +1900,7 @@
             <td>MARCHIHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="84" data-comuna="MOSTAZAL" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">84</span></td>
             <td>MOSTAZAL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1763,7 +1910,7 @@
             <td>SAN FRANCISCO DE MOSTAZAL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="102" data-comuna="NANCAGUA" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">102</span></td>
             <td>NANCAGUA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1773,7 +1920,7 @@
             <td>CUNACO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="110" data-comuna="NAVIDAD" data-dias="2" data-precio="18417.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">110</span></td>
             <td>NAVIDAD</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1783,7 +1930,7 @@
             <td>NAVIDAD</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="87" data-comuna="OLIVAR" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">87</span></td>
             <td>OLIVAR</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1793,7 +1940,7 @@
             <td>OLIVAR ALTO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="107" data-comuna="PALMILLA" data-dias="2" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">107</span></td>
             <td>PALMILLA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1803,7 +1950,7 @@
             <td>PALMILLA SAN FERNANDO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="114" data-comuna="PAREDONES" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">114</span></td>
             <td>PAREDONES</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1813,7 +1960,7 @@
             <td>BUCALEMU</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="108" data-comuna="PERALILLO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">108</span></td>
             <td>PERALILLO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1823,7 +1970,7 @@
             <td>PERALILLO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="97" data-comuna="PEUMO" data-dias="2" data-precio="24556.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">97</span></td>
             <td>PEUMO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1833,7 +1980,7 @@
             <td>PEUMO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="96" data-comuna="PICHIDEGUA" data-dias="2" data-precio="24556.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">96</span></td>
             <td>PICHIDEGUA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1843,7 +1990,7 @@
             <td>PICHIDEGUA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="109" data-comuna="PICHILEMU" data-dias="2" data-precio="18417.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">109</span></td>
             <td>PICHILEMU</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1853,7 +2000,7 @@
             <td>PICHILEMU</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="101" data-comuna="PLACILLA" data-dias="1" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">101</span></td>
             <td>PLACILLA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1863,7 +2010,7 @@
             <td>SAN FERNANDO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="106" data-comuna="PUMANQUE" data-dias="2" data-precio="18417.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">106</span></td>
             <td>PUMANQUE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1873,7 +2020,7 @@
             <td>PUMANQUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="91" data-comuna="QUINTA DE TILCOCO" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">91</span></td>
             <td>QUINTA DE TILCOCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1883,7 +2030,7 @@
             <td>QUINTA DE TILCOCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="82" data-comuna="RANCAGUA" data-dias="1" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">82</span></td>
             <td>RANCAGUA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1893,7 +2040,7 @@
             <td>RANCAGUA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="89" data-comuna="RENGO" data-dias="1" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">89</span></td>
             <td>RENGO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1903,7 +2050,7 @@
             <td>RENGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="88" data-comuna="REQUÍNOA" data-dias="2" data-precio="12278.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">88</span></td>
             <td>REQUÍNOA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1913,7 +2060,7 @@
             <td>REQUINOA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="99" data-comuna="SAN FERNANDO" data-dias="1" data-precio="6139.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">99</span></td>
             <td>SAN FERNANDO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1923,7 +2070,7 @@
             <td>SAN FERNANDO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="95" data-comuna="SAN VICENTE" data-dias="2" data-precio="7612.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">95</span></td>
             <td>SAN VICENTE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1933,7 +2080,7 @@
             <td>SAN VICENTE DE TAGUATAGUA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="6">
+<tr data-region="6" data-id="104" data-comuna="SANTA CRUZ" data-dias="2" data-precio="7060.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">104</span></td>
             <td>SANTA CRUZ</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1946,7 +2093,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Maule</strong></td>
             </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="142" data-comuna="CAUQUENES" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">142</span></td>
             <td>CAUQUENES</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1956,7 +2103,7 @@
             <td>CAUQUENES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="144" data-comuna="CHANCO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">144</span></td>
             <td>CHANCO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1966,7 +2113,7 @@
             <td>CHANCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="136" data-comuna="COLBÚN" data-dias="2" data-precio="21159.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">136</span></td>
             <td>COLBÚN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1976,7 +2123,7 @@
             <td>COLBUN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="131" data-comuna="CONSTITUCIÓN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">131</span></td>
             <td>CONSTITUCIÓN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -1986,7 +2133,7 @@
             <td>CONSTITUCION</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="132" data-comuna="CUREPTO" data-dias="2" data-precio="14106.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">132</span></td>
             <td>CUREPTO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -1996,7 +2143,7 @@
             <td>CUREPTO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="115" data-comuna="CURICÓ" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">115</span></td>
             <td>CURICÓ</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2006,7 +2153,7 @@
             <td>CURICO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="129" data-comuna="EMPEDRADO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">129</span></td>
             <td>EMPEDRADO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2016,7 +2163,7 @@
             <td>EMPEDRADO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="120" data-comuna="HUALAÑÉ" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">120</span></td>
             <td>HUALAÑÉ</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2026,7 +2173,7 @@
             <td>HUALANE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="121" data-comuna="LICANTÉN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">121</span></td>
             <td>LICANTÉN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2036,7 +2183,7 @@
             <td>LICANTEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="134" data-comuna="LINARES" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">134</span></td>
             <td>LINARES</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2046,7 +2193,7 @@
             <td>LINARES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="139" data-comuna="LONGAVÍ" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">139</span></td>
             <td>LONGAVÍ</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2056,7 +2203,7 @@
             <td>LONGAVI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="128" data-comuna="MAULE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">128</span></td>
             <td>MAULE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2066,7 +2213,7 @@
             <td>MAULE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="118" data-comuna="MOLINA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">118</span></td>
             <td>MOLINA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2076,7 +2223,7 @@
             <td>MOLINA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="140" data-comuna="PARRAL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">140</span></td>
             <td>PARRAL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2086,7 +2233,7 @@
             <td>PARRAL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="125" data-comuna="PELARCO" data-dias="2" data-precio="14106.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">125</span></td>
             <td>PELARCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2096,7 +2243,7 @@
             <td>PELARCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="143" data-comuna="PELLUHUE" data-dias="3" data-precio="13377.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">143</span></td>
             <td>PELLUHUE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2106,7 +2253,7 @@
             <td>CURANIPE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="130" data-comuna="PENCAHUE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">130</span></td>
             <td>PENCAHUE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2116,7 +2263,7 @@
             <td>PENCAHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="123" data-comuna="RAUCO" data-dias="2" data-precio="14106.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">123</span></td>
             <td>RAUCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2126,7 +2273,7 @@
             <td>RAUCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="141" data-comuna="RETIRO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">141</span></td>
             <td>RETIRO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2136,7 +2283,7 @@
             <td>RETIRO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="117" data-comuna="ROMERAL" data-dias="2" data-precio="14106.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">117</span></td>
             <td>ROMERAL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2146,7 +2293,7 @@
             <td>ROMERAL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="126" data-comuna="RÍO CLARO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">126</span></td>
             <td>RÍO CLARO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2156,7 +2303,7 @@
             <td>RIO CLARO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="119" data-comuna="SAGRADA FAMILIA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">119</span></td>
             <td>SAGRADA FAMILIA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2166,7 +2313,7 @@
             <td>SAGRADA FAMILIA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="127" data-comuna="SAN CLEMENTE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">127</span></td>
             <td>SAN CLEMENTE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2176,7 +2323,7 @@
             <td>SAN CLEMENTE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="138" data-comuna="SAN JAVIER" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">138</span></td>
             <td>SAN JAVIER</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2186,7 +2333,7 @@
             <td>SAN JAVIER</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="133" data-comuna="SAN RAFAEL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">133</span></td>
             <td>SAN RAFAEL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2196,7 +2343,7 @@
             <td>SAN RAFAEL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="124" data-comuna="TALCA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">124</span></td>
             <td>TALCA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2206,7 +2353,7 @@
             <td>TALCA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="116" data-comuna="TENO" data-dias="2" data-precio="14106.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">116</span></td>
             <td>TENO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2216,7 +2363,7 @@
             <td>TENO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="122" data-comuna="VICHUQUÉN" data-dias="2" data-precio="21159.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">122</span></td>
             <td>VICHUQUÉN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2226,7 +2373,7 @@
             <td>VICHUQUEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="137" data-comuna="VILLA ALEGRE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">137</span></td>
             <td>VILLA ALEGRE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2236,7 +2383,7 @@
             <td>VILLA ALEGRE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="7">
+<tr data-region="7" data-id="135" data-comuna="YERBAS BUENAS" data-dias="2" data-precio="14106.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">135</span></td>
             <td>YERBAS BUENAS</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2249,7 +2396,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Biobío</strong></td>
             </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="392" data-comuna="ALTO BIOBIO" data-dias="2" data-precio="22530.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">392</span></td>
             <td>ALTO BIOBIO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2259,7 +2406,7 @@
             <td>ALTO BIO BIO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="188" data-comuna="ANTUCO" data-dias="2" data-precio="22530.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">188</span></td>
             <td>ANTUCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2269,7 +2416,7 @@
             <td>ANTUCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="180" data-comuna="ARAUCO" data-dias="3" data-precio="22530.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">180</span></td>
             <td>ARAUCO</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2279,7 +2426,7 @@
             <td>CARAMPANGUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="158" data-comuna="CABRERO" data-dias="2" data-precio="10489.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">158</span></td>
             <td>CABRERO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2289,7 +2436,7 @@
             <td>CABRERO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="183" data-comuna="CAÑETE" data-dias="2" data-precio="10489.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">183</span></td>
             <td>CAÑETE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2299,7 +2446,7 @@
             <td>CANETE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="163" data-comuna="CHIGUAYANTE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">163</span></td>
             <td>CHIGUAYANTE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2309,7 +2456,7 @@
             <td>CHIGUAYANTE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="161" data-comuna="CONCEPCIÓN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">161</span></td>
             <td>CONCEPCIÓN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2319,7 +2466,7 @@
             <td>CONCEPCION</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="184" data-comuna="CONTULMO" data-dias="4" data-precio="11406.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">184</span></td>
             <td>CONTULMO</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -2329,7 +2476,7 @@
             <td>CONTULMO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="169" data-comuna="CORONEL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">169</span></td>
             <td>CORONEL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2339,7 +2486,7 @@
             <td>CORONEL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="181" data-comuna="CURANILAHUE" data-dias="2" data-precio="10489.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">181</span></td>
             <td>CURANILAHUE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2349,7 +2496,7 @@
             <td>CURANILAHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="166" data-comuna="FLORIDA" data-dias="2" data-precio="13711.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">166</span></td>
             <td>FLORIDA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2359,7 +2506,7 @@
             <td>FLORIDA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="343" data-comuna="HUALPEN" data-dias="2" data-precio="7510.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">343</span></td>
             <td>HUALPEN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2369,7 +2516,7 @@
             <td>HUALPENCILLO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="167" data-comuna="HUALQUI" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">167</span></td>
             <td>HUALQUI</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2379,7 +2526,7 @@
             <td>HUALQUI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="195" data-comuna="LAJA" data-dias="2" data-precio="10489.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">195</span></td>
             <td>LAJA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2389,7 +2536,7 @@
             <td>LAJA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="179" data-comuna="LEBU" data-dias="3" data-precio="9785.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">179</span></td>
             <td>LEBU</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2399,7 +2546,7 @@
             <td>LEBU</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="182" data-comuna="LOS ÁLAMOS" data-dias="3" data-precio="9785.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">182</span></td>
             <td>LOS ÁLAMOS</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2409,7 +2556,7 @@
             <td>LOS ALAMOS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="186" data-comuna="LOS ÁNGELES" data-dias="2" data-precio="8741.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">186</span></td>
             <td>LOS ÁNGELES</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2419,7 +2566,7 @@
             <td>LOS ANGELES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="178" data-comuna="LOTA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">178</span></td>
             <td>LOTA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2429,7 +2576,7 @@
             <td>LOTA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="192" data-comuna="MULCHÉN" data-dias="2" data-precio="7510.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">192</span></td>
             <td>MULCHÉN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2439,7 +2586,7 @@
             <td>MULCHEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="194" data-comuna="NACIMIENTO" data-dias="2" data-precio="10489.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">194</span></td>
             <td>NACIMIENTO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2449,7 +2596,7 @@
             <td>NACIMIENTO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="193" data-comuna="NEGRETE" data-dias="2" data-precio="22530.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">193</span></td>
             <td>NEGRETE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2459,7 +2606,7 @@
             <td>NEGRETE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="164" data-comuna="PENCO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">164</span></td>
             <td>PENCO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2469,7 +2616,7 @@
             <td>PENCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="191" data-comuna="QUILACO" data-dias="2" data-precio="24258.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">191</span></td>
             <td>QUILACO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2479,7 +2626,7 @@
             <td>QUILACO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="189" data-comuna="QUILLECO" data-dias="2" data-precio="22530.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">189</span></td>
             <td>QUILLECO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2489,7 +2636,7 @@
             <td>QUILLECO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="162" data-comuna="SAN PEDRO DE LA PAZ" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">162</span></td>
             <td>SAN PEDRO DE LA PAZ</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2499,7 +2646,7 @@
             <td>SAN PEDRO DE LA PAZ</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="196" data-comuna="SAN ROSENDO" data-dias="2" data-precio="22530.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">196</span></td>
             <td>SAN ROSENDO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2509,7 +2656,7 @@
             <td>SAN ROSENDO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="190" data-comuna="SANTA BÁRBARA" data-dias="2" data-precio="9237.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">190</span></td>
             <td>SANTA BÁRBARA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2519,7 +2666,7 @@
             <td>SANTA BARBARA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="168" data-comuna="SANTA JUANA" data-dias="3" data-precio="9785.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">168</span></td>
             <td>SANTA JUANA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2529,7 +2676,7 @@
             <td>SANTA JUANA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="160" data-comuna="TALCAHUANO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">160</span></td>
             <td>TALCAHUANO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2539,7 +2686,7 @@
             <td>TALCAHUANO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="165" data-comuna="TOMÉ" data-dias="2" data-precio="10489.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">165</span></td>
             <td>TOMÉ</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2549,7 +2696,7 @@
             <td>TOME</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="187" data-comuna="TUCAPEL" data-dias="2" data-precio="10489.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">187</span></td>
             <td>TUCAPEL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2559,7 +2706,7 @@
             <td>HUEPIL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="8">
+<tr data-region="8" data-id="159" data-comuna="YUMBEL" data-dias="2" data-precio="10489.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">159</span></td>
             <td>YUMBEL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2572,7 +2719,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Araucanía</strong></td>
             </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="197" data-comuna="ANGOL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">197</span></td>
             <td>ANGOL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2582,7 +2729,7 @@
             <td>ANGOL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="219" data-comuna="CARAHUE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">219</span></td>
             <td>CARAHUE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2592,7 +2739,7 @@
             <td>CARAHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="400" data-comuna="CHOLCHOL" data-dias="2" data-precio="25087.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">400</span></td>
             <td>CHOLCHOL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2602,7 +2749,7 @@
             <td>CHOLCHOL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="199" data-comuna="COLLIPULLI" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">199</span></td>
             <td>COLLIPULLI</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2612,7 +2759,7 @@
             <td>COLLIPULLI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="221" data-comuna="CUNCO" data-dias="2" data-precio="25087.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">221</span></td>
             <td>CUNCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2622,7 +2769,7 @@
             <td>CUNCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="206" data-comuna="CURACAUTÍN" data-dias="3" data-precio="7510.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">206</span></td>
             <td>CURACAUTÍN</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2632,7 +2779,7 @@
             <td>CURACAUTIN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="222" data-comuna="CURARREHUE" data-dias="3" data-precio="28682.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">222</span></td>
             <td>CURARREHUE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2642,7 +2789,7 @@
             <td>CURARREHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="200" data-comuna="ERCILLA" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">200</span></td>
             <td>ERCILLA</td>
             <td><span class="badge badge-error">-</span></td>
@@ -2652,7 +2799,7 @@
             <td>ERCILLA</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="215" data-comuna="FREIRE" data-dias="2" data-precio="8362.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">215</span></td>
             <td>FREIRE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2662,7 +2809,7 @@
             <td>FREIRE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="212" data-comuna="GALVARINO" data-dias="2" data-precio="9763.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">212</span></td>
             <td>GALVARINO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2672,7 +2819,7 @@
             <td>GALVARINO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="225" data-comuna="GORBEA" data-dias="2" data-precio="8362.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">225</span></td>
             <td>GORBEA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2682,7 +2829,7 @@
             <td>GORBEA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="208" data-comuna="LAUTARO" data-dias="2" data-precio="16725.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">208</span></td>
             <td>LAUTARO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2692,7 +2839,7 @@
             <td>LAUTARO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="226" data-comuna="LONCOCHE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">226</span></td>
             <td>LONCOCHE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2702,7 +2849,7 @@
             <td>LONCOCHE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="205" data-comuna="LONQUIMAY" data-dias="3" data-precio="8362.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">205</span></td>
             <td>LONQUIMAY</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2712,7 +2859,7 @@
             <td>LONQUIMAY</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="204" data-comuna="LOS SAUCES" data-dias="2" data-precio="22530.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">204</span></td>
             <td>LOS SAUCES</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2722,7 +2869,7 @@
             <td>LOS SAUCES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="202" data-comuna="LUMACO" data-dias="2" data-precio="25087.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">202</span></td>
             <td>LUMACO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2732,7 +2879,7 @@
             <td>LUMACO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="211" data-comuna="MELIPEUCO" data-dias="2" data-precio="25087.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">211</span></td>
             <td>MELIPEUCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2742,7 +2889,7 @@
             <td>MELIPEUCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="220" data-comuna="NUEVA IMPERIAL" data-dias="2" data-precio="8362.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">220</span></td>
             <td>NUEVA IMPERIAL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2752,7 +2899,7 @@
             <td>NUEVA IMPERIAL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="214" data-comuna="PADRE LAS CASAS" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">214</span></td>
             <td>PADRE LAS CASAS</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2762,7 +2909,7 @@
             <td>PADRE LAS CASAS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="209" data-comuna="PERQUENCO" data-dias="2" data-precio="8362.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">209</span></td>
             <td>PERQUENCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2772,7 +2919,7 @@
             <td>PERQUENCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="216" data-comuna="PITRUFQUÉN" data-dias="2" data-precio="8362.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">216</span></td>
             <td>PITRUFQUÉN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2782,7 +2929,7 @@
             <td>PITRUFQUEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="223" data-comuna="PUCÓN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">223</span></td>
             <td>PUCÓN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2792,7 +2939,7 @@
             <td>PUCON</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="203" data-comuna="PURÉN" data-dias="2" data-precio="7510.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">203</span></td>
             <td>PURÉN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2802,7 +2949,7 @@
             <td>PUREN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="198" data-comuna="RENAICO" data-dias="2" data-precio="22530.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">198</span></td>
             <td>RENAICO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2812,7 +2959,7 @@
             <td>RENAICO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="218" data-comuna="SAAVEDRA" data-dias="2" data-precio="8362.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">218</span></td>
             <td>SAAVEDRA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2822,7 +2969,7 @@
             <td>PUERTO SAAVEDRA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="213" data-comuna="TEMUCO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">213</span></td>
             <td>TEMUCO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2832,7 +2979,7 @@
             <td>TEMUCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="217" data-comuna="TEODORO SCHMIDT" data-dias="2" data-precio="25087.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">217</span></td>
             <td>TEODORO SCHMIDT</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2842,7 +2989,7 @@
             <td>TEODORO SCHMIDT</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="185" data-comuna="TIRÚA" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">185</span></td>
             <td>TIRÚA</td>
             <td><span class="badge badge-error">-</span></td>
@@ -2852,7 +2999,7 @@
             <td>TIRUA</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="227" data-comuna="TOLTÉN" data-dias="2" data-precio="25087.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">227</span></td>
             <td>TOLTÉN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2862,7 +3009,7 @@
             <td>TOLTEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="201" data-comuna="TRAIGUÉN" data-dias="2" data-precio="8362.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">201</span></td>
             <td>TRAIGUÉN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2872,7 +3019,7 @@
             <td>TRAIGUEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="207" data-comuna="VICTORIA" data-dias="3" data-precio="7510.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">207</span></td>
             <td>VICTORIA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2882,7 +3029,7 @@
             <td>VICTORIA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="210" data-comuna="VILCUN" data-dias="2" data-precio="25087.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">210</span></td>
             <td>VILCUN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2892,7 +3039,7 @@
             <td>CAJON</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="9">
+<tr data-region="9" data-id="224" data-comuna="VILLARRICA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">224</span></td>
             <td>VILLARRICA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2905,7 +3052,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Los Lagos</strong></td>
             </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="257" data-comuna="ANCUD" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">257</span></td>
             <td>ANCUD</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2915,7 +3062,7 @@
             <td>ANCUD</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="254" data-comuna="CALBUCO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">254</span></td>
             <td>CALBUCO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2925,7 +3072,7 @@
             <td>CALBUCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="256" data-comuna="CASTRO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">256</span></td>
             <td>CASTRO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2935,7 +3082,7 @@
             <td>CASTRO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="266" data-comuna="CHAITÉN" data-dias="4" data-precio="61069.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">266</span></td>
             <td>CHAITÉN</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -2945,7 +3092,7 @@
             <td>CHAITEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="263" data-comuna="CHONCHI" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">263</span></td>
             <td>CHONCHI</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2955,7 +3102,7 @@
             <td>CHONCHI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="253" data-comuna="COCHAMÓ" data-dias="2" data-precio="111960.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">253</span></td>
             <td>COCHAMÓ</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -2965,7 +3112,7 @@
             <td>COCHAMO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="260" data-comuna="CURACO DE VÉLEZ" data-dias="3" data-precio="45913.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">260</span></td>
             <td>CURACO DE VÉLEZ</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2975,7 +3122,7 @@
             <td>CURACO DE VELEZ</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="259" data-comuna="DALCAHUE" data-dias="3" data-precio="45913.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">259</span></td>
             <td>DALCAHUE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -2985,7 +3132,7 @@
             <td>DALCAHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="249" data-comuna="FRESIA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">249</span></td>
             <td>FRESIA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -2995,7 +3142,7 @@
             <td>FRESIA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="251" data-comuna="FRUTILLAR" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">251</span></td>
             <td>FRUTILLAR</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3005,7 +3152,7 @@
             <td>FRUTILLAR</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="268" data-comuna="FUTALEUFÚ" data-dias="4" data-precio="61069.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">268</span></td>
             <td>FUTALEUFÚ</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -3015,7 +3162,7 @@
             <td>FUTALEUFU</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="267" data-comuna="HUALAIHUÉ" data-dias="4" data-precio="61069.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">267</span></td>
             <td>HUALAIHUÉ</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -3025,7 +3172,7 @@
             <td>HUALAIHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="250" data-comuna="LLANQUIHUE" data-dias="2" data-precio="30535.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">250</span></td>
             <td>LLANQUIHUE</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3035,7 +3182,7 @@
             <td>LLANQUIHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="248" data-comuna="LOS MUERMOS" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">248</span></td>
             <td>LOS MUERMOS</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3045,7 +3192,7 @@
             <td>LOS MUERMOS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="255" data-comuna="MAULLÍN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">255</span></td>
             <td>MAULLÍN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3055,7 +3202,7 @@
             <td>MAULLIN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="240" data-comuna="OSORNO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">240</span></td>
             <td>OSORNO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3065,7 +3212,7 @@
             <td>OSORNO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="269" data-comuna="PALENA" data-dias="4" data-precio="61069.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">269</span></td>
             <td>PALENA</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -3075,7 +3222,7 @@
             <td>PALENA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="252" data-comuna="PUERTO MONTT" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">252</span></td>
             <td>PUERTO MONTT</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3085,7 +3232,7 @@
             <td>PUERTO MONTT</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="244" data-comuna="PUERTO OCTAY" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">244</span></td>
             <td>PUERTO OCTAY</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3095,7 +3242,7 @@
             <td>PUERTO OCTAY</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="247" data-comuna="PUERTO VARAS" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">247</span></td>
             <td>PUERTO VARAS</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3105,7 +3252,7 @@
             <td>PUERTO VARAS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="262" data-comuna="PUQUELDÓN" data-dias="3" data-precio="45913.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">262</span></td>
             <td>PUQUELDÓN</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3115,7 +3262,7 @@
             <td>PUQUELDON</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="245" data-comuna="PURRANQUE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">245</span></td>
             <td>PURRANQUE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3125,7 +3272,7 @@
             <td>PURRANQUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="243" data-comuna="PUYEHUE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">243</span></td>
             <td>PUYEHUE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3135,7 +3282,7 @@
             <td>PUYEHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="264" data-comuna="QUEILÉN" data-dias="3" data-precio="45913.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">264</span></td>
             <td>QUEILÉN</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3145,7 +3292,7 @@
             <td>QUEILEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="265" data-comuna="QUELLÓN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">265</span></td>
             <td>QUELLÓN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3155,7 +3302,7 @@
             <td>QUELLON</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="258" data-comuna="QUEMCHI" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">258</span></td>
             <td>QUEMCHI</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3165,7 +3312,7 @@
             <td>QUEMCHI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="261" data-comuna="QUINCHAO" data-dias="3" data-precio="45913.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">261</span></td>
             <td>QUINCHAO</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3175,7 +3322,7 @@
             <td>QUINCHAO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="246" data-comuna="RÍO NEGRO" data-dias="2" data-precio="28682.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">246</span></td>
             <td>RÍO NEGRO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3185,7 +3332,7 @@
             <td>RIO NEGRO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="242" data-comuna="SAN JUAN DE LA COSTA" data-dias="2" data-precio="57364.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">242</span></td>
             <td>SAN JUAN DE LA COSTA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3195,7 +3342,7 @@
             <td>SAN JUAN DE LA COSTA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="10">
+<tr data-region="10" data-id="241" data-comuna="SAN PABLO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">241</span></td>
             <td>SAN PABLO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3208,7 +3355,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Aysén</strong></td>
             </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="272" data-comuna="AISÉN" data-dias="5" data-precio="33366.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">272</span></td>
             <td>AISÉN</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3218,7 +3365,7 @@
             <td>PUERTO AYSEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="275" data-comuna="CHILE CHICO" data-dias="5" data-precio="33366.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">275</span></td>
             <td>CHILE CHICO</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3228,7 +3375,7 @@
             <td>CHILE CHICO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="273" data-comuna="CISNES" data-dias="5" data-precio="33366.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">273</span></td>
             <td>CISNES</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3238,7 +3385,7 @@
             <td>LA JUNTA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="277" data-comuna="COCHRANE" data-dias="5" data-precio="33366.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">277</span></td>
             <td>COCHRANE</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3248,7 +3395,7 @@
             <td>COCHRANE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="270" data-comuna="COYHAIQUE" data-dias="5" data-precio="28219.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">270</span></td>
             <td>COYHAIQUE</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3258,7 +3405,7 @@
             <td>COYHAIQUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="274" data-comuna="GUAITECAS" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">274</span></td>
             <td>GUAITECAS</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3268,7 +3415,7 @@
             <td>GUAITECAS</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="271" data-comuna="LAGO VERDE" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">271</span></td>
             <td>LAGO VERDE</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3278,7 +3425,7 @@
             <td>LAGO VERDE</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="278" data-comuna="O'HIGGINS" data-dias="7" data-precio="148989.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">278</span></td>
             <td>O'HIGGINS</td>
             <td><span class="badge badge-warn">7d</span></td>
@@ -3288,7 +3435,7 @@
             <td>VILLA OHIGGINS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="276" data-comuna="RÍO IBÁÑEZ" data-dias="5" data-precio="33366.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">276</span></td>
             <td>RÍO IBÁÑEZ</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3298,7 +3445,7 @@
             <td>RIO IBANEZ</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="11">
+<tr data-region="11" data-id="279" data-comuna="TORTEL" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">279</span></td>
             <td>TORTEL</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3311,7 +3458,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Magallanes</strong></td>
             </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="290" data-comuna="ANTÁRTICA" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">290</span></td>
             <td>ANTÁRTICA</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3321,7 +3468,7 @@
             <td>ANTARTICA</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="289" data-comuna="CABO DE HORNOS" data-dias="5" data-precio="31363.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">289</span></td>
             <td>CABO DE HORNOS</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3331,7 +3478,7 @@
             <td>PUERTO WILLIAMS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="284" data-comuna="LAGUNA BLANCA" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">284</span></td>
             <td>LAGUNA BLANCA</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3341,7 +3488,7 @@
             <td>LAGUNA BLANCA</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="280" data-comuna="NATALES" data-dias="5" data-precio="33366.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">280</span></td>
             <td>NATALES</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3351,7 +3498,7 @@
             <td>PUERTO NATALES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="286" data-comuna="PORVENIR" data-dias="5" data-precio="31363.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">286</span></td>
             <td>PORVENIR</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3361,7 +3508,7 @@
             <td>PORVENIR</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="287" data-comuna="PRIMAVERA" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">287</span></td>
             <td>PRIMAVERA</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3371,7 +3518,7 @@
             <td>CERRO SOMBRERO</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="282" data-comuna="PUNTA ARENAS" data-dias="5" data-precio="60046.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">282</span></td>
             <td>PUNTA ARENAS</td>
             <td><span class="badge badge-id">5d</span></td>
@@ -3381,7 +3528,7 @@
             <td>PUNTA ARENAS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="283" data-comuna="RÍO VERDE" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">283</span></td>
             <td>RÍO VERDE</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3391,7 +3538,7 @@
             <td>RIO VERDE</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="285" data-comuna="SAN GREGORIO" data-dias="2" data-precio="6855.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">285</span></td>
             <td>SAN GREGORIO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3401,7 +3548,7 @@
             <td>SAN GREGORIO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="288" data-comuna="TIMAUKEL" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">288</span></td>
             <td>TIMAUKEL</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3411,7 +3558,7 @@
             <td>TIMAUKEL</td>
             <td><span class="badge badge-error">No disponible</span></td>
         </tr>
-<tr data-region="12">
+<tr data-region="12" data-id="281" data-comuna="TORRES DEL PAINE" data-dias="999" data-precio="999999" data-estado="No disponible" data-gratis="False" data-transporte="">
             <td><span class="badge badge-id">281</span></td>
             <td>TORRES DEL PAINE</td>
             <td><span class="badge badge-error">-</span></td>
@@ -3424,7 +3571,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Metropolitana</strong></td>
             </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="313" data-comuna="ALHUÉ" data-dias="4" data-precio="17231.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">313</span></td>
             <td>ALHUÉ</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -3434,7 +3581,7 @@
             <td>ALHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="310" data-comuna="BUIN" data-dias="2" data-precio="7467.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">310</span></td>
             <td>BUIN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3444,7 +3591,7 @@
             <td>BUIN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="309" data-comuna="CALERA DE TANGO" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">309</span></td>
             <td>CALERA DE TANGO</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3454,7 +3601,7 @@
             <td>CALERA DE TANGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="306" data-comuna="CERRILLOS" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">306</span></td>
             <td>CERRILLOS</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3464,7 +3611,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="300" data-comuna="CERRO NAVIA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">300</span></td>
             <td>CERRO NAVIA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3474,7 +3621,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="291" data-comuna="COLINA" data-dias="2" data-precio="7467.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">291</span></td>
             <td>COLINA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3484,7 +3631,7 @@
             <td>COLINA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="296" data-comuna="CONCHALÍ" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">296</span></td>
             <td>CONCHALÍ</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3494,7 +3641,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="314" data-comuna="CURACAVÍ" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">314</span></td>
             <td>CURACAVÍ</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3504,7 +3651,7 @@
             <td>CURACAVI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="334" data-comuna="EL BOSQUE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">334</span></td>
             <td>EL BOSQUE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3514,7 +3661,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="319" data-comuna="EL MONTE" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">319</span></td>
             <td>EL MONTE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3524,7 +3671,7 @@
             <td>EL MONTE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="304" data-comuna="ESTACIÓN CENTRAL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">304</span></td>
             <td>ESTACIÓN CENTRAL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3534,7 +3681,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="297" data-comuna="HUECHURABA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">297</span></td>
             <td>HUECHURABA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3544,7 +3691,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="302" data-comuna="INDEPENDENCIA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">302</span></td>
             <td>INDEPENDENCIA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3554,7 +3701,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="320" data-comuna="ISLA DE MAIPO" data-dias="2" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">320</span></td>
             <td>ISLA DE MAIPO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3564,7 +3711,7 @@
             <td>ISLA DE MAIPO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="333" data-comuna="LA CISTERNA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">333</span></td>
             <td>LA CISTERNA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3574,7 +3721,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="332" data-comuna="LA FLORIDA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">332</span></td>
             <td>LA FLORIDA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3584,7 +3731,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="329" data-comuna="LA GRANJA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">329</span></td>
             <td>LA GRANJA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3594,7 +3741,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="339" data-comuna="LA PINTANA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">339</span></td>
             <td>LA PINTANA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3604,7 +3751,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="328" data-comuna="LA REINA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">328</span></td>
             <td>LA REINA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3614,7 +3761,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="292" data-comuna="LAMPA" data-dias="2" data-precio="6893.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">292</span></td>
             <td>LAMPA</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3624,7 +3771,7 @@
             <td>LAMPA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="324" data-comuna="LAS CONDES" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">324</span></td>
             <td>LAS CONDES</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3634,7 +3781,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="326" data-comuna="LO BARNECHEA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">326</span></td>
             <td>LO BARNECHEA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3644,7 +3791,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="336" data-comuna="LO ESPEJO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">336</span></td>
             <td>LO ESPEJO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3654,7 +3801,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="301" data-comuna="LO PRADO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">301</span></td>
             <td>LO PRADO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3664,7 +3811,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="331" data-comuna="MACUL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">331</span></td>
             <td>MACUL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3674,7 +3821,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="305" data-comuna="MAIPÚ" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">305</span></td>
             <td>MAIPÚ</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3684,7 +3831,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="315" data-comuna="MARÍA PINTO" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">315</span></td>
             <td>MARÍA PINTO</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3694,7 +3841,7 @@
             <td>MARIA PINTO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="312" data-comuna="MELIPILLA" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">312</span></td>
             <td>MELIPILLA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3704,7 +3851,7 @@
             <td>MELIPILLA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="321" data-comuna="PADRE HURTADO" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">321</span></td>
             <td>PADRE HURTADO</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3714,7 +3861,7 @@
             <td>PADRE HURTADO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="311" data-comuna="PAINE" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">311</span></td>
             <td>PAINE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3724,7 +3871,7 @@
             <td>PAINE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="338" data-comuna="PEDRO AGUIRRE CERDA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">338</span></td>
             <td>PEDRO AGUIRRE CERDA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3734,7 +3881,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="318" data-comuna="PEÑAFLOR" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">318</span></td>
             <td>PEÑAFLOR</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3744,7 +3891,7 @@
             <td>MALLOCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="327" data-comuna="PEÑALOLÉN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">327</span></td>
             <td>PEÑALOLÉN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3754,7 +3901,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="341" data-comuna="PIRQUE" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">341</span></td>
             <td>PIRQUE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3764,7 +3911,7 @@
             <td>PIRQUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="323" data-comuna="PROVIDENCIA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">323</span></td>
             <td>PROVIDENCIA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3774,7 +3921,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="295" data-comuna="PUDAHUEL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">295</span></td>
             <td>PUDAHUEL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3784,7 +3931,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="340" data-comuna="PUENTE ALTO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">340</span></td>
             <td>PUENTE ALTO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3794,7 +3941,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="294" data-comuna="QUILICURA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">294</span></td>
             <td>QUILICURA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3804,7 +3951,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="299" data-comuna="QUINTA NORMAL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">299</span></td>
             <td>QUINTA NORMAL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3814,7 +3961,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="303" data-comuna="RECOLETA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">303</span></td>
             <td>RECOLETA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3824,7 +3971,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="298" data-comuna="RENCA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">298</span></td>
             <td>RENCA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3834,7 +3981,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="308" data-comuna="SAN BERNARDO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">308</span></td>
             <td>SAN BERNARDO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3844,7 +3991,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="330" data-comuna="SAN JOAQUÍN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">330</span></td>
             <td>SAN JOAQUÍN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3854,7 +4001,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="342" data-comuna="SAN JOSÉ DE MAIPO" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">342</span></td>
             <td>SAN JOSÉ DE MAIPO</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3864,7 +4011,7 @@
             <td>CAJON DEL MAIPO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="337" data-comuna="SAN MIGUEL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">337</span></td>
             <td>SAN MIGUEL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3874,7 +4021,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="316" data-comuna="SAN PEDRO" data-dias="6" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">316</span></td>
             <td>SAN PEDRO</td>
             <td><span class="badge badge-warn">6d</span></td>
@@ -3884,7 +4031,7 @@
             <td>SAN PEDRO DE MELIPILLA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="335" data-comuna="SAN RAMÓN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">335</span></td>
             <td>SAN RAMÓN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3894,7 +4041,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="307" data-comuna="SANTIAGO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">307</span></td>
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3904,7 +4051,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="317" data-comuna="TALAGANTE" data-dias="3" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">317</span></td>
             <td>TALAGANTE</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -3914,7 +4061,7 @@
             <td>LONQUEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="293" data-comuna="TILTIL" data-dias="2" data-precio="11488.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">293</span></td>
             <td>TILTIL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3924,7 +4071,7 @@
             <td>TILTIL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="325" data-comuna="VITACURA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">325</span></td>
             <td>VITACURA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3934,7 +4081,7 @@
             <td>SANTIAGO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="13">
+<tr data-region="13" data-id="322" data-comuna="ÑUÑOA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">322</span></td>
             <td>ÑUÑOA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3947,7 +4094,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Los Ríos</strong></td>
             </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="231" data-comuna="CORRAL" data-dias="2" data-precio="28682.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">231</span></td>
             <td>CORRAL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3957,7 +4104,7 @@
             <td>CORRAL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="234" data-comuna="FUTRONO" data-dias="2" data-precio="28682.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">234</span></td>
             <td>FUTRONO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3967,7 +4114,7 @@
             <td>LLIFEN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="236" data-comuna="LA UNIÓN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">236</span></td>
             <td>LA UNIÓN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3977,7 +4124,7 @@
             <td>LA UNION</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="239" data-comuna="LAGO RANCO" data-dias="2" data-precio="9561.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">239</span></td>
             <td>LAGO RANCO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -3987,7 +4134,7 @@
             <td>LAGO RANCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="230" data-comuna="LANCO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">230</span></td>
             <td>LANCO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -3997,7 +4144,7 @@
             <td>LANCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="233" data-comuna="LOS LAGOS" data-dias="2" data-precio="11473.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">233</span></td>
             <td>LOS LAGOS</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4007,7 +4154,7 @@
             <td>LOS LAGOS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="401" data-comuna="MAFIL" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">401</span></td>
             <td>MAFIL</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4017,7 +4164,7 @@
             <td>MAFIL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="229" data-comuna="MARIQUINA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">229</span></td>
             <td>MARIQUINA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4027,7 +4174,7 @@
             <td>SAN JOSE DE LA MARIQUINA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="237" data-comuna="PAILLACO" data-dias="2" data-precio="19121.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">237</span></td>
             <td>PAILLACO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4037,7 +4184,7 @@
             <td>PAILLACO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="235" data-comuna="PANGUIPULLI" data-dias="3" data-precio="9561.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">235</span></td>
             <td>PANGUIPULLI</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -4047,7 +4194,7 @@
             <td>PANGUIPULLI</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="238" data-comuna="RÍO BUENO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">238</span></td>
             <td>RÍO BUENO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4057,7 +4204,7 @@
             <td>RIO BUENO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="14">
+<tr data-region="14" data-id="228" data-comuna="VALDIVIA" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">228</span></td>
             <td>VALDIVIA</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4070,7 +4217,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Arica y Parinacota</strong></td>
             </tr>
-<tr data-region="15">
+<tr data-region="15" data-id="1" data-comuna="ARICA" data-dias="3" data-precio="12772.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">1</span></td>
             <td>ARICA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -4080,7 +4227,7 @@
             <td>ARICA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="15">
+<tr data-region="15" data-id="2" data-comuna="CAMARONES" data-dias="4" data-precio="76633.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">2</span></td>
             <td>CAMARONES</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -4090,7 +4237,7 @@
             <td>CUYA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="15">
+<tr data-region="15" data-id="4" data-comuna="GENERAL LAGOS" data-dias="4" data-precio="76633.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">4</span></td>
             <td>GENERAL LAGOS</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -4100,7 +4247,7 @@
             <td>GENERAL LAGOS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="15">
+<tr data-region="15" data-id="3" data-comuna="PUTRE" data-dias="4" data-precio="158092.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">3</span></td>
             <td>PUTRE</td>
             <td><span class="badge badge-id">4d</span></td>
@@ -4113,7 +4260,7 @@
 <tr class="region-header-row">
                 <td colspan="8"><strong>Ñuble</strong></td>
             </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="148" data-comuna="BULNES" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">148</span></td>
             <td>BULNES</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4123,7 +4270,7 @@
             <td>BULNES</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="170" data-comuna="CHILLÁN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">170</span></td>
             <td>CHILLÁN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4133,7 +4280,7 @@
             <td>CHILLAN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="177" data-comuna="CHILLÁN VIEJO" data-dias="1" data-precio="6855.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">177</span></td>
             <td>CHILLÁN VIEJO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4143,7 +4290,7 @@
             <td>CHILLAN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="154" data-comuna="COBQUECURA" data-dias="3" data-precio="26755.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">154</span></td>
             <td>COBQUECURA</td>
             <td><span class="badge badge-id">3d</span></td>
@@ -4153,7 +4300,7 @@
             <td>COBQUECURA</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="152" data-comuna="COELEMU" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">152</span></td>
             <td>COELEMU</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4163,7 +4310,7 @@
             <td>COELEMU</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="171" data-comuna="COIHUECO" data-dias="2" data-precio="20566.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">171</span></td>
             <td>COIHUECO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4173,7 +4320,7 @@
             <td>COIHUECO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="174" data-comuna="EL CARMEN" data-dias="2" data-precio="8227.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">174</span></td>
             <td>EL CARMEN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4183,7 +4330,7 @@
             <td>EL CARMEN CHILLAN</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="156" data-comuna="NINHUE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">156</span></td>
             <td>NINHUE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4193,7 +4340,7 @@
             <td>NINHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="176" data-comuna="PEMUCO" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">176</span></td>
             <td>PEMUCO</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4203,7 +4350,7 @@
             <td>PEMUCO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="172" data-comuna="PINTO" data-dias="2" data-precio="20566.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">172</span></td>
             <td>PINTO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4213,7 +4360,7 @@
             <td>PINTO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="151" data-comuna="PORTEZUELO" data-dias="2" data-precio="20566.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">151</span></td>
             <td>PORTEZUELO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4223,7 +4370,7 @@
             <td>PORTEZUELO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="149" data-comuna="QUILLÓN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">149</span></td>
             <td>QUILLÓN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4233,7 +4380,7 @@
             <td>QUILLON</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="155" data-comuna="QUIRIHUE" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">155</span></td>
             <td>QUIRIHUE</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4243,7 +4390,7 @@
             <td>QUIRIHUE</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="150" data-comuna="RÁNQUIL" data-dias="2" data-precio="20566.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">150</span></td>
             <td>RÁNQUIL</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4253,7 +4400,7 @@
             <td>RANQUIL</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="145" data-comuna="SAN CARLOS" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">145</span></td>
             <td>SAN CARLOS</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4263,7 +4410,7 @@
             <td>SAN CARLOS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="147" data-comuna="SAN FABIÁN" data-dias="2" data-precio="6855.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">147</span></td>
             <td>SAN FABIÁN</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4273,7 +4420,7 @@
             <td>SAN FABIAN DE ALICO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="173" data-comuna="SAN IGNACIO" data-dias="2" data-precio="20566.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">173</span></td>
             <td>SAN IGNACIO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4283,7 +4430,7 @@
             <td>SAN IGNACIO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="157" data-comuna="SAN NICOLÁS" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">157</span></td>
             <td>SAN NICOLÁS</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4293,7 +4440,7 @@
             <td>SAN NICOLAS</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="153" data-comuna="TREHUACO" data-dias="2" data-precio="20566.0" data-estado="Disponible" data-gratis="False" data-transporte="TurBus">
             <td><span class="badge badge-id">153</span></td>
             <td>TREHUACO</td>
             <td><span class="badge badge-ok">2d</span></td>
@@ -4303,7 +4450,7 @@
             <td>TREHUACO</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="175" data-comuna="YUNGAY" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">175</span></td>
             <td>YUNGAY</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4313,7 +4460,7 @@
             <td>YUNGAY</td>
             <td><span class="badge badge-ok">Disponible</span></td>
         </tr>
-<tr data-region="16">
+<tr data-region="16" data-id="146" data-comuna="ÑIQUÉN" data-dias="1" data-precio="3990.0" data-estado="Disponible" data-gratis="False" data-transporte="Chilexpress">
             <td><span class="badge badge-id">146</span></td>
             <td>ÑIQUÉN</td>
             <td><span class="badge badge-ok">1d</span></td>
@@ -4335,41 +4482,230 @@
     </div>
     
     <script>
-        // Filtro de búsqueda
-        document.getElementById('filterInput').addEventListener('input', function(e) {
-            const filter = e.target.value.toLowerCase();
+        // Estado global
+        let currentSort = { column: null, direction: 'asc' };
+        let selectedRegion = null;
+
+        // Aplicar todos los filtros
+        function applyFilters() {
+            const searchTerm = document.getElementById('filterInput').value.toLowerCase();
+            const estadoFilter = document.getElementById('filterEstado').value;
+            const diasFilter = document.getElementById('filterDias').value;
+            const precioFilter = document.getElementById('filterPrecio').value;
+            const transporteFilter = document.getElementById('filterTransporte').value;
+
             const rows = document.querySelectorAll('#comunasTable tbody tr');
+            let visibleCount = 0;
+
             rows.forEach(row => {
-                const text = row.textContent.toLowerCase();
-                row.style.display = text.includes(filter) ? '' : 'none';
+                if (row.classList.contains('region-header-row')) {
+                    row.style.display = '';
+                    return;
+                }
+
+                let show = true;
+
+                // Filtro de búsqueda
+                if (searchTerm && !row.textContent.toLowerCase().includes(searchTerm)) {
+                    show = false;
+                }
+
+                // Filtro de región
+                if (selectedRegion && row.dataset.region !== selectedRegion) {
+                    show = false;
+                }
+
+                // Filtro de estado
+                if (estadoFilter && row.dataset.estado !== estadoFilter) {
+                    show = false;
+                }
+
+                // Filtro de días
+                if (diasFilter) {
+                    const dias = parseInt(row.dataset.dias);
+                    if (diasFilter === '1-2' && (dias > 2 || dias === 999)) show = false;
+                    if (diasFilter === '3-5' && (dias < 3 || dias > 5)) show = false;
+                    if (diasFilter === '6+' && (dias < 6 || dias === 999)) show = false;
+                }
+
+                // Filtro de precio
+                if (precioFilter) {
+                    const precio = parseInt(row.dataset.precio);
+                    const gratis = row.dataset.gratis === 'True';
+
+                    if (precioFilter === 'gratis' && !gratis) show = false;
+                    if (precioFilter === '0-5000' && (precio > 5000 || gratis)) show = false;
+                    if (precioFilter === '5000-10000' && (precio < 5000 || precio > 10000)) show = false;
+                    if (precioFilter === '10000+' && precio < 10000) show = false;
+                }
+
+                // Filtro de transporte
+                if (transporteFilter && row.dataset.transporte !== transporteFilter) {
+                    show = false;
+                }
+
+                row.style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            });
+
+            // Actualizar contador
+            document.getElementById('visibleCount').textContent = visibleCount;
+        }
+
+        // Reiniciar filtros
+        function resetFilters() {
+            document.getElementById('filterInput').value = '';
+            document.getElementById('filterEstado').value = '';
+            document.getElementById('filterDias').value = '';
+            document.getElementById('filterPrecio').value = '';
+            document.getElementById('filterTransporte').value = '';
+            document.querySelectorAll('.region-card').forEach(c => c.classList.remove('selected'));
+            selectedRegion = null;
+            resetTableOrder();  // También resetear orden
+            applyFilters();
+        }
+
+        // Guardar orden original
+        const originalOrder = Array.from(document.querySelectorAll('#comunasTable tbody tr'));
+
+        // Ordenamiento de tabla
+        function sortTable(column, type) {
+            const tbody = document.querySelector('#comunasTable tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr')).filter(r => !r.classList.contains('region-header-row'));
+
+            // Si ya está ordenado por esta columna en desc, resetear al orden original
+            if (currentSort.column === column && currentSort.direction === 'desc') {
+                resetTableOrder();
+                return;
+            }
+
+            // Toggle dirección si es la misma columna
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = 'asc';
+            }
+
+            // Ordenar
+            rows.sort((a, b) => {
+                let aVal = a.dataset[column];
+                let bVal = b.dataset[column];
+
+                if (type === 'number') {
+                    aVal = parseFloat(aVal) || 999999;
+                    bVal = parseFloat(bVal) || 999999;
+                    return currentSort.direction === 'asc' ? aVal - bVal : bVal - aVal;
+                } else {
+                    aVal = (aVal || '').toLowerCase();
+                    bVal = (bVal || '').toLowerCase();
+                    if (currentSort.direction === 'asc') {
+                        return aVal.localeCompare(bVal);
+                    } else {
+                        return bVal.localeCompare(aVal);
+                    }
+                }
+            });
+
+            // Limpiar y re-insertar filas
+            tbody.innerHTML = '';
+            let lastRegion = null;
+
+            rows.forEach(row => {
+                // Re-insertar headers de región si es necesario
+                const region = row.dataset.region;
+                if (region !== lastRegion) {
+                    lastRegion = region;
+                    const regionHeader = document.createElement('tr');
+                    regionHeader.className = 'region-header-row';
+                    regionHeader.innerHTML = `<td colspan="8"><strong>${getRegionName(region)}</strong></td>`;
+                    tbody.appendChild(regionHeader);
+                }
+                tbody.appendChild(row);
+            });
+
+            // Actualizar indicadores visuales
+            updateSortIndicators();
+        }
+
+        // Resetear tabla al orden original (por región)
+        function resetTableOrder() {
+            const tbody = document.querySelector('#comunasTable tbody');
+            tbody.innerHTML = '';
+
+            // Restaurar orden original
+            originalOrder.forEach(row => {
+                tbody.appendChild(row.cloneNode(true));
+            });
+
+            // Resetear estado de ordenamiento
+            currentSort = { column: null, direction: 'asc' };
+
+            // Limpiar indicadores visuales
+            updateSortIndicators();
+        }
+
+        // Actualizar indicadores visuales de ordenamiento
+        function updateSortIndicators() {
+            document.querySelectorAll('th.sortable').forEach(th => {
+                th.classList.remove('sort-asc', 'sort-desc');
+            });
+
+            if (currentSort.column) {
+                const activeHeader = document.querySelector(`th[data-column="${currentSort.column}"]`);
+                if (activeHeader) {
+                    activeHeader.classList.add(currentSort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
+                }
+            }
+        }
+
+        // Obtener nombre de región (simplificado)
+        function getRegionName(regionId) {
+            const names = {
+                '1': 'Tarapacá', '2': 'Antofagasta', '3': 'Atacama', '4': 'Coquimbo',
+                '5': 'Valparaíso', '6': "O'Higgins", '7': 'Maule', '8': 'Biobío',
+                '9': 'Araucanía', '10': 'Los Lagos', '11': 'Aysén', '12': 'Magallanes',
+                '13': 'Metropolitana', '14': 'Los Ríos', '15': 'Arica y Parinacota', '16': 'Ñuble'
+            };
+            return names[regionId] || `Región ${regionId}`;
+        }
+
+        // Event listeners
+        document.getElementById('filterInput').addEventListener('input', applyFilters);
+        document.getElementById('filterEstado').addEventListener('change', applyFilters);
+        document.getElementById('filterDias').addEventListener('change', applyFilters);
+        document.getElementById('filterPrecio').addEventListener('change', applyFilters);
+        document.getElementById('filterTransporte').addEventListener('change', applyFilters);
+
+        // Click en headers para ordenar
+        document.querySelectorAll('th.sortable').forEach(th => {
+            th.addEventListener('click', function() {
+                const column = this.dataset.column;
+                const type = this.dataset.type || 'string';
+                sortTable(column, type);
             });
         });
-        
+
         // Click en región para filtrar
         document.querySelectorAll('.region-card').forEach(card => {
             card.addEventListener('click', function() {
                 const regionId = this.dataset.region;
                 const isSelected = this.classList.contains('selected');
-                
+
                 // Toggle selección
                 document.querySelectorAll('.region-card').forEach(c => c.classList.remove('selected'));
+
                 if (!isSelected) {
                     this.classList.add('selected');
+                    selectedRegion = regionId;
+                } else {
+                    selectedRegion = null;
                 }
-                
-                // Filtrar tabla
-                const rows = document.querySelectorAll('#comunasTable tbody tr');
-                rows.forEach(row => {
-                    if (isSelected || !regionId) {
-                        row.style.display = '';
-                    } else {
-                        const rowRegion = row.dataset.region;
-                        row.style.display = (rowRegion === regionId || row.classList.contains('region-header-row')) ? '' : 'none';
-                    }
-                });
+
+                applyFilters();
             });
         });
-        
+
         // Toggle formulario de producto
         function toggleProductForm() {
             const form = document.getElementById('productForm');
@@ -4378,18 +4714,17 @@
                 updateWorkflowUrl();
             }
         }
-        
+
         // Actualizar URL del workflow
         function updateWorkflowUrl() {
             const producto = document.getElementById('inputProducto').value;
             const total = document.getElementById('inputTotal').value;
             const btn = document.getElementById('runWorkflowBtn');
-            // URL para disparar workflow con parámetros
             const repoUrl = 'https://github.com/aincatoni/pcfactory-monitor/actions/workflows/monitor.yml';
             btn.href = repoUrl;
             btn.title = `Producto: ${producto}, Total: ${total}`;
         }
-        
+
         // Escuchar cambios en inputs
         document.getElementById('inputProducto')?.addEventListener('input', updateWorkflowUrl);
         document.getElementById('inputTotal')?.addEventListener('input', updateWorkflowUrl);
