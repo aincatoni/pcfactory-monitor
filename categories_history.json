@@ -1,16 +1,10 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-20T23:45:20.965332+00:00",
+      "timestamp": "2026-01-20T23:57:39.284609+00:00",
       "total_categories": 386,
       "added": [],
-      "removed": [
-        {
-          "id": "558",
-          "nombre": "Lápices Tablets",
-          "timestamp": "2026-01-20T23:45:20.965332+00:00"
-        }
-      ]
+      "removed": []
     }
   ]
 }
