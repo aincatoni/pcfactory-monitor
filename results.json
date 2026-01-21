@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/21304d708d103c8dc718a860019c557ff8743707",
         "commitHash": "21304d708d103c8dc718a860019c557ff8743707",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21224725984"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21228687505"
       },
       "gitCommit": {
         "shortHash": "21304d7",
@@ -68,7 +68,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/21304d708d103c8dc718a860019c557ff8743707",
             "commitHash": "21304d708d103c8dc718a860019c557ff8743707",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21224725984"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21228687505"
           },
           "gitCommit": {
             "shortHash": "21304d7",
@@ -137,7 +137,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57693,
+                      "duration": 56850,
                       "errors": [],
                       "stdout": [
                         {
@@ -149,7 +149,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T20:32:35.026Z",
+                      "startTime": "2026-01-21T22:57:45.875Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,7 +184,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56521,
+                      "duration": 56221,
                       "errors": [],
                       "stdout": [
                         {
@@ -196,7 +196,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T20:33:36.562Z",
+                      "startTime": "2026-01-21T22:58:44.055Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -230,8 +230,128 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 56840,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29",
+                        "location": {
+                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                          "column": 29,
+                          "line": 388
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 386 |\u001b[39m       \n \u001b[90m 387 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 388 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 389 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 390 |\u001b[39m   }\n \u001b[90m 391 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                            "column": 29,
+                            "line": 388
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  386 |       \n  387 |       // Assertion final\n> 388 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  389 |     });\n  390 |   }\n  391 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
+                        },
+                        {
+                          "text": "   Video copiado: videos/video-ETPAY.webm\n"
+                        },
+                        {
+                          "text": "   Video copiado: videos/video-BANCOESTADO.webm\n"
+                        },
+                        {
+                          "text": "   Video copiado: videos/video-CLICKTOPAY.webm\n"
+                        },
+                        {
+                          "text": "\n========================================\n"
+                        },
+                        {
+                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
+                        },
+                        {
+                          "text": "========================================\n"
+                        },
+                        {
+                          "text": "Timestamp: 2026-01-21T22:57:45.852Z\n"
+                        },
+                        {
+                          "text": "Total: 3\n"
+                        },
+                        {
+                          "text": "✅ Passed: 2\n"
+                        },
+                        {
+                          "text": "❌ Failed: 1\n"
+                        },
+                        {
+                          "text": "----------------------------------------\n"
+                        },
+                        {
+                          "text": "✅ Transferencia ETPay: PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/qt9Pt5hbh9K5NrosfAdVLVNRKctUdM2O3CXiKeTVHiPiXmyDc9QwIy08B3J9lPrJ\n"
+                        },
+                        {
+                          "text": "   Video: videos/video-ETPAY.webm\n"
+                        },
+                        {
+                          "text": "✅ Compraquí: PASSED\n"
+                        },
+                        {
+                          "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
+                        },
+                        {
+                          "text": "   Video: videos/video-BANCOESTADO.webm\n"
+                        },
+                        {
+                          "text": "❌ Mastercard Click to Pay: FAILED\n"
+                        },
+                        {
+                          "text": "   Video: videos/video-CLICKTOPAY.webm\n"
+                        },
+                        {
+                          "text": "   Error: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('label[for=\"withdraw\"], input#withdraw, div.method-option:has-text(\"Retiro en tienda\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <div data-v-d756ce10=\"\" class=\"method-option d-flex align-items-start justify-content-between withdraw\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "========================================\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-21T22:59:40.286Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
+                        "column": 29,
+                        "line": 388
+                      }
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56237,
+                      "duration": 58995,
                       "errors": [],
                       "stdout": [
                         {
@@ -242,19 +362,24 @@
                         }
                       ],
                       "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-21T20:34:33.096Z",
+                      "retry": 1,
+                      "startTime": "2026-01-21T23:00:37.700Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/video.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry1/trace.zip"
                         }
                       ]
                     }
                   ],
-                  "status": "expected"
+                  "status": "flaky"
                 }
               ],
               "id": "3f2683f08aeb6c605225-d56cad27cc6e083b82f3",
@@ -275,10 +400,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57082,
+                      "duration": 56871,
                       "errors": [],
                       "stdout": [
                         {
@@ -290,7 +415,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T20:35:29.345Z",
+                      "startTime": "2026-01-21T23:01:37.486Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -322,10 +447,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
+                      "workerIndex": 1,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56135,
+                      "duration": 57017,
                       "errors": [],
                       "stdout": [
                         {
@@ -333,12 +458,6 @@
                         },
                         {
                           "text": "    Haciendo clic en botón Pagar...\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-ETPAY.webm\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-BANCOESTADO.webm\n"
                         },
                         {
                           "text": "   Video copiado: videos/video-CLICKTOPAY.webm\n"
@@ -359,37 +478,19 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-21T20:32:35.001Z\n"
+                          "text": "Timestamp: 2026-01-21T23:00:37.676Z\n"
                         },
                         {
-                          "text": "Total: 5\n"
+                          "text": "Total: 3\n"
                         },
                         {
-                          "text": "✅ Passed: 5\n"
+                          "text": "✅ Passed: 3\n"
                         },
                         {
                           "text": "❌ Failed: 0\n"
                         },
                         {
                           "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "✅ Transferencia ETPay: PASSED\n"
-                        },
-                        {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/XnzSaDoeL0xShN3smZkAfYdUbD6lGy1OhGKnFFxqANMBUv4v70LCXwXP6Jy2iUsE\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-ETPAY.webm\n"
-                        },
-                        {
-                          "text": "✅ Compraquí: PASSED\n"
-                        },
-                        {
-                          "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-BANCOESTADO.webm\n"
                         },
                         {
                           "text": "✅ Mastercard Click to Pay: PASSED\n"
@@ -424,7 +525,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T20:36:26.438Z",
+                      "startTime": "2026-01-21T23:02:34.370Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -450,11 +551,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-21T20:32:34.382Z",
-    "duration": 288256.42100000003,
-    "expected": 5,
+    "startTime": "2026-01-21T22:57:45.209Z",
+    "duration": 346247.83300000004,
+    "expected": 4,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 0
+    "flaky": 1
   }
 }
