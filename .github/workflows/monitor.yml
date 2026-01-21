@@ -173,6 +173,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Download previous payment history
+        run: |
+          mkdir -p ./output
+          curl -f -o ./output/payment_history.json https://aincatoni.github.io/pcfactory-monitor/payment_history.json || echo "No previous payment history found"
+        continue-on-error: true
       - name: Generate payment dashboard
         run: |
           python payment_dashboard.py \
@@ -219,6 +224,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Download previous login history
+        run: |
+          mkdir -p ./output
+          curl -f -o ./output/login-history.json https://aincatoni.github.io/pcfactory-monitor/login-history.json || echo "No previous login history found"
+        continue-on-error: true
       - name: Generate login dashboard
         run: |
           python login/scripts/login_dashboard.py \
