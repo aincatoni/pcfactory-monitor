@@ -430,6 +430,243 @@
         }
       ],
       "removed": []
+    },
+    {
+      "timestamp": "2026-01-21T21:17:13.986114+00:00",
+      "total_categories": 387,
+      "added": [],
+      "removed": [
+        {
+          "id": "726",
+          "nombre": "Accesorios Corte y Estampado",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "786",
+          "nombre": "Accesorios de Drones",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "816",
+          "nombre": "Accesorios de Impresoras",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "733",
+          "nombre": "Accesorios de Proyectores",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1021",
+          "nombre": "Aire Acondicionado Portátil",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1026",
+          "nombre": "Aires Acondicionados",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "440",
+          "nombre": "BLU-RAY",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "837",
+          "nombre": "CPU AMD sAM4",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1071",
+          "nombre": "CPU Intel s1200",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "240",
+          "nombre": "Capturadoras de Video",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "621",
+          "nombre": "Cámaras Reflex",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "652",
+          "nombre": "Cámaras para Automóvil",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1100",
+          "nombre": "Códigos Xbox",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "928",
+          "nombre": "Desktops Gamer",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "421",
+          "nombre": "Discos Notebooks",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "701",
+          "nombre": "Drones",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "943",
+          "nombre": "Filtros",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1078",
+          "nombre": "Filtros de Pantalla",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1138",
+          "nombre": "Focos Energía Solar",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "677",
+          "nombre": "GPS Deportivos",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "16",
+          "nombre": "Gabinetes con Fuente",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1314",
+          "nombre": "Hidrolavadoras",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1312",
+          "nombre": "Inmovilizadores Automóvil",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1331",
+          "nombre": "Internet Satelital",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "32",
+          "nombre": "Juegos PC",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1052",
+          "nombre": "Kits de Electrónica",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "600",
+          "nombre": "Lámparas",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "558",
+          "nombre": "Lápices Tablets",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "798",
+          "nombre": "Microcomponentes",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1082",
+          "nombre": "Micrófonos Reuniones",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "825",
+          "nombre": "POS Accesorios",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "824",
+          "nombre": "POS Monitores",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "838",
+          "nombre": "Placas Madres AMD sAM4",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1072",
+          "nombre": "Placas Madres Intel s1200",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "394",
+          "nombre": "Rackmount",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1317",
+          "nombre": "Receptores Bluetooth Automóvil",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "751",
+          "nombre": "Riego Inteligente",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1007",
+          "nombre": "Sillas Gamer",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "784",
+          "nombre": "Smartband",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "930",
+          "nombre": "Splitters y Switches de Video",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "455",
+          "nombre": "Tarjetas Gráficas Profesionales",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "730",
+          "nombre": "Tarjetas SIM",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "729",
+          "nombre": "Teclado para Celulares",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1084",
+          "nombre": "Teléfonos IP",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "566",
+          "nombre": "Trípodes",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        },
+        {
+          "id": "1081",
+          "nombre": "Webcams Reuniones",
+          "timestamp": "2026-01-21T21:17:13.986114+00:00"
+        }
+      ]
     }
   ]
 }
