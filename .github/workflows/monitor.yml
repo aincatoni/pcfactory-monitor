@@ -49,10 +49,11 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Download previous CSV for comparison
+      - name: Download previous data for comparison
         run: |
           mkdir -p ./output
           curl -f -o ./output/categories_status.csv https://aincatoni.github.io/pcfactory-monitor/categories_status.csv || echo "No previous CSV found"
+          curl -f -o ./output/categories_history.json https://aincatoni.github.io/pcfactory-monitor/categories_history.json || echo "No previous history found"
         continue-on-error: true
       - name: Run category monitor
         run: python monitor.py --workers 5 --output-dir ./output
