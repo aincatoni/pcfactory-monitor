@@ -345,7 +345,7 @@
                     <span>Medios de Pago</span>
                 </div>
             </div>
-            <div class="timestamp">21/01/2026 20:00:37 Chile</div>
+            <div class="timestamp">21/01/2026 20:25:58 Chile</div>
         </header>
         
         <nav class="nav-links">
@@ -355,9 +355,9 @@
             <a href="login.html" class="nav-link">🔐 Login</a>
         </nav>
         
-        <div class="status-banner warning">
+        <div class="status-banner healthy">
             <div class="status-indicator"></div>
-            <span class="status-text">2 medio(s) sin verificar</span>
+            <span class="status-text">Todos los medios de pago operativos</span>
         </div>
         
         <div class="stats-grid">
@@ -366,11 +366,11 @@
                 <div class="stat-label">Total Medios</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value green">3</div>
+                <div class="stat-value green">5</div>
                 <div class="stat-label">Operativos</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value yellow">2</div>
+                <div class="stat-value ">0</div>
                 <div class="stat-label">Con Problemas</div>
             </div>
             <div class="stat-card">
@@ -385,6 +385,60 @@
         <div class="payment-card status-ok">
             <div class="payment-header">
                 <span class="status-icon">✅</span>
+                <h3>Transferencia ETPay</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-ok">Operativo</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">100.0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">33.9s</span>
+                    </div>
+                </div>
+                
+                <div class="gateway-url">Gateway: pmt-pcfactory.etpayment.com</div>
+                
+                <button class="video-btn" onclick="openVideoModal('videos/video-ETPAY.webm', 'Transferencia ETPay')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+            
+            </div>
+        </div>
+        
+        <div class="payment-card status-ok">
+            <div class="payment-header">
+                <span class="status-icon">✅</span>
+                <h3>Compraquí</h3>
+            </div>
+            <div class="payment-body">
+                <div class="status-badge status-ok">Operativo</div>
+                <div class="payment-stats">
+                    <div class="stat">
+                        <span class="stat-label">Uptime 24h</span>
+                        <span class="stat-value">100.0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Duración</span>
+                        <span class="stat-value">33.9s</span>
+                    </div>
+                </div>
+                
+                <div class="gateway-url">Gateway: pagos.compraqui.cl</div>
+                
+                <button class="video-btn" onclick="openVideoModal('videos/video-BANCOESTADO.webm', 'Compraquí')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+            
+            </div>
+        </div>
+        
+        <div class="payment-card status-ok">
+            <div class="payment-header">
+                <span class="status-icon">✅</span>
                 <h3>Mastercard Click to Pay</h3>
             </div>
             <div class="payment-body">
@@ -396,7 +450,7 @@
                     </div>
                     <div class="stat">
                         <span class="stat-label">Duración</span>
-                        <span class="stat-value">35.8s</span>
+                        <span class="stat-value">33.9s</span>
                     </div>
                 </div>
                 
@@ -423,7 +477,7 @@
                     </div>
                     <div class="stat">
                         <span class="stat-label">Duración</span>
-                        <span class="stat-value">34.5s</span>
+                        <span class="stat-value">33.6s</span>
                     </div>
                 </div>
                 
@@ -450,7 +504,7 @@
                     </div>
                     <div class="stat">
                         <span class="stat-label">Duración</span>
-                        <span class="stat-value">34.6s</span>
+                        <span class="stat-value">34.5s</span>
                     </div>
                 </div>
                 
@@ -460,48 +514,6 @@
                     <span class="video-icon">🎬</span> Ver video
                 </button>
             
-            </div>
-        </div>
-        
-        <div class="payment-card status-missing">
-            <div class="payment-header">
-                <span class="status-icon">⚠️</span>
-                <h3>Transferencia ETPay</h3>
-            </div>
-            <div class="payment-body">
-                <div class="status-badge status-missing">Sin datos</div>
-                <div class="payment-stats">
-                    <div class="stat">
-                        <span class="stat-label">Uptime 24h</span>
-                        <span class="stat-value">0%</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Duración</span>
-                        <span class="stat-value">--</span>
-                    </div>
-                </div>
-                <div class="error-message">No se ejecutó el test en esta verificación</div>
-            </div>
-        </div>
-        
-        <div class="payment-card status-missing">
-            <div class="payment-header">
-                <span class="status-icon">⚠️</span>
-                <h3>Compraquí</h3>
-            </div>
-            <div class="payment-body">
-                <div class="status-badge status-missing">Sin datos</div>
-                <div class="payment-stats">
-                    <div class="stat">
-                        <span class="stat-label">Uptime 24h</span>
-                        <span class="stat-value">0%</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Duración</span>
-                        <span class="stat-value">--</span>
-                    </div>
-                </div>
-                <div class="error-message">No se ejecutó el test en esta verificación</div>
             </div>
         </div>
         
@@ -521,9 +533,9 @@
                     <tbody>
                         
         <tr>
-            <td>21/01 20:00</td>
-            <td class="status-icons"><span title="Mastercard Click to Pay">✅</span> <span title="Tarjeta de Débito (Webpay)">✅</span> <span title="Tarjeta de Crédito (Webpay)">✅</span> </td>
-            <td>3/3</td>
+            <td>21/01 20:25</td>
+            <td class="status-icons"><span title="Transferencia ETPay">✅</span> <span title="Compraquí">✅</span> <span title="Mastercard Click to Pay">✅</span> <span title="Tarjeta de Débito (Webpay)">✅</span> <span title="Tarjeta de Crédito (Webpay)">✅</span> </td>
+            <td>5/5</td>
         </tr>
         
                     </tbody>
