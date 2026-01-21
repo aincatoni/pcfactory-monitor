@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9872645a5c8c2d6b21ff78cc983f16e024ac0849",
-        "commitHash": "9872645a5c8c2d6b21ff78cc983f16e024ac0849",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21208501074"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/21304d708d103c8dc718a860019c557ff8743707",
+        "commitHash": "21304d708d103c8dc718a860019c557ff8743707",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21209058470"
       },
       "gitCommit": {
-        "shortHash": "9872645",
-        "hash": "9872645a5c8c2d6b21ff78cc983f16e024ac0849",
-        "subject": "Add .gitignore and remove Python bytecode files",
-        "body": "Add .gitignore and remove Python bytecode files\n\n- Add comprehensive .gitignore for Python projects\n- Remove __pycache__/*.pyc files from repository\n- These files are auto-generated and should not be tracked\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\n",
+        "shortHash": "21304d7",
+        "hash": "21304d708d103c8dc718a860019c557ff8743707",
+        "subject": "feat: Enhance data comparison by downloading categories history JSON",
+        "body": "feat: Enhance data comparison by downloading categories history JSON\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1768949621000
+          "time": 1768996797000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1768949621000
+          "time": 1768996797000
         },
         "branch": "main"
       },
@@ -67,24 +67,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9872645a5c8c2d6b21ff78cc983f16e024ac0849",
-            "commitHash": "9872645a5c8c2d6b21ff78cc983f16e024ac0849",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21208501074"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/21304d708d103c8dc718a860019c557ff8743707",
+            "commitHash": "21304d708d103c8dc718a860019c557ff8743707",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21209058470"
           },
           "gitCommit": {
-            "shortHash": "9872645",
-            "hash": "9872645a5c8c2d6b21ff78cc983f16e024ac0849",
-            "subject": "Add .gitignore and remove Python bytecode files",
-            "body": "Add .gitignore and remove Python bytecode files\n\n- Add comprehensive .gitignore for Python projects\n- Remove __pycache__/*.pyc files from repository\n- These files are auto-generated and should not be tracked\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\n",
+            "shortHash": "21304d7",
+            "hash": "21304d708d103c8dc718a860019c557ff8743707",
+            "subject": "feat: Enhance data comparison by downloading categories history JSON",
+            "body": "feat: Enhance data comparison by downloading categories history JSON\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1768949621000
+              "time": 1768996797000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1768949621000
+              "time": 1768996797000
             },
             "branch": "main"
           },
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1901,
+                      "duration": 2019,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T11:51:34.611Z",
+                      "startTime": "2026-01-21T12:11:10.300Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -178,12 +178,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3969,
+                      "duration": 3660,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T11:51:37.346Z",
+                      "startTime": "2026-01-21T12:11:12.539Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -218,12 +218,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5756,
+                      "duration": 4534,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T11:51:41.328Z",
+                      "startTime": "2026-01-21T12:11:16.212Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -258,12 +258,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5368,
+                      "duration": 4676,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T11:51:47.095Z",
+                      "startTime": "2026-01-21T12:11:20.759Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -298,12 +298,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11832,
+                      "duration": 10604,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T11:51:52.475Z",
+                      "startTime": "2026-01-21T12:11:25.450Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -338,7 +338,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4977,
+                      "duration": 4467,
                       "errors": [],
                       "stdout": [
                         {
@@ -359,7 +359,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-21T11:52:04.317Z",
+                      "startTime": "2026-01-21T12:11:36.064Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -385,8 +385,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-21T11:51:33.912Z",
-    "duration": 35459.532,
+    "startTime": "2026-01-21T12:11:09.596Z",
+    "duration": 31014.339,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
