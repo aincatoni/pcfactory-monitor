@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/21304d708d103c8dc718a860019c557ff8743707",
         "commitHash": "21304d708d103c8dc718a860019c557ff8743707",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21257401301"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21260058457"
       },
       "gitCommit": {
         "shortHash": "21304d7",
@@ -69,7 +69,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/21304d708d103c8dc718a860019c557ff8743707",
             "commitHash": "21304d708d103c8dc718a860019c557ff8743707",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21257401301"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21260058457"
           },
           "gitCommit": {
             "shortHash": "21304d7",
@@ -138,12 +138,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2119,
+                      "duration": 2034,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-22T17:03:16.973Z",
+                      "startTime": "2026-01-22T18:26:28.634Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -177,98 +177,24 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 38383,
-                      "error": {
-                        "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/\", waiting until \"domcontentloaded\"\u001b[22m\n",
-                        "stack": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/\", waiting until \"domcontentloaded\"\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:93:18",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                          "column": 18,
-                          "line": 93
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 91 |\u001b[39m     \n \u001b[90m 92 |\u001b[39m     \u001b[36mtry\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mCONFIG\u001b[39m\u001b[33m.\u001b[39mbaseUrl\u001b[33m,\u001b[39m { waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       \n \u001b[90m 96 |\u001b[39m       \u001b[90m// Buscar el botón de login en el header\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                            "column": 18,
-                            "line": 93
-                          },
-                          "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/\", waiting until \"domcontentloaded\"\u001b[22m\n\n\n  91 |     \n  92 |     try {\n> 93 |       await page.goto(CONFIG.baseUrl, { waitUntil: 'domcontentloaded' });\n     |                  ^\n  94 |       await page.waitForTimeout(2000);\n  95 |       \n  96 |       // Buscar el botón de login en el header\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:93:18"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n📊 Resultados del Monitor de Login:\n"
-                        },
-                        {
-                          "text": "   ✅ Pasaron: 1\n"
-                        },
-                        {
-                          "text": "   ❌ Fallaron: 1\n"
-                        },
-                        {
-                          "text": "   ⚠️ Advertencias: 0\n"
-                        },
-                        {
-                          "text": "   📈 Tasa de éxito: 50%\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-22T17:03:20.097Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-a637d-n-de-login-existe-en-header-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-a637d-n-de-login-existe-en-header-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-a637d-n-de-login-existe-en-header-chromium/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-a637d-n-de-login-existe-en-header-chromium/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                        "column": 18,
-                        "line": 93
-                      }
-                    },
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 32747,
+                      "duration": 3818,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-22T17:03:59.816Z",
+                      "retry": 0,
+                      "startTime": "2026-01-22T18:26:30.915Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-a637d-n-de-login-existe-en-header-chromium-retry1/test-finished-1.png"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-a637d-n-de-login-existe-en-header-chromium/test-finished-1.png"
                         }
                       ]
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
               "id": "badc1754af1944f68b2b-e215b0e30795f82d9bfe",
@@ -289,90 +215,26 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 58972,
-                      "error": {
-                        "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/login\", waiting until \"domcontentloaded\"\u001b[22m\n",
-                        "stack": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/login\", waiting until \"domcontentloaded\"\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:137:35",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                          "column": 35,
-                          "line": 137
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 135 |\u001b[39m     \u001b[36mtry\u001b[39m {\n \u001b[90m 136 |\u001b[39m       \u001b[90m// Navegar directamente a /login (esto redirige a auth.pcfactory.cl)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 137 |\u001b[39m       \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mCONFIG\u001b[39m\u001b[33m.\u001b[39mloginUrl\u001b[33m,\u001b[39m { \n \u001b[90m     |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 138 |\u001b[39m         waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 139 |\u001b[39m         timeout\u001b[33m:\u001b[39m \u001b[35m30000\u001b[39m \n \u001b[90m 140 |\u001b[39m       })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                            "column": 35,
-                            "line": 137
-                          },
-                          "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/login\", waiting until \"domcontentloaded\"\u001b[22m\n\n\n  135 |     try {\n  136 |       // Navegar directamente a /login (esto redirige a auth.pcfactory.cl)\n> 137 |       const response = await page.goto(CONFIG.loginUrl, { \n      |                                   ^\n  138 |         waitUntil: 'domcontentloaded',\n  139 |         timeout: 30000 \n  140 |       });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:137:35"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n📊 Resultados del Monitor de Login:\n"
-                        },
-                        {
-                          "text": "   ✅ Pasaron: 1\n"
-                        },
-                        {
-                          "text": "   ❌ Fallaron: 1\n"
-                        },
-                        {
-                          "text": "   ⚠️ Advertencias: 0\n"
-                        },
-                        {
-                          "text": "   📈 Tasa de éxito: 50%\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-22T17:04:32.655Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-7f4ea-e-login-carga-correctamente-chromium/video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-7f4ea-e-login-carga-correctamente-chromium/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                        "column": 35,
-                        "line": 137
-                      }
-                    },
-                    {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4015,
+                      "duration": 4658,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-22T17:05:32.302Z",
+                      "retry": 0,
+                      "startTime": "2026-01-22T18:26:34.757Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-7f4ea-e-login-carga-correctamente-chromium-retry1/test-finished-1.png"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-7f4ea-e-login-carga-correctamente-chromium/test-finished-1.png"
                         }
                       ]
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
               "id": "badc1754af1944f68b2b-3c2e61f2de5b534e56a3",
@@ -393,15 +255,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4017,
+                      "duration": 4204,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-22T17:05:36.407Z",
+                      "startTime": "2026-01-22T18:26:39.426Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -433,95 +295,26 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 53814,
-                      "error": {
-                        "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/login\", waiting until \"domcontentloaded\"\u001b[22m\n",
-                        "stack": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/login\", waiting until \"domcontentloaded\"\u001b[22m\n\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:248:18",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                          "column": 18,
-                          "line": 248
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 246 |\u001b[39m     \u001b[36mtry\u001b[39m {\n \u001b[90m 247 |\u001b[39m       \u001b[90m// Ir directo a login\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 248 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mCONFIG\u001b[39m\u001b[33m.\u001b[39mloginUrl\u001b[33m,\u001b[39m { waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 249 |\u001b[39m       \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 250 |\u001b[39m       \n \u001b[90m 251 |\u001b[39m       \u001b[90m// Llenar formulario\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                            "column": 18,
-                            "line": 248
-                          },
-                          "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.pcfactory.cl/login\", waiting until \"domcontentloaded\"\u001b[22m\n\n\n  246 |     try {\n  247 |       // Ir directo a login\n> 248 |       await page.goto(CONFIG.loginUrl, { waitUntil: 'domcontentloaded' });\n      |                  ^\n  249 |       await page.waitForTimeout(3000);\n  250 |       \n  251 |       // Llenar formulario\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js:248:18"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "\n📊 Resultados del Monitor de Login:\n"
-                        },
-                        {
-                          "text": "   ✅ Pasaron: 2\n"
-                        },
-                        {
-                          "text": "   ❌ Fallaron: 1\n"
-                        },
-                        {
-                          "text": "   ⚠️ Advertencias: 0\n"
-                        },
-                        {
-                          "text": "   📈 Tasa de éxito: 67%\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-22T17:05:40.437Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/tests/login.spec.js",
-                        "column": 18,
-                        "line": 248
-                      }
-                    },
-                    {
-                      "workerIndex": 3,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 9999,
+                      "duration": 10235,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-22T17:06:34.964Z",
+                      "retry": 0,
+                      "startTime": "2026-01-22T18:26:43.640Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium-retry1/test-finished-1.png"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/test-finished-1.png"
                         }
                       ]
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
               "id": "badc1754af1944f68b2b-892143c4d2add4007f24",
@@ -542,17 +335,17 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3760,
+                      "duration": 4422,
                       "errors": [],
                       "stdout": [
                         {
                           "text": "\n📊 Resultados del Monitor de Login:\n"
                         },
                         {
-                          "text": "   ✅ Pasaron: 0\n"
+                          "text": "   ✅ Pasaron: 4\n"
                         },
                         {
                           "text": "   ❌ Fallaron: 0\n"
@@ -561,12 +354,12 @@
                           "text": "   ⚠️ Advertencias: 2\n"
                         },
                         {
-                          "text": "   📈 Tasa de éxito: 0%\n"
+                          "text": "   📈 Tasa de éxito: 67%\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-22T17:06:45.051Z",
+                      "startTime": "2026-01-22T18:26:53.886Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -592,11 +385,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-22T17:03:16.268Z",
-    "duration": 212609.37,
-    "expected": 3,
+    "startTime": "2026-01-22T18:26:27.916Z",
+    "duration": 30478.057,
+    "expected": 6,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 3
+    "flaky": 0
   }
 }
