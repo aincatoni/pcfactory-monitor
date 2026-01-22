@@ -1,9 +1,9 @@
 {
   "runs": [
     {
-      "timestamp": "2026-01-22T11:58:02.567453",
+      "timestamp": "2026-01-22T17:06:49.704340",
       "status": "ok",
-      "passed": 6,
+      "passed": 3,
       "total": 6
     }
   ]
