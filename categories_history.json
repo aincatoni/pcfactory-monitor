@@ -1,18 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-21T14:49:56.039892+00:00",
-      "total_categories": 387,
-      "added": [
-        {
-          "id": 753,
-          "nombre": "Control de Acceso",
-          "timestamp": "2026-01-21T14:49:56.039892+00:00"
-        }
-      ],
-      "removed": []
-    },
-    {
       "timestamp": "2026-01-21T15:18:40.269151+00:00",
       "total_categories": 387,
       "added": [],
@@ -724,6 +712,12 @@
     },
     {
       "timestamp": "2026-01-22T07:55:24.488905+00:00",
+      "total_categories": 387,
+      "added": [],
+      "removed": []
+    },
+    {
+      "timestamp": "2026-01-22T08:29:42.673290+00:00",
       "total_categories": 387,
       "added": [],
       "removed": []
