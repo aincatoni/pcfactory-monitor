@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/21304d708d103c8dc718a860019c557ff8743707",
-        "commitHash": "21304d708d103c8dc718a860019c557ff8743707",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21295012331"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/bc569bc799f59167051d579a968620416944971a",
+        "commitHash": "bc569bc799f59167051d579a968620416944971a",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21298883019"
       },
       "gitCommit": {
-        "shortHash": "21304d7",
-        "hash": "21304d708d103c8dc718a860019c557ff8743707",
-        "subject": "feat: Enhance data comparison by downloading categories history JSON",
-        "body": "feat: Enhance data comparison by downloading categories history JSON\n",
+        "shortHash": "bc569bc",
+        "hash": "bc569bc799f59167051d579a968620416944971a",
+        "subject": "feat: Add functionality to download previous payment and login history",
+        "body": "feat: Add functionality to download previous payment and login history\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1768996797000
+          "time": 1768998175000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1768996797000
+          "time": 1768998175000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/21304d708d103c8dc718a860019c557ff8743707",
-            "commitHash": "21304d708d103c8dc718a860019c557ff8743707",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21295012331"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/bc569bc799f59167051d579a968620416944971a",
+            "commitHash": "bc569bc799f59167051d579a968620416944971a",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21298883019"
           },
           "gitCommit": {
-            "shortHash": "21304d7",
-            "hash": "21304d708d103c8dc718a860019c557ff8743707",
-            "subject": "feat: Enhance data comparison by downloading categories history JSON",
-            "body": "feat: Enhance data comparison by downloading categories history JSON\n",
+            "shortHash": "bc569bc",
+            "hash": "bc569bc799f59167051d579a968620416944971a",
+            "subject": "feat: Add functionality to download previous payment and login history",
+            "body": "feat: Add functionality to download previous payment and login history\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1768996797000
+              "time": 1768998175000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1768996797000
+              "time": 1768998175000
             },
             "branch": "main"
           },
@@ -138,7 +138,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57215,
+                      "duration": 56735,
                       "errors": [],
                       "stdout": [
                         {
@@ -150,7 +150,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T17:26:33.873Z",
+                      "startTime": "2026-01-23T19:41:41.603Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -185,7 +185,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57073,
+                      "duration": 56442,
                       "errors": [],
                       "stdout": [
                         {
@@ -197,7 +197,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T17:27:32.483Z",
+                      "startTime": "2026-01-23T19:42:39.225Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -232,7 +232,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57001,
+                      "duration": 56527,
                       "errors": [],
                       "stdout": [
                         {
@@ -244,7 +244,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T17:28:29.569Z",
+                      "startTime": "2026-01-23T19:43:35.679Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -279,7 +279,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56859,
+                      "duration": 56521,
                       "errors": [],
                       "stdout": [
                         {
@@ -291,7 +291,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T17:29:26.583Z",
+                      "startTime": "2026-01-23T19:44:32.218Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -326,7 +326,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57352,
+                      "duration": 56774,
                       "errors": [],
                       "stdout": [
                         {
@@ -360,7 +360,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-23T17:26:33.849Z\n"
+                          "text": "Timestamp: 2026-01-23T19:41:41.574Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -378,7 +378,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/WkplwTKDm5ujYNQONDoJqVcCPrewVxoHBX8hr4qBrhR9B9FbExPS2RZWzpEeQ35P\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/e5rifpvnNLlDqGLTnCgy6qoGJhxbwW6wtCJvgu3JP0xjWYvQRk4v1wJcxlpFjpBJ\n"
                         },
                         {
                           "text": "   Video: videos/video-ETPAY.webm\n"
@@ -425,7 +425,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T17:30:23.454Z",
+                      "startTime": "2026-01-23T19:45:28.751Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -451,8 +451,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-23T17:26:32.733Z",
-    "duration": 288158.16599999997,
+    "startTime": "2026-01-23T19:41:40.476Z",
+    "duration": 285130.049,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
