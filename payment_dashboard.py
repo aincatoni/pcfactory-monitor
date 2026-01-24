@@ -749,8 +749,24 @@ def main():
     
     if results.get("results"):
         current_timestamp = results.get("timestamp")
-        # Verificar si ya existe una entrada con este timestamp para evitar duplicados
-        existing = any(entry.get("timestamp") == current_timestamp for entry in history)
+        # Verificar si ya existe una entrada en el mismo minuto para evitar duplicados
+        try:
+            current_dt = datetime.fromisoformat(current_timestamp.replace('Z', '+00:00'))
+            current_minute = current_dt.replace(second=0, microsecond=0).isoformat()
+            existing = False
+            for entry in history:
+                try:
+                    entry_dt = datetime.fromisoformat(entry.get("timestamp", "").replace('Z', '+00:00'))
+                    entry_minute = entry_dt.replace(second=0, microsecond=0).isoformat()
+                    if entry_minute == current_minute:
+                        existing = True
+                        break
+                except:
+                    continue
+        except:
+            # Si falla el parsing, usar comparación exacta como fallback
+            existing = any(entry.get("timestamp") == current_timestamp for entry in history)
+
         if not existing:
             history.append({
                 "timestamp": current_timestamp,

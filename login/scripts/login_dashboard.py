@@ -583,9 +583,12 @@ def generate_html(results, history):
             background: var(--bg-card);
             border-radius: 12px;
             padding: 1.5rem;
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 90vw;
+            max-height: 90vh;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }}
         .video-modal-header {{
             display: flex;
@@ -608,8 +611,11 @@ def generate_html(results, history):
         .video-modal-close:hover {{ color: var(--text-primary); }}
         .video-modal video {{
             width: 100%;
+            height: auto;
+            max-height: calc(90vh - 120px);
             max-width: 1200px;
             border-radius: 8px;
+            object-fit: contain;
         }}
 
         .footer {{ text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }}
@@ -812,11 +818,27 @@ def main():
     # Cargar historial
     history = load_history(history_path)
 
-    # Agregar ejecución actual al historial (evitar duplicados)
+    # Agregar ejecución actual al historial (evitar duplicados por minuto)
     if results.get('tests'):
         current_timestamp = results.get('timestamp')
-        # Verificar si ya existe una entrada con este timestamp
-        existing = any(run.get('timestamp') == current_timestamp for run in history['runs'])
+        # Verificar si ya existe una entrada en el mismo minuto (truncar a minuto para comparar)
+        try:
+            current_dt = datetime.fromisoformat(current_timestamp.replace('Z', '+00:00'))
+            current_minute = current_dt.replace(second=0, microsecond=0).isoformat()
+            existing = False
+            for run in history['runs']:
+                try:
+                    run_dt = datetime.fromisoformat(run.get('timestamp', '').replace('Z', '+00:00'))
+                    run_minute = run_dt.replace(second=0, microsecond=0).isoformat()
+                    if run_minute == current_minute:
+                        existing = True
+                        break
+                except:
+                    continue
+        except:
+            # Si falla el parsing, usar comparación exacta como fallback
+            existing = any(run.get('timestamp') == current_timestamp for run in history['runs'])
+
         if not existing:
             history['runs'].append({
                 'timestamp': current_timestamp,
