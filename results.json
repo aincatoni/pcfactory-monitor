@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5420f281cf0d71af0082e0e54f7112f580cfd713",
-        "commitHash": "5420f281cf0d71af0082e0e54f7112f580cfd713",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21318796034"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+        "commitHash": "05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320148232"
       },
       "gitCommit": {
-        "shortHash": "5420f28",
-        "hash": "5420f281cf0d71af0082e0e54f7112f580cfd713",
-        "subject": "fix: Preserve folder structure when copying login videos and adjust video configuration",
-        "body": "fix: Preserve folder structure when copying login videos and adjust video configuration\n",
+        "shortHash": "05b1eb1",
+        "hash": "05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+        "subject": "fix: Improve duplicate entry prevention in history for login and payment dashboards",
+        "body": "fix: Improve duplicate entry prevention in history for login and payment dashboards\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769267952000
+          "time": 1769281607000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769267952000
+          "time": 1769281607000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5420f281cf0d71af0082e0e54f7112f580cfd713",
-            "commitHash": "5420f281cf0d71af0082e0e54f7112f580cfd713",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21318796034"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+            "commitHash": "05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320148232"
           },
           "gitCommit": {
-            "shortHash": "5420f28",
-            "hash": "5420f281cf0d71af0082e0e54f7112f580cfd713",
-            "subject": "fix: Preserve folder structure when copying login videos and adjust video configuration",
-            "body": "fix: Preserve folder structure when copying login videos and adjust video configuration\n",
+            "shortHash": "05b1eb1",
+            "hash": "05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+            "subject": "fix: Improve duplicate entry prevention in history for login and payment dashboards",
+            "body": "fix: Improve duplicate entry prevention in history for login and payment dashboards\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769267952000
+              "time": 1769281607000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769267952000
+              "time": 1769281607000
             },
             "branch": "main"
           },
@@ -138,7 +138,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57883,
+                      "duration": 56543,
                       "errors": [],
                       "stdout": [
                         {
@@ -150,7 +150,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:25:07.711Z",
+                      "startTime": "2026-01-24T19:10:28.414Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -185,7 +185,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57406,
+                      "duration": 56137,
                       "errors": [],
                       "stdout": [
                         {
@@ -197,7 +197,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:26:06.754Z",
+                      "startTime": "2026-01-24T19:11:25.780Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -232,7 +232,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57142,
+                      "duration": 56334,
                       "errors": [],
                       "stdout": [
                         {
@@ -244,7 +244,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:27:04.171Z",
+                      "startTime": "2026-01-24T19:12:21.934Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -279,7 +279,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56642,
+                      "duration": 56552,
                       "errors": [],
                       "stdout": [
                         {
@@ -291,7 +291,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:28:01.324Z",
+                      "startTime": "2026-01-24T19:13:18.280Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -326,7 +326,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56752,
+                      "duration": 56952,
                       "errors": [],
                       "stdout": [
                         {
@@ -360,7 +360,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-24T17:25:07.683Z\n"
+                          "text": "Timestamp: 2026-01-24T19:10:28.389Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -378,7 +378,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/rEQkEIOR5CZ0cMcU0XmKvcTElQi5HhNL0g1gfEsTBiwIIijMzBxJ5yABjWNV13Uy\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/x6gZhMdRO2GaEBj7e4MYmZzNdaOzNYZZIyrVJwa8VEi8TwZG9S51K6umG2OMXMVZ\n"
                         },
                         {
                           "text": "   Video: videos/video-ETPAY.webm\n"
@@ -425,7 +425,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:28:57.977Z",
+                      "startTime": "2026-01-24T19:14:14.845Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -451,8 +451,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T17:25:06.519Z",
-    "duration": 288291.756,
+    "startTime": "2026-01-24T19:10:27.290Z",
+    "duration": 284590.785,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,

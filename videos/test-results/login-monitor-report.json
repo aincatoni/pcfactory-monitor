@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5420f281cf0d71af0082e0e54f7112f580cfd713",
-        "commitHash": "5420f281cf0d71af0082e0e54f7112f580cfd713",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21318796034"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+        "commitHash": "05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320148232"
       },
       "gitCommit": {
-        "shortHash": "5420f28",
-        "hash": "5420f281cf0d71af0082e0e54f7112f580cfd713",
-        "subject": "fix: Preserve folder structure when copying login videos and adjust video configuration",
-        "body": "fix: Preserve folder structure when copying login videos and adjust video configuration\n",
+        "shortHash": "05b1eb1",
+        "hash": "05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+        "subject": "fix: Improve duplicate entry prevention in history for login and payment dashboards",
+        "body": "fix: Improve duplicate entry prevention in history for login and payment dashboards\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769267952000
+          "time": 1769281607000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769267952000
+          "time": 1769281607000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5420f281cf0d71af0082e0e54f7112f580cfd713",
-            "commitHash": "5420f281cf0d71af0082e0e54f7112f580cfd713",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21318796034"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+            "commitHash": "05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320148232"
           },
           "gitCommit": {
-            "shortHash": "5420f28",
-            "hash": "5420f281cf0d71af0082e0e54f7112f580cfd713",
-            "subject": "fix: Preserve folder structure when copying login videos and adjust video configuration",
-            "body": "fix: Preserve folder structure when copying login videos and adjust video configuration\n",
+            "shortHash": "05b1eb1",
+            "hash": "05b1eb1ae59722cef43f6d43e27ee2dbac2f2896",
+            "subject": "fix: Improve duplicate entry prevention in history for login and payment dashboards",
+            "body": "fix: Improve duplicate entry prevention in history for login and payment dashboards\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769267952000
+              "time": 1769281607000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769267952000
+              "time": 1769281607000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2369,
+                      "duration": 2291,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:25:03.973Z",
+                      "startTime": "2026-01-24T19:10:26.177Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4370,
+                      "duration": 4457,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:25:06.577Z",
+                      "startTime": "2026-01-24T19:10:29.105Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4383,
+                      "duration": 5684,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:25:10.963Z",
+                      "startTime": "2026-01-24T19:10:33.592Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4233,
+                      "duration": 6111,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:25:15.358Z",
+                      "startTime": "2026-01-24T19:10:39.291Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10597,
+                      "duration": 12028,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:25:19.602Z",
+                      "startTime": "2026-01-24T19:10:45.415Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4144,
+                      "duration": 5076,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T17:25:30.210Z",
+                      "startTime": "2026-01-24T19:10:57.453Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T17:25:02.851Z",
-    "duration": 31589.83,
+    "startTime": "2026-01-24T19:10:25.098Z",
+    "duration": 37517.866,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
