@@ -107,7 +107,11 @@
         th.sortable.desc .sort-icon::after { content: '↓'; }
         th.sortable.asc .sort-icon, th.sortable.desc .sort-icon { font-size: 0; }
         th.sortable.asc .sort-icon::after, th.sortable.desc .sort-icon::after { font-size: 0.75rem; }
-        @media (max-width: 768px) { .container { padding: 1rem; } .header { flex-direction: column; gap: 1rem; text-align: center; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .health-score { font-size: 3rem; } }
+        /* Charts */
+        .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .chart-container { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+        .chart-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-secondary); text-align: center; }
+        @media (max-width: 768px) { .container { padding: 1rem; } .header { flex-direction: column; gap: 1rem; text-align: center; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .health-score { font-size: 3rem; } .charts-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -117,7 +121,7 @@
                 <div class="logo-icon"><img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg"></div>
                 <div class="logo-text"><h1>pc Factory Monitor</h1><span>Monitoreo de Categorias</span></div>
             </div>
-            <div class="timestamp">24/01/2026 16:16:16 Chile</div>
+            <div class="timestamp">24/01/2026 16:23:25 Chile</div>
         </header>
         <div class="nav-links">
             <a href="index.html" class="nav-link active">📦 Categorías</a>
@@ -150,6 +154,25 @@
                 <div class="stat-hint">Click para ver</div>
             </div>
         </div>
+
+        <!-- Sección de Gráficos -->
+        <div class="section">
+            <div class="section-header">
+                <span>📊</span>
+                <h2>Análisis de Distribución</h2>
+            </div>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3 class="chart-title">Distribución por Estado</h3>
+                    <canvas id="statusChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3 class="chart-title">Top 10 Categorías con Más Productos</h3>
+                    <canvas id="topCategoriesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
         
     <div class="section" id="added-section">
         <div class="section-header">
@@ -213,2716 +236,2716 @@
             <td>Accesorios</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">8</span></td>
-            <td>840ms</td>
+            <td>954ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/accesorios" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">417</span></td>
             <td>Accesorios Celulares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">87</span></td>
-            <td>637ms</td>
+            <td>594ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">832</span></td>
             <td>Accesorios Celulares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>781ms</td>
+            <td>783ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares/accesorios-celulares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">417</span></td>
             <td>Accesorios Celulares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">87</span></td>
-            <td>914ms</td>
+            <td>580ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">832</span></td>
             <td>Accesorios Celulares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>635ms</td>
+            <td>842ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares/accesorios-celulares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">464</span></td>
             <td>Accesorios Consolas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>817ms</td>
+            <td>996ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-consolas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">464</span></td>
             <td>Accesorios Consolas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>758ms</td>
+            <td>1010ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/accesorios-consolas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">427</span></td>
             <td>Accesorios Cámaras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">29</span></td>
-            <td>549ms</td>
+            <td>760ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/accesorios-camaras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">427</span></td>
             <td>Accesorios Cámaras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">29</span></td>
-            <td>800ms</td>
+            <td>716ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-camaras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">704</span></td>
             <td>Accesorios Cámaras de Acción</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>665ms</td>
+            <td>779ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/accesorios-camaras/accesorios-camaras-de-accion" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">704</span></td>
             <td>Accesorios Cámaras de Acción</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>777ms</td>
+            <td>808ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-camaras/accesorios-camaras-de-accion" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">908</span></td>
             <td>Accesorios Desktop</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>637ms</td>
+            <td>900ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/accesorios/accesorios-desktop" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">925</span></td>
             <td>Accesorios Electrónica</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">42</span></td>
-            <td>434ms</td>
+            <td>883ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/electronica/accesorios-electronica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1057</span></td>
             <td>Accesorios Impresoras 3D</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>468ms</td>
+            <td>568ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-formatos-especiales/accesorios-impresoras-3d" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">56</span></td>
             <td>Accesorios Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">90</span></td>
-            <td>886ms</td>
+            <td>583ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">56</span></td>
             <td>Accesorios Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">90</span></td>
-            <td>819ms</td>
+            <td>941ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">439</span></td>
             <td>Accesorios Proyectores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">10</span></td>
-            <td>875ms</td>
+            <td>627ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/accesorios-proyectores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">439</span></td>
             <td>Accesorios Proyectores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">10</span></td>
-            <td>876ms</td>
+            <td>624ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-proyectores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">322</span></td>
             <td>Accesorios Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">58</span></td>
-            <td>534ms</td>
+            <td>934ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/accesorios-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">322</span></td>
             <td>Accesorios Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">58</span></td>
-            <td>787ms</td>
+            <td>568ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">912</span></td>
             <td>Accesorios Robótica</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>605ms</td>
+            <td>692ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/robotica/accesorios-robotica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">962</span></td>
             <td>Accesorios Seguridad</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>511ms</td>
+            <td>521ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad/accesorios-seguridad" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">962</span></td>
             <td>Accesorios Seguridad</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>858ms</td>
+            <td>904ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/seguridad/accesorios-seguridad" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">792</span></td>
             <td>Accesorios TV y Video</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">41</span></td>
-            <td>795ms</td>
+            <td>646ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/accesorios-tv-y-video" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">503</span></td>
             <td>Accesorios Tablet</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>762ms</td>
+            <td>957ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-tablets" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">503</span></td>
             <td>Accesorios Tablet</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>564ms</td>
+            <td>729ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-tablets" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">938</span></td>
             <td>Accesorios Tabletas Digitalizadoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>472ms</td>
+            <td>968ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/ilustracion-y-diseno/accesorios-tabletas-digitalizadoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">894</span></td>
             <td>Accesorios de Audio</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>475ms</td>
+            <td>703ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/accesorios-de-audio" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">400</span></td>
             <td>Accesorios de Monitores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">45</span></td>
-            <td>747ms</td>
+            <td>613ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/accesorios-de-monitores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">400</span></td>
             <td>Accesorios de Monitores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">45</span></td>
-            <td>613ms</td>
+            <td>808ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-de-monitores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">296</span></td>
             <td>Accesorios y Periféricos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">587</span></td>
-            <td>768ms</td>
+            <td>601ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">470</span></td>
             <td>Access Point</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>403ms</td>
+            <td>1018ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/access-point" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">923</span></td>
             <td>Actuadores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>584ms</td>
+            <td>1026ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/electronica/actuadores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">346</span></td>
             <td>Adaptadores Bluetooth</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>439ms</td>
+            <td>563ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/accesorios-de-audio/adaptadores-bluetooth" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">346</span></td>
             <td>Adaptadores Bluetooth</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>642ms</td>
+            <td>813ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/adaptadores-y-conversores/adaptadores-bluetooth" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">540</span></td>
             <td>Adaptadores PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>425ms</td>
+            <td>954ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/adaptadores-y-conversores/adaptadores-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">960</span></td>
             <td>Adaptadores USB C</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>611ms</td>
+            <td>493ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/adaptadores-y-conversores/adaptadores-usb-c" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">960</span></td>
             <td>Adaptadores USB C</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>624ms</td>
+            <td>535ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/adaptadores-usb-c" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">960</span></td>
             <td>Adaptadores USB C</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>650ms</td>
+            <td>913ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/adaptadores-usb-c" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">537</span></td>
             <td>Adaptadores y Conversores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">28</span></td>
-            <td>557ms</td>
+            <td>496ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/adaptadores-y-conversores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">628</span></td>
             <td>Alarmas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>844ms</td>
+            <td>870ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad/alarmas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">628</span></td>
             <td>Alarmas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>719ms</td>
+            <td>739ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/seguridad/alarmas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">999</span></td>
             <td>All in One</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>863ms</td>
+            <td>879ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/complementos-pos/all-in-one" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">999</span></td>
             <td>All in One</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>397ms</td>
+            <td>706ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/escritorio/all-in-one" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">312</span></td>
             <td>Almacenamiento</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">70</span></td>
-            <td>585ms</td>
+            <td>753ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">706</span></td>
             <td>Almacenamiento y Discos Duros</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">74</span></td>
-            <td>840ms</td>
+            <td>576ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">649</span></td>
             <td>Antenas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>773ms</td>
+            <td>911ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/accesorios-red/antenas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">649</span></td>
             <td>Antenas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>477ms</td>
+            <td>749ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-red/antenas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">805</span></td>
             <td>Antenas TV Digital</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>635ms</td>
+            <td>811ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/antenas-tv-digital" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">590</span></td>
             <td>Antivirus</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>542ms</td>
+            <td>840ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/softwares/antivirus" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">716</span></td>
             <td>Artículos de Escritorio</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">8</span></td>
-            <td>927ms</td>
+            <td>938ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/oficinas/articulos-de-escritorio" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">752</span></td>
             <td>Asistentes de Voz</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>665ms</td>
+            <td>655ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/smart-home-domotica/asistentes-de-voz" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1315</span></td>
             <td>Aspiradoras de Mano</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>673ms</td>
+            <td>1058ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/automovil-gps-y-outdoor/automovil/aspiradoras-de-mano" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">890</span></td>
             <td>Audio All in one</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>447ms</td>
+            <td>921ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/equipos-de-musica/audio-all-in-one" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">850</span></td>
             <td>Audífonos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">78</span></td>
-            <td>472ms</td>
+            <td>822ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/audifonos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">850</span></td>
             <td>Audífonos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">78</span></td>
-            <td>488ms</td>
+            <td>817ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/audifonos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">850</span></td>
             <td>Audífonos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">78</span></td>
-            <td>480ms</td>
+            <td>827ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/audifonos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">850</span></td>
             <td>Audífonos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">78</span></td>
-            <td>909ms</td>
+            <td>656ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/audifonos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">850</span></td>
             <td>Audífonos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">78</span></td>
-            <td>775ms</td>
+            <td>1008ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/audifonos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">886</span></td>
             <td>Audífonos Call Center</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>586ms</td>
+            <td>611ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/audifonos/audifonos-call-center" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">886</span></td>
             <td>Audífonos Call Center</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>500ms</td>
+            <td>603ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/audifonos/audifonos-call-center" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">886</span></td>
             <td>Audífonos Call Center</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>723ms</td>
+            <td>866ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/audifonos/audifonos-call-center" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">886</span></td>
             <td>Audífonos Call Center</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>645ms</td>
+            <td>747ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/audifonos/audifonos-call-center" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">886</span></td>
             <td>Audífonos Call Center</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>601ms</td>
+            <td>432ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/audifonos/audifonos-call-center" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">102</span></td>
             <td>Audífonos Gamer</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">16</span></td>
-            <td>388ms</td>
+            <td>953ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/audifonos/audifonos-gamer" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">102</span></td>
             <td>Audífonos Gamer</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">16</span></td>
-            <td>908ms</td>
+            <td>901ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/audifonos/audifonos-gamer" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">102</span></td>
             <td>Audífonos Gamer</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">16</span></td>
-            <td>831ms</td>
+            <td>1020ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/audifonos/audifonos-gamer" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">102</span></td>
             <td>Audífonos Gamer</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">16</span></td>
-            <td>694ms</td>
+            <td>599ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/audifonos/audifonos-gamer" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">102</span></td>
             <td>Audífonos Gamer</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">16</span></td>
-            <td>661ms</td>
+            <td>461ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/audifonos/audifonos-gamer" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">888</span></td>
             <td>Audífonos Headset</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">29</span></td>
-            <td>787ms</td>
+            <td>819ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/audifonos/audifonos-headset" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">888</span></td>
             <td>Audífonos Headset</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">29</span></td>
-            <td>388ms</td>
+            <td>985ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/audifonos/audifonos-headset" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">888</span></td>
             <td>Audífonos Headset</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">29</span></td>
-            <td>600ms</td>
+            <td>521ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/audifonos/audifonos-headset" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">888</span></td>
             <td>Audífonos Headset</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">29</span></td>
-            <td>440ms</td>
+            <td>831ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/audifonos/audifonos-headset" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">888</span></td>
             <td>Audífonos Headset</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">29</span></td>
-            <td>425ms</td>
+            <td>580ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/audifonos/audifonos-headset" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">884</span></td>
             <td>Audífonos In Ear</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>889ms</td>
+            <td>921ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/audifonos/audifonos-in-ear" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">884</span></td>
             <td>Audífonos In Ear</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>819ms</td>
+            <td>581ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/audifonos/audifonos-in-ear" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">884</span></td>
             <td>Audífonos In Ear</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>909ms</td>
+            <td>726ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/audifonos/audifonos-in-ear" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">884</span></td>
             <td>Audífonos In Ear</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>519ms</td>
+            <td>834ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/audifonos/audifonos-in-ear" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">884</span></td>
             <td>Audífonos In Ear</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>537ms</td>
+            <td>876ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/audifonos/audifonos-in-ear" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1333</span></td>
             <td>Automóvil</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>669ms</td>
+            <td>681ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/automovil-gps-y-outdoor/automovil" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">642</span></td>
             <td>Automóvil / GPS y Outdoor</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">8</span></td>
-            <td>556ms</td>
+            <td>999ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/automovil-gps-y-outdoor" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">731</span></td>
             <td>Banda Ancha Móvil</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>550ms</td>
+            <td>825ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/banda-ancha-movil" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">797</span></td>
             <td>Barras de Sonido</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>806ms</td>
+            <td>731ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/video-audio-tv/barras-de-sonido" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">553</span></td>
             <td>Bases Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>528ms</td>
+            <td>680ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/bases-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">553</span></td>
             <td>Bases Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>509ms</td>
+            <td>947ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/bases-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">714</span></td>
             <td>Baterías de Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>704ms</td>
+            <td>963ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/baterias-de-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">714</span></td>
             <td>Baterías de Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>422ms</td>
+            <td>865ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/baterias-de-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">542</span></td>
             <td>Baterías externas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">21</span></td>
-            <td>790ms</td>
+            <td>1010ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/ups-baterias-y-cargadores/baterias-externas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">542</span></td>
             <td>Baterías externas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">21</span></td>
-            <td>746ms</td>
+            <td>587ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares/baterias-externas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">542</span></td>
             <td>Baterías externas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">21</span></td>
-            <td>671ms</td>
+            <td>915ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/baterias-externas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">542</span></td>
             <td>Baterías externas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">21</span></td>
-            <td>709ms</td>
+            <td>874ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares/baterias-externas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">541</span></td>
             <td>Baterías y Cargadores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">12</span></td>
-            <td>819ms</td>
+            <td>1021ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/ups-baterias-y-cargadores/baterias-y-cargadores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">541</span></td>
             <td>Baterías y Cargadores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">12</span></td>
-            <td>398ms</td>
+            <td>662ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/baterias-y-cargadores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">563</span></td>
             <td>Bolsos Cámaras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>660ms</td>
+            <td>919ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/accesorios-camaras/bolsos-camaras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">563</span></td>
             <td>Bolsos Cámaras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>478ms</td>
+            <td>970ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/bolsos-y-fundas/bolsos-camaras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">563</span></td>
             <td>Bolsos Cámaras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>466ms</td>
+            <td>774ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-camaras/bolsos-camaras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">554</span></td>
             <td>Bolsos Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>695ms</td>
+            <td>527ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/bolsos-y-fundas/bolsos-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">554</span></td>
             <td>Bolsos Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>568ms</td>
+            <td>638ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/bolsos-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">554</span></td>
             <td>Bolsos Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>850ms</td>
+            <td>602ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/bolsos-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">551</span></td>
             <td>Bolsos Tablets</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>397ms</td>
+            <td>697ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/bolsos-y-fundas/bolsos-tablets" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">551</span></td>
             <td>Bolsos Tablets</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>857ms</td>
+            <td>810ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-tablets/bolsos-tablets" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">551</span></td>
             <td>Bolsos Tablets</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>865ms</td>
+            <td>718ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-tablets/bolsos-tablets" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">668</span></td>
             <td>Bolsos y Fundas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">53</span></td>
-            <td>417ms</td>
+            <td>961ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/bolsos-y-fundas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1307</span></td>
             <td>CPU AMD sAM5</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>874ms</td>
+            <td>1018ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/procesadores/cpu-amd-sam5" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1142</span></td>
             <td>CPU Intel s1700</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>440ms</td>
+            <td>1006ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/procesadores/cpu-intel-s1700" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">687</span></td>
             <td>Cables</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">12</span></td>
-            <td>848ms</td>
+            <td>865ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares/cables" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">687</span></td>
             <td>Cables</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">12</span></td>
-            <td>385ms</td>
+            <td>910ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares/cables" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">533</span></td>
             <td>Cables Adaptadores Video</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">30</span></td>
-            <td>893ms</td>
+            <td>560ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/accesorios-tv-y-video/cables-adaptadores-video" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">533</span></td>
             <td>Cables Adaptadores Video</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">30</span></td>
-            <td>416ms</td>
+            <td>913ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/accesorios-de-monitores/cables-adaptadores-video" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">533</span></td>
             <td>Cables Adaptadores Video</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">30</span></td>
-            <td>423ms</td>
+            <td>617ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-de-monitores/cables-adaptadores-video" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">533</span></td>
             <td>Cables Adaptadores Video</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">30</span></td>
-            <td>552ms</td>
+            <td>569ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/cables-y-adaptadores/cables-adaptadores-video" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">532</span></td>
             <td>Cables Adaptadores de Audio</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>618ms</td>
+            <td>958ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/accesorios-de-audio/cables-adaptadores-de-audio" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">532</span></td>
             <td>Cables Adaptadores de Audio</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>767ms</td>
+            <td>1004ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/cables-y-adaptadores/cables-adaptadores-de-audio" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">836</span></td>
             <td>Cables Coaxiales</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>759ms</td>
+            <td>1003ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/accesorios-red/cables-coaxiales" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">836</span></td>
             <td>Cables Coaxiales</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>415ms</td>
+            <td>777ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-red/cables-coaxiales" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">836</span></td>
             <td>Cables Coaxiales</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>472ms</td>
+            <td>934ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/cables-y-adaptadores/cables-coaxiales" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">534</span></td>
             <td>Cables Datos / USB</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>532ms</td>
+            <td>542ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/cables-y-adaptadores/cables-datos-usb" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">965</span></td>
             <td>Cables Desktop</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>654ms</td>
+            <td>970ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/accesorios/cables-desktop" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">531</span></td>
             <td>Cables Poder</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>742ms</td>
+            <td>908ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/cables-y-adaptadores/cables-poder" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">535</span></td>
             <td>Cables de Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>556ms</td>
+            <td>478ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/accesorios-red/cables-de-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">535</span></td>
             <td>Cables de Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>778ms</td>
+            <td>819ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/conferencias-y-reuniones/cables-de-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">535</span></td>
             <td>Cables de Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>792ms</td>
+            <td>594ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-red/cables-de-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">535</span></td>
             <td>Cables de Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>703ms</td>
+            <td>622ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/cables-y-adaptadores/cables-de-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">298</span></td>
             <td>Cables y Adaptadores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">68</span></td>
-            <td>482ms</td>
+            <td>611ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/cables-y-adaptadores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">823</span></td>
             <td>Calculadoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>745ms</td>
+            <td>967ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/oficinas/calculadoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">557</span></td>
             <td>Candados y Seguridad</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>384ms</td>
+            <td>535ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/candados-y-seguridad" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">557</span></td>
             <td>Candados y Seguridad</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>535ms</td>
+            <td>670ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/candados-y-seguridad" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">689</span></td>
             <td>Carcasas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>905ms</td>
+            <td>963ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares/carcasas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">689</span></td>
             <td>Carcasas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>710ms</td>
+            <td>961ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares/carcasas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">543</span></td>
             <td>Cargadores Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>443ms</td>
+            <td>678ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/ups-baterias-y-cargadores/cargadores-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">543</span></td>
             <td>Cargadores Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>568ms</td>
+            <td>743ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/cargadores-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">543</span></td>
             <td>Cargadores Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>558ms</td>
+            <td>963ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/cargadores-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">543</span></td>
             <td>Cargadores Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>789ms</td>
+            <td>662ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/cargadores-notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">692</span></td>
             <td>Cargadores para Automóvil</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>610ms</td>
+            <td>1015ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/automovil-gps-y-outdoor/automovil/cargadores-para-automovil" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">692</span></td>
             <td>Cargadores para Automóvil</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>885ms</td>
+            <td>614ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares/cargadores-para-automovil" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">692</span></td>
             <td>Cargadores para Automóvil</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>620ms</td>
+            <td>476ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares/cargadores-para-automovil" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">693</span></td>
             <td>Cargadores para casa</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>673ms</td>
+            <td>667ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares/cargadores-para-casa" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">693</span></td>
             <td>Cargadores para casa</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>711ms</td>
+            <td>876ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares/cargadores-para-casa" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">12</span></td>
             <td>Cartuchos de Tinta y Botellas para Impresoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">110</span></td>
-            <td>673ms</td>
+            <td>845ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/suministros-de-oficina/cartuchos-de-tinta-y-botellas-para-impresoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">12</span></td>
             <td>Cartuchos de Tinta y Botellas para Impresoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">110</span></td>
-            <td>768ms</td>
+            <td>638ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/suministros-impresoras/cartuchos-de-tinta-y-botellas-para-impresoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">973</span></td>
             <td>Cartuchos de Tinta y Botellas para Plotter</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>532ms</td>
+            <td>660ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/suministros-de-oficina/cartuchos-de-tinta-y-botellas-para-plotter" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">973</span></td>
             <td>Cartuchos de Tinta y Botellas para Plotter</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>873ms</td>
+            <td>542ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/suministros-impresoras/cartuchos-de-tinta-y-botellas-para-plotter" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">442</span></td>
             <td>Cintas (Rotuladoras)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">17</span></td>
-            <td>739ms</td>
+            <td>816ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/suministros-de-oficina/cintas-rotuladoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">442</span></td>
             <td>Cintas (Rotuladoras)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">17</span></td>
-            <td>703ms</td>
+            <td>724ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/suministros-impresoras/cintas-rotuladoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">418</span></td>
             <td>Combos Teclado / Mouse</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">20</span></td>
-            <td>875ms</td>
+            <td>952ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/mouses-y-teclados/combos-teclado-mouse" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">418</span></td>
             <td>Combos Teclado / Mouse</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">20</span></td>
-            <td>436ms</td>
+            <td>562ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/mouses-y-teclados/combos-teclado-mouse" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">827</span></td>
             <td>Complementos POS</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">179</span></td>
-            <td>418ms</td>
+            <td>653ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/complementos-pos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">922</span></td>
             <td>Componentes Electrónicos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">28</span></td>
-            <td>463ms</td>
+            <td>565ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/electronica/componentes-electronicos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">636</span></td>
             <td>Computadores y Tablets</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">455</span></td>
-            <td>742ms</td>
+            <td>714ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">893</span></td>
             <td>Comunicación</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>590ms</td>
+            <td>1028ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/comunicacion" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">634</span></td>
             <td>Conectividad y Redes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">245</span></td>
-            <td>576ms</td>
+            <td>518ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">650</span></td>
             <td>Conectores de Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">40</span></td>
-            <td>395ms</td>
+            <td>986ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/accesorios-red/conectores-de-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">650</span></td>
             <td>Conectores de Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">40</span></td>
-            <td>852ms</td>
+            <td>889ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/conferencias-y-reuniones/conectores-de-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">650</span></td>
             <td>Conectores de Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">40</span></td>
-            <td>412ms</td>
+            <td>770ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-red/conectores-de-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1080</span></td>
             <td>Conferencias y Reuniones</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">68</span></td>
-            <td>457ms</td>
+            <td>942ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/conferencias-y-reuniones" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">438</span></td>
             <td>Consolas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>851ms</td>
+            <td>755ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/consolas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">665</span></td>
             <td>Consolas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>815ms</td>
+            <td>891ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/consolas/consolas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">753</span></td>
             <td>Control de Acceso</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>763ms</td>
+            <td>718ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/smart-home-domotica/control-de-acceso" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">661</span></td>
             <td>Controles</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">15</span></td>
-            <td>688ms</td>
+            <td>950ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/controles" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">806</span></td>
             <td>Controles TV</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>435ms</td>
+            <td>985ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/accesorios-tv-y-video/controles-tv" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1127</span></td>
             <td>Coolers Solares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>495ms</td>
+            <td>575ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/energia-solar/coolers-solares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">881</span></td>
             <td>Cámaras Análogas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>740ms</td>
+            <td>498ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad/camaras-analogas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">881</span></td>
             <td>Cámaras Análogas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>638ms</td>
+            <td>728ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/seguridad/camaras-analogas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">6</span></td>
             <td>Cámaras Compactas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>861ms</td>
+            <td>813ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/camaras-compactas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">472</span></td>
             <td>Cámaras IP</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">49</span></td>
-            <td>861ms</td>
+            <td>701ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad/camaras-ip" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">472</span></td>
             <td>Cámaras IP</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">49</span></td>
-            <td>612ms</td>
+            <td>897ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/seguridad/camaras-ip" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">963</span></td>
             <td>Cámaras Instantáneas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">10</span></td>
-            <td>574ms</td>
+            <td>556ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/camaras-instantaneas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">708</span></td>
             <td>Cámaras Mirrorless</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>900ms</td>
+            <td>972ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/camaras-mirrorless" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">619</span></td>
             <td>Cámaras de Acción</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">10</span></td>
-            <td>757ms</td>
+            <td>603ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/camaras-de-accion" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1097</span></td>
             <td>Códigos Digitales</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>445ms</td>
+            <td>906ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/codigos-digitales" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1098</span></td>
             <td>Códigos Microsoft 365</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>406ms</td>
+            <td>591ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/codigos-digitales/codigos-microsoft-365" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1134</span></td>
             <td>Códigos Windows</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>442ms</td>
+            <td>759ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/codigos-digitales/codigos-windows" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">370</span></td>
             <td>DVD</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>718ms</td>
+            <td>840ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/opticos/dvd" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1318</span></td>
             <td>Decorativos Energía Solar</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>862ms</td>
+            <td>462ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/energia-solar/decorativos-energia-solar" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1300</span></td>
             <td>Desktop</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>680ms</td>
+            <td>749ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/complementos-pos/desktop" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1300</span></td>
             <td>Desktop</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>519ms</td>
+            <td>639ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/escritorio/desktop" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">340</span></td>
             <td>Discos Duros PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>535ms</td>
+            <td>669ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/discos-duros-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">340</span></td>
             <td>Discos Duros PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>793ms</td>
+            <td>902ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/discos-duros-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">422</span></td>
             <td>Discos Externos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>911ms</td>
+            <td>460ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/discos-externos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">422</span></td>
             <td>Discos Externos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>813ms</td>
+            <td>811ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/discos-externos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">585</span></td>
             <td>Discos SSD</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>727ms</td>
+            <td>686ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/discos-ssd" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">585</span></td>
             <td>Discos SSD</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>714ms</td>
+            <td>661ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/discos-ssd" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">411</span></td>
             <td>Discos Servers</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>520ms</td>
+            <td>915ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/servidores/discos-servers" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">932</span></td>
             <td>Discos de Video Vigilancia</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>796ms</td>
+            <td>624ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad/discos-de-video-vigilancia" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">932</span></td>
             <td>Discos de Video Vigilancia</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>469ms</td>
+            <td>1032ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/seguridad/discos-de-video-vigilancia" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">932</span></td>
             <td>Discos de Video Vigilancia</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>835ms</td>
+            <td>644ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/discos-de-video-vigilancia" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">546</span></td>
             <td>Docking / Hub USB</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">17</span></td>
-            <td>602ms</td>
+            <td>680ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/adaptadores-y-conversores/docking-hub-usb" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">546</span></td>
             <td>Docking / Hub USB</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">17</span></td>
-            <td>593ms</td>
+            <td>891ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/docking-hub-usb" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">546</span></td>
             <td>Docking / Hub USB</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">17</span></td>
-            <td>884ms</td>
+            <td>800ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/docking-hub-usb" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">920</span></td>
             <td>Electrónica</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">92</span></td>
-            <td>665ms</td>
+            <td>700ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/electronica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">914</span></td>
             <td>Electrónica y Robótica</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">94</span></td>
-            <td>908ms</td>
+            <td>982ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">342</span></td>
             <td>Enclosure (Cofres)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>825ms</td>
+            <td>722ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/enclosure-cofres" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">342</span></td>
             <td>Enclosure (Cofres)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>662ms</td>
+            <td>584ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/enclosure-cofres" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1125</span></td>
             <td>Energía Solar</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>703ms</td>
+            <td>943ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/energia-solar" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">851</span></td>
             <td>Equipos DJ</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>392ms</td>
+            <td>835ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/equipos-dj" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">770</span></td>
             <td>Equipos de Corte y Estampado</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">28</span></td>
-            <td>683ms</td>
+            <td>825ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-formatos-especiales/equipos-de-corte-y-estampado" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">889</span></td>
             <td>Equipos de Música</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>650ms</td>
+            <td>940ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/equipos-de-musica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">737</span></td>
             <td>Escritorio</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">19</span></td>
-            <td>647ms</td>
+            <td>914ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/escritorio" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">719</span></td>
             <td>Extensores de Red</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>775ms</td>
+            <td>911ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/extensores-de-red" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">54</span></td>
             <td>Fuentes de Poder (PSU)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">11</span></td>
-            <td>781ms</td>
+            <td>612ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/fuentes-de-poder-psu" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">544</span></td>
             <td>Fundas Discos Duros</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>504ms</td>
+            <td>777ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/fundas-discos-duros" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">544</span></td>
             <td>Fundas Discos Duros</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>864ms</td>
+            <td>755ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/bolsos-y-fundas/fundas-discos-duros" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">326</span></td>
             <td>Gabinetes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">8</span></td>
-            <td>508ms</td>
+            <td>921ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/gabinetes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">328</span></td>
             <td>Gabinetes sin Fuente</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">8</span></td>
-            <td>724ms</td>
+            <td>878ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/gabinetes/gabinetes-sin-fuente" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1320</span></td>
             <td>Gamer y Poder Gráfico</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">33</span></td>
-            <td>604ms</td>
+            <td>436ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">721</span></td>
             <td>Grabadoras DVR y NVR</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>766ms</td>
+            <td>925ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad/grabadoras-dvr-y-nvr" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">721</span></td>
             <td>Grabadoras DVR y NVR</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>600ms</td>
+            <td>535ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/seguridad/grabadoras-dvr-y-nvr" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">529</span></td>
             <td>Grabadoras de voz</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>696ms</td>
+            <td>629ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/comunicacion/grabadoras-de-voz" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">547</span></td>
             <td>Herramientas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>778ms</td>
+            <td>873ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/herramientas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">746</span></td>
             <td>Hogar y Seguridad</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">82</span></td>
-            <td>790ms</td>
+            <td>713ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">750</span></td>
             <td>Hubs y Kits Smart Home</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>773ms</td>
+            <td>953ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/smart-home-domotica/hubs-y-kits-smart-home" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">984</span></td>
             <td>Iluminación y Efectos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>497ms</td>
+            <td>899ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/equipos-dj/equipos-dj" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">749</span></td>
             <td>Iluminación y Enchufes Inteligentes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>720ms</td>
+            <td>1031ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/smart-home-domotica/iluminacion-y-enchufes-inteligentes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">948</span></td>
             <td>Ilustración y Diseño</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">12</span></td>
-            <td>929ms</td>
+            <td>540ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/ilustracion-y-diseno" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">712</span></td>
             <td>Impresoras 3D</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">11</span></td>
-            <td>913ms</td>
+            <td>891ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-formatos-especiales/impresoras-3d" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">780</span></td>
             <td>Impresoras Formatos Especiales</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">68</span></td>
-            <td>515ms</td>
+            <td>945ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-formatos-especiales" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">262</span></td>
             <td>Impresoras Hogar y Oficina</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">33</span></td>
-            <td>782ms</td>
+            <td>502ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/impresoras-hogar-y-oficina" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">262</span></td>
             <td>Impresoras Hogar y Oficina</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">33</span></td>
-            <td>466ms</td>
+            <td>726ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-hogar-y-oficina" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">246</span></td>
             <td>Impresoras Láser</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>548ms</td>
+            <td>754ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/impresoras-hogar-y-oficina/impresoras-laser" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">246</span></td>
             <td>Impresoras Láser</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>729ms</td>
+            <td>845ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-hogar-y-oficina/impresoras-laser" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">18</span></td>
             <td>Impresoras Tinta</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>940ms</td>
+            <td>673ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/impresoras-hogar-y-oficina/impresoras-tinta" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">18</span></td>
             <td>Impresoras Tinta</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>498ms</td>
+            <td>733ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-hogar-y-oficina/impresoras-tinta" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">638</span></td>
             <td>Impresoras y Suministros</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">310</span></td>
-            <td>737ms</td>
+            <td>668ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">921</span></td>
             <td>Interfaz de Usuario</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>439ms</td>
+            <td>937ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/electronica/interfaz-de-usuario" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1331</span></td>
             <td>Internet Satelital</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>708ms</td>
+            <td>952ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/internet-satelital" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">466</span></td>
             <td>Joysticks Consolas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>429ms</td>
+            <td>711ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/controles/joysticks-consolas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1090</span></td>
             <td>Juegos de Consola</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>397ms</td>
+            <td>756ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/juegos-de-consola" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">28</span></td>
             <td>Kits de Vigilancia</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>641ms</td>
+            <td>786ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad/kits-de-vigilancia" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">28</span></td>
             <td>Kits de Vigilancia</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>790ms</td>
+            <td>668ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/seguridad/kits-de-vigilancia" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">562</span></td>
             <td>Lectores de Memorias</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>393ms</td>
+            <td>925ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/memorias/lectores-de-memorias" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">624</span></td>
             <td>Lentes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>458ms</td>
+            <td>1047ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/accesorios-camaras/lentes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">624</span></td>
             <td>Lentes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>803ms</td>
+            <td>911ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-camaras/lentes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">589</span></td>
             <td>Licenciamientos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>550ms</td>
+            <td>502ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/softwares/licenciamientos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1310</span></td>
             <td>Linternas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>881ms</td>
+            <td>509ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/ups-baterias-y-cargadores/linternas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1310</span></td>
             <td>Linternas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>701ms</td>
+            <td>739ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/linternas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">561</span></td>
             <td>Láminas protectoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>612ms</td>
+            <td>994ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/bolsos-y-fundas/laminas-protectoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">561</span></td>
             <td>Láminas protectoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>689ms</td>
+            <td>995ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares/laminas-protectoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">561</span></td>
             <td>Láminas protectoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>790ms</td>
+            <td>870ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares/laminas-protectoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">548</span></td>
             <td>Mantención / Limpieza</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>533ms</td>
+            <td>520ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/mantencion-limpieza" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">264</span></td>
             <td>Memorias</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">10</span></td>
-            <td>711ms</td>
+            <td>430ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/memorias" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">48</span></td>
             <td>Memorias Flash</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>458ms</td>
+            <td>687ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones/accesorios-camaras/memorias-flash" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">48</span></td>
             <td>Memorias Flash</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>475ms</td>
+            <td>502ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/memorias-flash" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">48</span></td>
             <td>Memorias Flash</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>772ms</td>
+            <td>933ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-camaras/memorias-flash" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">48</span></td>
             <td>Memorias Flash</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>584ms</td>
+            <td>866ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/memorias-flash" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">100</span></td>
             <td>Memorias Notebook</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>671ms</td>
+            <td>879ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/memorias/memorias-notebook" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">112</span></td>
             <td>Memorias PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>581ms</td>
+            <td>807ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/memorias/memorias-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">266</span></td>
             <td>Memorias Servidores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>635ms</td>
+            <td>790ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/servidores/memorias-servidores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">868</span></td>
             <td>Micrófonos Dinámicos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>799ms</td>
+            <td>1014ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/sonido/microfonos-dinamicos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">528</span></td>
             <td>Micrófonos PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>718ms</td>
+            <td>862ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/conferencias-y-reuniones/microfonos-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">528</span></td>
             <td>Micrófonos PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>537ms</td>
+            <td>920ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/comunicacion/microfonos-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">528</span></td>
             <td>Micrófonos PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>554ms</td>
+            <td>966ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/microfonos-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">528</span></td>
             <td>Micrófonos PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>567ms</td>
+            <td>575ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/microfonos-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1095</span></td>
             <td>Monitoreo de Vehículos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>793ms</td>
+            <td>872ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/automovil-gps-y-outdoor/automovil/monitoreo-de-vehiculos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">995</span></td>
             <td>Monitores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">63</span></td>
-            <td>711ms</td>
+            <td>742ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/complementos-pos/monitores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">995</span></td>
             <td>Monitores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">63</span></td>
-            <td>439ms</td>
+            <td>935ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/monitores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">256</span></td>
             <td>Monitores y Proyectores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">148</span></td>
-            <td>739ms</td>
+            <td>1007ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">226</span></td>
             <td>MousePads</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>915ms</td>
+            <td>503ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/mouses-y-teclados/mousepads" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">226</span></td>
             <td>MousePads</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>794ms</td>
+            <td>677ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/mouses-y-teclados/mousepads" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1302</span></td>
             <td>Mouses</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">66</span></td>
-            <td>466ms</td>
+            <td>807ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/complementos-pos/mouses" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1302</span></td>
             <td>Mouses</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">66</span></td>
-            <td>847ms</td>
+            <td>995ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/mouses-y-teclados/mouses" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1302</span></td>
             <td>Mouses</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">66</span></td>
-            <td>961ms</td>
+            <td>572ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/mouses-y-teclados/mouses" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">304</span></td>
             <td>Mouses y Teclados</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">132</span></td>
-            <td>695ms</td>
+            <td>680ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/mouses-y-teclados" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">304</span></td>
             <td>Mouses y Teclados</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">132</span></td>
-            <td>828ms</td>
+            <td>907ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/mouses-y-teclados" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">769</span></td>
             <td>Multifuncionales Laser</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>507ms</td>
+            <td>1018ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/impresoras-hogar-y-oficina/multifuncionales-laser" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">769</span></td>
             <td>Multifuncionales Laser</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>517ms</td>
+            <td>857ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-hogar-y-oficina/multifuncionales-laser" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">236</span></td>
             <td>Multifuncionales Tinta</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">18</span></td>
-            <td>453ms</td>
+            <td>787ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/impresoras-hogar-y-oficina/multifuncionales-tinta" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">236</span></td>
             <td>Multifuncionales Tinta</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">18</span></td>
-            <td>918ms</td>
+            <td>498ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-hogar-y-oficina/multifuncionales-tinta" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">735</span></td>
             <td>Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">57</span></td>
-            <td>794ms</td>
+            <td>810ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">425</span></td>
             <td>Notebooks</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">57</span></td>
-            <td>458ms</td>
+            <td>756ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/notebooks/notebooks" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">916</span></td>
             <td>Notebooks Gamer</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">21</span></td>
-            <td>1066ms</td>
+            <td>756ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/notebooks-gamer" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">916</span></td>
             <td>Notebooks Gamer</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">21</span></td>
-            <td>883ms</td>
+            <td>903ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/notebooks/notebooks-gamer" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">819</span></td>
             <td>Oficinas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">54</span></td>
-            <td>536ms</td>
+            <td>784ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/oficinas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">818</span></td>
             <td>Oficinas y Puntos de Venta</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">683</span></td>
-            <td>397ms</td>
+            <td>794ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">842</span></td>
             <td>Organización de Accesorios</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>727ms</td>
+            <td>950ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/organizacion-de-accesorios" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">505</span></td>
             <td>Otros Smart Home (Domótica)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>457ms</td>
+            <td>512ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/smart-home-domotica/otros-smart-home-domotica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">809</span></td>
             <td>Otros Suministros Impresión</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">41</span></td>
-            <td>521ms</td>
+            <td>994ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/otros-suministros-impresion" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">324</span></td>
             <td>POS Impresoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>762ms</td>
+            <td>812ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/puntos-de-venta-pos/pos-impresoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">324</span></td>
             <td>POS Impresoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>889ms</td>
+            <td>788ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-formatos-especiales/pos-impresoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1126</span></td>
             <td>Paneles Solares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>881ms</td>
+            <td>808ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/energia-solar/paneles-solares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">443</span></td>
             <td>Papeles</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">20</span></td>
-            <td>455ms</td>
+            <td>604ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/suministros-de-oficina/papeles" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">443</span></td>
             <td>Papeles</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">20</span></td>
-            <td>774ms</td>
+            <td>950ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/otros-suministros-impresion/papeles" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">891</span></td>
             <td>Parlantes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">27</span></td>
-            <td>617ms</td>
+            <td>565ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/parlantes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">831</span></td>
             <td>Parlantes PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">10</span></td>
-            <td>592ms</td>
+            <td>841ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/parlantes/parlantes-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">34</span></td>
             <td>Parlantes Portátiles</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">17</span></td>
-            <td>797ms</td>
+            <td>832ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/parlantes/parlantes-portatiles" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">633</span></td>
             <td>Partes y Piezas / Componentes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">164</span></td>
-            <td>806ms</td>
+            <td>659ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">646</span></td>
             <td>Pastas Disipadoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">8</span></td>
-            <td>512ms</td>
+            <td>804ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/refrigeracion/pastas-disipadoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">218</span></td>
             <td>Pendrives</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">22</span></td>
-            <td>449ms</td>
+            <td>967ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/pendrives" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">218</span></td>
             <td>Pendrives</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">22</span></td>
-            <td>792ms</td>
+            <td>908ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/pendrives" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">292</span></td>
             <td>Placas Madres</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>571ms</td>
+            <td>870ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/placas-madres" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1308</span></td>
             <td>Placas Madres AMD sAM5</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>573ms</td>
+            <td>971ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/placas-madres/placas-madres-amd-sam5" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1143</span></td>
             <td>Placas Madres Intel s1700</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>810ms</td>
+            <td>505ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/placas-madres/placas-madres-intel-s1700" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">927</span></td>
             <td>Placas de Desarrollo</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>637ms</td>
+            <td>912ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/electronica/placas-de-desarrollo" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">821</span></td>
             <td>Plastificadoras de Papel</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">11</span></td>
-            <td>438ms</td>
+            <td>761ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/oficinas/plastificadoras-de-papel" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">815</span></td>
             <td>Plotters</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>494ms</td>
+            <td>945ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-formatos-especiales/plotters" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">525</span></td>
             <td>Presentadores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>893ms</td>
+            <td>981ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/mouses-y-teclados/presentadores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">525</span></td>
             <td>Presentadores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>750ms</td>
+            <td>608ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/mouses-y-teclados/presentadores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">272</span></td>
             <td>Procesadores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">20</span></td>
-            <td>602ms</td>
+            <td>980ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/procesadores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">46</span></td>
             <td>Proyectores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">23</span></td>
-            <td>640ms</td>
+            <td>693ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/proyectores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">820</span></td>
             <td>Puntos de Venta (POS)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>467ms</td>
+            <td>487ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/puntos-de-venta-pos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">958</span></td>
             <td>Realidad Virtual</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>622ms</td>
+            <td>667ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/realidad-virtual" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">958</span></td>
             <td>Realidad Virtual</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>534ms</td>
+            <td>517ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/realidad-virtual" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">42</span></td>
             <td>Refrigeración</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">20</span></td>
-            <td>925ms</td>
+            <td>924ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/refrigeracion" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">648</span></td>
             <td>Refrigeración CPU</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">8</span></td>
-            <td>639ms</td>
+            <td>747ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/refrigeracion/refrigeracion-cpu" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">727</span></td>
             <td>Resinas y Filamentos (Impresión 3D)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">21</span></td>
-            <td>470ms</td>
+            <td>758ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/otros-suministros-impresion/resinas-y-filamentos-impresion-3d" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">911</span></td>
             <td>Robótica</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>861ms</td>
+            <td>648ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/robotica/robotica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">910</span></td>
             <td>Robótica</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>513ms</td>
+            <td>709ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/robotica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">715</span></td>
             <td>Rotuladoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>875ms</td>
+            <td>520ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/oficinas/rotuladoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">715</span></td>
             <td>Rotuladoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>459ms</td>
+            <td>632ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/impresoras-formatos-especiales/rotuladoras" target="_blank" class="link">Ver</a></td>
-        </tr><tr class="">
-            <td><span class="badge badge-id">88</span></td>
-            <td>Routers</td>
-            <td><span class="badge badge-ok">200</span></td>
-            <td><span class="badge badge-ok">30</span></td>
-            <td>510ms</td>
-            <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/routers/routers" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1132</span></td>
             <td>Routers</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">39</span></td>
-            <td>567ms</td>
+            <td>615ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/routers" target="_blank" class="link">Ver</a></td>
+        </tr><tr class="">
+            <td><span class="badge badge-id">88</span></td>
+            <td>Routers</td>
+            <td><span class="badge badge-ok">200</span></td>
+            <td><span class="badge badge-ok">30</span></td>
+            <td>844ms</td>
+            <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/routers/routers" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1130</span></td>
             <td>Routers Mesh</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">11</span></td>
-            <td>737ms</td>
+            <td>664ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/routers/routers-mesh" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">904</span></td>
             <td>SSD Externos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>568ms</td>
+            <td>824ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/almacenamiento-y-discos-duros/ssd-externos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">904</span></td>
             <td>SSD Externos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>539ms</td>
+            <td>813ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/ssd-externos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1005</span></td>
             <td>Salud y Bienestar (Smart Health)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>763ms</td>
+            <td>917ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/smart-home-domotica/salud-y-bienestar-smart-health" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">318</span></td>
             <td>Scanners</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">10</span></td>
-            <td>808ms</td>
+            <td>817ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/oficinas/scanners" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1055</span></td>
             <td>Scooters Eléctricos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>856ms</td>
+            <td>714ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/automovil-gps-y-outdoor/scooters-electricos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">627</span></td>
             <td>Seguridad</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">65</span></td>
-            <td>817ms</td>
+            <td>559ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">627</span></td>
             <td>Seguridad</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">65</span></td>
-            <td>552ms</td>
+            <td>877ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/seguridad" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">924</span></td>
             <td>Sensores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>523ms</td>
+            <td>970ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/electronica-y-robotica/electronica/sensores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">364</span></td>
             <td>Servers</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>497ms</td>
+            <td>1012ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/servidores/servers" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">407</span></td>
             <td>Servidores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">23</span></td>
-            <td>563ms</td>
+            <td>860ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/servidores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1135</span></td>
             <td>Sillas de Oficina</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>433ms</td>
+            <td>723ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/oficinas/sillas-de-oficina" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">384</span></td>
             <td>Sistemas Operativos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>611ms</td>
+            <td>610ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/softwares/sistemas-operativos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">748</span></td>
             <td>Smart Home (Domótica)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">19</span></td>
-            <td>864ms</td>
+            <td>963ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/smart-home-domotica" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">789</span></td>
             <td>Smart TV</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">14</span></td>
-            <td>484ms</td>
+            <td>984ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/smart-tv" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">788</span></td>
             <td>Smart TV y Audio</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">208</span></td>
-            <td>840ms</td>
+            <td>834ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">5</span></td>
             <td>Smartphones</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">31</span></td>
-            <td>458ms</td>
+            <td>506ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/smartphones" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">645</span></td>
             <td>Smartphones y Wearables</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">205</span></td>
-            <td>500ms</td>
+            <td>790ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">685</span></td>
             <td>Smartwatches</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>731ms</td>
+            <td>494ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/wearables/smartwatches" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">278</span></td>
             <td>Softwares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>550ms</td>
+            <td>484ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/softwares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">852</span></td>
             <td>Sonido</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>909ms</td>
+            <td>736ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/sonido" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">559</span></td>
             <td>Soportes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>884ms</td>
+            <td>979ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/soportes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1054</span></td>
             <td>Soportes de Monitores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>719ms</td>
+            <td>893ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/accesorios-de-monitores/soportes-de-monitores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1054</span></td>
             <td>Soportes de Monitores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>525ms</td>
+            <td>598ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-de-monitores/soportes-de-monitores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">565</span></td>
             <td>Soportes de Proyectores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>739ms</td>
+            <td>1006ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/accesorios-proyectores/soportes-de-proyectores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">565</span></td>
             <td>Soportes de Proyectores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>847ms</td>
+            <td>517ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-proyectores/soportes-de-proyectores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">565</span></td>
             <td>Soportes de Proyectores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>605ms</td>
+            <td>796ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/soportes/soportes-de-proyectores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">564</span></td>
             <td>Soportes de TV</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>931ms</td>
+            <td>725ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/accesorios-tv-y-video/soportes-de-tv" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">564</span></td>
             <td>Soportes de TV</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>635ms</td>
+            <td>880ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/accesorios-de-monitores/soportes-de-tv" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">564</span></td>
             <td>Soportes de TV</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>919ms</td>
+            <td>534ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-de-monitores/soportes-de-tv" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">564</span></td>
             <td>Soportes de TV</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">9</span></td>
-            <td>410ms</td>
+            <td>856ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/soportes/soportes-de-tv" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">679</span></td>
             <td>Soportes para Celulares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>537ms</td>
+            <td>769ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/automovil-gps-y-outdoor/automovil/soportes-para-celulares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">679</span></td>
             <td>Soportes para Celulares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>390ms</td>
+            <td>654ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/soportes/soportes-para-celulares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">679</span></td>
             <td>Soportes para Celulares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>566ms</td>
+            <td>601ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-celulares/soportes-para-celulares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">679</span></td>
             <td>Soportes para Celulares</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>632ms</td>
+            <td>828ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/accesorios-celulares/soportes-para-celulares" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1341</span></td>
             <td>Streamers</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>708ms</td>
+            <td>969ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/streamers" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">676</span></td>
             <td>Streaming</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>649ms</td>
+            <td>846ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/video-audio-tv/streaming" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">676</span></td>
             <td>Streaming</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>688ms</td>
+            <td>862ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/streaming" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">441</span></td>
             <td>Suministros Impresoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">168</span></td>
-            <td>541ms</td>
+            <td>1021ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/suministros-impresoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">950</span></td>
             <td>Suministros Plastificadoras (Pouches)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">11</span></td>
-            <td>509ms</td>
+            <td>579ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/suministros-de-oficina/suministros-plastificadoras-pouches" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">826</span></td>
             <td>Suministros de Oficina</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">199</span></td>
-            <td>494ms</td>
+            <td>764ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/suministros-de-oficina" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">718</span></td>
             <td>Switch Administrables</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>695ms</td>
+            <td>644ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/switch-administrables" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">316</span></td>
             <td>Switches</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">35</span></td>
-            <td>600ms</td>
+            <td>620ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/switches" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">523</span></td>
             <td>Tabletas Digitalizadoras</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">3</span></td>
-            <td>480ms</td>
+            <td>972ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/ilustracion-y-diseno/tabletas-digitalizadoras" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">488</span></td>
             <td>Tablets</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">13</span></td>
-            <td>468ms</td>
+            <td>882ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/tablets-y-ereaders/tablets" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">994</span></td>
             <td>Tablets y eReaders</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">19</span></td>
-            <td>771ms</td>
+            <td>926ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/tablets-y-ereaders" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1137</span></td>
             <td>Tags</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">2</span></td>
-            <td>446ms</td>
+            <td>631ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/wearables/tags" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">725</span></td>
             <td>Tambores (Impresoras Laser)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>761ms</td>
+            <td>804ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/suministros-de-oficina/tambores-impresoras-laser" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">725</span></td>
             <td>Tambores (Impresoras Laser)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>752ms</td>
+            <td>810ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/suministros-impresoras/tambores-impresoras-laser" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">334</span></td>
             <td>Tarjetas Gráficas</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>917ms</td>
+            <td>575ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/tarjetas-graficas" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">454</span></td>
             <td>Tarjetas Gráficas AMD</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>397ms</td>
+            <td>606ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/tarjetas-graficas/tarjetas-graficas-amd" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">378</span></td>
             <td>Tarjetas Gráficas NVIDIA</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>837ms</td>
+            <td>497ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/tarjetas-graficas/tarjetas-graficas-nvidia" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">471</span></td>
             <td>Tarjetas de Red / USB</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">33</span></td>
-            <td>398ms</td>
+            <td>657ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/tarjetas-de-red-usb" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1301</span></td>
             <td>Teclados</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">31</span></td>
-            <td>661ms</td>
+            <td>770ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/complementos-pos/teclados" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1301</span></td>
             <td>Teclados</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">31</span></td>
-            <td>824ms</td>
+            <td>978ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/mouses-y-teclados/teclados" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1301</span></td>
             <td>Teclados</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">31</span></td>
-            <td>502ms</td>
+            <td>748ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/mouses-y-teclados/teclados" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">598</span></td>
             <td>Telones</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>517ms</td>
+            <td>938ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/monitores-y-proyectores/accesorios-proyectores/telones" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">598</span></td>
             <td>Telones</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>601ms</td>
+            <td>495ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-proyectores/telones" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">429</span></td>
             <td>Teléfonos fijos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>791ms</td>
+            <td>884ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/conectividad-y-redes/telefonos-fijos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">429</span></td>
             <td>Teléfonos fijos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>634ms</td>
+            <td>997ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/telefonos-fijos" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">444</span></td>
             <td>Toners (Impresoras Laser)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">23</span></td>
-            <td>797ms</td>
+            <td>741ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/suministros-de-oficina/toners-impresoras-laser" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">444</span></td>
             <td>Toners (Impresoras Laser)</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">23</span></td>
-            <td>768ms</td>
+            <td>554ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/impresoras-y-suministros/suministros-impresoras/toners-impresoras-laser" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">822</span></td>
             <td>Trituradoras de Papel</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>809ms</td>
+            <td>838ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/oficinas/trituradoras-de-papel" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">1321</span></td>
             <td>UPS / Energía y Energía Solar</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">69</span></td>
-            <td>923ms</td>
+            <td>680ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">38</span></td>
             <td>UPS y Reguladores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">22</span></td>
-            <td>481ms</td>
+            <td>942ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/ups-baterias-y-cargadores/ups-y-reguladores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">38</span></td>
             <td>UPS y Reguladores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">22</span></td>
-            <td>823ms</td>
+            <td>688ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/ups-energia-y-energia-solar/ups-y-reguladores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">419</span></td>
             <td>UPS, Baterías y Cargadores</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">65</span></td>
-            <td>850ms</td>
+            <td>632ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/ups-baterias-y-cargadores" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">647</span></td>
             <td>Ventiladores PC</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">4</span></td>
-            <td>854ms</td>
+            <td>607ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/refrigeracion/ventiladores-pc" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">793</span></td>
             <td>Video / Audio TV</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">10</span></td>
-            <td>394ms</td>
+            <td>700ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smart-tv-y-audio/video-audio-tv" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">643</span></td>
             <td>Video, Fotografía y Drones</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">53</span></td>
-            <td>386ms</td>
+            <td>948ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/video-fotografia-y-drones" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">350</span></td>
             <td>Volantes</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>859ms</td>
+            <td>824ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/controles/volantes" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">936</span></td>
             <td>Wearables</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">5</span></td>
-            <td>866ms</td>
+            <td>871ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/smartphones-y-wearables/wearables" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">517</span></td>
             <td>Webcams</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>772ms</td>
+            <td>739ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/oficinas-y-punto-de-venta/conferencias-y-reuniones/webcams" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">517</span></td>
             <td>Webcams</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>481ms</td>
+            <td>645ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/accesorios-y-perifericos/accesorios-notebooks/webcams" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">517</span></td>
             <td>Webcams</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>588ms</td>
+            <td>918ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/gamer-y-poder-grafico/streamers/webcams" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">517</span></td>
             <td>Webcams</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">7</span></td>
-            <td>648ms</td>
+            <td>706ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/accesorios-notebooks/webcams" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">828</span></td>
             <td>eReaders</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">6</span></td>
-            <td>943ms</td>
+            <td>545ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/computadores-y-tablets/tablets-y-ereaders/ereaders" target="_blank" class="link">Ver</a></td>
         </tr><tr class="">
             <td><span class="badge badge-id">286</span></td>
             <td>Ópticos</td>
             <td><span class="badge badge-ok">200</span></td>
             <td><span class="badge badge-ok">1</span></td>
-            <td>583ms</td>
+            <td>638ms</td>
             <td><a href="https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/opticos" target="_blank" class="link">Ver</a></td>
         </tr></tbody>
             </table>
@@ -2986,6 +3009,108 @@
                 
                 rows.forEach(row => tbody.appendChild(row));
             });
+        });
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        // Configuración de colores del tema
+        const chartColors = {
+            green: '#10b981',
+            red: '#ef4444',
+            yellow: '#f59e0b',
+            blue: '#3b82f6',
+            text: '#a0a0b0',
+            grid: '#2a2a3a'
+        };
+
+        // Configuración común para todos los gráficos
+        Chart.defaults.color = chartColors.text;
+        Chart.defaults.borderColor = chartColors.grid;
+        Chart.defaults.font.family = "'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif";
+
+        // Gráfico 1: Distribución por Estado (Pie Chart)
+        const statusChartCtx = document.getElementById('statusChart').getContext('2d');
+        new Chart(statusChartCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Con Productos', 'Sin Productos', 'Con Errores'],
+                datasets: [{
+                    data: [388, 0, 0],
+                    backgroundColor: [chartColors.green, chartColors.yellow, chartColors.red],
+                    borderWidth: 2,
+                    borderColor: '#16161f'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: { size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed || 0;
+                                const total = 388;
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return label + ': ' + value + ' (' + percentage + '%)';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico 2: Top 10 Categorías (Horizontal Bar Chart)
+        const topCategoriesCtx = document.getElementById('topCategoriesChart').getContext('2d');
+        new Chart(topCategoriesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Oficinas y Puntos de Venta', 'Accesorios y Periféricos', 'Computadores y Tablets', 'Impresoras y Suministros', 'Conectividad y Redes', 'Smart TV y Audio', 'Smartphones y Wearables', 'Suministros de Oficina', 'Complementos POS', 'Suministros Impresoras'],
+                datasets: [{
+                    label: 'Productos',
+                    data: [683, 587, 455, 310, 245, 208, 205, 199, 179, 168],
+                    backgroundColor: chartColors.blue,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.x + ' productos';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { color: chartColors.grid },
+                        ticks: { color: chartColors.text }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: {
+                            color: chartColors.text,
+                            font: { size: 11 }
+                        }
+                    }
+                }
+            }
         });
     </script>
 </body>
