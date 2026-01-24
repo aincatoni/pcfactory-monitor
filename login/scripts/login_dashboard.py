@@ -824,7 +824,7 @@ def main():
     html = generate_html(results, history)
 
     # Guardar dashboard
-    output_file = output_dir / 'login_with_video.html'
+    output_file = output_dir / 'login.html'
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html)
 
