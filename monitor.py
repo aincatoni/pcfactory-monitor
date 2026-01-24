@@ -841,6 +841,7 @@ def generate_html_dashboard(report: Dict) -> str:
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
+            <a href="banners.html" class="nav-link">🎨 Banners</a>
         </div>
         <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center;">
             <span style="color: var(--text-muted); font-size: 0.875rem;">Exportar:</span>

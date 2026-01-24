@@ -598,6 +598,7 @@ def generate_html_dashboard(report: Dict, history: List[Dict]) -> str:
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link active">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
+            <a href="banners.html" class="nav-link">🎨 Banners</a>
         </nav>
         
         <div class="status-banner {status_class}">

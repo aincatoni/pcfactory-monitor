@@ -30,6 +30,14 @@ on:
         options:
           - 'true'
           - 'false'
+      run_banners:
+        description: 'Ejecutar monitor de banners'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 permissions:
   contents: write
@@ -244,11 +252,75 @@ jobs:
             login/test-results/
           retention-days: 7
 
+  check-banner-schedule:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - name: Check if should run banners
+        id: check
+        run: |
+          HOUR=$(date -u +%H)
+          MINUTE=$(date -u +%M)
+          echo "Current UTC time: $HOUR:$MINUTE"
+
+          if [[ "${{ github.event.inputs.run_banners }}" == "true" ]]; then
+            echo "Manual trigger - running banners"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          # Horas objetivo: 12:00, 17:00, 23:00 UTC (9am, 2pm, 8pm Chile)
+          elif [[ "$HOUR" == "12" || "$HOUR" == "17" || "$HOUR" == "23" ]] && [[ "$MINUTE" -lt "40" ]]; then
+            echo "Scheduled hour match - running banners"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          elif [[ "$HOUR" == "11" || "$HOUR" == "16" || "$HOUR" == "22" ]] && [[ "$MINUTE" -ge "50" ]]; then
+            echo "Late previous hour (GitHub delay compensation) - running banners"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          else
+            echo "Not a scheduled time for banners (Hour: $HOUR, Minute: $MINUTE)"
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          fi
+
+  monitor-banners:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: check-banner-schedule
+    if: needs.check-banner-schedule.outputs.should_run == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        working-directory: ./banners
+        run: npm install && npx playwright install --with-deps chromium
+      - name: Run banner tests
+        working-directory: ./banners
+        run: npx playwright test
+        continue-on-error: true
+      - name: Setup Python for dashboard
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate banner dashboard
+        run: |
+          python banners/scripts/banner_dashboard.py \
+            --results ./banners/test-results/banner-price-results.json \
+            --output-dir ./output
+        continue-on-error: true
+      - name: Upload banner results
+        uses: actions/upload-artifact@v4
+        with:
+          name: banner-results
+          path: |
+            output/
+            banners/test-results/
+          retention-days: 7
+
   deploy:
     runs-on: ubuntu-latest
     needs: [monitor-categories, monitor-delivery, monitor-payments, monitor-login]
     if: |
-      always() && 
+      always() &&
       (needs.monitor-categories.result == 'success' || needs.monitor-delivery.result == 'success')
     steps:
       - uses: actions/checkout@v4
@@ -293,7 +365,14 @@ jobs:
           name: login-results
           path: ./new-results/
         continue-on-error: true
-      
+
+      - name: Download banner results if available
+        uses: actions/download-artifact@v4
+        with:
+          name: banner-results
+          path: ./new-results/
+        continue-on-error: true
+
       - name: Merge results
         run: |
           if [ -d "./new-results" ]; then
@@ -317,6 +396,14 @@ jobs:
               echo "Videos de login copiados (preservando estructura):"
               find ./videos -name "*.webm" 2>/dev/null || echo "No videos"
             fi
+
+            # Copiar screenshots de banners si existen
+            if [ -d "./new-results/banners/test-results/screenshots" ]; then
+              mkdir -p ./screenshots
+              cp -r ./new-results/banners/test-results/screenshots/* ./screenshots/ 2>/dev/null || true
+              echo "Screenshots de banners copiados:"
+              ls -la ./screenshots/ 2>/dev/null || echo "No screenshots"
+            fi
           fi
           
           if [ ! -f "payments.html" ]; then
@@ -325,6 +412,10 @@ jobs:
           
           if [ ! -f "login.html" ]; then
             echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Login Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🔐 Login Monitor</h1><p>El monitor de login se ejecuta 4 veces al dia.</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > login.html
+          fi
+
+          if [ ! -f "banners.html" ]; then
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Banner Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🎨 Monitor de Banners</h1><p>El monitor de banners se ejecuta 3 veces al dia (9am, 2pm, 8pm Chile).</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > banners.html
           fi
           
           rm -rf ./new-results
