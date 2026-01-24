@@ -135,9 +135,11 @@ def parse_playwright_format(data):
                             # Necesitamos convertirla a una ruta relativa al HTML
                             full_path = attachment.get('path', '')
                             if full_path:
-                                # Extraer solo la parte después de test-results/
+                                # Extraer toda la ruta después de login/ para mantener estructura única
                                 if 'test-results/' in full_path:
-                                    relative_path = 'videos/' + full_path.split('test-results/')[-1].split('/')[-1]
+                                    # Mantener estructura completa: videos/test-results/hash-nombre/video.webm
+                                    video_subpath = full_path.split('test-results/')[-1]
+                                    relative_path = 'videos/test-results/' + video_subpath
                                     video_path = relative_path
                                     print(f"      Video encontrado: {video_path}")
 

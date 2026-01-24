@@ -310,12 +310,12 @@ jobs:
               ls -la ./videos/ 2>/dev/null || echo "No videos"
             fi
 
-            # Copiar videos de login si existen
-            if [ -d "./new-results/login/test-results/videos" ]; then
-              mkdir -p ./videos
-              cp -r ./new-results/login/test-results/videos/* ./videos/ 2>/dev/null || true
-              echo "Videos de login copiados:"
-              ls -la ./videos/ 2>/dev/null || echo "No videos"
+            # Copiar videos de login preservando estructura de subcarpetas
+            if [ -d "./new-results/login/test-results" ]; then
+              # Copiar toda la carpeta test-results manteniendo estructura
+              cp -r ./new-results/login/test-results ./videos 2>/dev/null || true
+              echo "Videos de login copiados (preservando estructura):"
+              find ./videos -name "*.webm" 2>/dev/null || echo "No videos"
             fi
           fi
           
