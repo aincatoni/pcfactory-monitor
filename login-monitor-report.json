@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/bc569bc799f59167051d579a968620416944971a",
-        "commitHash": "bc569bc799f59167051d579a968620416944971a",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21304813039"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/26634f3202113f822bf0458ac1537fa9b000fb1c",
+        "commitHash": "26634f3202113f822bf0458ac1537fa9b000fb1c",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21306831473"
       },
       "gitCommit": {
-        "shortHash": "bc569bc",
-        "hash": "bc569bc799f59167051d579a968620416944971a",
-        "subject": "feat: Add functionality to download previous payment and login history",
-        "body": "feat: Add functionality to download previous payment and login history\n",
+        "shortHash": "26634f3",
+        "hash": "26634f3202113f822bf0458ac1537fa9b000fb1c",
+        "subject": "feat: Add login monitoring dashboard with video support",
+        "body": "feat: Add login monitoring dashboard with video support\n\n- Created a JSON report for login tests in `login-monitor-report.json`.\n- Added a history log for login test runs in `login-history.json`.\n- Developed an HTML dashboard (`login_with_video.html`) to display test results and allow video playback of tests.\n- Implemented a Python script (`test_login_with_video.py`) to run the dashboard with video functionality.\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1768998175000
+          "time": 1769213256000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1768998175000
+          "time": 1769213256000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/bc569bc799f59167051d579a968620416944971a",
-            "commitHash": "bc569bc799f59167051d579a968620416944971a",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21304813039"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/26634f3202113f822bf0458ac1537fa9b000fb1c",
+            "commitHash": "26634f3202113f822bf0458ac1537fa9b000fb1c",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21306831473"
           },
           "gitCommit": {
-            "shortHash": "bc569bc",
-            "hash": "bc569bc799f59167051d579a968620416944971a",
-            "subject": "feat: Add functionality to download previous payment and login history",
-            "body": "feat: Add functionality to download previous payment and login history\n",
+            "shortHash": "26634f3",
+            "hash": "26634f3202113f822bf0458ac1537fa9b000fb1c",
+            "subject": "feat: Add login monitoring dashboard with video support",
+            "body": "feat: Add login monitoring dashboard with video support\n\n- Created a JSON report for login tests in `login-monitor-report.json`.\n- Added a history log for login test runs in `login-history.json`.\n- Developed an HTML dashboard (`login_with_video.html`) to display test results and allow video playback of tests.\n- Implemented a Python script (`test_login_with_video.py`) to run the dashboard with video functionality.\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1768998175000
+              "time": 1769213256000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1768998175000
+              "time": 1769213256000
             },
             "branch": "main"
           },
@@ -139,18 +139,23 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2231,
+                      "duration": 1930,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T23:38:43.745Z",
+                      "startTime": "2026-01-24T01:33:04.277Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-85bec-incipal-carga-correctamente-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-85bec-incipal-carga-correctamente-chromium/video.webm"
                         }
                       ]
                     }
@@ -179,18 +184,23 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4161,
+                      "duration": 4134,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T23:38:47.365Z",
+                      "startTime": "2026-01-24T01:33:07.307Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-a637d-n-de-login-existe-en-header-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-a637d-n-de-login-existe-en-header-chromium/video.webm"
                         }
                       ]
                     }
@@ -219,18 +229,23 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4715,
+                      "duration": 5999,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T23:38:51.541Z",
+                      "startTime": "2026-01-24T01:33:11.454Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-7f4ea-e-login-carga-correctamente-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-7f4ea-e-login-carga-correctamente-chromium/video.webm"
                         }
                       ]
                     }
@@ -259,18 +274,23 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4356,
+                      "duration": 4964,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T23:38:56.268Z",
+                      "startTime": "2026-01-24T01:33:17.464Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-4-Formulario-de-login-presente-chromium/video.webm"
                         }
                       ]
                     }
@@ -299,18 +319,23 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10107,
+                      "duration": 11753,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T23:39:00.636Z",
+                      "startTime": "2026-01-24T01:33:22.439Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Monitor-5-Login-con-credenciales-chromium/video.webm"
                         }
                       ]
                     }
@@ -339,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3956,
+                      "duration": 4344,
                       "errors": [],
                       "stdout": [
                         {
@@ -360,13 +385,18 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-23T23:39:10.756Z",
+                      "startTime": "2026-01-24T01:33:34.202Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/login-PCFactory-Login-Moni-adba5--olvidé-contraseña-funciona-chromium/video.webm"
                         }
                       ]
                     }
@@ -386,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-23T23:38:42.662Z",
-    "duration": 32137.334,
+    "startTime": "2026-01-24T01:33:03.189Z",
+    "duration": 35443.298,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
