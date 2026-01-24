@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9bc7620880b69b736ec8b03a04c5e230ac2b781e",
-        "commitHash": "9bc7620880b69b736ec8b03a04c5e230ac2b781e",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21315861508"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/ede4d08b8626ae07fa5dfe381d119d5ff879877e",
+        "commitHash": "ede4d08b8626ae07fa5dfe381d119d5ff879877e",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21316671298"
       },
       "gitCommit": {
-        "shortHash": "9bc7620",
-        "hash": "9bc7620880b69b736ec8b03a04c5e230ac2b781e",
-        "subject": "fix: Rename output file for login dashboard to 'login.html'",
-        "body": "fix: Rename output file for login dashboard to 'login.html'\n",
+        "shortHash": "ede4d08",
+        "hash": "ede4d08b8626ae07fa5dfe381d119d5ff879877e",
+        "subject": "fix: Prevent duplicate entries in history for login and payment dashboards",
+        "body": "fix: Prevent duplicate entries in history for login and payment dashboards\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769261187000
+          "time": 1769265298000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769261187000
+          "time": 1769265298000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9bc7620880b69b736ec8b03a04c5e230ac2b781e",
-            "commitHash": "9bc7620880b69b736ec8b03a04c5e230ac2b781e",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21315861508"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/ede4d08b8626ae07fa5dfe381d119d5ff879877e",
+            "commitHash": "ede4d08b8626ae07fa5dfe381d119d5ff879877e",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21316671298"
           },
           "gitCommit": {
-            "shortHash": "9bc7620",
-            "hash": "9bc7620880b69b736ec8b03a04c5e230ac2b781e",
-            "subject": "fix: Rename output file for login dashboard to 'login.html'",
-            "body": "fix: Rename output file for login dashboard to 'login.html'\n",
+            "shortHash": "ede4d08",
+            "hash": "ede4d08b8626ae07fa5dfe381d119d5ff879877e",
+            "subject": "fix: Prevent duplicate entries in history for login and payment dashboards",
+            "body": "fix: Prevent duplicate entries in history for login and payment dashboards\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769261187000
+              "time": 1769265298000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769261187000
+              "time": 1769265298000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2127,
+                      "duration": 2277,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T13:30:14.222Z",
+                      "startTime": "2026-01-24T14:36:24.969Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4092,
+                      "duration": 4108,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T13:30:17.436Z",
+                      "startTime": "2026-01-24T14:36:27.976Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4746,
+                      "duration": 4215,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T13:30:21.540Z",
+                      "startTime": "2026-01-24T14:36:32.095Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4562,
+                      "duration": 3915,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T13:30:26.302Z",
+                      "startTime": "2026-01-24T14:36:36.322Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10147,
+                      "duration": 9840,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T13:30:30.877Z",
+                      "startTime": "2026-01-24T14:36:40.250Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4198,
+                      "duration": 3841,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T13:30:41.033Z",
+                      "startTime": "2026-01-24T14:36:50.099Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T13:30:13.129Z",
-    "duration": 32188.315000000002,
+    "startTime": "2026-01-24T14:36:23.873Z",
+    "duration": 30152.716,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
