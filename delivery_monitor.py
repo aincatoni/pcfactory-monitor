@@ -153,7 +153,8 @@ def formato_clp(numero: int) -> str:
     """Formatea número al estilo chileno (punto como separador de miles)"""
     if numero is None:
         return "0"
-    return f"{numero:,}".replace(",", ".")
+    # Convertir a int para eliminar decimales (pesos chilenos no usan decimales)
+    return f"{int(numero):,}".replace(",", ".")
 
 # ==============================================================================
 # API CALLS
