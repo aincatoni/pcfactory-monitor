@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-24T19:22:03.210Z",
+  "timestamp": "2026-01-24T19:38:33.558Z",
   "results": [
     {
       "paymentMethod": "Transferencia ETPay",
@@ -41,8 +41,8 @@
       ],
       "error": null,
       "gatewayReached": true,
-      "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/BMMfDrHI6C85tZ3o9HubTykBv6wLxsLKdBe13a4KVUBnJ1eK80eKwaddHfAPl35z",
-      "duration": 34955,
+      "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/gpGSuaVA5CWqymP6LZ4EFjwTz7rMumBT2s9IWJlXpkHHGfzEUdKFPJSJiFpQPB8D",
+      "duration": 35290,
       "videoPath": "videos/video-ETPAY.webm"
     },
     {
@@ -86,7 +86,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-      "duration": 34555,
+      "duration": 35134,
       "videoPath": "videos/video-BANCOESTADO.webm"
     },
     {
@@ -130,7 +130,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-      "duration": 35044,
+      "duration": 34713,
       "videoPath": "videos/video-CLICKTOPAY.webm"
     },
     {
@@ -174,7 +174,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-      "duration": 34698,
+      "duration": 35272,
       "videoPath": "videos/video-WEBPAY_DEBITO.webm"
     },
     {
@@ -218,7 +218,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-      "duration": 34996,
+      "duration": 34405,
       "videoPath": "videos/video-WEBPAY_CREDITO.webm"
     }
   ],

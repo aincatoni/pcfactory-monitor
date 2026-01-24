@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-01-24T19:38:30.799Z",
+  "banners": [
+    {
+      "index": 1,
+      "screenshot": "banner-1.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "error",
+      "priceMatch": null,
+      "error": "locator.scrollIntoViewIfNeeded: Timeout 14929.911ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    },
+    {
+      "index": 2,
+      "screenshot": "banner-2.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "error",
+      "priceMatch": null,
+      "error": "locator.scrollIntoViewIfNeeded: Timeout 14914.740999999998ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n"
+    },
+    {
+      "index": 3,
+      "screenshot": "banner-3.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "error",
+      "priceMatch": null,
+      "error": "locator.scrollIntoViewIfNeeded: Timeout 14907.246999999996ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    27 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n"
+    },
+    {
+      "index": 4,
+      "screenshot": "banner-4.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "error": null
+    },
+    {
+      "index": 5,
+      "screenshot": "banner-5.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "error": null
+    },
+    {
+      "index": 6,
+      "screenshot": "banner-6.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "error": null
+    },
+    {
+      "index": 7,
+      "screenshot": "banner-7.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "error": null
+    },
+    {
+      "index": 8,
+      "screenshot": "banner-8.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "error": null
+    },
+    {
+      "index": 9,
+      "screenshot": "banner-9.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "error": null
+    },
+    {
+      "index": 10,
+      "screenshot": "banner-10.png",
+      "bannerPrice": null,
+      "productPrice": null,
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "error": null
+    }
+  ]
+}

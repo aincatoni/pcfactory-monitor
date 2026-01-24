@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/4f1dbc4f82b634b51b6efa862376ada5bc1a4aeb",
-        "commitHash": "4f1dbc4f82b634b51b6efa862376ada5bc1a4aeb",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320299726"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/73049963e5b9769934e22fa45cb7b7eddacf7ef8",
+        "commitHash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320523122"
       },
       "gitCommit": {
-        "shortHash": "4f1dbc4",
-        "hash": "4f1dbc4f82b634b51b6efa862376ada5bc1a4aeb",
-        "subject": "feat: Add charts for category analysis in HTML dashboard",
-        "body": "feat: Add charts for category analysis in HTML dashboard\n",
+        "shortHash": "7304996",
+        "hash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
+        "subject": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation",
+        "body": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769282337000
+          "time": 1769283444000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769282337000
+          "time": 1769283444000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/4f1dbc4f82b634b51b6efa862376ada5bc1a4aeb",
-            "commitHash": "4f1dbc4f82b634b51b6efa862376ada5bc1a4aeb",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320299726"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/73049963e5b9769934e22fa45cb7b7eddacf7ef8",
+            "commitHash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320523122"
           },
           "gitCommit": {
-            "shortHash": "4f1dbc4",
-            "hash": "4f1dbc4f82b634b51b6efa862376ada5bc1a4aeb",
-            "subject": "feat: Add charts for category analysis in HTML dashboard",
-            "body": "feat: Add charts for category analysis in HTML dashboard\n",
+            "shortHash": "7304996",
+            "hash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
+            "subject": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation",
+            "body": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769282337000
+              "time": 1769283444000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769282337000
+              "time": 1769283444000
             },
             "branch": "main"
           },
@@ -138,7 +138,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57236,
+                      "duration": 57558,
                       "errors": [],
                       "stdout": [
                         {
@@ -150,7 +150,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:22:03.236Z",
+                      "startTime": "2026-01-24T19:38:33.586Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -185,7 +185,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56761,
+                      "duration": 57290,
                       "errors": [],
                       "stdout": [
                         {
@@ -197,7 +197,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:23:01.461Z",
+                      "startTime": "2026-01-24T19:39:31.957Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -232,7 +232,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57116,
+                      "duration": 56997,
                       "errors": [],
                       "stdout": [
                         {
@@ -244,7 +244,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:23:58.235Z",
+                      "startTime": "2026-01-24T19:40:29.259Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -279,7 +279,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56907,
+                      "duration": 57385,
                       "errors": [],
                       "stdout": [
                         {
@@ -291,7 +291,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:24:55.364Z",
+                      "startTime": "2026-01-24T19:41:26.267Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -326,7 +326,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57262,
+                      "duration": 56473,
                       "errors": [],
                       "stdout": [
                         {
@@ -360,7 +360,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-24T19:22:03.210Z\n"
+                          "text": "Timestamp: 2026-01-24T19:38:33.558Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -378,7 +378,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/BMMfDrHI6C85tZ3o9HubTykBv6wLxsLKdBe13a4KVUBnJ1eK80eKwaddHfAPl35z\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/gpGSuaVA5CWqymP6LZ4EFjwTz7rMumBT2s9IWJlXpkHHGfzEUdKFPJSJiFpQPB8D\n"
                         },
                         {
                           "text": "   Video: videos/video-ETPAY.webm\n"
@@ -425,7 +425,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:25:52.283Z",
+                      "startTime": "2026-01-24T19:42:23.664Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -451,8 +451,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T19:22:02.081Z",
-    "duration": 287544.658,
+    "startTime": "2026-01-24T19:38:32.477Z",
+    "duration": 287737.73600000003,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
