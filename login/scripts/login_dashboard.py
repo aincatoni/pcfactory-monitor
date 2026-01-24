@@ -810,15 +810,19 @@ def main():
     # Cargar historial
     history = load_history(history_path)
 
-    # Agregar ejecución actual al historial
+    # Agregar ejecución actual al historial (evitar duplicados)
     if results.get('tests'):
-        history['runs'].append({
-            'timestamp': results.get('timestamp'),
-            'status': results.get('overallStatus', 'unknown'),
-            'passed': results.get('summary', {}).get('passed', 0),
-            'total': results.get('summary', {}).get('total', 0)
-        })
-        save_history(history, history_path)
+        current_timestamp = results.get('timestamp')
+        # Verificar si ya existe una entrada con este timestamp
+        existing = any(run.get('timestamp') == current_timestamp for run in history['runs'])
+        if not existing:
+            history['runs'].append({
+                'timestamp': current_timestamp,
+                'status': results.get('overallStatus', 'unknown'),
+                'passed': results.get('summary', {}).get('passed', 0),
+                'total': results.get('summary', {}).get('total', 0)
+            })
+            save_history(history, history_path)
 
     # Generar HTML
     html = generate_html(results, history)

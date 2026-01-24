@@ -748,12 +748,16 @@ def main():
     history = load_history(str(history_path))
     
     if results.get("results"):
-        history.append({
-            "timestamp": results.get("timestamp"),
-            "results": results.get("results"),
-            "summary": results.get("summary")
-        })
-        save_history(history, str(history_path))
+        current_timestamp = results.get("timestamp")
+        # Verificar si ya existe una entrada con este timestamp para evitar duplicados
+        existing = any(entry.get("timestamp") == current_timestamp for entry in history)
+        if not existing:
+            history.append({
+                "timestamp": current_timestamp,
+                "results": results.get("results"),
+                "summary": results.get("summary")
+            })
+            save_history(history, str(history_path))
     
     # Generar HTML
     html_content = generate_html_dashboard(results, history)
