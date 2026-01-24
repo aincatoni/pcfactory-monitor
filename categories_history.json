@@ -1,18 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-24T15:19:19.302716+00:00",
-      "total_categories": 387,
-      "added": [],
-      "removed": [
-        {
-          "id": "1331",
-          "nombre": "Internet Satelital",
-          "timestamp": "2026-01-24T15:19:19.302716+00:00"
-        }
-      ]
-    },
-    {
       "timestamp": "2026-01-24T15:22:07.681994+00:00",
       "total_categories": 387,
       "added": [],
@@ -188,6 +176,12 @@
     },
     {
       "timestamp": "2026-01-24T23:35:59.437473+00:00",
+      "total_categories": 388,
+      "added": [],
+      "removed": []
+    },
+    {
+      "timestamp": "2026-01-24T23:49:04.142208+00:00",
       "total_categories": 388,
       "added": [],
       "removed": []
