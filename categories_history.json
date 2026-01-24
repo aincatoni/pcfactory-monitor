@@ -1,12 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-24T06:00:32.693275+00:00",
-      "total_categories": 388,
-      "added": [],
-      "removed": []
-    },
-    {
       "timestamp": "2026-01-24T06:41:48.385768+00:00",
       "total_categories": 388,
       "added": [],
@@ -185,6 +179,12 @@
           "timestamp": "2026-01-24T15:19:19.302716+00:00"
         }
       ]
+    },
+    {
+      "timestamp": "2026-01-24T15:22:07.681994+00:00",
+      "total_categories": 387,
+      "added": [],
+      "removed": []
     }
   ]
 }
