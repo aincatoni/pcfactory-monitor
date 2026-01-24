@@ -1,31 +1,7 @@
 {
   "runs": [
     {
-      "timestamp": "2026-01-23T17:27:04.043342",
-      "status": "ok",
-      "passed": 6,
-      "total": 6
-    },
-    {
-      "timestamp": "2026-01-23T19:42:23.163439",
-      "status": "ok",
-      "passed": 6,
-      "total": 6
-    },
-    {
-      "timestamp": "2026-01-23T22:53:16.334153",
-      "status": "ok",
-      "passed": 6,
-      "total": 6
-    },
-    {
-      "timestamp": "2026-01-23T23:19:23.783243",
-      "status": "ok",
-      "passed": 6,
-      "total": 6
-    },
-    {
-      "timestamp": "2026-01-23T23:39:15.482930",
+      "timestamp": "2026-01-23T19:48:47.624890",
       "status": "ok",
       "passed": 6,
       "total": 6
