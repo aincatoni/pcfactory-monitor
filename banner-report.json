@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
         "commitHash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21322900876"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21323206811"
       },
       "gitCommit": {
         "shortHash": "6f57446",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
             "commitHash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21322900876"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21323206811"
           },
           "gitCommit": {
             "shortHash": "6f57446",
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 75196,
+                      "duration": 74654,
                       "errors": [],
                       "stdout": [
                         {
@@ -161,13 +161,13 @@
                           "text": "\n🎨 Analizando Banner 1/28\n"
                         },
                         {
-                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14926.162000000002ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14920.384ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 2/28\n"
                         },
                         {
-                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14938.492000000002ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14939.037000000004ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 3/28\n"
@@ -286,7 +286,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T22:52:05.923Z",
+                      "startTime": "2026-01-24T23:17:31.314Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -317,8 +317,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T22:52:04.855Z",
-    "duration": 76572.629,
+    "startTime": "2026-01-24T23:17:30.253Z",
+    "duration": 76906.19900000001,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
