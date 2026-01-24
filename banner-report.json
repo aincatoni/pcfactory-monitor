@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-        "commitHash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320523122"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+        "commitHash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320705164"
       },
       "gitCommit": {
-        "shortHash": "7304996",
-        "hash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-        "subject": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation",
-        "body": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation\n",
+        "shortHash": "6f57446",
+        "hash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+        "subject": "fix: Enhance price extraction logic in banner tests for better accuracy",
+        "body": "fix: Enhance price extraction logic in banner tests for better accuracy\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769283444000
+          "time": 1769284328000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769283444000
+          "time": 1769284328000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-            "commitHash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320523122"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+            "commitHash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320705164"
           },
           "gitCommit": {
-            "shortHash": "7304996",
-            "hash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-            "subject": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation",
-            "body": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation\n",
+            "shortHash": "6f57446",
+            "hash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+            "subject": "fix: Enhance price extraction logic in banner tests for better accuracy",
+            "body": "fix: Enhance price extraction logic in banner tests for better accuracy\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769283444000
+              "time": 1769284328000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769283444000
+              "time": 1769284328000
             },
             "branch": "main"
           },
@@ -120,7 +120,7 @@
         {
           "title": "Banner Price Monitor",
           "file": "banner-price-check.spec.js",
-          "line": 129,
+          "line": 175,
           "column": 6,
           "specs": [
             {
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 74335,
+                      "duration": 74079,
                       "errors": [],
                       "stdout": [
                         {
@@ -161,25 +161,34 @@
                           "text": "\n🎨 Analizando Banner 1/28\n"
                         },
                         {
-                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14929.911ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14915.934000000001ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 2/28\n"
                         },
                         {
-                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14914.740999999998ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14896.073ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 3/28\n"
                         },
                         {
-                          "text": "  ❌ Error al procesar banner: locator.scrollIntoViewIfNeeded: Timeout 14907.246999999996ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    27 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                          "text": "  📸 Screenshot guardado\n"
+                        },
+                        {
+                          "text": "  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)\n"
+                        },
+                        {
+                          "text": "  ℹ️ Banner sin precio detectado (posiblemente promocional)\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 4/28\n"
                         },
                         {
                           "text": "  📸 Screenshot guardado\n"
+                        },
+                        {
+                          "text": "  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)\n"
                         },
                         {
                           "text": "  ℹ️ Banner sin precio detectado (posiblemente promocional)\n"
@@ -191,6 +200,9 @@
                           "text": "  📸 Screenshot guardado\n"
                         },
                         {
+                          "text": "  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)\n"
+                        },
+                        {
                           "text": "  ℹ️ Banner sin precio detectado (posiblemente promocional)\n"
                         },
                         {
@@ -198,6 +210,9 @@
                         },
                         {
                           "text": "  📸 Screenshot guardado\n"
+                        },
+                        {
+                          "text": "  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)\n"
                         },
                         {
                           "text": "  ℹ️ Banner sin precio detectado (posiblemente promocional)\n"
@@ -209,6 +224,9 @@
                           "text": "  📸 Screenshot guardado\n"
                         },
                         {
+                          "text": "  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)\n"
+                        },
+                        {
                           "text": "  ℹ️ Banner sin precio detectado (posiblemente promocional)\n"
                         },
                         {
@@ -216,6 +234,9 @@
                         },
                         {
                           "text": "  📸 Screenshot guardado\n"
+                        },
+                        {
+                          "text": "  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)\n"
                         },
                         {
                           "text": "  ℹ️ Banner sin precio detectado (posiblemente promocional)\n"
@@ -227,6 +248,9 @@
                           "text": "  📸 Screenshot guardado\n"
                         },
                         {
+                          "text": "  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)\n"
+                        },
+                        {
                           "text": "  ℹ️ Banner sin precio detectado (posiblemente promocional)\n"
                         },
                         {
@@ -234,6 +258,9 @@
                         },
                         {
                           "text": "  📸 Screenshot guardado\n"
+                        },
+                        {
+                          "text": "  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)\n"
                         },
                         {
                           "text": "  ℹ️ Banner sin precio detectado (posiblemente promocional)\n"
@@ -259,7 +286,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:38:30.814Z",
+                      "startTime": "2026-01-24T19:53:22.286Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -280,7 +307,7 @@
               ],
               "id": "52eb7d336b897c539938-c663a2caec990ea9e24c",
               "file": "banner-price-check.spec.js",
-              "line": 138,
+              "line": 184,
               "column": 3
             }
           ]
@@ -290,8 +317,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T19:38:29.769Z",
-    "duration": 75685.57100000001,
+    "startTime": "2026-01-24T19:53:21.188Z",
+    "duration": 75503.043,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
