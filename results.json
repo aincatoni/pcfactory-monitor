@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-        "commitHash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320523122"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+        "commitHash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21322900876"
       },
       "gitCommit": {
-        "shortHash": "7304996",
-        "hash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-        "subject": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation",
-        "body": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation\n",
+        "shortHash": "6f57446",
+        "hash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+        "subject": "fix: Enhance price extraction logic in banner tests for better accuracy",
+        "body": "fix: Enhance price extraction logic in banner tests for better accuracy\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769283444000
+          "time": 1769284328000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769283444000
+          "time": 1769284328000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-            "commitHash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21320523122"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+            "commitHash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21322900876"
           },
           "gitCommit": {
-            "shortHash": "7304996",
-            "hash": "73049963e5b9769934e22fa45cb7b7eddacf7ef8",
-            "subject": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation",
-            "body": "feat: Implement banner monitoring functionality with Playwright tests and dashboard generation\n",
+            "shortHash": "6f57446",
+            "hash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
+            "subject": "fix: Enhance price extraction logic in banner tests for better accuracy",
+            "body": "fix: Enhance price extraction logic in banner tests for better accuracy\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769283444000
+              "time": 1769284328000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769283444000
+              "time": 1769284328000
             },
             "branch": "main"
           },
@@ -138,7 +138,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57558,
+                      "duration": 57159,
                       "errors": [],
                       "stdout": [
                         {
@@ -150,7 +150,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:38:33.586Z",
+                      "startTime": "2026-01-24T22:52:07.080Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -185,7 +185,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57290,
+                      "duration": 56119,
                       "errors": [],
                       "stdout": [
                         {
@@ -197,7 +197,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:39:31.957Z",
+                      "startTime": "2026-01-24T22:53:05.812Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -232,7 +232,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56997,
+                      "duration": 56022,
                       "errors": [],
                       "stdout": [
                         {
@@ -244,7 +244,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:40:29.259Z",
+                      "startTime": "2026-01-24T22:54:01.942Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -279,7 +279,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 57385,
+                      "duration": 56249,
                       "errors": [],
                       "stdout": [
                         {
@@ -291,7 +291,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:41:26.267Z",
+                      "startTime": "2026-01-24T22:54:57.975Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -326,7 +326,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56473,
+                      "duration": 56267,
                       "errors": [],
                       "stdout": [
                         {
@@ -360,7 +360,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-24T19:38:33.558Z\n"
+                          "text": "Timestamp: 2026-01-24T22:52:07.049Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -378,7 +378,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/gpGSuaVA5CWqymP6LZ4EFjwTz7rMumBT2s9IWJlXpkHHGfzEUdKFPJSJiFpQPB8D\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/DDpgGxU3c7GgZJSyRMoMhix6wGNhs94m6wRNicPQBKFwuKYavVDo5ZIpNKODolUW\n"
                         },
                         {
                           "text": "   Video: videos/video-ETPAY.webm\n"
@@ -425,7 +425,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T19:42:23.664Z",
+                      "startTime": "2026-01-24T22:55:54.235Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -451,8 +451,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T19:38:32.477Z",
-    "duration": 287737.73600000003,
+    "startTime": "2026-01-24T22:52:06.022Z",
+    "duration": 284545.388,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
