@@ -187,6 +187,77 @@
         }
         .badge-id { background: var(--bg-hover); color: var(--text-secondary); }
         .empty-state { padding: 3rem; text-align: center; color: var(--text-muted); }
+
+        /* Estilos del botón de video */
+        .video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .video-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        .video-icon { font-size: 1rem; }
+
+        /* Modal de video */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-modal.active { display: flex; }
+        .video-modal-content {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        .video-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .video-modal-header h3 { font-size: 1.1rem; }
+        .video-modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+        .video-modal-close:hover { color: var(--text-primary); }
+        .video-modal video {
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 8px;
+        }
+
         .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
         @media (max-width: 768px) {
             .container { padding: 1rem; }
@@ -208,26 +279,26 @@
                     <span>Monitor de Login</span>
                 </div>
             </div>
-            <div class="timestamp">23/01/2026 20:39:15 Chile</div>
+            <div class="timestamp">24/01/2026 10:30:46 Chile</div>
         </header>
-        
+
         <div class="nav-links">
             <a href="index.html" class="nav-link">📦 Categorías</a>
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link active">🔐 Login</a>
         </div>
-        
+
         <div class="status-banner healthy">
             <div class="status-indicator"></div>
             <span class="status-text">Login Operativo</span>
         </div>
-        
+
         <div class="health-card">
             <div class="health-score">100%</div>
             <div class="health-label">Tasa de éxito en tests de login</div>
         </div>
-        
+
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Tests Pasados</div>
@@ -243,10 +314,10 @@
             </div>
             <div class="stat-card">
                 <div class="stat-label">Ejecuciones (Total)</div>
-                <div class="stat-value blue">6</div>
+                <div class="stat-value blue">3</div>
             </div>
         </div>
-        
+
         <div class="section">
             <div class="section-header">
                 <h2>📋 Resultados de Tests</h2>
@@ -267,50 +338,86 @@
                 <tr>
                     <td><span class="badge badge-id">1. Página principal carga correctamente</span></td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
-                    <td><span class="badge">2.2s</span></td>
-                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                    <td><span class="badge">2.1s</span></td>
+                    <td style="color: var(--text-secondary);">
+                        -
+                        
+                <button class="video-btn" onclick="openVideoModal('videos/video.webm', '1. Página principal carga correctamente')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+                    </td>
                 </tr>
         
                 <tr>
                     <td><span class="badge badge-id">2. Botón de login existe en header</span></td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
-                    <td><span class="badge">4.2s</span></td>
-                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                    <td><span class="badge">4.1s</span></td>
+                    <td style="color: var(--text-secondary);">
+                        -
+                        
+                <button class="video-btn" onclick="openVideoModal('videos/video.webm', '2. Botón de login existe en header')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+                    </td>
                 </tr>
         
                 <tr>
                     <td><span class="badge badge-id">3. Página de login carga correctamente</span></td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
                     <td><span class="badge">4.7s</span></td>
-                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                    <td style="color: var(--text-secondary);">
+                        -
+                        
+                <button class="video-btn" onclick="openVideoModal('videos/video.webm', '3. Página de login carga correctamente')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+                    </td>
                 </tr>
         
                 <tr>
                     <td><span class="badge badge-id">4. Formulario de login presente</span></td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
-                    <td><span class="badge">4.4s</span></td>
-                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                    <td><span class="badge">4.6s</span></td>
+                    <td style="color: var(--text-secondary);">
+                        -
+                        
+                <button class="video-btn" onclick="openVideoModal('videos/video.webm', '4. Formulario de login presente')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+                    </td>
                 </tr>
         
                 <tr>
                     <td><span class="badge badge-id">5. Login con credenciales</span></td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
                     <td><span class="badge">10.1s</span></td>
-                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                    <td style="color: var(--text-secondary);">
+                        -
+                        
+                <button class="video-btn" onclick="openVideoModal('videos/video.webm', '5. Login con credenciales')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+                    </td>
                 </tr>
         
                 <tr>
                     <td><span class="badge badge-id">6. Link olvidé contraseña funciona</span></td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅ PASSED</span></td>
-                    <td><span class="badge">4.0s</span></td>
-                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">-</td>
+                    <td><span class="badge">4.2s</span></td>
+                    <td style="color: var(--text-secondary);">
+                        -
+                        
+                <button class="video-btn" onclick="openVideoModal('videos/video.webm', '6. Link olvidé contraseña funciona')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>
+                    </td>
                 </tr>
         
                     </tbody>
                 </table>
             </div>
         </div>
-        
+
         <div class="section">
             <div class="section-header">
                 <h2>📊 Historial Reciente</h2>
@@ -328,37 +435,19 @@
                     <tbody>
                         
                 <tr>
-                    <td>23/01 20:39</td>
+                    <td>24/01 10:30</td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅</span></td>
                     <td><span class="badge badge-id">6/6</span></td>
                 </tr>
         
                 <tr>
-                    <td>23/01 20:39</td>
+                    <td>24/01 10:30</td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅</span></td>
                     <td><span class="badge badge-id">6/6</span></td>
                 </tr>
         
                 <tr>
-                    <td>23/01 20:19</td>
-                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅</span></td>
-                    <td><span class="badge badge-id">6/6</span></td>
-                </tr>
-        
-                <tr>
-                    <td>23/01 19:53</td>
-                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅</span></td>
-                    <td><span class="badge badge-id">6/6</span></td>
-                </tr>
-        
-                <tr>
-                    <td>23/01 16:42</td>
-                    <td><span class="stat-value green" style="font-size: 0.875rem;">✅</span></td>
-                    <td><span class="badge badge-id">6/6</span></td>
-                </tr>
-        
-                <tr>
-                    <td>23/01 14:27</td>
+                    <td>23/01 16:48</td>
                     <td><span class="stat-value green" style="font-size: 0.875rem;">✅</span></td>
                     <td><span class="badge badge-id">6/6</span></td>
                 </tr>
@@ -367,10 +456,59 @@
                 </table>
             </div>
         </div>
-        
+
         <footer class="footer">
             <p>Actualización automática 3 veces al día (9am, 2pm, 8pm Chile)</p>
         </footer>
     </div>
+
+    <!-- Modal de video -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <h3 id="videoModalTitle">Video del test</h3>
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <video id="videoPlayer" controls>
+                <source src="" type="video/webm">
+                Tu navegador no soporta video HTML5.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Funciones del modal de video
+        function openVideoModal(videoPath, testName) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+            const title = document.getElementById('videoModalTitle');
+
+            title.textContent = 'Test: ' + testName;
+            video.querySelector('source').src = videoPath;
+            video.load();
+            modal.classList.add('active');
+
+            // Cerrar con Escape
+            document.addEventListener('keydown', handleEscape);
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+
+            video.pause();
+            modal.classList.remove('active');
+            document.removeEventListener('keydown', handleEscape);
+        }
+
+        function handleEscape(e) {
+            if (e.key === 'Escape') closeVideoModal();
+        }
+
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeVideoModal();
+        });
+    </script>
 </body>
 </html>

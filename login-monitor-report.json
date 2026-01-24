@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/26634f3202113f822bf0458ac1537fa9b000fb1c",
-        "commitHash": "26634f3202113f822bf0458ac1537fa9b000fb1c",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21315173871"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9bc7620880b69b736ec8b03a04c5e230ac2b781e",
+        "commitHash": "9bc7620880b69b736ec8b03a04c5e230ac2b781e",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21315861508"
       },
       "gitCommit": {
-        "shortHash": "26634f3",
-        "hash": "26634f3202113f822bf0458ac1537fa9b000fb1c",
-        "subject": "feat: Add login monitoring dashboard with video support",
-        "body": "feat: Add login monitoring dashboard with video support\n\n- Created a JSON report for login tests in `login-monitor-report.json`.\n- Added a history log for login test runs in `login-history.json`.\n- Developed an HTML dashboard (`login_with_video.html`) to display test results and allow video playback of tests.\n- Implemented a Python script (`test_login_with_video.py`) to run the dashboard with video functionality.\n",
+        "shortHash": "9bc7620",
+        "hash": "9bc7620880b69b736ec8b03a04c5e230ac2b781e",
+        "subject": "fix: Rename output file for login dashboard to 'login.html'",
+        "body": "fix: Rename output file for login dashboard to 'login.html'\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769213256000
+          "time": 1769261187000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769213256000
+          "time": 1769261187000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/26634f3202113f822bf0458ac1537fa9b000fb1c",
-            "commitHash": "26634f3202113f822bf0458ac1537fa9b000fb1c",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21315173871"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9bc7620880b69b736ec8b03a04c5e230ac2b781e",
+            "commitHash": "9bc7620880b69b736ec8b03a04c5e230ac2b781e",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21315861508"
           },
           "gitCommit": {
-            "shortHash": "26634f3",
-            "hash": "26634f3202113f822bf0458ac1537fa9b000fb1c",
-            "subject": "feat: Add login monitoring dashboard with video support",
-            "body": "feat: Add login monitoring dashboard with video support\n\n- Created a JSON report for login tests in `login-monitor-report.json`.\n- Added a history log for login test runs in `login-history.json`.\n- Developed an HTML dashboard (`login_with_video.html`) to display test results and allow video playback of tests.\n- Implemented a Python script (`test_login_with_video.py`) to run the dashboard with video functionality.\n",
+            "shortHash": "9bc7620",
+            "hash": "9bc7620880b69b736ec8b03a04c5e230ac2b781e",
+            "subject": "fix: Rename output file for login dashboard to 'login.html'",
+            "body": "fix: Rename output file for login dashboard to 'login.html'\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769213256000
+              "time": 1769261187000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769213256000
+              "time": 1769261187000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2234,
+                      "duration": 2127,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T12:35:33.932Z",
+                      "startTime": "2026-01-24T13:30:14.222Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4043,
+                      "duration": 4092,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T12:35:37.195Z",
+                      "startTime": "2026-01-24T13:30:17.436Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4594,
+                      "duration": 4746,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T12:35:41.256Z",
+                      "startTime": "2026-01-24T13:30:21.540Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4636,
+                      "duration": 4562,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T12:35:45.863Z",
+                      "startTime": "2026-01-24T13:30:26.302Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10449,
+                      "duration": 10147,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T12:35:50.510Z",
+                      "startTime": "2026-01-24T13:30:30.877Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4090,
+                      "duration": 4198,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T12:36:00.969Z",
+                      "startTime": "2026-01-24T13:30:41.033Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T12:35:32.807Z",
-    "duration": 32344.737999999998,
+    "startTime": "2026-01-24T13:30:13.129Z",
+    "duration": 32188.315000000002,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
