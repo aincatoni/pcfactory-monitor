@@ -1,0 +1,130 @@
+{
+  "suites": [
+    {
+      "title": "login.spec.js",
+      "file": "login.spec.js",
+      "suites": [
+        {
+          "title": "PCFactory Login Monitor",
+          "file": "login.spec.js",
+          "specs": [
+            {
+              "title": "1. Página de login carga correctamente",
+              "ok": true,
+              "tests": [
+                {
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2423,
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/videos/test-01-login.webm"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "2. Formulario de login está presente",
+              "ok": true,
+              "tests": [
+                {
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3342,
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/videos/test-02-form.webm"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "3. Opciones de login social presentes",
+              "ok": true,
+              "tests": [
+                {
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3477,
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/login/test-results/videos/test-03-social.webm"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "4. Sistema responde a intento de login",
+              "ok": true,
+              "tests": [
+                {
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3288,
+                      "attachments": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "5. Link de recuperar contraseña funciona",
+              "ok": true,
+              "tests": [
+                {
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3210,
+                      "attachments": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "6. Link de registro funciona",
+              "ok": true,
+              "tests": [
+                {
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4325,
+                      "attachments": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
