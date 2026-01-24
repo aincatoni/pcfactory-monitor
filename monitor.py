@@ -527,6 +527,14 @@ def generate_html_dashboard(report: Dict) -> str:
     else:
         health_message = "Múltiples categorías requieren atención"
     
+    # Preparar datos para gráficos
+    # Top 10 categorías con más productos
+    categorias_con_productos = [r for r in resultados if r.get("tiene_productos") and r.get("total_productos")]
+    top_10_categorias = sorted(categorias_con_productos, key=lambda x: x.get("total_productos", 0), reverse=True)[:10]
+
+    top_10_labels = [cat.get("nombre", "")[:30] for cat in top_10_categorias]  # Truncar nombres largos
+    top_10_values = [cat.get("total_productos", 0) for cat in top_10_categorias]
+
     # Obtener datos del historial para las tarjetas
     history = report.get("history", {"history": []})
     history_entries = history.get("history", [])
@@ -812,7 +820,11 @@ def generate_html_dashboard(report: Dict) -> str:
         th.sortable.desc .sort-icon::after { content: '↓'; }
         th.sortable.asc .sort-icon, th.sortable.desc .sort-icon { font-size: 0; }
         th.sortable.asc .sort-icon::after, th.sortable.desc .sort-icon::after { font-size: 0.75rem; }
-        @media (max-width: 768px) { .container { padding: 1rem; } .header { flex-direction: column; gap: 1rem; text-align: center; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .health-score { font-size: 3rem; } }
+        /* Charts */
+        .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .chart-container { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+        .chart-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-secondary); text-align: center; }
+        @media (max-width: 768px) { .container { padding: 1rem; } .header { flex-direction: column; gap: 1rem; text-align: center; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .health-score { font-size: 3rem; } .charts-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -855,6 +867,25 @@ def generate_html_dashboard(report: Dict) -> str:
                 <div class="stat-hint">Click para ver</div>
             </div>
         </div>
+
+        <!-- Sección de Gráficos -->
+        <div class="section">
+            <div class="section-header">
+                <span>📊</span>
+                <h2>Análisis de Distribución</h2>
+            </div>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3 class="chart-title">Distribución por Estado</h3>
+                    <canvas id="statusChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3 class="chart-title">Top 10 Categorías con Más Productos</h3>
+                    <canvas id="topCategoriesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
         ''' + errores_section + vacias_section + changes_section + added_section + removed_section + all_cats_section + '''
         <footer class="footer"><p>Actualizacion automatica cada 10 minutos</p><p>Hecho con ❤️ por Ain Cortés Catoni</p></footer>
     </div>
@@ -914,6 +945,108 @@ def generate_html_dashboard(report: Dict) -> str:
                 
                 rows.forEach(row => tbody.appendChild(row));
             });
+        });
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        // Configuración de colores del tema
+        const chartColors = {
+            green: '#10b981',
+            red: '#ef4444',
+            yellow: '#f59e0b',
+            blue: '#3b82f6',
+            text: '#a0a0b0',
+            grid: '#2a2a3a'
+        };
+
+        // Configuración común para todos los gráficos
+        Chart.defaults.color = chartColors.text;
+        Chart.defaults.borderColor = chartColors.grid;
+        Chart.defaults.font.family = "'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif";
+
+        // Gráfico 1: Distribución por Estado (Pie Chart)
+        const statusChartCtx = document.getElementById('statusChart').getContext('2d');
+        new Chart(statusChartCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Con Productos', 'Sin Productos', 'Con Errores'],
+                datasets: [{
+                    data: [''' + str(summary["con_productos"]) + ''', ''' + str(summary["sin_productos"]) + ''', ''' + str(summary["urls_error"]) + '''],
+                    backgroundColor: [chartColors.green, chartColors.yellow, chartColors.red],
+                    borderWidth: 2,
+                    borderColor: '#16161f'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: { size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed || 0;
+                                const total = ''' + str(summary["total_categorias"]) + ''';
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return label + ': ' + value + ' (' + percentage + '%)';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico 2: Top 10 Categorías (Horizontal Bar Chart)
+        const topCategoriesCtx = document.getElementById('topCategoriesChart').getContext('2d');
+        new Chart(topCategoriesCtx, {
+            type: 'bar',
+            data: {
+                labels: ''' + str(top_10_labels) + ''',
+                datasets: [{
+                    label: 'Productos',
+                    data: ''' + str(top_10_values) + ''',
+                    backgroundColor: chartColors.blue,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.x + ' productos';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { color: chartColors.grid },
+                        ticks: { color: chartColors.text }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: {
+                            color: chartColors.text,
+                            font: { size: 11 }
+                        }
+                    }
+                }
+            }
         });
     </script>
 </body>
