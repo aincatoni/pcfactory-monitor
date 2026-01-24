@@ -44,13 +44,26 @@ const results = {
 function extractPrice(text) {
   if (!text) return null;
 
-  // Buscar patrones de precio
-  const matches = text.match(/\$\s*([\d.]+)/);
-  if (matches && matches[1]) {
-    // Remover puntos de miles y convertir a número
-    const price = parseInt(matches[1].replace(/\./g, ''), 10);
-    if (!isNaN(price)) {
-      return price;
+  // Buscar patrones de precio más flexibles
+  const patterns = [
+    /\$\s*([\d.]+)/g,           // $123.456 o $ 123.456
+    /([\d.]+)\s*pesos/gi,       // 123.456 pesos
+    /precio[:\s]+([\d.]+)/gi,   // precio: 123.456
+    /(?:^|[^\d])([\d]{3}\.[\d]{3})/g  // 649.990 (formato chileno sin $)
+  ];
+
+  for (const pattern of patterns) {
+    const matches = text.matchAll(pattern);
+    for (const match of matches) {
+      const priceStr = match[1];
+      if (priceStr) {
+        // Remover puntos de miles y convertir a número
+        const price = parseInt(priceStr.replace(/\./g, ''), 10);
+        // Validar que sea un precio razonable (entre $1.000 y $99.999.990)
+        if (!isNaN(price) && price >= 1000 && price < 100000000) {
+          return price;
+        }
+      }
     }
   }
 
@@ -62,20 +75,53 @@ function extractPrice(text) {
  */
 async function analyzeBannerForPrice(page, bannerElement) {
   try {
-    // Obtener todo el texto visible en el banner
+    // 1. Obtener texto visible en el banner (HTML text)
     const bannerText = await bannerElement.innerText();
-
-    // Buscar precios en el texto
-    const price = extractPrice(bannerText);
+    let price = extractPrice(bannerText);
 
     if (price) {
-      console.log(`  📍 Precio detectado en banner: $${price.toLocaleString('es-CL')}`);
+      console.log(`  📍 Precio detectado en texto HTML: $${price.toLocaleString('es-CL')}`);
       return price;
     }
 
+    // 2. Buscar en atributos alt de imágenes (a veces tienen info de precio)
+    const images = await bannerElement.locator('img').all();
+    for (const img of images) {
+      const alt = await img.getAttribute('alt').catch(() => '');
+      const title = await img.getAttribute('title').catch(() => '');
+      const src = await img.getAttribute('src').catch(() => '');
+
+      const altPrice = extractPrice(alt || '');
+      const titlePrice = extractPrice(title || '');
+      const srcPrice = extractPrice(src || ''); // A veces el precio está en el nombre del archivo
+
+      if (altPrice) {
+        console.log(`  📍 Precio detectado en alt de imagen: $${altPrice.toLocaleString('es-CL')}`);
+        return altPrice;
+      }
+      if (titlePrice) {
+        console.log(`  📍 Precio detectado en title de imagen: $${titlePrice.toLocaleString('es-CL')}`);
+        return titlePrice;
+      }
+      if (srcPrice) {
+        console.log(`  📍 Precio detectado en src de imagen: $${srcPrice.toLocaleString('es-CL')}`);
+        return srcPrice;
+      }
+    }
+
+    // 3. Buscar en todo el HTML interno (incluyendo elementos ocultos)
+    const innerHTML = await bannerElement.innerHTML();
+    price = extractPrice(innerHTML);
+
+    if (price) {
+      console.log(`  📍 Precio detectado en HTML interno: $${price.toLocaleString('es-CL')}`);
+      return price;
+    }
+
+    console.log(`  ℹ️ No se detectó precio en el banner (puede ser promocional o el precio está en imagen)`);
     return null;
   } catch (error) {
-    console.log(`  ⚠️ Error al analizar texto del banner: ${error.message}`);
+    console.log(`  ⚠️ Error al analizar banner: ${error.message}`);
     return null;
   }
 }
