@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-PCFactory Login Monitor - Generador de Dashboard
+PCFactory Login Monitor - Generador de Dashboard CON VIDEO
 Genera un dashboard HTML con los resultados del monitoreo de login.
+VERSIÓN DE PRUEBA CON REPRODUCTOR DE VIDEO
 """
 
 import json
@@ -42,13 +43,10 @@ def find_results_file(base_path):
         Path('test-results/login-monitor-report.json'),
         Path('./test-results/login-monitor-report.json'),
     ]
-    
+
     print(f"🔍 Buscando archivo de resultados...")
     print(f"   Directorio actual: {os.getcwd()}")
-    print(f"   Contenido del directorio:")
-    for item in os.listdir('.'):
-        print(f"      - {item}")
-    
+
     for p in possible_paths:
         path = Path(p)
         print(f"   Probando: {path} ... ", end="")
@@ -57,7 +55,7 @@ def find_results_file(base_path):
             return path
         else:
             print(f"❌ no existe")
-    
+
     # Buscar recursivamente
     print(f"   Buscando recursivamente...")
     for root, dirs, files in os.walk('.'):
@@ -66,73 +64,54 @@ def find_results_file(base_path):
                 found_path = Path(root) / file
                 print(f"   ✅ Encontrado en: {found_path}")
                 return found_path
-    
+
     return None
 
 def load_results(results_path):
     """Carga los resultados del test."""
     path = find_results_file(results_path)
-    
+
     if not path:
         print(f"⚠️ No se encontró el archivo de resultados")
         return None
-    
+
     try:
         print(f"📄 Cargando: {path}")
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        
-        # Verificar si es formato Playwright o formato custom
+
         print(f"   Keys en JSON: {list(data.keys())}")
-        
+
         if 'suites' in data:
             print(f"   Formato: Playwright reporter")
-            print(f"   Número de suites: {len(data.get('suites', []))}")
-            # Debug: mostrar estructura del primer suite
-            if data.get('suites'):
-                first_suite = data['suites'][0]
-                print(f"   Primer suite keys: {list(first_suite.keys())}")
-                print(f"   Primer suite title: {first_suite.get('title', 'N/A')}")
-                print(f"   Primer suite tiene {len(first_suite.get('suites', []))} sub-suites")
-                print(f"   Primer suite tiene {len(first_suite.get('specs', []))} specs")
             return parse_playwright_format(data)
         elif 'tests' in data:
             print(f"   Formato: Custom")
             return data
         else:
-            print(f"   Formato: Desconocido, keys: {list(data.keys())}")
-            # Imprimir estructura para debug
-            import pprint
-            print(f"   Estructura (primeros 2000 chars):")
-            print(pprint.pformat(data)[:2000])
+            print(f"   Formato: Desconocido")
             return data
-            
+
     except Exception as e:
         print(f"❌ Error cargando resultados: {e}")
         return None
 
 def parse_playwright_format(data):
-    """Convierte formato Playwright a formato esperado."""
+    """Convierte formato Playwright a formato esperado CON VIDEOS."""
     tests = []
-    
-    print(f"   Parsing Playwright format...")
-    print(f"   Top-level keys: {list(data.keys())}")
-    
+
+    print(f"   Parsing Playwright format con videos...")
+
     def process_suite(suite, depth=0):
         """Procesa un suite recursivamente."""
-        indent = "   " * (depth + 2)
-        suite_title = suite.get('title', 'Unknown Suite')
-        print(f"{indent}Suite: {suite_title}")
-        
         # Procesar specs directamente en este suite
         for spec in suite.get('specs', []):
             spec_title = spec.get('title', 'Unknown Spec')
-            print(f"{indent}  Spec: {spec_title}")
-            
+
             # Cada spec puede tener múltiples tests (por proyecto/browser)
             for test in spec.get('tests', []):
                 status_raw = test.get('status', 'unknown')
-                
+
                 # Mapear estados de Playwright
                 if status_raw == 'expected':
                     status = 'passed'
@@ -142,50 +121,50 @@ def parse_playwright_format(data):
                     status = 'failed'
                 else:
                     status = 'warning'
-                
-                # Obtener duración del primer resultado
+
+                # Obtener duración y attachments del primer resultado
                 duration = 0
+                video_path = ""
                 results = test.get('results', [])
                 if results:
                     duration = results[0].get('duration', 0)
-                
+                    # Buscar video en attachments
+                    for attachment in results[0].get('attachments', []):
+                        if attachment.get('contentType') == 'video/webm':
+                            # La ruta es relativa a /home/runner/work/pcfactory-monitor/pcfactory-monitor/login/
+                            # Necesitamos convertirla a una ruta relativa al HTML
+                            full_path = attachment.get('path', '')
+                            if full_path:
+                                # Extraer solo la parte después de test-results/
+                                if 'test-results/' in full_path:
+                                    relative_path = 'videos/' + full_path.split('test-results/')[-1].split('/')[-1]
+                                    video_path = relative_path
+                                    print(f"      Video encontrado: {video_path}")
+
                 tests.append({
                     'name': spec_title,
                     'status': status,
                     'duration': duration,
+                    'video_path': video_path,
                     'details': {'projectName': test.get('projectName', '')}
                 })
-                print(f"{indent}    Test: {status_raw} -> {status}, duration={duration}ms")
-        
+
         # Procesar suites anidados
         for nested_suite in suite.get('suites', []):
             process_suite(nested_suite, depth + 1)
-    
+
     # Procesar todos los suites de nivel superior
     for suite in data.get('suites', []):
         process_suite(suite)
-    
-    # Si no encontramos tests en suites, intentar en el nivel raíz
-    if not tests and 'specs' in data:
-        print(f"   No tests in suites, trying root level specs...")
-        for spec in data.get('specs', []):
-            for test in spec.get('tests', []):
-                status_raw = test.get('status', 'unknown')
-                status = 'passed' if status_raw == 'expected' else ('warning' if status_raw == 'skipped' else 'failed')
-                tests.append({
-                    'name': spec.get('title', 'Unknown'),
-                    'status': status,
-                    'duration': test.get('results', [{}])[0].get('duration', 0) if test.get('results') else 0,
-                    'details': {}
-                })
-    
+
     passed = len([t for t in tests if t['status'] == 'passed'])
     failed = len([t for t in tests if t['status'] == 'failed'])
     warnings = len([t for t in tests if t['status'] == 'warning'])
     total = len(tests)
-    
+
     print(f"   Parsed {total} tests: {passed} passed, {failed} failed, {warnings} warnings")
-    
+    print(f"   Videos encontrados: {len([t for t in tests if t.get('video_path')])}")
+
     return {
         'timestamp': datetime.now().isoformat(),
         'tests': tests,
@@ -244,16 +223,16 @@ def format_duration(ms):
         return f"{ms/60000:.1f}min"
 
 def generate_html(results, history):
-    """Genera el HTML del dashboard."""
-    
+    """Genera el HTML del dashboard CON REPRODUCTOR DE VIDEO."""
+
     timestamp = results.get('timestamp', datetime.now().isoformat())
     tests = results.get('tests', [])
     summary = results.get('summary', {})
     overall_status = results.get('overallStatus', 'pending')
-    
+
     # Formatear timestamp - usar hora Chile
     timestamp_display = format_chile_timestamp(timestamp)
-    
+
     # Calcular uptime 24h
     recent_runs = []
     now = datetime.now()
@@ -264,20 +243,20 @@ def generate_html(results, history):
                 recent_runs.append(r)
         except:
             pass
-    
+
     if recent_runs:
         ok_runs = len([r for r in recent_runs if r.get('status') in ['ok', 'passed']])
         uptime_24h = (ok_runs / len(recent_runs)) * 100
     else:
         uptime_24h = 100 if overall_status in ['ok', 'passed'] else 0
-    
+
     # Estadísticas
     passed = summary.get('passed', 0)
     total = summary.get('total', 0)
     failed = summary.get('failed', 0)
     warnings = summary.get('warnings', 0)
     health_score = summary.get('successRate', 0)
-    
+
     # Determinar estado y colores
     if overall_status in ['ok', 'passed'] or (total > 0 and failed == 0):
         status_class = 'healthy'
@@ -295,30 +274,42 @@ def generate_html(results, history):
         status_class = 'critical'
         status_text = 'Login con Problemas'
         status_color = 'var(--accent-red)'
-    
-    # Generar filas de tests
+
+    # Generar filas de tests CON BOTÓN DE VIDEO
     test_rows = ""
     for test in tests:
         status = test.get('status', 'unknown')
         name = test.get('name', 'Test')
         duration = test.get('duration', 0)
+        video_path = test.get('video_path', '')
         details = test.get('details', {})
         message = details.get('message', details.get('error', ''))
-        
+
         status_badge_class = get_status_class(status)
-        
+
+        # Botón de video si existe
+        video_button = ""
+        if video_path:
+            video_button = f'''
+                <button class="video-btn" onclick="openVideoModal('{video_path}', '{name}')">
+                    <span class="video-icon">🎬</span> Ver video
+                </button>'''
+
         test_rows += f"""
                 <tr>
                     <td><span class="badge badge-id">{name}</span></td>
                     <td><span class="stat-value {status_badge_class}" style="font-size: 0.875rem;">{get_status_icon(status)} {status.upper()}</span></td>
                     <td><span class="badge">{format_duration(duration)}</span></td>
-                    <td style="color: var(--text-secondary); max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{message[:80] if message else '-'}</td>
+                    <td style="color: var(--text-secondary);">
+                        {message[:60] if message else '-'}
+                        {video_button}
+                    </td>
                 </tr>
         """
-    
+
     if not test_rows:
         test_rows = '<tr><td colspan="4" class="empty-state">Sin datos de tests</td></tr>'
-    
+
     # Generar historial (incluyendo ejecución actual)
     history_rows = ""
 
@@ -358,7 +349,7 @@ def generate_html(results, history):
 
     if not history_rows:
         history_rows = '<tr><td colspan="3" class="empty-state">Sin historial</td></tr>'
-    
+
     html = f'''<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -548,6 +539,77 @@ def generate_html(results, history):
         }}
         .badge-id {{ background: var(--bg-hover); color: var(--text-secondary); }}
         .empty-state {{ padding: 3rem; text-align: center; color: var(--text-muted); }}
+
+        /* Estilos del botón de video */
+        .video-btn {{
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+        .video-btn:hover {{
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }}
+        .video-icon {{ font-size: 1rem; }}
+
+        /* Modal de video */
+        .video-modal {{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }}
+        .video-modal.active {{ display: flex; }}
+        .video-modal-content {{
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }}
+        .video-modal-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }}
+        .video-modal-header h3 {{ font-size: 1.1rem; }}
+        .video-modal-close {{
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }}
+        .video-modal-close:hover {{ color: var(--text-primary); }}
+        .video-modal video {{
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 8px;
+        }}
+
         .footer {{ text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }}
         @media (max-width: 768px) {{
             .container {{ padding: 1rem; }}
@@ -571,24 +633,24 @@ def generate_html(results, history):
             </div>
             <div class="timestamp">{timestamp_display}</div>
         </header>
-        
+
         <div class="nav-links">
             <a href="index.html" class="nav-link">📦 Categorías</a>
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link active">🔐 Login</a>
         </div>
-        
+
         <div class="status-banner {status_class}">
             <div class="status-indicator"></div>
             <span class="status-text">{status_text}</span>
         </div>
-        
+
         <div class="health-card">
             <div class="health-score">{health_score}%</div>
             <div class="health-label">Tasa de éxito en tests de login</div>
         </div>
-        
+
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Tests Pasados</div>
@@ -607,7 +669,7 @@ def generate_html(results, history):
                 <div class="stat-value blue">{len(history.get('runs', [])) + 1}</div>
             </div>
         </div>
-        
+
         <div class="section">
             <div class="section-header">
                 <h2>📋 Resultados de Tests</h2>
@@ -629,7 +691,7 @@ def generate_html(results, history):
                 </table>
             </div>
         </div>
-        
+
         <div class="section">
             <div class="section-header">
                 <h2>📊 Historial Reciente</h2>
@@ -650,39 +712,88 @@ def generate_html(results, history):
                 </table>
             </div>
         </div>
-        
+
         <footer class="footer">
             <p>Actualización automática 3 veces al día (9am, 2pm, 8pm Chile)</p>
         </footer>
     </div>
+
+    <!-- Modal de video -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <h3 id="videoModalTitle">Video del test</h3>
+                <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            </div>
+            <video id="videoPlayer" controls>
+                <source src="" type="video/webm">
+                Tu navegador no soporta video HTML5.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Funciones del modal de video
+        function openVideoModal(videoPath, testName) {{
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+            const title = document.getElementById('videoModalTitle');
+
+            title.textContent = 'Test: ' + testName;
+            video.querySelector('source').src = videoPath;
+            video.load();
+            modal.classList.add('active');
+
+            // Cerrar con Escape
+            document.addEventListener('keydown', handleEscape);
+        }}
+
+        function closeVideoModal() {{
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+
+            video.pause();
+            modal.classList.remove('active');
+            document.removeEventListener('keydown', handleEscape);
+        }}
+
+        function handleEscape(e) {{
+            if (e.key === 'Escape') closeVideoModal();
+        }}
+
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('videoModal').addEventListener('click', function(e) {{
+            if (e.target === this) closeVideoModal();
+        }});
+    </script>
 </body>
 </html>'''
-    
+
     return html
 
 def main():
     import argparse
-    
-    parser = argparse.ArgumentParser(description='Genera dashboard de Login Monitor')
+
+    parser = argparse.ArgumentParser(description='Genera dashboard de Login Monitor CON VIDEO')
     parser.add_argument('--results', default='test-results/login-monitor-report.json',
                         help='Ruta al archivo de resultados JSON')
     parser.add_argument('--output-dir', default='./output',
                         help='Directorio de salida para el dashboard')
     parser.add_argument('--history', default=None,
                         help='Ruta al archivo de historial')
-    
+
     args = parser.parse_args()
-    
-    print(f"🚀 Generando dashboard de Login Monitor")
+
+    print(f"🚀 Generando dashboard de Login Monitor CON VIDEO")
     print(f"   Args: {args}")
-    
+
     # Crear directorio de salida
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Ruta del historial
     history_path = args.history or str(output_dir / 'login-history.json')
-    
+
     # Cargar resultados
     results = load_results(args.results)
     if not results:
@@ -695,10 +806,10 @@ def main():
         }
     else:
         print(f"✅ Resultados cargados: {results.get('summary', {})}")
-    
+
     # Cargar historial
     history = load_history(history_path)
-    
+
     # Agregar ejecución actual al historial
     if results.get('tests'):
         history['runs'].append({
@@ -708,17 +819,17 @@ def main():
             'total': results.get('summary', {}).get('total', 0)
         })
         save_history(history, history_path)
-    
+
     # Generar HTML
     html = generate_html(results, history)
-    
+
     # Guardar dashboard
-    output_file = output_dir / 'login.html'
+    output_file = output_dir / 'login_with_video.html'
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html)
-    
+
     print(f"✅ Dashboard generado: {output_file}")
-    
+
     # Mostrar resumen
     summary = results.get('summary', {})
     print(f"\n📊 Resumen:")

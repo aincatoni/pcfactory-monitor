@@ -35,8 +35,8 @@ module.exports = defineConfig({
     // Screenshots
     screenshot: 'on',
     
-    // Videos
-    video: 'retain-on-failure',
+    // Videos - grabar siempre para mostrar en dashboard
+    video: 'on',
     
     // Traces
     trace: 'retain-on-failure',
