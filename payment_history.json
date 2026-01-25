@@ -6208,5 +6208,235 @@
       "passed": 5,
       "failed": 0
     }
+  },
+  {
+    "timestamp": "2026-01-25T23:18:55.490Z",
+    "results": [
+      {
+        "paymentMethod": "Transferencia ETPay",
+        "paymentId": "ETPAY",
+        "status": "PASSED",
+        "steps": [
+          {
+            "step": "Buscar producto con stock",
+            "status": "passed"
+          },
+          {
+            "step": "Agregar al carrito",
+            "status": "passed"
+          },
+          {
+            "step": "Ir al checkout",
+            "status": "passed"
+          },
+          {
+            "step": "Continuar como invitado",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar retiro en tienda",
+            "status": "passed"
+          },
+          {
+            "step": "Completar datos personales",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar Transferencia ETPay",
+            "status": "passed"
+          },
+          {
+            "step": "Clic en Pagar y verificar pasarela",
+            "status": "passed"
+          }
+        ],
+        "error": null,
+        "gatewayReached": true,
+        "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/tPE3tK0j8rnI9ZPnWKzKfP5uUiGToWeoU7b3SdyDmh2nWwvAG80BlE40EU5Cjbc7",
+        "duration": 34321,
+        "videoPath": "videos/video-ETPAY.webm"
+      },
+      {
+        "paymentMethod": "Compraquí",
+        "paymentId": "BANCOESTADO",
+        "status": "PASSED",
+        "steps": [
+          {
+            "step": "Buscar producto con stock",
+            "status": "passed"
+          },
+          {
+            "step": "Agregar al carrito",
+            "status": "passed"
+          },
+          {
+            "step": "Ir al checkout",
+            "status": "passed"
+          },
+          {
+            "step": "Continuar como invitado",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar retiro en tienda",
+            "status": "passed"
+          },
+          {
+            "step": "Completar datos personales",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar Compraquí",
+            "status": "passed"
+          },
+          {
+            "step": "Clic en Pagar y verificar pasarela",
+            "status": "passed"
+          }
+        ],
+        "error": null,
+        "gatewayReached": true,
+        "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
+        "duration": 34480,
+        "videoPath": "videos/video-BANCOESTADO.webm"
+      },
+      {
+        "paymentMethod": "Mastercard Click to Pay",
+        "paymentId": "CLICKTOPAY",
+        "status": "PASSED",
+        "steps": [
+          {
+            "step": "Buscar producto con stock",
+            "status": "passed"
+          },
+          {
+            "step": "Agregar al carrito",
+            "status": "passed"
+          },
+          {
+            "step": "Ir al checkout",
+            "status": "passed"
+          },
+          {
+            "step": "Continuar como invitado",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar retiro en tienda",
+            "status": "passed"
+          },
+          {
+            "step": "Completar datos personales",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar Mastercard Click to Pay",
+            "status": "passed"
+          },
+          {
+            "step": "Clic en Pagar y verificar pasarela",
+            "status": "passed"
+          }
+        ],
+        "error": null,
+        "gatewayReached": true,
+        "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
+        "duration": 33935,
+        "videoPath": "videos/video-CLICKTOPAY.webm"
+      },
+      {
+        "paymentMethod": "Tarjeta de Débito (Webpay)",
+        "paymentId": "WEBPAY_DEBITO",
+        "status": "PASSED",
+        "steps": [
+          {
+            "step": "Buscar producto con stock",
+            "status": "passed"
+          },
+          {
+            "step": "Agregar al carrito",
+            "status": "passed"
+          },
+          {
+            "step": "Ir al checkout",
+            "status": "passed"
+          },
+          {
+            "step": "Continuar como invitado",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar retiro en tienda",
+            "status": "passed"
+          },
+          {
+            "step": "Completar datos personales",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar Tarjeta de Débito (Webpay)",
+            "status": "passed"
+          },
+          {
+            "step": "Clic en Pagar y verificar pasarela",
+            "status": "passed"
+          }
+        ],
+        "error": null,
+        "gatewayReached": true,
+        "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
+        "duration": 34591,
+        "videoPath": "videos/video-WEBPAY_DEBITO.webm"
+      },
+      {
+        "paymentMethod": "Tarjeta de Crédito (Webpay)",
+        "paymentId": "WEBPAY_CREDITO",
+        "status": "PASSED",
+        "steps": [
+          {
+            "step": "Buscar producto con stock",
+            "status": "passed"
+          },
+          {
+            "step": "Agregar al carrito",
+            "status": "passed"
+          },
+          {
+            "step": "Ir al checkout",
+            "status": "passed"
+          },
+          {
+            "step": "Continuar como invitado",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar retiro en tienda",
+            "status": "passed"
+          },
+          {
+            "step": "Completar datos personales",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar Tarjeta de Crédito (Webpay)",
+            "status": "passed"
+          },
+          {
+            "step": "Clic en Pagar y verificar pasarela",
+            "status": "passed"
+          }
+        ],
+        "error": null,
+        "gatewayReached": true,
+        "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
+        "duration": 34385,
+        "videoPath": "videos/video-WEBPAY_CREDITO.webm"
+      }
+    ],
+    "summary": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0
+    }
   }
 ]

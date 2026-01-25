@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
         "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21341026663"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21341333716"
       },
       "gitCommit": {
         "shortHash": "5656a38",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
             "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21341026663"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21341333716"
           },
           "gitCommit": {
             "shortHash": "5656a38",
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 62549,
+                      "duration": 44697,
                       "errors": [],
                       "stdout": [
                         {
@@ -209,40 +209,46 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"0 : i\nVer\nLA A\nCelular ZTE® Celular Motorola® Celular Xiaomi®\nam (00 879.990 Tcyi/A $269.990 TriLA 134990 Wil/A E\nof po Ney has Ese,\nVia 2 2 ow } ’\"\n"
+                          "text": "  🔍 OCR resultado: \": we\no\nVer\n¥ p| [3\nSF _&\n‘mejor tecnologia. .\nCelular ZTE® Celular Motorola® Celular Xiaomi® [0\n(oy) Red Magic 10 Pro 256GB/12GB 5G Negro Moto G86 Power 256G8/8GB SG Azul Redmi 15C4G 256 Negro\n\n5 A 879.990 Tcyi7s ITE -23% : $134.990 Wil/3\n\ni NC Referenda $1299.90 Referencat $349.90. rr)\nk js i\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $269.990\n"
+                          "text": "  📍 Precio detectado en OCR: $134.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $129.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $34.990\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $879.990\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$269.990, $879.990]\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$134.990, $129.990, $34.990, $879.990]\n"
                         },
                         {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54391,54013,52956\n"
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54629,55064,55313\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$269.990, $174.990, $180.390, $96.990, $79.990, $82.490, $499.990, $204.990, $211.290]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 10 [$349.990, $269.990, $278.390, $189.990, $134.990, $139.190, $1.299.990, $879.990, $907.190, $299.990]\n"
                         },
                         {
                           "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
                         },
                         {
-                          "text": "     Banner: $269.990, $879.990\n"
+                          "text": "     Banner: $134.990, $129.990, $34.990, $879.990\n"
                         },
                         {
-                          "text": "     Producto: $269.990, $174.990, $180.390, $96.990, $79.990, $82.490, $499.990, $204.990, $211.290\n"
+                          "text": "     Producto: $349.990, $269.990, $278.390, $189.990, $134.990, $139.190, $1.299.990, $879.990, $907.190, $299.990\n"
                         },
                         {
-                          "text": "     ✅ Coincidentes: $269.990\n"
+                          "text": "     ✅ Coincidentes: $134.990, $879.990\n"
                         },
                         {
-                          "text": "     ❌ Faltantes: $879.990\n"
+                          "text": "     ❌ Faltantes: $129.990, $34.990\n"
                         },
                         {
                           "text": "  ➡️ Avanzando al siguiente banner...\n"
@@ -260,7 +266,7 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"‘mejor tecnologia_\nAudifono Gamer Corsair® Audifonos Sleve® Audifonos Sony® [0\nHSB0RCB Headset Pulse Anc 2Gen Bluetooth True Wireless Bluetooth WF-CS10\n5 ily EEE 26% E EL 34% E EL 36%\"\n"
+                          "text": "  🔍 OCR resultado: \"Ver: oi: | 9\nI: le\ndet verano a\nbi I! fi ida Mlc [0\nFuente de Poder Mlogix® Gabinete Mlogix® Refrigeracion Liquida Mlogix®\n5 . ally i | ™ °64.990 \\Zy) E 64990 gEy) E a -20%\n1 A 2  — — -\"\n"
                         },
                         {
                           "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
@@ -281,13 +287,31 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"rende tu verano\nVer. a\n4 Ea = /\npoe | 50 140%. ET\"\n"
+                          "text": "  🔍 OCR resultado: \"<! ‘mejor tecnologia_ B\nSwitch de Escritorio Linksys® Router Linksys? Switch de Escritorio Linksys®\n(oy) 5 Puertos Gigabit 10/100/1000SE3005 Velop Micro LNT101 AX3000 Dual Band 8Puertos Gigabit 10/100/1000SE3008\n= 8 SN $24.990 YA EET -40% Zr XV -28% _\nn pA fibarvh hited\n- 2)\not wl\ni\"\n"
                         },
                         {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
+                          "text": "  📍 Precio detectado en OCR: $24.990\n"
                         },
                         {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 1 [$24.990]\n"
+                        },
+                        {
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=16804,54001,16805\n"
+                        },
+                        {
+                          "text": "  🌐 Navegando al producto...\n"
+                        },
+                        {
+                          "text": "  💰 Precios encontrados en página de productos: 8 [$59.990, $42.990, $45.290, $24.990, $25.790, $199.990, $119.990, $123.690]\n"
+                        },
+                        {
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
+                        },
+                        {
+                          "text": "     Precios coincidentes: $24.990\n"
+                        },
+                        {
+                          "text": "  ➡️ Avanzando al siguiente banner...\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 5/14\n"
@@ -302,7 +326,7 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"; I\n= RACLE\noN | N oO\nVi c RACING\n& Me\n> Red Bull® Marks and the Oracle Red Bull Racing\n< are licensed by Red Bull GmbH/AUstria.\"\n"
+                          "text": "  🔍 OCR resultado: \"- | \\ a EE\n4 2 a\nrd a través de TN \\ aus Esta\nipg, por experiencias ; ia R 3 »\nid SRio de Janeiro. (HA I\noa on ; dye\n. > va : WU\ne click: priceless - . ; .)\nBE \\ oh\nmm oY mn 4 al\"\n"
                         },
                         {
                           "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
@@ -314,150 +338,6 @@
                           "text": "\n🎨 Analizando Banner 6/14\n"
                         },
                         {
-                          "text": "  📸 Screenshot guardado: banner-6.png\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \">| | Pe Factory \\ : . J\na r\n\nPaga con Mastercard a través de \\ or) \\\nElick to Pay y participa por experiencias . a \\ N\n\nutboleras en Madrid y Rio de Janeiro. (14 _-\n\n1&2 3) . f\niinférmate aqui! , E iy 5\nR . . 3 : Pr we\n\nCuando tu mundo hace click: priceless - \" \\ x Ne\nSoman mr aE nN M-\"\n"
-                        },
-                        {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
-                        },
-                        {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando Banner 7/14\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-7.png\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"TECHO pr\n[BONA para ir en ayuda de las personas\nEstamos en la emergencia afectadas en los incendios de Nuble y Biobio\nH TT\n\n< Reconstruimos Err >\n\n65.533130-1\n\n. . BancoEstad\ndonde Chile NOS necesita $i. A. Ba\n\n| emergenciachile@techo.org\n: iw MAE fi 3 x iP i\n1 2 4 a E KF iy =i bn I e-\"\n"
-                        },
-                        {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
-                        },
-                        {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando Banner 8/14\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-8.png\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"A ky\n\n. 7 - 2D |\n\nS| “AEptible Foz SE - a\na [Oferta BRETT a »\"\n"
-                        },
-                        {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
-                        },
-                        {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando Banner 9/14\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-9.png\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"-\n=\nVer. — ES\nA. P_—.\n‘mejor tecnologia.\nNotebook Asus® Teclado Gamer Logitech® Notebook Asus® [0\n(oy) Core’ RTX 3050 16\" 8GB512G8 Alémbico GPRO Mecanico nglés- Negro Cores 156\"1268.512G8\n— 8 g GPX IA -35% LEE -27% $559.990 4:3\n5 ally pr eR A asad Z Eades\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $559.990\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 1 [$559.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54174,38775,53880\n"
-                        },
-                        {
-                          "text": "  🌐 Navegando al producto...\n"
-                        },
-                        {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$1.129.990, $729.990, $752.590, $779.990, $559.990, $577.290, $129.990, $94.990, $97.890]\n"
-                        },
-                        {
-                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
-                        },
-                        {
-                          "text": "     Precios coincidentes: $559.990\n"
-                        },
-                        {
-                          "text": "  ➡️ Avanzando al siguiente banner...\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando Banner 10/14\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-10.png\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"Ver C= nally SSE\n= 0 ’ © RE\n} y 3\nMonitor prs | 00-08-88\n» pk Spgnhidonitor M5 | B\n<! ‘mejor tecnologia_\nMonitor Samsung® Monitor Gamer LG® Monitor Smart Samsung® [0\n(a) 22D PareiSEemolS3 100 He Sms Cv?\" QHD 100% ms Freese bE ONEES\n5 A eX -18% E SZC I -35% 2 5204990 1:07\nn | reer ssaom Referenda $269,990 Referenda $099.99\"\n"
-                        },
-                        {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
-                        },
-                        {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando Banner 11/14\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-11.png\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"Ver: oi: | 9\nI: le\ndet verano a\nbi I! fi ida Mlc [0\nFuente de Poder Mlogix® Gabinete Mlogix® Refrigeracion Liquida Mlogix®\n5 . ally i | ™ °64.990 \\Zy) E 64990 gEy) E a -20%\n1 A 2  — — -\"\n"
-                        },
-                        {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
-                        },
-                        {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando Banner 12/14\n"
-                        },
-                        {
                           "text": "  ⏭️ Banner ya procesado (carousel volvió al inicio), terminando análisis\n"
                         },
                         {
@@ -467,7 +347,7 @@
                           "text": "\n📊 RESUMEN:\n"
                         },
                         {
-                          "text": "   Total banners: 11\n"
+                          "text": "   Total banners: 5\n"
                         },
                         {
                           "text": "   Con precio: 0\n"
@@ -481,7 +361,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-25T22:55:59.670Z",
+                      "startTime": "2026-01-25T23:18:53.502Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -492,17 +372,17 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-2.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-3.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-2.webm"
                         },
                         {
                           "name": "video",
@@ -546,7 +426,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 21804,
+                  "duration": 22028,
                   "errors": [],
                   "stdout": [
                     {
@@ -723,7 +603,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-25T22:57:02.463Z",
+                  "startTime": "2026-01-25T23:19:38.438Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -752,8 +632,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-25T22:55:58.534Z",
-    "duration": 85830.07900000001,
+    "startTime": "2026-01-25T23:18:52.372Z",
+    "duration": 68193.379,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
