@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-25T17:35:30.717Z",
+  "timestamp": "2026-01-25T22:55:59.647Z",
   "banners": [
     {
       "index": 1,
@@ -47,11 +47,8 @@
       "index": 2,
       "screenshot": "banner-2.png",
       "bannerPrices": [
-        129999,
-        34999,
-        189990,
-        879990,
-        134990
+        269990,
+        879990
       ],
       "productPrices": [
         269990,
@@ -67,13 +64,11 @@
       "productUrl": "https://www.pcfactory.cl/busqueda?productos=54391,54013,52956",
       "status": "mismatch",
       "priceMatch": false,
-      "matchedPrices": [],
+      "matchedPrices": [
+        269990
+      ],
       "missingPrices": [
-        129999,
-        34999,
-        189990,
-        879990,
-        134990
+        879990
       ],
       "error": null
     },
@@ -116,6 +111,80 @@
     {
       "index": 6,
       "screenshot": "banner-6.png",
+      "bannerPrices": [],
+      "productPrices": [],
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "matchedPrices": [],
+      "missingPrices": [],
+      "error": null
+    },
+    {
+      "index": 7,
+      "screenshot": "banner-7.png",
+      "bannerPrices": [],
+      "productPrices": [],
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "matchedPrices": [],
+      "missingPrices": [],
+      "error": null
+    },
+    {
+      "index": 8,
+      "screenshot": "banner-8.png",
+      "bannerPrices": [],
+      "productPrices": [],
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "matchedPrices": [],
+      "missingPrices": [],
+      "error": null
+    },
+    {
+      "index": 9,
+      "screenshot": "banner-9.png",
+      "bannerPrices": [
+        559990
+      ],
+      "productPrices": [
+        1129990,
+        729990,
+        752590,
+        779990,
+        559990,
+        577290,
+        129990,
+        94990,
+        97890
+      ],
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=54174,38775,53880",
+      "status": "match",
+      "priceMatch": true,
+      "matchedPrices": [
+        559990
+      ],
+      "missingPrices": [],
+      "error": null
+    },
+    {
+      "index": 10,
+      "screenshot": "banner-10.png",
+      "bannerPrices": [],
+      "productPrices": [],
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "matchedPrices": [],
+      "missingPrices": [],
+      "error": null
+    },
+    {
+      "index": 11,
+      "screenshot": "banner-11.png",
       "bannerPrices": [],
       "productPrices": [],
       "productUrl": null,
