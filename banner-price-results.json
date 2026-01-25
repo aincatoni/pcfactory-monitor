@@ -1,104 +1,107 @@
 {
-  "timestamp": "2026-01-24T23:34:33.620Z",
+  "timestamp": "2026-01-25T04:39:07.702Z",
   "banners": [
     {
       "index": 1,
       "screenshot": "banner-1.png",
-      "bannerPrice": null,
-      "productPrice": null,
+      "bannerPrices": [],
+      "productPrices": [],
       "productUrl": null,
-      "status": "error",
+      "status": "no_price",
       "priceMatch": null,
-      "error": "locator.scrollIntoViewIfNeeded: Timeout 14922.312000000002ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      "matchedPrices": [],
+      "missingPrices": [],
+      "error": null
     },
     {
       "index": 2,
       "screenshot": "banner-2.png",
-      "bannerPrice": null,
-      "productPrice": null,
-      "productUrl": null,
-      "status": "error",
-      "priceMatch": null,
-      "error": "locator.scrollIntoViewIfNeeded: Timeout 14933.448ms exceeded.\nCall log:\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    29 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      "bannerPrices": [
+        919990,
+        859990
+      ],
+      "productPrices": [
+        569990,
+        499990,
+        515490,
+        1329990,
+        919990,
+        948490,
+        1129990,
+        859990,
+        886590,
+        329990,
+        129990
+      ],
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=54466,53888,54070",
+      "status": "match",
+      "priceMatch": true,
+      "matchedPrices": [
+        919990,
+        859990
+      ],
+      "missingPrices": [],
+      "error": null
     },
     {
       "index": 3,
       "screenshot": "banner-3.png",
-      "bannerPrice": null,
-      "productPrice": null,
-      "productUrl": null,
-      "status": "no_price",
-      "priceMatch": null,
+      "bannerPrices": [
+        144990,
+        179990
+      ],
+      "productPrices": [
+        84990,
+        64990,
+        68390,
+        74990,
+        59990,
+        63190
+      ],
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=53721,53712,53722",
+      "status": "mismatch",
+      "priceMatch": false,
+      "matchedPrices": [],
+      "missingPrices": [
+        144990,
+        179990
+      ],
       "error": null
     },
     {
       "index": 4,
       "screenshot": "banner-4.png",
-      "bannerPrice": null,
-      "productPrice": null,
+      "bannerPrices": [],
+      "productPrices": [],
       "productUrl": null,
       "status": "no_price",
       "priceMatch": null,
+      "matchedPrices": [],
+      "missingPrices": [],
       "error": null
     },
     {
       "index": 5,
       "screenshot": "banner-5.png",
-      "bannerPrice": null,
-      "productPrice": null,
+      "bannerPrices": [],
+      "productPrices": [],
       "productUrl": null,
       "status": "no_price",
       "priceMatch": null,
+      "matchedPrices": [],
+      "missingPrices": [],
       "error": null
     },
     {
       "index": 6,
       "screenshot": "banner-6.png",
-      "bannerPrice": null,
-      "productPrice": null,
+      "bannerPrices": [],
+      "productPrices": [],
       "productUrl": null,
       "status": "no_price",
       "priceMatch": null,
-      "error": null
-    },
-    {
-      "index": 7,
-      "screenshot": "banner-7.png",
-      "bannerPrice": null,
-      "productPrice": null,
-      "productUrl": null,
-      "status": "no_price",
-      "priceMatch": null,
-      "error": null
-    },
-    {
-      "index": 8,
-      "screenshot": "banner-8.png",
-      "bannerPrice": null,
-      "productPrice": null,
-      "productUrl": null,
-      "status": "no_price",
-      "priceMatch": null,
-      "error": null
-    },
-    {
-      "index": 9,
-      "screenshot": "banner-9.png",
-      "bannerPrice": null,
-      "productPrice": null,
-      "productUrl": null,
-      "status": "no_price",
-      "priceMatch": null,
-      "error": null
-    },
-    {
-      "index": 10,
-      "screenshot": "banner-10.png",
-      "bannerPrice": null,
-      "productPrice": null,
-      "productUrl": null,
-      "status": "no_price",
-      "priceMatch": null,
+      "matchedPrices": [],
+      "missingPrices": [],
       "error": null
     }
   ]

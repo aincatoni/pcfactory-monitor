@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
-        "commitHash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21323416813"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
+        "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21326994726"
       },
       "gitCommit": {
-        "shortHash": "6f57446",
-        "hash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
-        "subject": "fix: Enhance price extraction logic in banner tests for better accuracy",
-        "body": "fix: Enhance price extraction logic in banner tests for better accuracy\n",
+        "shortHash": "5656a38",
+        "hash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
+        "subject": "feat: add banner monitoring functionality with OCR support",
+        "body": "feat: add banner monitoring functionality with OCR support\n\n- Create .gitignore to exclude unnecessary files\n- Add package-lock.json for dependency management\n- Update package.json to include tesseract.js as a dependency\n- Modify playwright.config.js to reduce action timeout\n- Enhance banner price check test to extract multiple prices using OCR\n- Implement debug selectors test for diagnosing slider selectors\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769284328000
+          "time": 1769315862000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769284328000
+          "time": 1769315862000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
-            "commitHash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21323416813"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
+            "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21326994726"
           },
           "gitCommit": {
-            "shortHash": "6f57446",
-            "hash": "6f5744623f566a100e8ffa1dbe9fc7af9a0c0eeb",
-            "subject": "fix: Enhance price extraction logic in banner tests for better accuracy",
-            "body": "fix: Enhance price extraction logic in banner tests for better accuracy\n",
+            "shortHash": "5656a38",
+            "hash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
+            "subject": "feat: add banner monitoring functionality with OCR support",
+            "body": "feat: add banner monitoring functionality with OCR support\n\n- Create .gitignore to exclude unnecessary files\n- Add package-lock.json for dependency management\n- Update package.json to include tesseract.js as a dependency\n- Modify playwright.config.js to reduce action timeout\n- Enhance banner price check test to extract multiple prices using OCR\n- Implement debug selectors test for diagnosing slider selectors\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769284328000
+              "time": 1769315862000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769284328000
+              "time": 1769315862000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2401,
+                      "duration": 2707,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T23:34:35.335Z",
+                      "startTime": "2026-01-25T04:39:10.602Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4523,
+                      "duration": 4779,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T23:34:38.826Z",
+                      "startTime": "2026-01-25T04:39:13.614Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4914,
+                      "duration": 6007,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T23:34:43.362Z",
+                      "startTime": "2026-01-25T04:39:18.410Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4623,
+                      "duration": 5965,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T23:34:48.287Z",
+                      "startTime": "2026-01-25T04:39:24.430Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11543,
+                      "duration": 11375,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T23:34:52.920Z",
+                      "startTime": "2026-01-25T04:39:30.406Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4657,
+                      "duration": 4987,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-24T23:35:04.476Z",
+                      "startTime": "2026-01-25T04:39:41.792Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-24T23:34:34.209Z",
-    "duration": 35019.411,
+    "startTime": "2026-01-25T04:39:09.478Z",
+    "duration": 37390.864,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
