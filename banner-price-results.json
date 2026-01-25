@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-25T17:15:41.111Z",
+  "timestamp": "2026-01-25T17:35:30.717Z",
   "banners": [
     {
       "index": 1,
@@ -47,8 +47,11 @@
       "index": 2,
       "screenshot": "banner-2.png",
       "bannerPrices": [
+        129999,
+        34999,
+        189990,
         879990,
-        269990
+        134990
       ],
       "productPrices": [
         269990,
@@ -64,11 +67,13 @@
       "productUrl": "https://www.pcfactory.cl/busqueda?productos=54391,54013,52956",
       "status": "mismatch",
       "priceMatch": false,
-      "matchedPrices": [
-        269990
-      ],
+      "matchedPrices": [],
       "missingPrices": [
-        879990
+        129999,
+        34999,
+        189990,
+        879990,
+        134990
       ],
       "error": null
     },

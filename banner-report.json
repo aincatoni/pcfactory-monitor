@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
         "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21336440948"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21336708618"
       },
       "gitCommit": {
         "shortHash": "5656a38",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
             "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21336440948"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21336708618"
           },
           "gitCommit": {
             "shortHash": "5656a38",
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42233,
+                      "duration": 42029,
                       "errors": [],
                       "stdout": [
                         {
@@ -209,16 +209,25 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"r2ON} E Vi\nFl cB\na )\nCelular ZTE® Celular Motorola® Celular Xiaomi® |\n879.990 Tcya/s 269.990 TrEy/) 134990 Wil7A A\ni : Claes E Lak B Eres\n7\"\n"
+                          "text": "  🔍 OCR resultado: \"5 -\nVer. ~ :\na Si :\nat\n<i == -\nCelular ZTE® Celular Motorola® Celular Xiaomi®\no Red Magic 10Pro 256G8/12G8 SG Negro Moto G8 Power 256G8/8GB 5G Ad Redmi15C 4G 256 Negro\n- i - i 879.990 Wcyl/A IEE -23%, g 134.990 ©iSA [\nn Eo: Referenda $1299.99% Referenciat $349.99 Referendal$ 189.990\"\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $129.999\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $34.999\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $189.990\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $879.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $269.990\n"
+                          "text": "  📍 Precio detectado en OCR: $134.990\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$879.990, $269.990]\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 5 [$129.999, $34.999, $189.990, $879.990, $134.990]\n"
                         },
                         {
                           "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54391,54013,52956\n"
@@ -233,16 +242,13 @@
                           "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
                         },
                         {
-                          "text": "     Banner: $879.990, $269.990\n"
+                          "text": "     Banner: $129.999, $34.999, $189.990, $879.990, $134.990\n"
                         },
                         {
                           "text": "     Producto: $269.990, $174.990, $180.390, $96.990, $79.990, $82.490, $499.990, $204.990, $211.290\n"
                         },
                         {
-                          "text": "     ✅ Coincidentes: $269.990\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $879.990\n"
+                          "text": "     ❌ Faltantes: $129.999, $34.999, $189.990, $879.990, $134.990\n"
                         },
                         {
                           "text": "  ➡️ Avanzando al siguiente banner...\n"
@@ -260,7 +266,7 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"a) > & :,\nAudifono Gamer Corsair® Audifonos Sleve® Audifonos Sony®\n” 139990 E152 \" 32990 ELI a EI 36% Ak\"\n"
+                          "text": "  🔍 OCR resultado: \"Verio}\n\n$ &\nJC Gamer Corsair” Pi CE AT [0\n\n; BN 139990 EITM 32000 TELM 319% ELL\"\n"
                         },
                         {
                           "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
@@ -358,7 +364,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-25T17:15:41.132Z",
+                      "startTime": "2026-01-25T17:35:30.740Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -369,12 +375,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-2.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-2.webm"
                         },
                         {
                           "name": "video",
@@ -418,7 +424,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 21824,
+                  "duration": 22315,
                   "errors": [],
                   "stdout": [
                     {
@@ -595,7 +601,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-25T17:16:23.606Z",
+                  "startTime": "2026-01-25T17:36:13.020Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -624,8 +630,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-25T17:15:40.050Z",
-    "duration": 65457.883,
+    "startTime": "2026-01-25T17:35:29.486Z",
+    "duration": 65954.10399999999,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
