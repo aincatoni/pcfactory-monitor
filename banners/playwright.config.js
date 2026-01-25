@@ -29,8 +29,8 @@ module.exports = defineConfig({
     // URL base
     baseURL: 'https://www.pcfactory.cl',
 
-    // Timeout para acciones
-    actionTimeout: 15000,
+    // Timeout para acciones (reducido para evitar bloqueos largos)
+    actionTimeout: 10000,
 
     // Navegación
     navigationTimeout: 30000,

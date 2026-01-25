@@ -7,6 +7,9 @@
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug"
   },
+  "dependencies": {
+    "tesseract.js": "^5.0.4"
+  },
   "devDependencies": {
     "@playwright/test": "^1.40.0"
   }
