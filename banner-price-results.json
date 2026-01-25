@@ -1,45 +1,57 @@
 {
-  "timestamp": "2026-01-25T04:39:07.702Z",
+  "timestamp": "2026-01-25T11:55:19.049Z",
   "banners": [
     {
       "index": 1,
       "screenshot": "banner-1.png",
-      "bannerPrices": [],
-      "productPrices": [],
-      "productUrl": null,
-      "status": "no_price",
-      "priceMatch": null,
-      "matchedPrices": [],
+      "bannerPrices": [
+        649990
+      ],
+      "productPrices": [
+        1249990,
+        724990,
+        747390,
+        839990,
+        649990,
+        670090,
+        639990,
+        455890,
+        469990,
+        549990,
+        409990,
+        422690,
+        349990,
+        169990,
+        175290,
+        199990,
+        139990,
+        147390,
+        99990,
+        74990,
+        78990,
+        34990,
+        19990,
+        21090,
+        249990
+      ],
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=53809,34730,33142,54865,54891,47938,54105,55161,55308&size=12&sort=precio,desc",
+      "status": "match",
+      "priceMatch": true,
+      "matchedPrices": [
+        649990
+      ],
       "missingPrices": [],
       "error": null
     },
     {
       "index": 2,
       "screenshot": "banner-2.png",
-      "bannerPrices": [
-        919990,
-        859990
-      ],
-      "productPrices": [
-        569990,
-        499990,
-        515490,
-        1329990,
-        919990,
-        948490,
-        1129990,
-        859990,
-        886590,
-        329990,
-        129990
-      ],
-      "productUrl": "https://www.pcfactory.cl/busqueda?productos=54466,53888,54070",
-      "status": "match",
-      "priceMatch": true,
-      "matchedPrices": [
-        919990,
-        859990
-      ],
+      "bannerPrices": [],
+      "productPrices": [],
+      "productUrl": null,
+      "status": "no_price",
+      "priceMatch": null,
+      "matchedPrices": [],
       "missingPrices": [],
       "error": null
     },
@@ -51,21 +63,24 @@
         179990
       ],
       "productPrices": [
-        84990,
-        64990,
-        68390,
-        74990,
-        59990,
-        63190
+        169990,
+        144990,
+        149490,
+        699990,
+        619990,
+        639190,
+        259990,
+        179990,
+        185590
       ],
-      "productUrl": "https://www.pcfactory.cl/busqueda?productos=53721,53712,53722",
-      "status": "mismatch",
-      "priceMatch": false,
-      "matchedPrices": [],
-      "missingPrices": [
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=54866,55301,55160",
+      "status": "match",
+      "priceMatch": true,
+      "matchedPrices": [
         144990,
         179990
       ],
+      "missingPrices": [],
       "error": null
     },
     {

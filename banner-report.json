@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
         "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21326994726"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21332170499"
       },
       "gitCommit": {
         "shortHash": "5656a38",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
             "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21326994726"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21332170499"
           },
           "gitCommit": {
             "shortHash": "5656a38",
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 41923,
+                      "duration": 42905,
                       "errors": [],
                       "stdout": [
                         {
@@ -170,13 +170,31 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"A ky\n\n. 7 - 2D |\n\nS| “AEptible Foz SE - 3\na [Oferta BRETT a »\"\n"
+                          "text": "  🔍 OCR resultado: \"Lenovo\nDS Notebook Ideapad Lenovo® IDEAPAD |\n- 4 Slim 3 Intel Core i5 153\" Touch 16GB 1TB §\n0 [ ~S\n< t o b [ *649.990 WX PBR we mE > §\nN IDle = =\n[OfertaSiAGIT1 E  — wr ’ 4 A . XN\n\n>” \" R\"\n"
                         },
                         {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
+                          "text": "  📍 Precio detectado en OCR: $649.990\n"
                         },
                         {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 1 [$649.990]\n"
+                        },
+                        {
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=53809,34730,33142,54865,54891,47938,54105,55161,55308&size=12&sort=precio,desc\n"
+                        },
+                        {
+                          "text": "  🌐 Navegando al producto...\n"
+                        },
+                        {
+                          "text": "  💰 Precios encontrados en página de productos: 25 [$1.249.990, $724.990, $747.390, $839.990, $649.990, $670.090, $639.990, $455.890, $469.990, $549.990, $409.990, $422.690, $349.990, $169.990, $175.290, $199.990, $139.990, $147.390, $99.990, $74.990, $78.990, $34.990, $19.990, $21.090, $249.990]\n"
+                        },
+                        {
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
+                        },
+                        {
+                          "text": "     Precios coincidentes: $649.990\n"
+                        },
+                        {
+                          "text": "  ➡️ Avanzando al siguiente banner...\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 2/14\n"
@@ -191,34 +209,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"NW\nTE (=\nVer = ==\noT.\nco ww»\n‘mejor tecnologia_\nNotebook Dell® Notebook Asus® Mochila + Mouse Notebook Al PC Asus® [0\n(oy) Ryzens 156\" 8685128 Core SRTX4050 16\" 16GB 51268 Ryzen 161685128\n5 A ZEEE I -12% E 919.990 Leib 2 859.990 207A\nn (recession Referendot 1325990 Referencats1.1299%\"\n"
+                          "text": "  🔍 OCR resultado: \"E veriONE\nLA oN A\na )\n\na g\n\nWy I [item tideiolo}\nar ZTE® Celular Motorola® Celular Xiaomi® lon\nBm shes ea Shes pe\nel pret pga SERGE 2200 UTI Sake Lally 2\ndate has AEE :\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $919.990\n"
+                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $859.990\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$919.990, $859.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54466,53888,54070\n"
-                        },
-                        {
-                          "text": "  🌐 Navegando al producto...\n"
-                        },
-                        {
-                          "text": "  💰 Precios encontrados en página de productos: 11 [$569.990, $499.990, $515.490, $1.329.990, $919.990, $948.490, $1.129.990, $859.990, $886.590, $329.990, $129.990]\n"
-                        },
-                        {
-                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
-                        },
-                        {
-                          "text": "     Precios coincidentes: $919.990, $859.990\n"
-                        },
-                        {
-                          "text": "  ➡️ Avanzando al siguiente banner...\n"
+                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 3/14\n"
@@ -245,25 +242,19 @@
                           "text": "  ✅ Total de precios únicos detectados en banner: 2 [$144.990, $179.990]\n"
                         },
                         {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=53721,53712,53722\n"
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54866,55301,55160\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 6 [$84.990, $64.990, $68.390, $74.990, $59.990, $63.190]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 9 [$169.990, $144.990, $149.490, $699.990, $619.990, $639.190, $259.990, $179.990, $185.590]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $144.990, $179.990\n"
-                        },
-                        {
-                          "text": "     Producto: $84.990, $64.990, $68.390, $74.990, $59.990, $63.190\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $144.990, $179.990\n"
+                          "text": "     Precios coincidentes: $144.990, $179.990\n"
                         },
                         {
                           "text": "  ➡️ Avanzando al siguiente banner...\n"
@@ -281,7 +272,7 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"rende tu verano\nVer. a\n4 Ea = /\npoe | 50 140%. ET\"\n"
+                          "text": "  🔍 OCR resultado: \"1) (RS:\ntorio Linksys® Router Linksys Switch de Escritorio Linksys® 1\n101000553005 Vopr LN 101 AXGO00 Di Bnd Shueros Geb 10/100 1000553005 ia\n-42% BEXTRA -40% 42.990 ris Ti ai —\nK ) parivdy primed\"\n"
                         },
                         {
                           "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
@@ -302,7 +293,7 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \">| | Pe Factory \\ : . J\na r\n\nPaga con Mastercard a través de \\ or) \\\nElick to Pay y participa por experiencias . a \\ N\n\nutboleras en Madrid y Rio de Janeiro. (14 _-\n\n1&2 3) . f\niinférmate aqui! , E iy 5\nR . . 3 : Pr we\n\nCuando tu mundo hace click: priceless - \" \\ x Ne\nSoman mr aE nN M-\"\n"
+                          "text": "  🔍 OCR resultado: \"; I\n= RACLE\noN | N oO\nVi c RACING\n& Me\n> Red Bull® Marks and the Oracle Red Bull Racing\n< are licensed by Red Bull GmbH/AUstria.\"\n"
                         },
                         {
                           "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
@@ -323,7 +314,7 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"TECHO pr\n[BONA para ir en ayuda de las personas\nEstamos en la emergencia afectadas en los incendios de Nuble y Biobio\nH TT\n\n< Reconstruimos Err >\n\n65.533130-1\n\n. . BancoEstad\ndonde Chile NOS necesita $i. A. Ba\n\n| emergenciachile@techo.org\n: iw MAE fi 3 x iP i\n1 2 4 a E KF iy =i bn I e-\"\n"
+                          "text": "  🔍 OCR resultado: \">| | Pe Factory \\ : . J\na r\n\nPaga con Mastercard a través de \\ or) \\\nElick to Pay y participa por experiencias . a \\ N\n\nutboleras en Madrid y Rio de Janeiro. (14 _-\n\n1&2 3) . f\niinférmate aqui! , E iy 5\nR . . 3 : Pr we\n\nCuando tu mundo hace click: priceless - \" \\ x Ne\nSoman mr aE nN M-\"\n"
                         },
                         {
                           "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
@@ -350,15 +341,15 @@
                           "text": "   Con precio: 0\n"
                         },
                         {
-                          "text": "   ✅ Coinciden: 1\n"
+                          "text": "   ✅ Coinciden: 2\n"
                         },
                         {
-                          "text": "   ❌ No coinciden: 1\n"
+                          "text": "   ❌ No coinciden: 0\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-25T04:39:07.723Z",
+                      "startTime": "2026-01-25T11:55:19.070Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -369,12 +360,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-2.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-2.webm"
                         },
                         {
                           "name": "video",
@@ -418,7 +409,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 22577,
+                  "duration": 22490,
                   "errors": [],
                   "stdout": [
                     {
@@ -571,7 +562,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-25T04:39:51.085Z",
+                  "startTime": "2026-01-25T11:56:02.224Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -600,8 +591,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-25T04:39:06.577Z",
-    "duration": 67178.965,
+    "startTime": "2026-01-25T11:55:17.917Z",
+    "duration": 66891.38500000001,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
