@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
         "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21332170499"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21332694919"
       },
       "gitCommit": {
         "shortHash": "5656a38",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/5656a383dc52a0c5d35ab7657c1efa52716d282a",
             "commitHash": "5656a383dc52a0c5d35ab7657c1efa52716d282a",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21332170499"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21332694919"
           },
           "gitCommit": {
             "shortHash": "5656a38",
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 42905,
+                      "duration": 41806,
                       "errors": [],
                       "stdout": [
                         {
@@ -209,13 +209,46 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"E veriONE\nLA oN A\na )\n\na g\n\nWy I [item tideiolo}\nar ZTE® Celular Motorola® Celular Xiaomi® lon\nBm shes ea Shes pe\nel pret pga SERGE 2200 UTI Sake Lally 2\ndate has AEE :\"\n"
+                          "text": "  🔍 OCR resultado: \": we\no\nVer\n¥ p| [3\nSF _&\n‘mejor tecnologia. .\nCelular ZTE® Celular Motorola® Celular Xiaomi® [0\n(oy) Red Magic 10 Pro 256GB/12GB 5G Negro Moto G86 Power 256G8/8GB SG Azul Redmi 15C4G 256 Negro\n\n5 A 879.990 Tcyi7s ITE -23% : $134.990 Wil/3\n\ni NC Referenda $1299.90 Referencat $349.90. rr)\nk js i\"\n"
                         },
                         {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
+                          "text": "  📍 Precio detectado en OCR: $134.990\n"
                         },
                         {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
+                          "text": "  📍 Precio detectado en OCR: $129.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $34.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $879.990\n"
+                        },
+                        {
+                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$134.990, $129.990, $34.990, $879.990]\n"
+                        },
+                        {
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54391,54013,52956\n"
+                        },
+                        {
+                          "text": "  🌐 Navegando al producto...\n"
+                        },
+                        {
+                          "text": "  💰 Precios encontrados en página de productos: 9 [$269.990, $174.990, $180.390, $96.990, $79.990, $82.490, $499.990, $204.990, $211.290]\n"
+                        },
+                        {
+                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                        },
+                        {
+                          "text": "     Banner: $134.990, $129.990, $34.990, $879.990\n"
+                        },
+                        {
+                          "text": "     Producto: $269.990, $174.990, $180.390, $96.990, $79.990, $82.490, $499.990, $204.990, $211.290\n"
+                        },
+                        {
+                          "text": "     ❌ Faltantes: $134.990, $129.990, $34.990, $879.990\n"
+                        },
+                        {
+                          "text": "  ➡️ Avanzando al siguiente banner...\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 3/14\n"
@@ -230,34 +263,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"Ver Bye\nIDEACENTRE , w\n§ |\n‘mejor tecnologia_ =\n\nTablet Samsung® Allin One Lenovo® Tablet Xiaomi® [0\n\nGola Tao 7\" B48 VD Ryn 524° 6GB 51208 REM 2 8 1258\n\n5 A 1 $144990 BES LG EETI-11% ; $179.990 W154\nmr SEY de\"\n"
+                          "text": "  🔍 OCR resultado: \"Verio}\n\n$ &\nJC Gamer Corsair” Pi CE AT [0\n\n; BN 139990 EITM 32000 TELM 319% ELL\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $144.990\n"
+                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $179.990\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$144.990, $179.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54866,55301,55160\n"
-                        },
-                        {
-                          "text": "  🌐 Navegando al producto...\n"
-                        },
-                        {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$169.990, $144.990, $149.490, $699.990, $619.990, $639.190, $259.990, $179.990, $185.590]\n"
-                        },
-                        {
-                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
-                        },
-                        {
-                          "text": "     Precios coincidentes: $144.990, $179.990\n"
-                        },
-                        {
-                          "text": "  ➡️ Avanzando al siguiente banner...\n"
+                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
                         },
                         {
                           "text": "\n🎨 Analizando Banner 4/14\n"
@@ -272,7 +284,7 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"1) (RS:\ntorio Linksys® Router Linksys Switch de Escritorio Linksys® 1\n101000553005 Vopr LN 101 AXGO00 Di Bnd Shueros Geb 10/100 1000553005 ia\n-42% BEXTRA -40% 42.990 ris Ti ai —\nK ) parivdy primed\"\n"
+                          "text": "  🔍 OCR resultado: \"rende tu verano\nVer. a\n4 Ea = /\npoe | 50 140%. ET\"\n"
                         },
                         {
                           "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
@@ -341,15 +353,15 @@
                           "text": "   Con precio: 0\n"
                         },
                         {
-                          "text": "   ✅ Coinciden: 2\n"
+                          "text": "   ✅ Coinciden: 1\n"
                         },
                         {
-                          "text": "   ❌ No coinciden: 0\n"
+                          "text": "   ❌ No coinciden: 1\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-25T11:55:19.070Z",
+                      "startTime": "2026-01-25T12:36:54.678Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -409,7 +421,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 22490,
+                  "duration": 21442,
                   "errors": [],
                   "stdout": [
                     {
@@ -515,7 +527,31 @@
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
                     },
                     {
-                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-1d67bb11-bad2-45d0-9ae8-9ec5b0c52e33.active \n"
+                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-592c82f7-229c-4806-bb1e-8f42e86bb0f6.active.carousel-item-left \n"
+                    },
+                    {
+                      "text": "    Tamaño: 1280x350px, Top: 178px\n"
+                    },
+                    {
+                      "text": "  - <A> .carousel-item-link.gta-btn-select-promo \n"
+                    },
+                    {
+                      "text": "    Tamaño: 1280x350px, Top: 178px\n"
+                    },
+                    {
+                      "text": "  - <DIV> .carousel-item-img \n"
+                    },
+                    {
+                      "text": "    Tamaño: 1280x350px, Top: 178px\n"
+                    },
+                    {
+                      "text": "  - <IMG> .d-none.d-md-block \n"
+                    },
+                    {
+                      "text": "    Tamaño: 1280x350px, Top: 178px\n"
+                    },
+                    {
+                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-1d67bb11-bad2-45d0-9ae8-9ec5b0c52e33.carousel-item-next.carousel-item-left \n"
                     },
                     {
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
@@ -562,7 +598,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-25T11:56:02.224Z",
+                  "startTime": "2026-01-25T12:37:37.959Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -591,8 +627,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-25T11:55:17.917Z",
-    "duration": 66891.38500000001,
+    "startTime": "2026-01-25T12:36:53.537Z",
+    "duration": 65984.14199999999,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
