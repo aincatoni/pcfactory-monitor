@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
         "commitHash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21371851667"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21372627735"
       },
       "gitCommit": {
         "shortHash": "d1a3c13",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
             "commitHash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21371851667"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21372627735"
           },
           "gitCommit": {
             "shortHash": "d1a3c13",
@@ -138,7 +138,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 55702,
+                      "duration": 57323,
                       "errors": [],
                       "stdout": [
                         {
@@ -150,7 +150,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T19:56:17.504Z",
+                      "startTime": "2026-01-26T20:22:26.720Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -185,7 +185,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 55972,
+                      "duration": 56401,
                       "errors": [],
                       "stdout": [
                         {
@@ -197,7 +197,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T19:57:15.708Z",
+                      "startTime": "2026-01-26T20:23:24.275Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -232,7 +232,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 55936,
+                      "duration": 56372,
                       "errors": [],
                       "stdout": [
                         {
@@ -244,7 +244,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T19:58:11.694Z",
+                      "startTime": "2026-01-26T20:24:20.690Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -278,31 +278,62 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 56432,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 388
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 386 |\u001b[39m       \n \u001b[90m 387 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 388 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 389 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 390 |\u001b[39m   }\n \u001b[90m 391 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 388
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  386 |       \n  387 |       // Assertion final\n> 388 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  389 |     });\n  390 |   }\n  391 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 57194,
+                      "errors": [],
                       "stdout": [
                         {
                           "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
+                        },
+                        {
+                          "text": "    Haciendo clic en botón Pagar...\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-26T20:25:17.074Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/video.webm"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f2683f08aeb6c605225-9cf1d5c0ae7ab961cbf8",
+              "file": "payment-methods.spec.js",
+              "line": 94,
+              "column": 5
+            },
+            {
+              "title": "Verificar Tarjeta de Crédito (Webpay)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 56721,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
+                        },
+                        {
+                          "text": "    Haciendo clic en botón Pagar...\n"
                         },
                         {
                           "text": "   Video copiado: videos/video-ETPAY.webm\n"
@@ -317,6 +348,9 @@
                           "text": "   Video copiado: videos/video-WEBPAY_DEBITO.webm\n"
                         },
                         {
+                          "text": "   Video copiado: videos/video-WEBPAY_CREDITO.webm\n"
+                        },
+                        {
                           "text": "\n========================================\n"
                         },
                         {
@@ -326,16 +360,16 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-26T19:56:17.469Z\n"
+                          "text": "Timestamp: 2026-01-26T20:22:26.693Z\n"
                         },
                         {
-                          "text": "Total: 4\n"
+                          "text": "Total: 5\n"
                         },
                         {
-                          "text": "✅ Passed: 3\n"
+                          "text": "✅ Passed: 5\n"
                         },
                         {
-                          "text": "❌ Failed: 1\n"
+                          "text": "❌ Failed: 0\n"
                         },
                         {
                           "text": "----------------------------------------\n"
@@ -344,7 +378,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/25tlSGGEYymzrKDZAq47XQBs1xKEZyS9CzI492G0iJOR1vWt0QVUMuSbh7bZQOOT\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/HDk6NATcYJyOYCDGc4AbYZKMTAiH8GIYROORSWt1WcXmT3lvf7alYe4JpyPxW1ws\n"
                         },
                         {
                           "text": "   Video: videos/video-ETPAY.webm\n"
@@ -368,253 +402,6 @@
                           "text": "   Video: videos/video-CLICKTOPAY.webm\n"
                         },
                         {
-                          "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-WEBPAY_DEBITO.webm\n"
-                        },
-                        {
-                          "text": "   Error: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('label[for=\"withdraw\"], input#withdraw, div.method-option:has-text(\"Retiro en tienda\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <div data-v-d756ce10=\"\" class=\"method-option d-flex align-items-start justify-content-between withdraw\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-26T19:59:07.644Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 388
-                      }
-                    },
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 58749,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 388
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 386 |\u001b[39m       \n \u001b[90m 387 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 388 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 389 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 390 |\u001b[39m   }\n \u001b[90m 391 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 388
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  386 |       \n  387 |       // Assertion final\n> 388 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  389 |     });\n  390 |   }\n  391 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-WEBPAY_DEBITO.webm\n"
-                        },
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-26T20:00:05.122Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 0\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "❌ Tarjeta de Débito (Webpay): FAILED\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-WEBPAY_DEBITO.webm\n"
-                        },
-                        {
-                          "text": "   Error: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('label[for=\"withdraw\"], input#withdraw, div.method-option:has-text(\"Retiro en tienda\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <div data-v-d756ce10=\"\" class=\"method-option d-flex align-items-start justify-content-between withdraw\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-26T20:00:05.144Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry1/trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 388
-                      }
-                    },
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 56943,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "    Haciendo clic en botón Pagar...\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 2,
-                      "startTime": "2026-01-26T20:01:06.267Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium-retry2/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "flaky"
-                }
-              ],
-              "id": "3f2683f08aeb6c605225-9cf1d5c0ae7ab961cbf8",
-              "file": "payment-methods.spec.js",
-              "line": 94,
-              "column": 5
-            },
-            {
-              "title": "Verificar Tarjeta de Crédito (Webpay)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 56959,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 388
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 386 |\u001b[39m       \n \u001b[90m 387 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 388 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 389 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 390 |\u001b[39m   }\n \u001b[90m 391 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 388
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  386 |       \n  387 |       // Assertion final\n> 388 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  389 |     });\n  390 |   }\n  391 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-WEBPAY_DEBITO.webm\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-WEBPAY_CREDITO.webm\n"
-                        },
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-26T20:01:06.245Z\n"
-                        },
-                        {
-                          "text": "Total: 2\n"
-                        },
-                        {
-                          "text": "✅ Passed: 1\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
                           "text": "✅ Tarjeta de Débito (Webpay): PASSED\n"
                         },
                         {
@@ -622,86 +409,6 @@
                         },
                         {
                           "text": "   Video: videos/video-WEBPAY_DEBITO.webm\n"
-                        },
-                        {
-                          "text": "❌ Tarjeta de Crédito (Webpay): FAILED\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-WEBPAY_CREDITO.webm\n"
-                        },
-                        {
-                          "text": "   Error: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('label[for=\"withdraw\"], input#withdraw, div.method-option:has-text(\"Retiro en tienda\")').first()\u001b[22m\n\u001b[2m    - locator resolved to <div data-v-d756ce10=\"\" class=\"method-option d-flex align-items-start justify-content-between withdraw\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    37 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div id=\"loader\" data-v-55c5b0e4=\"\" data-v-d756ce10=\"\" class=\"d-flex justify-content-center align-items-center\">…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-26T20:02:03.293Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 388
-                      }
-                    },
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 59263,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "    Haciendo clic en botón Pagar...\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-WEBPAY_CREDITO.webm\n"
-                        },
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-26T20:03:01.277Z\n"
-                        },
-                        {
-                          "text": "Total: 1\n"
-                        },
-                        {
-                          "text": "✅ Passed: 1\n"
-                        },
-                        {
-                          "text": "❌ Failed: 0\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
                         },
                         {
                           "text": "✅ Tarjeta de Crédito (Webpay): PASSED\n"
@@ -717,24 +424,19 @@
                         }
                       ],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-26T20:03:01.297Z",
+                      "retry": 0,
+                      "startTime": "2026-01-26T20:26:14.281Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium-retry1/trace.zip"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/video.webm"
                         }
                       ]
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
               "id": "3f2683f08aeb6c605225-25c5a9f2e564119fce55",
@@ -749,11 +451,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-26T19:56:16.295Z",
-    "duration": 465255.81,
-    "expected": 3,
+    "startTime": "2026-01-26T20:22:25.592Z",
+    "duration": 285491.069,
+    "expected": 5,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 2
+    "flaky": 0
   }
 }
