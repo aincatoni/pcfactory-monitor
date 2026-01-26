@@ -32,12 +32,12 @@
         .logo-icon img { width: 32px; height: 32px; }
         .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
         .logo-text span { font-size: 0.875rem; color: var(--text-muted); }
-        .timestamp { font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-muted); }
+        .timestamp { font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border); }
 
         .nav-links { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-        .nav-link { font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }
+        .nav-link { font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.625rem 1rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }
         .nav-link:hover { background: var(--bg-hover); color: var(--text-primary); }
-        .nav-link.active { background: var(--accent-blue); color: white; border-color: var(--accent-blue); }
+        .nav-link.active { background: var(--accent-green); color: #000000; border-color: var(--accent-green); font-weight: 500; }
 
         .status-banner { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
         .status-banner.status-ok { border-color: var(--accent-green); }
@@ -114,7 +114,7 @@
                 <div class="logo-icon"><img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg"></div>
                 <div class="logo-text"><h1>pc Factory Monitor</h1><span>Monitor de Banners</span></div>
             </div>
-            <div class="timestamp">26/01/2026 11:42:10 Chile</div>
+            <div class="timestamp">26/01/2026 12:36:29 Chile</div>
         </header>
 
         <div class="nav-links">
@@ -122,12 +122,12 @@
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
-            <!-- <a href="banners.html" class="nav-link active">🎨 Banners</a> -->
+            <a href="banners.html" class="nav-link active">🎨 Banners</a>
         </div>
 
         <div class="status-banner status-error">
             <div class="status-indicator"></div>
-            <span class="status-text">11 banner(es) con precio incorrecto</span>
+            <span class="status-text">0 banner(es) con precio incorrecto</span>
         </div>
 
         <div class="health-card">
@@ -139,8 +139,8 @@
         <div class="stats-grid">
             <div class="stat-card"><div class="stat-label">Total Banners</div><div class="stat-value blue">13</div></div>
             <div class="stat-card"><div class="stat-label">Con Precio</div><div class="stat-value blue">0</div></div>
-            <div class="stat-card"><div class="stat-label">✓ Coinciden</div><div class="stat-value green">0</div></div>
-            <div class="stat-card"><div class="stat-label">✗ No Coinciden</div><div class="stat-value red">11</div></div>
+            <div class="stat-card"><div class="stat-label">✓ Coinciden</div><div class="stat-value green">11</div></div>
+            <div class="stat-card"><div class="stat-label">✗ No Coinciden</div><div class="stat-value red">0</div></div>
             <div class="stat-card"><div class="stat-label">Sin Precio</div><div class="stat-value yellow">2</div></div>
             <div class="stat-card"><div class="stat-label">Errores</div><div class="stat-value red">0</div></div>
         </div>
@@ -164,12 +164,25 @@
                     </thead>
                     <tbody>
                         
-            <tr class="mismatch-row">
+            <tr class="">
+                <td><span class="badge badge-id">1</span></td>
+                <td><span class="badge badge-muted">Sin Precio</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td></td>
+                <td>
+                <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-1.png', 'Banner 1')">
+                    📸 Ver
+                </button>
+            </td>
+            </tr>
+        
+            <tr class="match-row">
                 <td><span class="badge badge-id">2</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/busqueda?productos=54391,54013,52956" target="_blank" class="link">Ver</a></td>
+                <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad?size=12" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-2.png', 'Banner 2')">
                     📸 Ver
@@ -177,12 +190,12 @@
             </td>
             </tr>
         
-            <tr class="mismatch-row">
+            <tr class="match-row">
                 <td><span class="badge badge-id">3</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/busqueda?productos=55062,55001,55291" target="_blank" class="link">Ver</a></td>
+                <td><a href="https://www.pcfactory.cl/ofertas-de-verano/kits-de-vigilancia" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-3.png', 'Banner 3')">
                     📸 Ver
@@ -190,12 +203,12 @@
             </td>
             </tr>
         
-            <tr class="mismatch-row">
+            <tr class="match-row">
                 <td><span class="badge badge-id">4</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/busqueda?productos=55062,55001,55291" target="_blank" class="link">Ver</a></td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=54661,53913,54660,53812" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-4.png', 'Banner 4')">
                     📸 Ver
@@ -203,12 +216,12 @@
             </td>
             </tr>
         
-            <tr class="mismatch-row">
+            <tr class="match-row">
                 <td><span class="badge badge-id">5</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/busqueda?productos=54866,54202,54201" target="_blank" class="link">Ver</a></td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=53757,54348,54468" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-5.png', 'Banner 5')">
                     📸 Ver
@@ -216,12 +229,12 @@
             </td>
             </tr>
         
-            <tr class="mismatch-row">
+            <tr class="match-row">
                 <td><span class="badge badge-id">6</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/busqueda?productos=54866,54202,54201" target="_blank" class="link">Ver</a></td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=54391,54013,52956" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-6.png', 'Banner 6')">
                     📸 Ver
@@ -229,12 +242,12 @@
             </td>
             </tr>
         
-            <tr class="mismatch-row">
+            <tr class="match-row">
                 <td><span class="badge badge-id">7</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/busqueda?productos=54187,54579,54703" target="_blank" class="link">Ver</a></td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=55062,55001,55291" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-7.png', 'Banner 7')">
                     📸 Ver
@@ -242,38 +255,38 @@
             </td>
             </tr>
         
-            <tr class="mismatch-row">
+            <tr class="match-row">
                 <td><span class="badge badge-id">8</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=54866,54202,54201" target="_blank" class="link">Ver</a></td>
+                <td>
+                <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-8.png', 'Banner 8')">
+                    📸 Ver
+                </button>
+            </td>
+            </tr>
+        
+            <tr class="match-row">
+                <td><span class="badge badge-id">9</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=54187,54579,54703" target="_blank" class="link">Ver</a></td>
+                <td>
+                <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-9.png', 'Banner 9')">
+                    📸 Ver
+                </button>
+            </td>
+            </tr>
+        
+            <tr class="match-row">
+                <td><span class="badge badge-id">10</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td><a href="https://www.pcfactory.cl/busqueda?productos=49535,49067,53268" target="_blank" class="link">Ver</a></td>
-                <td>
-                <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-8.png', 'Banner 8')">
-                    📸 Ver
-                </button>
-            </td>
-            </tr>
-        
-            <tr class="mismatch-row">
-                <td><span class="badge badge-id">8</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad?size=12" target="_blank" class="link">Ver</a></td>
-                <td>
-                <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-8.png', 'Banner 8')">
-                    📸 Ver
-                </button>
-            </td>
-            </tr>
-        
-            <tr class="mismatch-row">
-                <td><span class="badge badge-id">10</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/busqueda?productos=44204,17017" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-10.png', 'Banner 10')">
                     📸 Ver
@@ -281,12 +294,12 @@
             </td>
             </tr>
         
-            <tr class="mismatch-row">
+            <tr class="match-row">
                 <td><span class="badge badge-id">11</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/paga-con-mastercard" target="_blank" class="link">Ver</a></td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=55026,54883" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-11.png', 'Banner 11')">
                     📸 Ver
@@ -294,12 +307,12 @@
             </td>
             </tr>
         
-            <tr class="mismatch-row">
+            <tr class="match-row">
                 <td><span class="badge badge-id">12</span></td>
-                <td><span class="badge badge-error">✗ No Coincide (0.0%)</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad?size=12" target="_blank" class="link">Ver</a></td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=44204,17017" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-12.png', 'Banner 12')">
                     📸 Ver
@@ -315,19 +328,6 @@
                 <td></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-13.png', 'Banner 13')">
-                    📸 Ver
-                </button>
-            </td>
-            </tr>
-        
-            <tr class="">
-                <td><span class="badge badge-id">1</span></td>
-                <td><span class="badge badge-muted">Sin Precio</span></td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td></td>
-                <td>
-                <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-1.png', 'Banner 1')">
                     📸 Ver
                 </button>
             </td>

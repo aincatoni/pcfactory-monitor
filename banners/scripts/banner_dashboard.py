@@ -169,12 +169,12 @@ def generate_html(results_data):
         .logo-icon img {{ width: 32px; height: 32px; }}
         .logo-text h1 {{ font-size: 1.5rem; font-weight: 700; }}
         .logo-text span {{ font-size: 0.875rem; color: var(--text-muted); }}
-        .timestamp {{ font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-muted); }}
+        .timestamp {{ font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border); }}
 
         .nav-links {{ display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }}
-        .nav-link {{ font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }}
+        .nav-link {{ font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary); background: var(--bg-card); padding: 0.625rem 1rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }}
         .nav-link:hover {{ background: var(--bg-hover); color: var(--text-primary); }}
-        .nav-link.active {{ background: var(--accent-blue); color: white; border-color: var(--accent-blue); }}
+        .nav-link.active {{ background: var(--accent-green); color: #000000; border-color: var(--accent-green); font-weight: 500; }}
 
         .status-banner {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }}
         .status-banner.status-ok {{ border-color: var(--accent-green); }}
@@ -259,7 +259,7 @@ def generate_html(results_data):
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
-            <!-- <a href="banners.html" class="nav-link active">🎨 Banners</a> -->
+            <a href="banners.html" class="nav-link active">🎨 Banners</a>
         </div>
 
         <div class="status-banner {status_class}">

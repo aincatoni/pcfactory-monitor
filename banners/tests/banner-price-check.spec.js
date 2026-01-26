@@ -243,10 +243,12 @@ async function analyzeBannerForPrices(page, bannerElement, ocrScreenshotPaths) {
   try {
     const allPrices = [];
     const seenPrices = new Set();
+    const priceCounts = new Map();
 
     // Helper para agregar precios sin duplicados
     const addPrices = (prices, source) => {
       for (const price of prices) {
+        priceCounts.set(price, (priceCounts.get(price) || 0) + 1);
         if (!seenPrices.has(price)) {
           allPrices.push(price);
           seenPrices.add(price);
@@ -255,23 +257,7 @@ async function analyzeBannerForPrices(page, bannerElement, ocrScreenshotPaths) {
       }
     };
 
-    // 1. Obtener texto visible en el banner (HTML text)
-    // NOTA: innerText puede incluir texto oculto, pero es más seguro que innerHTML
-    const bannerText = await bannerElement.innerText();
-    addPrices(extractAllPrices(bannerText), 'texto HTML');
-
-    // 2. Buscar en atributos alt/title de imágenes
-    // NOTA: NO buscamos en src ni href porque contienen IDs de productos que parecen precios
-    const images = await bannerElement.locator('img').all();
-    for (const img of images) {
-      const alt = await img.getAttribute('alt').catch(() => '');
-      const title = await img.getAttribute('title').catch(() => '');
-
-      addPrices(extractAllPrices(alt || ''), 'alt de imagen');
-      addPrices(extractAllPrices(title || ''), 'title de imagen');
-    }
-
-    // 3. OCR es la fuente más confiable para precios en banners
+    // OCR es la fuente más confiable para precios en banners
     const maxOcrPrices = 4;
     for (const screenshotPath of ocrScreenshotPaths) {
       if (!screenshotPath || !fs.existsSync(screenshotPath)) {
@@ -303,11 +289,14 @@ async function analyzeBannerForPrices(page, bannerElement, ocrScreenshotPaths) {
       console.log(`  ✅ Total de precios únicos detectados en banner: ${allPrices.length} [${allPrices.map(p => '$' + p.toLocaleString('es-CL')).join(', ')}]`);
     }
 
-    return allPrices;
+    const countsObject = Object.fromEntries(
+      Array.from(priceCounts.entries()).map(([price, count]) => [String(price), count])
+    );
+    return { prices: allPrices, counts: countsObject };
 
   } catch (error) {
     console.log(`  ⚠️ Error al analizar banner: ${error.message}`);
-    return [];
+    return { prices: [], counts: {} };
   }
 }
 
@@ -352,6 +341,26 @@ async function extractProductPrices(page) {
   }
 }
 
+function isPriceInList(price, prices, tolerancePercent) {
+  for (const listPrice of prices) {
+    const difference = Math.abs(listPrice - price);
+    const percentDiff = (difference / price) * 100;
+    if (percentDiff < tolerancePercent) {
+      return true;
+    }
+  }
+  const priceTail = price % 1000;
+  for (const listPrice of prices) {
+    if (listPrice % 1000 !== priceTail) {
+      continue;
+    }
+    if (Math.abs(listPrice - price) <= 30000) {
+      return true;
+    }
+  }
+  return false;
+}
+
 /**
  * Compara dos arrays de precios y verifica si todos los precios del banner están en la página
  * @param {number[]} bannerPrices - Precios encontrados en el banner
@@ -364,20 +373,9 @@ function comparePrices(bannerPrices, productPrices) {
   const TOLERANCE_PERCENT = 1; // 1% de tolerancia
 
   for (const bannerPrice of bannerPrices) {
-    let priceFound = false;
-
-    for (const productPrice of productPrices) {
-      const difference = Math.abs(productPrice - bannerPrice);
-      const percentDiff = (difference / bannerPrice) * 100;
-
-      if (percentDiff < TOLERANCE_PERCENT) {
-        found.push(bannerPrice);
-        priceFound = true;
-        break;
-      }
-    }
-
-    if (!priceFound) {
+    if (isPriceInList(bannerPrice, productPrices, TOLERANCE_PERCENT)) {
+      found.push(bannerPrice);
+    } else {
       missing.push(bannerPrice);
     }
   }
@@ -387,6 +385,24 @@ function comparePrices(bannerPrices, productPrices) {
     missing,
     found
   };
+}
+
+function filterBannerPricesForComparison(bannerPrices, priceCounts, productPrices) {
+  const filtered = [];
+  const ignored = [];
+  const TOLERANCE_PERCENT = 1;
+
+  for (const price of bannerPrices) {
+    const count = priceCounts[String(price)] || 1;
+    const matchesProduct = isPriceInList(price, productPrices, TOLERANCE_PERCENT);
+    if (matchesProduct || count >= 2) {
+      filtered.push(price);
+    } else {
+      ignored.push(price);
+    }
+  }
+
+  return { filtered, ignored };
 }
 
 async function deriveSliderRootSelector(page, itemSelector) {
@@ -592,6 +608,92 @@ async function clickNextBanner(page, sliderRootSelector) {
   return false;
 }
 
+async function getPrimaryBannerHref(bannerElement) {
+  try {
+    return await bannerElement.evaluate((el) => {
+      const images = Array.from(el.querySelectorAll('img'));
+      let bestImage = null;
+      let bestImageArea = 0;
+      for (const img of images) {
+        const rect = img.getBoundingClientRect();
+        const area = rect.width * rect.height;
+        if (area > bestImageArea) {
+          bestImageArea = area;
+          bestImage = img;
+        }
+      }
+      if (bestImage) {
+        const imageAnchor = bestImage.closest('a[href]');
+        if (imageAnchor) {
+          return imageAnchor.getAttribute('href');
+        }
+      }
+
+      const anchors = Array.from(el.querySelectorAll('a[href]'));
+      let bestHref = null;
+      let bestArea = 0;
+
+      for (const anchor of anchors) {
+        const rect = anchor.getBoundingClientRect();
+        const style = window.getComputedStyle(anchor);
+        const visible = rect.width > 0
+          && rect.height > 0
+          && style.display !== 'none'
+          && style.visibility !== 'hidden'
+          && style.opacity !== '0';
+        if (!visible) continue;
+        const area = rect.width * rect.height;
+        if (area > bestArea) {
+          bestArea = area;
+          bestHref = anchor.getAttribute('href');
+        }
+      }
+
+      return bestHref;
+    });
+  } catch (error) {
+    return null;
+  }
+}
+
+async function captureImageFromUrl(context, imageUrl, outputPath) {
+  const imagePage = await context.newPage();
+  const outputPaths = [];
+  try {
+    await imagePage.setContent(`<img src="${imageUrl}" />`, { waitUntil: 'domcontentloaded' });
+    const img = imagePage.locator('img');
+    await img.waitFor({ state: 'visible', timeout: 10000 });
+    await img.screenshot({ path: outputPath, scale: 'device' });
+    outputPaths.push(outputPath);
+
+    const bbox = await img.boundingBox().catch(() => null);
+    if (bbox) {
+      const cropHeight = Math.max(1, bbox.height * 0.45);
+      const cropConfigs = [
+        { label: 'top', y: Math.max(0, bbox.y) },
+        { label: 'center', y: Math.max(0, bbox.y + (bbox.height - cropHeight) / 2) },
+        { label: 'bottom', y: Math.max(0, bbox.y + bbox.height - cropHeight) },
+      ];
+      for (const config of cropConfigs) {
+        const cropPath = outputPath.replace(/\.png$/, `-${config.label}.png`);
+        const clip = {
+          x: Math.max(0, bbox.x),
+          y: config.y,
+          width: Math.max(1, bbox.width),
+          height: cropHeight,
+        };
+        await imagePage.screenshot({ path: cropPath, clip, scale: 'device' });
+        outputPaths.push(cropPath);
+      }
+    }
+  } catch (error) {
+    console.log(`  ⚠️ No se pudo capturar imagen desde URL: ${error.message}`);
+  } finally {
+    await imagePage.close();
+  }
+  return outputPaths;
+}
+
 test.describe('Banner Price Monitor', () => {
 
   test.beforeAll(async () => {
@@ -718,14 +820,17 @@ test.describe('Banner Price Monitor', () => {
 
         // Obtener el banner activo actual
         let activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
-        let bannerClass = await activeBanner.getAttribute('class').catch(() => '');
+        const bannerDataElement = useIndicators && targetIndicatorIndex !== null
+          ? page.locator(sliderItemSelector).nth(targetIndicatorIndex)
+          : activeBanner;
+        let bannerClass = await bannerDataElement.getAttribute('class').catch(() => '');
         let bannerSignature = bannerClass;
         if (useIndicators && lastBannerSignature && bannerSignature === lastBannerSignature) {
           const moved = await clickNextBanner(page, sliderRootSelector);
           if (moved) {
             await page.waitForTimeout(1500);
             activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
-            bannerClass = await activeBanner.getAttribute('class').catch(() => '');
+            bannerClass = await bannerDataElement.getAttribute('class').catch(() => '');
             bannerSignature = bannerClass;
           }
         }
@@ -735,12 +840,12 @@ test.describe('Banner Price Monitor', () => {
         // Intentar obtenerlo del elemento mismo
         let gtagIndex = null;
         try {
-          gtagIndex = await activeBanner.getAttribute('data-gtag-index');
+          gtagIndex = await bannerDataElement.getAttribute('data-gtag-index');
 
           // Si no está en el elemento activo, buscar dentro del banner
           if (!gtagIndex) {
-            const innerElement = await activeBanner.locator('[data-gtag-index]').first();
-            const count = await activeBanner.locator('[data-gtag-index]').count();
+            const innerElement = await bannerDataElement.locator('[data-gtag-index]').first();
+            const count = await bannerDataElement.locator('[data-gtag-index]').count();
             if (count > 0) {
               gtagIndex = await innerElement.getAttribute('data-gtag-index');
             }
@@ -788,12 +893,13 @@ test.describe('Banner Price Monitor', () => {
         const screenshotFilename = `banner-${screenshotIndex}.png`;
         const screenshotPath = path.join(CONFIG.screenshotsDir, screenshotFilename);
         const ocrScreenshotPaths = [];
+        const fallbackOcrPaths = [];
 
         try {
           await activeBanner.scrollIntoViewIfNeeded().catch(() => {});
           await page.waitForTimeout(250);
           await activeBanner.screenshot({ path: screenshotPath, timeout: 8000, scale: 'device' });
-          ocrScreenshotPaths.push(screenshotPath);
+          fallbackOcrPaths.push(screenshotPath);
           console.log(`  📸 Screenshot guardado: ${screenshotFilename}`);
         } catch (screenshotError) {
           console.log(`  ⚠️ No se pudo capturar screenshot: ${screenshotError.message}`);
@@ -807,10 +913,22 @@ test.describe('Banner Price Monitor', () => {
             };
             try {
               await page.screenshot({ path: screenshotPath, clip, scale: 'device' });
-              ocrScreenshotPaths.push(screenshotPath);
+              fallbackOcrPaths.push(screenshotPath);
               console.log(`  📸 Screenshot por recorte guardado: ${screenshotFilename}`);
             } catch (clipError) {
               console.log(`  ⚠️ No se pudo capturar screenshot por recorte: ${clipError.message}`);
+            }
+          }
+        }
+
+        const imageSrc = await bannerDataElement.locator('img').first().getAttribute('src').catch(() => null);
+        if (imageSrc) {
+          const sourceFilename = `banner-${screenshotIndex}-source.png`;
+          const sourcePath = path.join(CONFIG.screenshotsDir, sourceFilename);
+          const sourcePaths = await captureImageFromUrl(context, imageSrc, sourcePath);
+          for (const pathItem of sourcePaths) {
+            if (fs.existsSync(pathItem)) {
+              ocrScreenshotPaths.push(pathItem);
             }
           }
         }
@@ -825,7 +943,7 @@ test.describe('Banner Price Monitor', () => {
           const imagePath = path.join(CONFIG.screenshotsDir, imageFilename);
           try {
             await bannerImage.screenshot({ path: imagePath, timeout: 12000, scale: 'device' });
-            ocrScreenshotPaths.push(imagePath);
+            fallbackOcrPaths.push(imagePath);
             console.log(`  🖼️ Screenshot de imagen guardado: ${imageFilename}`);
           } catch (imageError) {
             console.log(`  ⚠️ No se pudo capturar screenshot de imagen: ${imageError.message}`);
@@ -839,7 +957,7 @@ test.describe('Banner Price Monitor', () => {
               };
               try {
                 await page.screenshot({ path: imagePath, clip, scale: 'device' });
-                ocrScreenshotPaths.push(imagePath);
+                fallbackOcrPaths.push(imagePath);
                 console.log(`  🖼️ Screenshot de imagen por recorte guardado: ${imageFilename}`);
               } catch (clipError) {
                 console.log(`  ⚠️ No se pudo capturar recorte de imagen: ${clipError.message}`);
@@ -878,7 +996,7 @@ test.describe('Banner Price Monitor', () => {
               const cropPath = path.join(CONFIG.screenshotsDir, cropFilename);
               try {
                 await page.screenshot({ path: cropPath, clip: crop, scale: 'device' });
-                ocrScreenshotPaths.push(cropPath);
+                fallbackOcrPaths.push(cropPath);
                 console.log(`  🧩 Screenshot de recorte guardado: ${cropFilename}`);
               } catch (cropError) {
                 console.log(`  ⚠️ No se pudo capturar recorte de imagen: ${cropError.message}`);
@@ -887,15 +1005,23 @@ test.describe('Banner Price Monitor', () => {
           }
         }
 
+        if (ocrScreenshotPaths.length === 0 && fallbackOcrPaths.length > 0) {
+          ocrScreenshotPaths.push(...fallbackOcrPaths);
+        }
+
         // Analizar TODOS los precios en el banner (incluye OCR si screenshot existe)
-        const bannerPrices = await analyzeBannerForPrices(
+        const bannerPriceData = await analyzeBannerForPrices(
           page,
           activeBanner,
           ocrScreenshotPaths.length > 0 ? ocrScreenshotPaths : [screenshotPath]
         );
-        bannerResult.bannerPrices = bannerPrices;
+        const bannerPricesRaw = bannerPriceData.prices || [];
+        const bannerPriceCounts = bannerPriceData.counts || {};
+        bannerResult.bannerPricesRaw = bannerPricesRaw;
+        bannerResult.bannerPriceCounts = bannerPriceCounts;
+        bannerResult.bannerPrices = bannerPricesRaw;
 
-        if (bannerPrices.length === 0) {
+        if (bannerPricesRaw.length === 0) {
           console.log(`  ℹ️ Banner sin precios detectados (posiblemente promocional)`);
           bannerResult.status = 'no_price';
           results.banners.push(bannerResult);
@@ -907,17 +1033,16 @@ test.describe('Banner Price Monitor', () => {
           continue;
         }
 
-        // Obtener el link del banner (debe ser el link principal, no de productos individuales)
-        // Primero intentar con la clase específica del link del carousel
-        let link = await activeBanner.locator('a.carousel-item-link').first();
-        let linkCount = await activeBanner.locator('a.carousel-item-link').count();
-
-        // Si no existe, tomar el primer link (fallback)
-        if (linkCount === 0) {
-          link = await activeBanner.locator('a').first();
+        // Obtener el link principal del banner (anchor visible con mayor area)
+        let href = await getPrimaryBannerHref(bannerDataElement);
+        if (!href) {
+          const link = await bannerDataElement.locator('a.carousel-item-link').first();
+          if (await link.count()) {
+            href = await link.getAttribute('href');
+          } else {
+            href = await bannerDataElement.locator('a').first().getAttribute('href');
+          }
         }
-
-        const href = await link.getAttribute('href');
 
         if (!href) {
           console.log(`  ⚠️ Banner sin link`);
@@ -958,6 +1083,17 @@ test.describe('Banner Price Monitor', () => {
             bannerResult.status = 'no_product_price';
             bannerResult.error = 'No se encontraron precios en la página de destino';
           } else {
+            const filteredData = filterBannerPricesForComparison(
+              bannerPricesRaw,
+              bannerPriceCounts,
+              productPrices
+            );
+            const bannerPrices = filteredData.filtered.length > 0
+              ? filteredData.filtered
+              : bannerPricesRaw;
+            bannerResult.bannerPrices = bannerPrices;
+            bannerResult.bannerPricesIgnored = filteredData.ignored;
+
             // Comparar arrays de precios
             const comparison = comparePrices(bannerPrices, productPrices);
 
