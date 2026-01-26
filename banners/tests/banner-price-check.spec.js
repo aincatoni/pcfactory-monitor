@@ -546,6 +546,22 @@ async function getActiveBanner(page, sliderRootSelector, sliderItemSelector) {
   return page.locator(sliderItemSelector).first();
 }
 
+async function getBannerGtagIndex(bannerElement) {
+  try {
+    let gtagIndex = await bannerElement.getAttribute('data-gtag-index');
+    if (!gtagIndex) {
+      const innerElement = await bannerElement.locator('[data-gtag-index]').first();
+      const count = await bannerElement.locator('[data-gtag-index]').count();
+      if (count > 0) {
+        gtagIndex = await innerElement.getAttribute('data-gtag-index');
+      }
+    }
+    return gtagIndex;
+  } catch (error) {
+    return null;
+  }
+}
+
 async function getCarouselGtagIndexes(page, sliderRootSelector) {
   try {
     return await page.evaluate((selector) => {
@@ -823,36 +839,23 @@ test.describe('Banner Price Monitor', () => {
         const bannerDataElement = useIndicators && targetIndicatorIndex !== null
           ? page.locator(sliderItemSelector).nth(targetIndicatorIndex)
           : activeBanner;
-        let bannerClass = await bannerDataElement.getAttribute('class').catch(() => '');
+        const bannerElement = bannerDataElement;
+        let bannerClass = await bannerElement.getAttribute('class').catch(() => '');
         let bannerSignature = bannerClass;
         if (useIndicators && lastBannerSignature && bannerSignature === lastBannerSignature) {
           const moved = await clickNextBanner(page, sliderRootSelector);
           if (moved) {
             await page.waitForTimeout(1500);
             activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
-            bannerClass = await bannerDataElement.getAttribute('class').catch(() => '');
+            bannerClass = await bannerElement.getAttribute('class').catch(() => '');
             bannerSignature = bannerClass;
           }
         }
         lastBannerSignature = bannerSignature;
 
         // Obtener índice real del banner usando data-gtag-index
-        // Intentar obtenerlo del elemento mismo
-        let gtagIndex = null;
-        try {
-          gtagIndex = await bannerDataElement.getAttribute('data-gtag-index');
-
-          // Si no está en el elemento activo, buscar dentro del banner
-          if (!gtagIndex) {
-            const innerElement = await bannerDataElement.locator('[data-gtag-index]').first();
-            const count = await bannerDataElement.locator('[data-gtag-index]').count();
-            if (count > 0) {
-              gtagIndex = await innerElement.getAttribute('data-gtag-index');
-            }
-          }
-        } catch (e) {
-          console.log(`  ⚠️ Error obteniendo data-gtag-index: ${e.message}`);
-        }
+        // Preferir el banner activo para evitar desalineación con el screenshot
+        let gtagIndex = await getBannerGtagIndex(bannerElement);
 
         const realBannerIndex = gtagIndex ? parseInt(gtagIndex, 10) : null;
 
@@ -921,7 +924,7 @@ test.describe('Banner Price Monitor', () => {
           }
         }
 
-        const imageSrc = await bannerDataElement.locator('img').first().getAttribute('src').catch(() => null);
+        const imageSrc = await bannerElement.locator('img').first().getAttribute('src').catch(() => null);
         if (imageSrc) {
           const sourceFilename = `banner-${screenshotIndex}-source.png`;
           const sourcePath = path.join(CONFIG.screenshotsDir, sourceFilename);
@@ -930,6 +933,9 @@ test.describe('Banner Price Monitor', () => {
             if (fs.existsSync(pathItem)) {
               ocrScreenshotPaths.push(pathItem);
             }
+          }
+          if (sourcePaths.length > 0) {
+            bannerResult.screenshot = sourceFilename;
           }
         }
 
@@ -1012,7 +1018,7 @@ test.describe('Banner Price Monitor', () => {
         // Analizar TODOS los precios en el banner (incluye OCR si screenshot existe)
         const bannerPriceData = await analyzeBannerForPrices(
           page,
-          activeBanner,
+          bannerElement,
           ocrScreenshotPaths.length > 0 ? ocrScreenshotPaths : [screenshotPath]
         );
         const bannerPricesRaw = bannerPriceData.prices || [];
@@ -1033,15 +1039,17 @@ test.describe('Banner Price Monitor', () => {
           continue;
         }
 
-        // Obtener el link principal del banner (anchor visible con mayor area)
-        let href = await getPrimaryBannerHref(bannerDataElement);
+        // Obtener el link principal del banner (priorizar enlace del item)
+        let href = null;
+        const itemLink = await bannerElement.locator('a.carousel-item-link').first();
+        if (await itemLink.count()) {
+          href = await itemLink.getAttribute('href');
+        }
         if (!href) {
-          const link = await bannerDataElement.locator('a.carousel-item-link').first();
-          if (await link.count()) {
-            href = await link.getAttribute('href');
-          } else {
-            href = await bannerDataElement.locator('a').first().getAttribute('href');
-          }
+          href = await getPrimaryBannerHref(bannerElement);
+        }
+        if (!href) {
+          href = await bannerElement.locator('a').first().getAttribute('href');
         }
 
         if (!href) {

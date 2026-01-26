@@ -6,6 +6,7 @@ Procesa los resultados del test de Playwright y genera un dashboard HTML
 
 import json
 import argparse
+import shutil
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 
@@ -373,6 +374,27 @@ def generate_html(results_data):
     return html
 
 
+def copy_screenshots(results_path, output_dir, results):
+    screenshots = [b.get('screenshot') for b in results.get('banners', []) if b.get('screenshot')]
+    if not screenshots:
+        return 0
+    src_dir = Path(results_path).parent / 'screenshots'
+    if not src_dir.exists():
+        print(f"⚠️ No se encontró carpeta de screenshots: {src_dir}")
+        return 0
+    dest_dir = Path(output_dir) / 'screenshots'
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    copied = 0
+    for filename in sorted(set(screenshots)):
+        src = src_dir / filename
+        if not src.exists():
+            print(f"⚠️ Screenshot faltante: {src}")
+            continue
+        shutil.copy2(src, dest_dir / filename)
+        copied += 1
+    return copied
+
+
 def main():
     parser = argparse.ArgumentParser(description='PCFactory Banner Dashboard Generator')
     parser.add_argument('--results', type=str, default='./test-results/banner-price-results.json',
@@ -409,6 +431,9 @@ def main():
         f.write(html)
 
     print(f"✅ Dashboard generado: {output_file}")
+    copied = copy_screenshots(args.results, output_dir, results)
+    if copied:
+        print(f"✅ Screenshots copiados: {copied}")
 
     # Resumen
     total = len(results.get('banners', []))
