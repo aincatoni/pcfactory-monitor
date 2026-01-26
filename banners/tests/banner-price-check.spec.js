@@ -101,6 +101,7 @@ function extractPricesFromOCR(text) {
   const dollarPlainPattern = /\$\s*([\d]{5,7})/g;
   const pesosPattern = /([\d]{1,3}(?:[.,][\d]{3})+)\s*pesos/gi;
   const dotPattern = /([\d]{1,3}(?:[.,][\d]{3})+)/g;
+  const plainPattern = /(?:^|[^\d])(\d{5,7})(?:[^\d]|$)/g;
 
   const foundPrices = [];
   const seenPrices = new Set();
@@ -165,25 +166,37 @@ function extractPricesFromOCR(text) {
       }
     }
 
-    for (const priceStr of candidates) {
-      const normalized = priceStr.replace(/,/g, '.');
-      const price = parseInt(normalized.replace(/\./g, ''), 10);
-      if (!isNaN(price) && price >= 10000 && price < 5000000) {
-        if (!seenPrices.has(price)) {
-          foundPrices.push(price);
-          seenPrices.add(price);
+    if (hasCurrencyHint) {
+      for (const match of line.matchAll(plainPattern)) {
+        const priceStr = match[1];
+        if (priceStr && priceStr.endsWith('990')) {
+          candidates.push(priceStr);
         }
       }
+    }
 
-      if (priceStr.includes('.') && price >= 500000 && price <= 699999) {
-        const trimmedStr = priceStr.replace(/^[0-9]/, '');
-        if (/^\d{2}\.\d{3}$/.test(trimmedStr) && trimmedStr.endsWith('990')) {
-          const trimmedPrice = parseInt(trimmedStr.replace(/\./g, ''), 10);
-          if (!isNaN(trimmedPrice) && trimmedPrice >= 10000 && trimmedPrice < 100000) {
-            if (!seenPrices.has(trimmedPrice)) {
-              foundPrices.push(trimmedPrice);
-              seenPrices.add(trimmedPrice);
-            }
+    const parsedCandidates = candidates
+      .map((priceStr) => {
+        const normalized = priceStr.replace(/,/g, '.');
+        const price = parseInt(normalized.replace(/\./g, ''), 10);
+        return { priceStr, price };
+      })
+      .filter(({ price }) => !isNaN(price) && price >= 10000 && price < 5000000);
+
+    const hasLowPriceInLine = parsedCandidates.some(({ price }) => price < 100000);
+
+    for (const { priceStr, price } of parsedCandidates) {
+      if (!seenPrices.has(price)) {
+        foundPrices.push(price);
+        seenPrices.add(price);
+      }
+
+      if (hasLowPriceInLine && price >= 500000 && price <= 699999 && price % 1000 === 990) {
+        const trimmedPrice = price - 500000;
+        if (trimmedPrice >= 10000 && trimmedPrice < 100000) {
+          if (!seenPrices.has(trimmedPrice)) {
+            foundPrices.push(trimmedPrice);
+            seenPrices.add(trimmedPrice);
           }
         }
       }
@@ -517,30 +530,45 @@ async function getActiveBanner(page, sliderRootSelector, sliderItemSelector) {
   return page.locator(sliderItemSelector).first();
 }
 
-async function moveToBannerByIndex(page, sliderRootSelector, sliderItemSelector, targetDomIndex, targetGtagIndex, maxSteps) {
-  if (targetDomIndex === null || targetDomIndex === undefined) return false;
-  const moved = await goToCarouselIndex(page, sliderRootSelector, targetDomIndex);
-  if (moved) {
-    await page.waitForTimeout(1500);
+async function getCarouselGtagIndexes(page, sliderRootSelector) {
+  try {
+    return await page.evaluate((selector) => {
+      const root = selector ? document.querySelector(selector) : document;
+      if (!root) return [];
+      const values = new Set();
+      const nodes = root.querySelectorAll('[data-gtag-index]');
+      for (const node of nodes) {
+        const value = node.getAttribute('data-gtag-index');
+        if (value) values.add(value);
+      }
+      return Array.from(values);
+    }, sliderRootSelector);
+  } catch (error) {
+    return [];
   }
+}
 
-  if (!targetGtagIndex) {
-    return true;
+async function getCarouselIndicatorIndexes(page, sliderRootSelector) {
+  if (!sliderRootSelector) return [];
+  try {
+    return await page.evaluate((selector) => {
+      const root = document.querySelector(selector);
+      if (!root) return [];
+      const indicators = root.querySelectorAll('[data-slide-to], [data-bs-slide-to]');
+      const values = new Set();
+      for (const indicator of indicators) {
+        const raw = indicator.getAttribute('data-bs-slide-to') || indicator.getAttribute('data-slide-to');
+        if (raw === null) continue;
+        const value = parseInt(raw, 10);
+        if (!isNaN(value)) {
+          values.add(value);
+        }
+      }
+      return Array.from(values).sort((a, b) => a - b);
+    }, sliderRootSelector);
+  } catch (error) {
+    return [];
   }
-
-  for (let step = 0; step < maxSteps; step++) {
-    const active = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
-    const gtagIndex = await active.getAttribute('data-gtag-index').catch(() => null);
-    if (gtagIndex === String(targetGtagIndex)) {
-      return true;
-    }
-    const advanced = await clickNextBanner(page, sliderRootSelector);
-    if (!advanced) {
-      return false;
-    }
-    await page.waitForTimeout(1200);
-  }
-  return false;
 }
 
 async function clickNextBanner(page, sliderRootSelector) {
@@ -637,18 +665,28 @@ test.describe('Banner Price Monitor', () => {
       .filter((item) => item.gtagIndex && !isNaN(parseInt(item.gtagIndex, 10)))
       .map((item) => ({ ...item, gtagIndex: parseInt(item.gtagIndex, 10) }))
       .sort((a, b) => a.gtagIndex - b.gtagIndex);
-    const orderedBanners = bannersWithIndex.length > 0 ? bannersWithIndex : bannerMeta;
-    const useDirectNavigation = orderedBanners.length > 0 && Boolean(sliderRootSelector);
-    const totalBanners = Math.min(orderedBanners.length, 15); // Máximo 15 para evitar timeouts muy largos
+    const uniqueBanners = [];
+    const seenGtagIndexes = new Set();
+    for (const banner of bannersWithIndex) {
+      if (seenGtagIndexes.has(banner.gtagIndex)) continue;
+      seenGtagIndexes.add(banner.gtagIndex);
+      uniqueBanners.push(banner);
+    }
+
+    const orderedBanners = uniqueBanners.length > 0 ? uniqueBanners : bannerMeta;
+    const indicatorIndexes = await getCarouselIndicatorIndexes(page, sliderRootSelector);
+    const useIndicators = indicatorIndexes.length > 0;
+    const totalBanners = Math.min(useIndicators ? indicatorIndexes.length : orderedBanners.length, 15); // Máximo 15 para evitar timeouts muy largos
     const processedBannerIds = new Set(); // Para detectar cuando vuelve al inicio
+    const processedGtagIndexes = new Set();
 
     for (let i = 0; i < totalBanners; i++) {
-      console.log(`\n🎨 Analizando posición ${i + 1}/${totalBanners} del carousel`);
-      const targetBanner = orderedBanners[i];
+      const loopIndex = i + 1;
+      console.log(`\n🎨 Analizando posición ${loopIndex}/${totalBanners} del carousel`);
 
       const bannerResult = {
-        index: i + 1,
-        screenshot: `banner-${i + 1}.png`,
+        index: loopIndex,
+        screenshot: `banner-${loopIndex}.png`,
         bannerPrices: [],
         productPrices: [],
         productUrl: null,
@@ -660,28 +698,22 @@ test.describe('Banner Price Monitor', () => {
       };
 
       try {
-        if (targetBanner && sliderRootSelector) {
-          const moved = await moveToBannerByIndex(
-            page,
-            sliderRootSelector,
-            sliderItemSelector,
-            targetBanner.domIndex,
-            targetBanner.gtagIndex,
-            orderedBanners.length
-          );
-          if (!moved) {
-            console.log(`  ⚠️ No se pudo posicionar en banner objetivo (data-gtag-index=${targetBanner.gtagIndex ?? 'N/A'})`);
-          }
-        }
-
         // Verificar que la página principal sigue abierta
         if (page.isClosed()) {
           console.log(`  ⚠️ Página cerrada, terminando análisis`);
           break;
         }
 
+        if (useIndicators && sliderRootSelector) {
+          const targetIndex = indicatorIndexes[i];
+          const moved = await goToCarouselIndex(page, sliderRootSelector, targetIndex);
+          if (moved) {
+            await page.waitForTimeout(1500);
+          }
+        }
+
         // Esperar a que el carousel se estabilice después de la animación
-        await page.waitForTimeout(2000);
+        await page.waitForTimeout(1500);
 
         // Obtener el banner activo actual
         const activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
@@ -715,13 +747,20 @@ test.describe('Banner Price Monitor', () => {
 
         // Obtener ID único del banner para detectar duplicados
         const bannerClass = await activeBanner.getAttribute('class').catch(() => '');
-        const bannerId = bannerClass.match(/default-carousel-([a-f0-9-]+)/)?.[1] || `banner-${i}`;
+        const bannerId = bannerClass.match(/default-carousel-([a-f0-9-]+)/)?.[1] || `banner-${loopIndex}`;
+        const bannerKey = realBannerIndex !== null ? `gtag-${realBannerIndex}` : `id-${bannerId}`;
 
-        if (processedBannerIds.has(bannerId)) {
-          console.log(`  ⏭️ Banner ya procesado (carousel volvió al inicio), terminando análisis`);
+        if (processedBannerIds.has(bannerKey) || (realBannerIndex !== null && processedGtagIndexes.has(realBannerIndex))) {
+          console.log(`  ⏭️ Banner ya procesado (carousel volvió al inicio), ${useIndicators ? 'saltando' : 'terminando análisis'}`);
+          if (useIndicators) {
+            continue;
+          }
           break;
         }
-        processedBannerIds.add(bannerId);
+        processedBannerIds.add(bannerKey);
+        if (realBannerIndex !== null) {
+          processedGtagIndexes.add(realBannerIndex);
+        }
 
         // Actualizar el índice del banner con el índice real
         if (realBannerIndex !== null) {
@@ -729,7 +768,7 @@ test.describe('Banner Price Monitor', () => {
           bannerResult.screenshot = `banner-${realBannerIndex}.png`;
         }
 
-        const screenshotFilename = realBannerIndex !== null ? `banner-${realBannerIndex}.png` : `banner-${i + 1}.png`;
+        const screenshotFilename = realBannerIndex !== null ? `banner-${realBannerIndex}.png` : `banner-${loopIndex}.png`;
         const screenshotPath = path.join(CONFIG.screenshotsDir, screenshotFilename);
         const ocrScreenshotPaths = [];
 
@@ -746,7 +785,7 @@ test.describe('Banner Price Monitor', () => {
           await page.waitForTimeout(200);
           const imageFilename = realBannerIndex !== null
             ? `banner-${realBannerIndex}-img.png`
-            : `banner-${i + 1}-img.png`;
+            : `banner-${loopIndex}-img.png`;
           const imagePath = path.join(CONFIG.screenshotsDir, imageFilename);
           try {
             await bannerImage.screenshot({ path: imagePath, timeout: 10000, scale: 'device' });
@@ -767,7 +806,7 @@ test.describe('Banner Price Monitor', () => {
             };
             const cropFilename = realBannerIndex !== null
               ? `banner-${realBannerIndex}-img-bottom.png`
-              : `banner-${i + 1}-img-bottom.png`;
+              : `banner-${loopIndex}-img-bottom.png`;
             const cropPath = path.join(CONFIG.screenshotsDir, cropFilename);
             try {
               await page.screenshot({ path: cropPath, clip: crop, scale: 'device' });
@@ -792,12 +831,9 @@ test.describe('Banner Price Monitor', () => {
           bannerResult.status = 'no_price';
           results.banners.push(bannerResult);
 
-          // Avanzar al siguiente banner si no hay navegación directa
-          if (!useDirectNavigation) {
-            const moved = await clickNextBanner(page, sliderRootSelector);
-            if (!moved) {
-              console.log('  ⚠️ No se pudo hacer click en siguiente');
-            }
+          const moved = await clickNextBanner(page, sliderRootSelector);
+          if (!moved) {
+            console.log('  ⚠️ No se pudo hacer click en siguiente');
           }
           continue;
         }
@@ -841,7 +877,7 @@ test.describe('Banner Price Monitor', () => {
 
           // Screenshot de la página de destino
           await newPage.screenshot({
-            path: path.join(CONFIG.screenshotsDir, `banner-${i + 1}-product.png`)
+            path: path.join(CONFIG.screenshotsDir, `banner-${loopIndex}-product.png`)
           });
 
           // Extraer TODOS los precios de la página de productos
@@ -902,8 +938,7 @@ test.describe('Banner Price Monitor', () => {
 
       results.banners.push(bannerResult);
 
-      // Avanzar al siguiente banner (excepto en el último) si no hay navegación directa
-      if (!useDirectNavigation && i < totalBanners - 1) {
+      if (!useIndicators && i < totalBanners - 1) {
         try {
           // Verificar que la página sigue abierta antes de hacer click
           if (page.isClosed()) {
