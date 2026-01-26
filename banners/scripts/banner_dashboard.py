@@ -259,7 +259,7 @@ def generate_html(results_data):
             <a href="delivery.html" class="nav-link">🚚 Despacho Nacional</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
-            <a href="banners.html" class="nav-link active">🎨 Banners</a>
+            <!-- <a href="banners.html" class="nav-link active">🎨 Banners</a> -->
         </div>
 
         <div class="status-banner {status_class}">

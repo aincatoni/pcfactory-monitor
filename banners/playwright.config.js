@@ -8,14 +8,14 @@ module.exports = defineConfig({
   testDir: './tests',
 
   // Timeout por test (banner analysis puede tomar tiempo)
-  timeout: 120000,
+  timeout: 360000,
 
   // Ejecutar tests en paralelo
   fullyParallel: false,
   workers: 1,
 
   // Retry en caso de fallo
-  retries: 2,
+  retries: 0,
 
   // Reporter
   reporter: [
@@ -52,6 +52,7 @@ module.exports = defineConfig({
 
     // Viewport
     viewport: { width: 1280, height: 720 },
+    deviceScaleFactor: 2,
 
     // Locale
     locale: 'es-CL',

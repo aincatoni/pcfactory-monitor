@@ -24,6 +24,15 @@ const CONFIG = {
     'div[id*="carousel-home"] .carousel-item', // Cualquier carousel home
     '.data-banner-default-carousel',         // Clase específica de banners
   ],
+  nextButtonSelectors: [
+    '#carousel-home-desktop .carousel-control-next',
+    '#carousel-home-mobile .carousel-control-next',
+    '.carousel-control-next',
+    '.swiper-button-next',
+    '.slick-next',
+    'button[aria-label="Next"]',
+    'button[aria-label="Siguiente"]',
+  ],
 
   // Patterns de precio chileno
   pricePatterns: [
@@ -50,10 +59,11 @@ function extractAllPrices(text) {
 
   // Buscar patrones de precio más flexibles
   const patterns = [
-    /\$\s*([\d.]+)/g,           // $123.456 o $ 123.456
-    /([\d.]+)\s*pesos/gi,       // 123.456 pesos
-    /precio[:\s]+([\d.]+)/gi,   // precio: 123.456
-    /(?:^|[^\d])([\d]{3}\.[\d]{3})/g  // 649.990 (formato chileno sin $)
+    /\$\s*([\d.]+)/g,                    // $123.456 o $ 123.456
+    /([\d.]+)\s*pesos/gi,                // 123.456 pesos
+    /precio[:\s]+([\d.]+)/gi,            // precio: 123.456
+    /(?:^|[^\d])([\d]{3}\.[\d]{3,})/g,   // 649.990 o 1.299.990 (formato chileno con punto)
+    /(?:^|[\s\-\(\[])([\d]{5,7})(?:[\s\-\)\]]|$)/g // 24990, 649990, 1299990 (solo si están rodeados de espacios/símbolos)
   ];
 
   const foundPrices = [];
@@ -81,11 +91,116 @@ function extractAllPrices(text) {
 }
 
 /**
+ * Extrae precios desde OCR con reglas más estrictas para evitar falsos positivos
+ * @returns {number[]} Array de precios encontrados
+ */
+function extractPricesFromOCR(text) {
+  if (!text) return [];
+
+  const dollarGroupedPattern = /\$\s*([\d]{1,3}(?:[.,][\d]{3})+)/g;
+  const dollarPlainPattern = /\$\s*([\d]{5,7})/g;
+  const pesosPattern = /([\d]{1,3}(?:[.,][\d]{3})+)\s*pesos/gi;
+  const dotPattern = /([\d]{1,3}(?:[.,][\d]{3})+)/g;
+
+  const foundPrices = [];
+  const seenPrices = new Set();
+
+  const textLower = text.toLowerCase();
+  const globalCurrencyHint = text.includes('$')
+    || textLower.includes('pesos')
+    || textLower.includes('precio')
+    || textLower.includes('oferta')
+    || textLower.includes('promo')
+    || textLower.includes('descto')
+    || textLower.includes('descuento');
+
+  const lines = text.split('\n');
+  for (const line of lines) {
+    const lower = line.toLowerCase();
+    const dotMatches = [...line.matchAll(dotPattern)];
+    const hasDotPriceEnding = dotMatches.some((match) => match[1].endsWith('990'));
+    const hasCurrencyHint = line.includes('$')
+      || lower.includes('pesos')
+      || lower.includes('precio')
+      || lower.includes('oferta')
+      || lower.includes('promo')
+      || lower.includes('descto')
+      || lower.includes('descuento')
+      || dotMatches.length >= 2
+      || hasDotPriceEnding
+      || globalCurrencyHint;
+    if (!hasCurrencyHint) {
+      continue;
+    }
+
+    const candidates = [];
+    const isBoundary = (ch) => !ch || /[^0-9A-Za-z]/.test(ch);
+    const addCandidate = (match, requireEnding990 = false) => {
+      const fullMatch = match[0];
+      const startIndex = match.index ?? 0;
+      const before = line[startIndex - 1];
+      const after = line[startIndex + fullMatch.length];
+      if (!isBoundary(before) || !isBoundary(after)) {
+        return;
+      }
+      const priceStr = match[1] || fullMatch;
+      if (requireEnding990 && !priceStr.endsWith('990')) {
+        return;
+      }
+      candidates.push(priceStr);
+    };
+
+    for (const match of line.matchAll(dollarGroupedPattern)) {
+      addCandidate(match);
+    }
+    for (const match of line.matchAll(dollarPlainPattern)) {
+      addCandidate(match, true);
+    }
+    for (const match of line.matchAll(pesosPattern)) {
+      addCandidate(match);
+    }
+    if (dotMatches.length >= 2 || hasDotPriceEnding || globalCurrencyHint || lower.includes('oferta') || lower.includes('promo')) {
+      for (const match of dotMatches) {
+        addCandidate(match);
+      }
+    }
+
+    for (const priceStr of candidates) {
+      const normalized = priceStr.replace(/,/g, '.');
+      const price = parseInt(normalized.replace(/\./g, ''), 10);
+      if (!isNaN(price) && price >= 10000 && price < 5000000) {
+        if (!seenPrices.has(price)) {
+          foundPrices.push(price);
+          seenPrices.add(price);
+        }
+      }
+
+      if (priceStr.includes('.') && price >= 500000 && price <= 699999) {
+        const trimmedStr = priceStr.replace(/^[0-9]/, '');
+        if (/^\d{2}\.\d{3}$/.test(trimmedStr) && trimmedStr.endsWith('990')) {
+          const trimmedPrice = parseInt(trimmedStr.replace(/\./g, ''), 10);
+          if (!isNaN(trimmedPrice) && trimmedPrice >= 10000 && trimmedPrice < 100000) {
+            if (!seenPrices.has(trimmedPrice)) {
+              foundPrices.push(trimmedPrice);
+              seenPrices.add(trimmedPrice);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return foundPrices;
+}
+
+/**
  * Extrae texto de una imagen usando OCR (Tesseract)
  */
-async function extractTextFromImage(imagePath) {
+async function extractTextFromImage(imagePath, options = {}) {
   try {
     console.log(`  🔍 Ejecutando OCR en imagen...`);
+    const whitelist = options.whitelist || '0123456789$.,% ';
+    const psm = options.psm || Tesseract.PSM.SPARSE_TEXT;
 
     // Configuración más agresiva para detectar números y símbolos de precio
     const { data: { text } } = await Tesseract.recognize(
@@ -94,8 +209,8 @@ async function extractTextFromImage(imagePath) {
       {
         logger: () => {}, // Silenciar logs de Tesseract
         // Configuración para mejorar detección de números y símbolos
-        tessedit_char_whitelist: '0123456789$.,% ',
-        tessedit_pageseg_mode: Tesseract.PSM.SPARSE_TEXT,
+        tessedit_char_whitelist: whitelist,
+        tessedit_pageseg_mode: psm,
       }
     );
 
@@ -111,7 +226,7 @@ async function extractTextFromImage(imagePath) {
  * Detecta TODOS los precios en un banner usando análisis de texto + OCR
  * @returns {number[]} Array de precios encontrados
  */
-async function analyzeBannerForPrices(page, bannerElement, screenshotPath) {
+async function analyzeBannerForPrices(page, bannerElement, ocrScreenshotPaths) {
   try {
     const allPrices = [];
     const seenPrices = new Set();
@@ -128,30 +243,45 @@ async function analyzeBannerForPrices(page, bannerElement, screenshotPath) {
     };
 
     // 1. Obtener texto visible en el banner (HTML text)
+    // NOTA: innerText puede incluir texto oculto, pero es más seguro que innerHTML
     const bannerText = await bannerElement.innerText();
     addPrices(extractAllPrices(bannerText), 'texto HTML');
 
     // 2. Buscar en atributos alt/title de imágenes
+    // NOTA: NO buscamos en src ni href porque contienen IDs de productos que parecen precios
     const images = await bannerElement.locator('img').all();
     for (const img of images) {
       const alt = await img.getAttribute('alt').catch(() => '');
       const title = await img.getAttribute('title').catch(() => '');
-      const src = await img.getAttribute('src').catch(() => '');
 
       addPrices(extractAllPrices(alt || ''), 'alt de imagen');
       addPrices(extractAllPrices(title || ''), 'title de imagen');
-      addPrices(extractAllPrices(src || ''), 'src de imagen');
     }
 
-    // 3. Buscar en todo el HTML interno
-    const innerHTML = await bannerElement.innerHTML();
-    addPrices(extractAllPrices(innerHTML), 'HTML interno');
-
-    // 4. Último recurso: OCR en el screenshot del banner
-    if (screenshotPath && fs.existsSync(screenshotPath)) {
+    // 3. OCR es la fuente más confiable para precios en banners
+    const maxOcrPrices = 4;
+    for (const screenshotPath of ocrScreenshotPaths) {
+      if (!screenshotPath || !fs.existsSync(screenshotPath)) {
+        continue;
+      }
+      if (allPrices.length >= maxOcrPrices) {
+        break;
+      }
       console.log(`  🔍 Intentando OCR en imagen del banner...`);
-      const ocrText = await extractTextFromImage(screenshotPath);
-      addPrices(extractAllPrices(ocrText), 'OCR');
+      const primaryOcrText = await extractTextFromImage(screenshotPath, { psm: Tesseract.PSM.SPARSE_TEXT });
+      const primaryPrices = extractPricesFromOCR(primaryOcrText);
+      addPrices(primaryPrices, 'OCR');
+      if (primaryPrices.length === 0) {
+        const fallbackOcrText = await extractTextFromImage(screenshotPath, { psm: Tesseract.PSM.SINGLE_BLOCK });
+        addPrices(extractPricesFromOCR(fallbackOcrText), 'OCR (fallback)');
+      }
+      if (screenshotPath.includes('img-bottom') && allPrices.length < 3) {
+        const lineOcrText = await extractTextFromImage(screenshotPath, {
+          psm: Tesseract.PSM.SINGLE_LINE,
+          whitelist: '0123456789$.'
+        });
+        addPrices(extractPricesFromOCR(lineOcrText), 'OCR (line)');
+      }
     }
 
     if (allPrices.length === 0) {
@@ -174,9 +304,27 @@ async function analyzeBannerForPrices(page, bannerElement, screenshotPath) {
  */
 async function extractProductPrices(page) {
   try {
-    const url = page.url();
-    const bodyText = await page.locator('body').innerText();
-    const allPrices = extractAllPrices(bodyText);
+    const priceLocators = [
+      '[data-testid*="price"]',
+      '[data-qa*="price"]',
+      '[class*="precio"]',
+      '[class*="price"]',
+    ];
+    let combinedText = '';
+
+    for (const selector of priceLocators) {
+      const count = await page.locator(selector).count();
+      if (count > 0) {
+        const texts = await page.locator(selector).allInnerTexts();
+        combinedText += `\n${texts.join('\n')}`;
+      }
+    }
+
+    if (!combinedText.trim()) {
+      combinedText = await page.locator('body').innerText();
+    }
+
+    const allPrices = extractAllPrices(combinedText);
 
     if (allPrices.length > 0) {
       console.log(`  💰 Precios encontrados en página de productos: ${allPrices.length} [${allPrices.map(p => '$' + p.toLocaleString('es-CL')).join(', ')}]`);
@@ -228,6 +376,194 @@ function comparePrices(bannerPrices, productPrices) {
   };
 }
 
+async function deriveSliderRootSelector(page, itemSelector) {
+  try {
+    const rootSelector = await page.locator(itemSelector).first().evaluate((el) => {
+      const root = el.closest('.carousel') || el.closest('[id*="carousel"]') || el.closest('[class*="carousel"]');
+      if (!root) return null;
+      if (root.id) return `#${root.id}`;
+      root.setAttribute('data-banner-root', 'true');
+      return '[data-banner-root="true"]';
+    });
+    return rootSelector;
+  } catch (error) {
+    return null;
+  }
+}
+
+async function pauseSlider(page, sliderRootSelector) {
+  try {
+    if (!sliderRootSelector) return;
+    await page.addStyleTag({
+      content: `
+        .carousel-item { transition: none !important; }
+        .swiper-wrapper, .slick-track { transition: none !important; }
+      `
+    });
+    await page.evaluate((selector) => {
+      const root = document.querySelector(selector);
+      if (!root) return;
+      root.setAttribute('data-interval', 'false');
+      root.setAttribute('data-bs-interval', 'false');
+      root.setAttribute('data-pause', 'hover');
+      root.setAttribute('data-bs-pause', 'hover');
+      if (window.bootstrap && window.bootstrap.Carousel) {
+        try {
+          const instance = window.bootstrap.Carousel.getInstance(root) || new window.bootstrap.Carousel(root);
+          instance.pause();
+        } catch (e) {
+          // ignore
+        }
+      }
+      if (window.$ && window.$.fn && typeof window.$.fn.carousel === 'function') {
+        try {
+          window.$(root).carousel('pause');
+        } catch (e) {
+          // ignore
+        }
+      }
+    }, sliderRootSelector);
+  } catch (error) {
+    console.log(`  ⚠️ No se pudo pausar el slider: ${error.message}`);
+  }
+}
+
+async function getCarouselItemsMeta(page, sliderRootSelector, sliderItemSelector) {
+  try {
+    const meta = await page.evaluate(({ rootSelector, itemSelector }) => {
+      const root = rootSelector ? document.querySelector(rootSelector) : null;
+      const container = root || document;
+      const items = Array.from(container.querySelectorAll(itemSelector));
+      return items.map((el, index) => ({
+        domIndex: index,
+        gtagIndex: (() => {
+          const direct = el.getAttribute('data-gtag-index');
+          if (direct) return direct;
+          const inner = el.querySelector('[data-gtag-index]');
+          return inner ? inner.getAttribute('data-gtag-index') : null;
+        })()
+      }));
+    }, { rootSelector: sliderRootSelector, itemSelector: sliderItemSelector });
+
+    return meta;
+  } catch (error) {
+    return [];
+  }
+}
+
+async function goToCarouselIndex(page, sliderRootSelector, index) {
+  if (!sliderRootSelector) return false;
+  try {
+    return await page.evaluate(({ selector, targetIndex }) => {
+      const root = document.querySelector(selector);
+      if (!root) return false;
+
+      if (window.bootstrap && window.bootstrap.Carousel) {
+        try {
+          const instance = window.bootstrap.Carousel.getInstance(root) || new window.bootstrap.Carousel(root);
+          instance.to(targetIndex);
+          return true;
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      if (window.$ && window.$.fn && typeof window.$.fn.carousel === 'function') {
+        try {
+          window.$(root).carousel(targetIndex);
+          return true;
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      const indicator = root.querySelector(`[data-slide-to="${targetIndex}"], [data-bs-slide-to="${targetIndex}"]`);
+      if (indicator) {
+        indicator.click();
+        return true;
+      }
+
+      return false;
+    }, { selector: sliderRootSelector, targetIndex: index });
+  } catch (error) {
+    return false;
+  }
+}
+
+async function getActiveBanner(page, sliderRootSelector, sliderItemSelector) {
+  const candidateSelectors = [];
+  if (sliderRootSelector) {
+    candidateSelectors.push(
+      `${sliderRootSelector} .carousel-item.active`,
+      `${sliderRootSelector} .swiper-slide-active`,
+      `${sliderRootSelector} .slick-slide.slick-active`
+    );
+  }
+  if (sliderItemSelector) {
+    candidateSelectors.push(
+      `${sliderItemSelector}.active`,
+      `${sliderItemSelector}.swiper-slide-active`,
+      `${sliderItemSelector}.slick-active`
+    );
+  }
+
+  for (const selector of candidateSelectors) {
+    const locator = page.locator(selector).first();
+    if (await locator.count()) {
+      return locator;
+    }
+  }
+
+  return page.locator(sliderItemSelector).first();
+}
+
+async function moveToBannerByIndex(page, sliderRootSelector, sliderItemSelector, targetDomIndex, targetGtagIndex, maxSteps) {
+  if (targetDomIndex === null || targetDomIndex === undefined) return false;
+  const moved = await goToCarouselIndex(page, sliderRootSelector, targetDomIndex);
+  if (moved) {
+    await page.waitForTimeout(1500);
+  }
+
+  if (!targetGtagIndex) {
+    return true;
+  }
+
+  for (let step = 0; step < maxSteps; step++) {
+    const active = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
+    const gtagIndex = await active.getAttribute('data-gtag-index').catch(() => null);
+    if (gtagIndex === String(targetGtagIndex)) {
+      return true;
+    }
+    const advanced = await clickNextBanner(page, sliderRootSelector);
+    if (!advanced) {
+      return false;
+    }
+    await page.waitForTimeout(1200);
+  }
+  return false;
+}
+
+async function clickNextBanner(page, sliderRootSelector) {
+  const selectors = [];
+  if (sliderRootSelector) {
+    selectors.push(
+      `${sliderRootSelector} .carousel-control-next`,
+      `${sliderRootSelector} .swiper-button-next`,
+      `${sliderRootSelector} .slick-next`
+    );
+  }
+  selectors.push(...CONFIG.nextButtonSelectors);
+
+  for (const selector of selectors) {
+    const button = page.locator(selector).first();
+    if (await button.count()) {
+      await button.click();
+      return true;
+    }
+  }
+  return false;
+}
+
 test.describe('Banner Price Monitor', () => {
 
   test.beforeAll(async () => {
@@ -242,7 +578,7 @@ test.describe('Banner Price Monitor', () => {
 
     // 1. Navegar a la homepage
     console.log('📍 Navegando a homepage...');
-    await page.goto(CONFIG.baseUrl, { waitUntil: 'networkidle', timeout: CONFIG.navigationTimeout });
+    await page.goto(CONFIG.baseUrl, { waitUntil: 'domcontentloaded', timeout: CONFIG.navigationTimeout });
 
     // Esperar que cargue el slider
     await page.waitForTimeout(3000);
@@ -251,15 +587,17 @@ test.describe('Banner Price Monitor', () => {
     console.log('🔍 Buscando slider de banners...\n');
 
     let sliderFound = false;
-    let bannerElements = [];
+    let sliderItemSelector = null;
+    let sliderRootSelector = null;
 
     for (const selector of CONFIG.sliderSelectors) {
       try {
-        const elements = await page.locator(selector).all();
-        if (elements.length > 0) {
+        const count = await page.locator(selector).count();
+        if (count > 0) {
           console.log(`✅ Slider encontrado con selector: ${selector}`);
-          console.log(`📊 Banners encontrados: ${elements.length}\n`);
-          bannerElements = elements;
+          console.log(`📊 Banners encontrados: ${count}\n`);
+          sliderItemSelector = selector;
+          sliderRootSelector = await deriveSliderRootSelector(page, selector);
           sliderFound = true;
           break;
         }
@@ -288,12 +626,25 @@ test.describe('Banner Price Monitor', () => {
       return;
     }
 
+    if (sliderRootSelector) {
+      console.log(`🛑 Pausando slider principal...`);
+      await pauseSlider(page, sliderRootSelector);
+    }
+
     // 3. Analizar cada banner usando navegación del carousel
-    const totalBanners = Math.min(bannerElements.length, 15); // Máximo 15 para evitar timeouts muy largos
+    const bannerMeta = await getCarouselItemsMeta(page, sliderRootSelector, sliderItemSelector);
+    const bannersWithIndex = bannerMeta
+      .filter((item) => item.gtagIndex && !isNaN(parseInt(item.gtagIndex, 10)))
+      .map((item) => ({ ...item, gtagIndex: parseInt(item.gtagIndex, 10) }))
+      .sort((a, b) => a.gtagIndex - b.gtagIndex);
+    const orderedBanners = bannersWithIndex.length > 0 ? bannersWithIndex : bannerMeta;
+    const useDirectNavigation = orderedBanners.length > 0 && Boolean(sliderRootSelector);
+    const totalBanners = Math.min(orderedBanners.length, 15); // Máximo 15 para evitar timeouts muy largos
     const processedBannerIds = new Set(); // Para detectar cuando vuelve al inicio
 
     for (let i = 0; i < totalBanners; i++) {
-      console.log(`\n🎨 Analizando Banner ${i + 1}/${totalBanners}`);
+      console.log(`\n🎨 Analizando posición ${i + 1}/${totalBanners} del carousel`);
+      const targetBanner = orderedBanners[i];
 
       const bannerResult = {
         index: i + 1,
@@ -309,21 +660,58 @@ test.describe('Banner Price Monitor', () => {
       };
 
       try {
+        if (targetBanner && sliderRootSelector) {
+          const moved = await moveToBannerByIndex(
+            page,
+            sliderRootSelector,
+            sliderItemSelector,
+            targetBanner.domIndex,
+            targetBanner.gtagIndex,
+            orderedBanners.length
+          );
+          if (!moved) {
+            console.log(`  ⚠️ No se pudo posicionar en banner objetivo (data-gtag-index=${targetBanner.gtagIndex ?? 'N/A'})`);
+          }
+        }
+
         // Verificar que la página principal sigue abierta
         if (page.isClosed()) {
           console.log(`  ⚠️ Página cerrada, terminando análisis`);
           break;
         }
 
-        // Esperar a que el carousel se estabilice
-        await page.waitForTimeout(1000);
+        // Esperar a que el carousel se estabilice después de la animación
+        await page.waitForTimeout(2000);
 
         // Obtener el banner activo actual
-        const activeBanner = await page.locator('#carousel-home-desktop .carousel-item.active').first();
+        const activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
 
         // Obtener índice real del banner usando data-gtag-index
-        const gtagIndex = await activeBanner.getAttribute('data-gtag-index').catch(() => null);
+        // Intentar obtenerlo del elemento mismo
+        let gtagIndex = null;
+        try {
+          gtagIndex = await activeBanner.getAttribute('data-gtag-index');
+
+          // Si no está en el elemento activo, buscar dentro del banner
+          if (!gtagIndex) {
+            const innerElement = await activeBanner.locator('[data-gtag-index]').first();
+            const count = await activeBanner.locator('[data-gtag-index]').count();
+            if (count > 0) {
+              gtagIndex = await innerElement.getAttribute('data-gtag-index');
+            }
+          }
+        } catch (e) {
+          console.log(`  ⚠️ Error obteniendo data-gtag-index: ${e.message}`);
+        }
+
         const realBannerIndex = gtagIndex ? parseInt(gtagIndex, 10) : null;
+
+        // Mostrar identificación del banner
+        if (realBannerIndex !== null) {
+          console.log(`  ✨ Este es el Banner #${realBannerIndex} (data-gtag-index="${gtagIndex}")`);
+        } else {
+          console.log(`  ⚠️ No se encontró data-gtag-index, usando índice secuencial #${i + 1}`);
+        }
 
         // Obtener ID único del banner para detectar duplicados
         const bannerClass = await activeBanner.getAttribute('class').catch(() => '');
@@ -339,23 +727,64 @@ test.describe('Banner Price Monitor', () => {
         if (realBannerIndex !== null) {
           bannerResult.index = realBannerIndex;
           bannerResult.screenshot = `banner-${realBannerIndex}.png`;
-          console.log(`  📍 Banner real: #${realBannerIndex}`);
         }
 
-        // Capturar screenshot del carousel completo (no del elemento individual)
-        const carouselContainer = await page.locator('#carousel-home-desktop .carousel-inner').first();
         const screenshotFilename = realBannerIndex !== null ? `banner-${realBannerIndex}.png` : `banner-${i + 1}.png`;
         const screenshotPath = path.join(CONFIG.screenshotsDir, screenshotFilename);
+        const ocrScreenshotPaths = [];
 
         try {
-          await carouselContainer.screenshot({ path: screenshotPath, timeout: 5000 });
+          await activeBanner.screenshot({ path: screenshotPath, timeout: 5000, scale: 'device' });
           console.log(`  📸 Screenshot guardado: ${screenshotFilename}`);
         } catch (screenshotError) {
           console.log(`  ⚠️ No se pudo capturar screenshot: ${screenshotError.message}`);
         }
 
+        const bannerImage = await activeBanner.locator('img').first();
+        if (await bannerImage.count()) {
+          await bannerImage.waitFor({ state: 'visible', timeout: 2000 }).catch(() => {});
+          await page.waitForTimeout(200);
+          const imageFilename = realBannerIndex !== null
+            ? `banner-${realBannerIndex}-img.png`
+            : `banner-${i + 1}-img.png`;
+          const imagePath = path.join(CONFIG.screenshotsDir, imageFilename);
+          try {
+            await bannerImage.screenshot({ path: imagePath, timeout: 10000, scale: 'device' });
+            ocrScreenshotPaths.push(imagePath);
+            console.log(`  🖼️ Screenshot de imagen guardado: ${imageFilename}`);
+          } catch (imageError) {
+            console.log(`  ⚠️ No se pudo capturar screenshot de imagen: ${imageError.message}`);
+          }
+
+          const bbox = await bannerImage.boundingBox().catch(() => null);
+          if (bbox) {
+            const cropHeight = Math.max(1, bbox.height * 0.45);
+            const crop = {
+              x: Math.max(0, bbox.x),
+              y: Math.max(0, bbox.y + bbox.height - cropHeight),
+              width: Math.max(1, bbox.width),
+              height: cropHeight,
+            };
+            const cropFilename = realBannerIndex !== null
+              ? `banner-${realBannerIndex}-img-bottom.png`
+              : `banner-${i + 1}-img-bottom.png`;
+            const cropPath = path.join(CONFIG.screenshotsDir, cropFilename);
+            try {
+              await page.screenshot({ path: cropPath, clip: crop, scale: 'device' });
+              ocrScreenshotPaths.push(cropPath);
+              console.log(`  🧩 Screenshot de recorte guardado: ${cropFilename}`);
+            } catch (cropError) {
+              console.log(`  ⚠️ No se pudo capturar recorte de imagen: ${cropError.message}`);
+            }
+          }
+        }
+
         // Analizar TODOS los precios en el banner (incluye OCR si screenshot existe)
-        const bannerPrices = await analyzeBannerForPrices(page, activeBanner, screenshotPath);
+        const bannerPrices = await analyzeBannerForPrices(
+          page,
+          activeBanner,
+          ocrScreenshotPaths.length > 0 ? ocrScreenshotPaths : [screenshotPath]
+        );
         bannerResult.bannerPrices = bannerPrices;
 
         if (bannerPrices.length === 0) {
@@ -363,14 +792,26 @@ test.describe('Banner Price Monitor', () => {
           bannerResult.status = 'no_price';
           results.banners.push(bannerResult);
 
-          // Avanzar al siguiente banner
-          const nextButton = await page.locator('#carousel-home-desktop .carousel-control-next').first();
-          await nextButton.click().catch(() => console.log('  ⚠️ No se pudo hacer click en siguiente'));
+          // Avanzar al siguiente banner si no hay navegación directa
+          if (!useDirectNavigation) {
+            const moved = await clickNextBanner(page, sliderRootSelector);
+            if (!moved) {
+              console.log('  ⚠️ No se pudo hacer click en siguiente');
+            }
+          }
           continue;
         }
 
-        // Obtener el link del banner
-        const link = await activeBanner.locator('a').first();
+        // Obtener el link del banner (debe ser el link principal, no de productos individuales)
+        // Primero intentar con la clase específica del link del carousel
+        let link = await activeBanner.locator('a.carousel-item-link').first();
+        let linkCount = await activeBanner.locator('a.carousel-item-link').count();
+
+        // Si no existe, tomar el primer link (fallback)
+        if (linkCount === 0) {
+          link = await activeBanner.locator('a').first();
+        }
+
         const href = await link.getAttribute('href');
 
         if (!href) {
@@ -395,7 +836,7 @@ test.describe('Banner Price Monitor', () => {
 
         try {
           console.log(`  🌐 Navegando al producto...`);
-          await newPage.goto(targetUrl, { waitUntil: 'networkidle', timeout: CONFIG.navigationTimeout });
+          await newPage.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: CONFIG.navigationTimeout });
           await newPage.waitForTimeout(2000);
 
           // Screenshot de la página de destino
@@ -461,8 +902,8 @@ test.describe('Banner Price Monitor', () => {
 
       results.banners.push(bannerResult);
 
-      // Avanzar al siguiente banner (excepto en el último)
-      if (i < totalBanners - 1) {
+      // Avanzar al siguiente banner (excepto en el último) si no hay navegación directa
+      if (!useDirectNavigation && i < totalBanners - 1) {
         try {
           // Verificar que la página sigue abierta antes de hacer click
           if (page.isClosed()) {
@@ -470,10 +911,12 @@ test.describe('Banner Price Monitor', () => {
             break;
           }
 
-          const nextButton = await page.locator('#carousel-home-desktop .carousel-control-next').first();
-          await nextButton.click();
+          const moved = await clickNextBanner(page, sliderRootSelector);
+          if (!moved) {
+            throw new Error('No se pudo avanzar con los selectores de navegación');
+          }
           console.log(`  ➡️ Avanzando al siguiente banner...`);
-          await page.waitForTimeout(1500); // Esperar animación del carousel
+          await page.waitForTimeout(2500); // Esperar animación del carousel (2.5s)
         } catch (clickError) {
           console.log(`  ⚠️ No se pudo avanzar al siguiente banner: ${clickError.message}`);
           // Si no puede avanzar, es mejor terminar
@@ -489,14 +932,20 @@ test.describe('Banner Price Monitor', () => {
 
     // Resumen
     const total = results.banners.length;
-    const withPrice = results.banners.filter(b => b.bannerPrice).length;
+    const withPrice = results.banners.filter(b => b.bannerPrices && b.bannerPrices.length > 0).length;
+    const noPrice = results.banners.filter(b => b.status === 'no_price').length;
     const matched = results.banners.filter(b => b.priceMatch === true).length;
     const mismatched = results.banners.filter(b => b.priceMatch === false).length;
+    const errors = results.banners.filter(b => b.status === 'error').length;
 
     console.log(`\n📊 RESUMEN:`);
-    console.log(`   Total banners: ${total}`);
-    console.log(`   Con precio: ${withPrice}`);
-    console.log(`   ✅ Coinciden: ${matched}`);
-    console.log(`   ❌ No coinciden: ${mismatched}`);
+    console.log(`   Total banners analizados: ${total}`);
+    console.log(`   🏷️  Con precio: ${withPrice}`);
+    console.log(`   🚫 Sin precio: ${noPrice}`);
+    console.log(`   ✅ Precios coinciden: ${matched}`);
+    console.log(`   ❌ Precios NO coinciden: ${mismatched}`);
+    if (errors > 0) {
+      console.log(`   ⚠️  Errores: ${errors}`);
+    }
   });
 });
