@@ -165,7 +165,7 @@ def generate_html(results_data):
         .container {{ max-width: 1400px; margin: 0 auto; padding: 2rem; }}
         .header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }}
         .logo {{ display: flex; align-items: center; gap: 1rem; }}
-        .logo-icon {{ width: 48px; height: 48px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-green)); border-radius: 12px; display: flex; align-items: center; justify-content: center; }}
+        .logo-icon {{ width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }}
         .logo-icon img {{ width: 32px; height: 32px; }}
         .logo-text h1 {{ font-size: 1.5rem; font-weight: 700; }}
         .logo-text span {{ font-size: 0.875rem; color: var(--text-muted); }}
