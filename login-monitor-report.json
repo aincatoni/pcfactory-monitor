@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
-        "commitHash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21372627735"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/51fd5369c9ae63a749bed949e082f05ef720cd42",
+        "commitHash": "51fd5369c9ae63a749bed949e082f05ef720cd42",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21374284418"
       },
       "gitCommit": {
-        "shortHash": "d1a3c13",
-        "hash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
-        "subject": "fix: Remove unnecessary blank line before footer in banners HTML",
-        "body": "fix: Remove unnecessary blank line before footer in banners HTML\n",
+        "shortHash": "51fd536",
+        "hash": "51fd5369c9ae63a749bed949e082f05ef720cd42",
+        "subject": "fix: Update banner timestamps, improve screenshot handling, and add new source images",
+        "body": "fix: Update banner timestamps, improve screenshot handling, and add new source images\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769457062000
+          "time": 1769461986000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769457062000
+          "time": 1769461986000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
-            "commitHash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21372627735"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/51fd5369c9ae63a749bed949e082f05ef720cd42",
+            "commitHash": "51fd5369c9ae63a749bed949e082f05ef720cd42",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21374284418"
           },
           "gitCommit": {
-            "shortHash": "d1a3c13",
-            "hash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
-            "subject": "fix: Remove unnecessary blank line before footer in banners HTML",
-            "body": "fix: Remove unnecessary blank line before footer in banners HTML\n",
+            "shortHash": "51fd536",
+            "hash": "51fd5369c9ae63a749bed949e082f05ef720cd42",
+            "subject": "fix: Update banner timestamps, improve screenshot handling, and add new source images",
+            "body": "fix: Update banner timestamps, improve screenshot handling, and add new source images\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769457062000
+              "time": 1769461986000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769457062000
+              "time": 1769461986000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2402,
+                      "duration": 2327,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T20:22:28.836Z",
+                      "startTime": "2026-01-26T21:17:37.634Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4504,
+                      "duration": 4238,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T20:22:32.051Z",
+                      "startTime": "2026-01-26T21:17:40.605Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5981,
+                      "duration": 4861,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T20:22:36.566Z",
+                      "startTime": "2026-01-26T21:17:44.855Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5779,
+                      "duration": 4946,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T20:22:42.559Z",
+                      "startTime": "2026-01-26T21:17:49.729Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12439,
+                      "duration": 11203,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T20:22:48.348Z",
+                      "startTime": "2026-01-26T21:17:54.687Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5317,
+                      "duration": 4634,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T20:23:00.796Z",
+                      "startTime": "2026-01-26T21:18:05.903Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-26T20:22:27.759Z",
-    "duration": 38440.721999999994,
+    "startTime": "2026-01-26T21:17:36.516Z",
+    "duration": 34112.637,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
