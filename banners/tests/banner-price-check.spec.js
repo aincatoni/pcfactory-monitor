@@ -680,6 +680,7 @@ test.describe('Banner Price Monitor', () => {
     const processedBannerIds = new Set(); // Para detectar cuando vuelve al inicio
     const processedGtagIndexes = new Set();
 
+    let lastBannerSignature = null;
     for (let i = 0; i < totalBanners; i++) {
       const loopIndex = i + 1;
       console.log(`\n🎨 Analizando posición ${loopIndex}/${totalBanners} del carousel`);
@@ -704,19 +705,31 @@ test.describe('Banner Price Monitor', () => {
           break;
         }
 
+        const targetIndicatorIndex = useIndicators ? indicatorIndexes[i] : null;
         if (useIndicators && sliderRootSelector) {
-          const targetIndex = indicatorIndexes[i];
-          const moved = await goToCarouselIndex(page, sliderRootSelector, targetIndex);
+          const moved = await goToCarouselIndex(page, sliderRootSelector, targetIndicatorIndex);
           if (moved) {
             await page.waitForTimeout(1500);
           }
         }
 
         // Esperar a que el carousel se estabilice después de la animación
-        await page.waitForTimeout(1500);
+        await page.waitForTimeout(2000);
 
         // Obtener el banner activo actual
-        const activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
+        let activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
+        let bannerClass = await activeBanner.getAttribute('class').catch(() => '');
+        let bannerSignature = bannerClass;
+        if (useIndicators && lastBannerSignature && bannerSignature === lastBannerSignature) {
+          const moved = await clickNextBanner(page, sliderRootSelector);
+          if (moved) {
+            await page.waitForTimeout(1500);
+            activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
+            bannerClass = await activeBanner.getAttribute('class').catch(() => '');
+            bannerSignature = bannerClass;
+          }
+        }
+        lastBannerSignature = bannerSignature;
 
         // Obtener índice real del banner usando data-gtag-index
         // Intentar obtenerlo del elemento mismo
@@ -746,74 +759,130 @@ test.describe('Banner Price Monitor', () => {
         }
 
         // Obtener ID único del banner para detectar duplicados
-        const bannerClass = await activeBanner.getAttribute('class').catch(() => '');
         const bannerId = bannerClass.match(/default-carousel-([a-f0-9-]+)/)?.[1] || `banner-${loopIndex}`;
         const bannerKey = realBannerIndex !== null ? `gtag-${realBannerIndex}` : `id-${bannerId}`;
 
-        if (processedBannerIds.has(bannerKey) || (realBannerIndex !== null && processedGtagIndexes.has(realBannerIndex))) {
-          console.log(`  ⏭️ Banner ya procesado (carousel volvió al inicio), ${useIndicators ? 'saltando' : 'terminando análisis'}`);
-          if (useIndicators) {
-            continue;
+        if (!useIndicators) {
+          if (processedBannerIds.has(bannerKey) || (realBannerIndex !== null && processedGtagIndexes.has(realBannerIndex))) {
+            console.log(`  ⏭️ Banner ya procesado (carousel volvió al inicio), terminando análisis`);
+            break;
           }
-          break;
-        }
-        processedBannerIds.add(bannerKey);
-        if (realBannerIndex !== null) {
-          processedGtagIndexes.add(realBannerIndex);
+          processedBannerIds.add(bannerKey);
+          if (realBannerIndex !== null) {
+            processedGtagIndexes.add(realBannerIndex);
+          }
         }
 
         // Actualizar el índice del banner con el índice real
         if (realBannerIndex !== null) {
           bannerResult.index = realBannerIndex;
           bannerResult.screenshot = `banner-${realBannerIndex}.png`;
+        } else if (useIndicators && targetIndicatorIndex !== null) {
+          bannerResult.index = targetIndicatorIndex + 1;
+          bannerResult.screenshot = `banner-${targetIndicatorIndex + 1}.png`;
         }
 
-        const screenshotFilename = realBannerIndex !== null ? `banner-${realBannerIndex}.png` : `banner-${loopIndex}.png`;
+        const screenshotIndex = realBannerIndex !== null
+          ? realBannerIndex
+          : (useIndicators && targetIndicatorIndex !== null ? targetIndicatorIndex + 1 : loopIndex);
+        const screenshotFilename = `banner-${screenshotIndex}.png`;
         const screenshotPath = path.join(CONFIG.screenshotsDir, screenshotFilename);
         const ocrScreenshotPaths = [];
 
         try {
-          await activeBanner.screenshot({ path: screenshotPath, timeout: 5000, scale: 'device' });
+          await activeBanner.scrollIntoViewIfNeeded().catch(() => {});
+          await page.waitForTimeout(250);
+          await activeBanner.screenshot({ path: screenshotPath, timeout: 8000, scale: 'device' });
+          ocrScreenshotPaths.push(screenshotPath);
           console.log(`  📸 Screenshot guardado: ${screenshotFilename}`);
         } catch (screenshotError) {
           console.log(`  ⚠️ No se pudo capturar screenshot: ${screenshotError.message}`);
+          const bannerBox = await activeBanner.boundingBox().catch(() => null);
+          if (bannerBox) {
+            const clip = {
+              x: Math.max(0, bannerBox.x),
+              y: Math.max(0, bannerBox.y),
+              width: Math.max(1, bannerBox.width),
+              height: Math.max(1, bannerBox.height),
+            };
+            try {
+              await page.screenshot({ path: screenshotPath, clip, scale: 'device' });
+              ocrScreenshotPaths.push(screenshotPath);
+              console.log(`  📸 Screenshot por recorte guardado: ${screenshotFilename}`);
+            } catch (clipError) {
+              console.log(`  ⚠️ No se pudo capturar screenshot por recorte: ${clipError.message}`);
+            }
+          }
         }
 
         const bannerImage = await activeBanner.locator('img').first();
         if (await bannerImage.count()) {
-          await bannerImage.waitFor({ state: 'visible', timeout: 2000 }).catch(() => {});
+          await bannerImage.waitFor({ state: 'visible', timeout: 3000 }).catch(() => {});
           await page.waitForTimeout(200);
           const imageFilename = realBannerIndex !== null
             ? `banner-${realBannerIndex}-img.png`
             : `banner-${loopIndex}-img.png`;
           const imagePath = path.join(CONFIG.screenshotsDir, imageFilename);
           try {
-            await bannerImage.screenshot({ path: imagePath, timeout: 10000, scale: 'device' });
+            await bannerImage.screenshot({ path: imagePath, timeout: 12000, scale: 'device' });
             ocrScreenshotPaths.push(imagePath);
             console.log(`  🖼️ Screenshot de imagen guardado: ${imageFilename}`);
           } catch (imageError) {
             console.log(`  ⚠️ No se pudo capturar screenshot de imagen: ${imageError.message}`);
+            const imageBox = await bannerImage.boundingBox().catch(() => null);
+            if (imageBox) {
+              const clip = {
+                x: Math.max(0, imageBox.x),
+                y: Math.max(0, imageBox.y),
+                width: Math.max(1, imageBox.width),
+                height: Math.max(1, imageBox.height),
+              };
+              try {
+                await page.screenshot({ path: imagePath, clip, scale: 'device' });
+                ocrScreenshotPaths.push(imagePath);
+                console.log(`  🖼️ Screenshot de imagen por recorte guardado: ${imageFilename}`);
+              } catch (clipError) {
+                console.log(`  ⚠️ No se pudo capturar recorte de imagen: ${clipError.message}`);
+              }
+            }
           }
 
           const bbox = await bannerImage.boundingBox().catch(() => null);
           if (bbox) {
             const cropHeight = Math.max(1, bbox.height * 0.45);
-            const crop = {
-              x: Math.max(0, bbox.x),
-              y: Math.max(0, bbox.y + bbox.height - cropHeight),
-              width: Math.max(1, bbox.width),
-              height: cropHeight,
-            };
-            const cropFilename = realBannerIndex !== null
-              ? `banner-${realBannerIndex}-img-bottom.png`
-              : `banner-${loopIndex}-img-bottom.png`;
-            const cropPath = path.join(CONFIG.screenshotsDir, cropFilename);
-            try {
-              await page.screenshot({ path: cropPath, clip: crop, scale: 'device' });
-              ocrScreenshotPaths.push(cropPath);
-              console.log(`  🧩 Screenshot de recorte guardado: ${cropFilename}`);
-            } catch (cropError) {
-              console.log(`  ⚠️ No se pudo capturar recorte de imagen: ${cropError.message}`);
+            const cropConfigs = [
+              {
+                label: 'top',
+                y: Math.max(0, bbox.y),
+              },
+              {
+                label: 'center',
+                y: Math.max(0, bbox.y + (bbox.height - cropHeight) / 2),
+              },
+              {
+                label: 'bottom',
+                y: Math.max(0, bbox.y + bbox.height - cropHeight),
+              },
+            ];
+
+            for (const config of cropConfigs) {
+              const crop = {
+                x: Math.max(0, bbox.x),
+                y: config.y,
+                width: Math.max(1, bbox.width),
+                height: cropHeight,
+              };
+              const cropFilename = realBannerIndex !== null
+                ? `banner-${realBannerIndex}-img-${config.label}.png`
+                : `banner-${loopIndex}-img-${config.label}.png`;
+              const cropPath = path.join(CONFIG.screenshotsDir, cropFilename);
+              try {
+                await page.screenshot({ path: cropPath, clip: crop, scale: 'device' });
+                ocrScreenshotPaths.push(cropPath);
+                console.log(`  🧩 Screenshot de recorte guardado: ${cropFilename}`);
+              } catch (cropError) {
+                console.log(`  ⚠️ No se pudo capturar recorte de imagen: ${cropError.message}`);
+              }
             }
           }
         }
