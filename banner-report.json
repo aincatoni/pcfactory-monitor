@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 289590,
+                      "duration": 314381,
                       "errors": [],
                       "stdout": [
                         {
@@ -356,7 +356,7 @@
                           "text": "  📸 Screenshot guardado: banner-3.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11884.913ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11857.769999999997ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-3-img.png\n"
@@ -419,7 +419,7 @@
                           "text": "  📸 Screenshot guardado: banner-4.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11943.981ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11791.505999999994ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    22 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-4-img.png\n"
@@ -482,7 +482,7 @@
                           "text": "  📸 Screenshot guardado: banner-5.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11847.142999999996ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    22 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11869.17300000001ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-5-img.png\n"
@@ -545,7 +545,7 @@
                           "text": "  📸 Screenshot guardado: banner-6.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11870.81200000002ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11857.115999999995ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    22 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-6-img.png\n"
@@ -650,7 +650,7 @@
                           "text": "  📸 Screenshot guardado: banner-7.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11870.263000000006ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11871.703999999998ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-7-img.png\n"
@@ -755,7 +755,10 @@
                           "text": "  📸 Screenshot guardado: banner-8.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-8-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11942.91399999999ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-8-img.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-8-img-top.png\n"
@@ -857,7 +860,7 @@
                           "text": "  📸 Screenshot guardado: banner-9.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11802.470000000001ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11875.273000000016ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-9-img.png\n"
@@ -923,7 +926,10 @@
                           "text": "  📸 Screenshot guardado: banner-10.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-10-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11878.879000000015ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-10-img.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-10-img-top.png\n"
@@ -983,7 +989,7 @@
                           "text": "  📸 Screenshot guardado: banner-11.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11877.353000000003ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11821.697999999975ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-11-img.png\n"
@@ -1082,7 +1088,7 @@
                           "text": "  📸 Screenshot guardado: banner-12.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11841.643999999971ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11804.628000000026ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    22 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-12-img.png\n"
@@ -1289,7 +1295,7 @@
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-01-26T17:25:14.269Z",
+                      "startTime": "2026-01-26T19:46:06.865Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1305,17 +1311,17 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-4.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-3.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
                         },
                         {
                           "name": "video",
@@ -1330,7 +1336,17 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-7.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-8.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-9.webm"
                         },
                         {
                           "name": "video",
@@ -1340,22 +1356,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-12.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-7.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-13.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-11.webm"
                         },
                         {
                           "name": "video",
@@ -1365,32 +1366,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-18.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-19.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-15.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-20.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-21.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
                         },
                         {
                           "name": "video",
@@ -1400,12 +1381,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-18.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-23.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-20.webm"
                         },
                         {
                           "name": "video",
@@ -1415,7 +1396,32 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-9.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-19.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-21.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-23.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-12.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-11.webm"
                         },
                         {
                           "name": "video",
@@ -1459,7 +1465,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 24018,
+                  "duration": 22892,
                   "errors": [],
                   "stdout": [
                     {
@@ -1612,7 +1618,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-26T17:30:04.102Z",
+                  "startTime": "2026-01-26T19:51:23.027Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1641,8 +1647,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-26T17:25:13.034Z",
-    "duration": 315276.593,
+    "startTime": "2026-01-26T19:46:05.629Z",
+    "duration": 340480.51499999996,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
