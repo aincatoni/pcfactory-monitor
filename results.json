@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-        "commitHash": "f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21358424919"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/41e53cb402f097437b882fc9213d4d0886ad29a3",
+        "commitHash": "41e53cb402f097437b882fc9213d4d0886ad29a3",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21365780341"
       },
       "gitCommit": {
-        "shortHash": "f4f9164",
-        "hash": "f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-        "subject": "fix: Improve price extraction logic in OCR function for better accuracy",
-        "body": "fix: Improve price extraction logic in OCR function for better accuracy\n",
+        "shortHash": "41e53cb",
+        "hash": "41e53cb402f097437b882fc9213d4d0886ad29a3",
+        "subject": "fix: Update banner price display logic and enhance price analysis functionality",
+        "body": "fix: Update banner price display logic and enhance price analysis functionality\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769431898000
+          "time": 1769443741000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769431898000
+          "time": 1769443741000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-            "commitHash": "f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21358424919"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/41e53cb402f097437b882fc9213d4d0886ad29a3",
+            "commitHash": "41e53cb402f097437b882fc9213d4d0886ad29a3",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21365780341"
           },
           "gitCommit": {
-            "shortHash": "f4f9164",
-            "hash": "f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-            "subject": "fix: Improve price extraction logic in OCR function for better accuracy",
-            "body": "fix: Improve price extraction logic in OCR function for better accuracy\n",
+            "shortHash": "41e53cb",
+            "hash": "41e53cb402f097437b882fc9213d4d0886ad29a3",
+            "subject": "fix: Update banner price display logic and enhance price analysis functionality",
+            "body": "fix: Update banner price display logic and enhance price analysis functionality\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769431898000
+              "time": 1769443741000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769431898000
+              "time": 1769443741000
             },
             "branch": "main"
           },
@@ -138,7 +138,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56661,
+                      "duration": 56964,
                       "errors": [],
                       "stdout": [
                         {
@@ -150,7 +150,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T12:56:25.693Z",
+                      "startTime": "2026-01-26T16:42:14.456Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -185,7 +185,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56400,
+                      "duration": 56248,
                       "errors": [],
                       "stdout": [
                         {
@@ -197,7 +197,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T12:57:22.573Z",
+                      "startTime": "2026-01-26T16:43:11.630Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -232,7 +232,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56470,
+                      "duration": 56987,
                       "errors": [],
                       "stdout": [
                         {
@@ -244,7 +244,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T12:58:18.999Z",
+                      "startTime": "2026-01-26T16:44:07.891Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -279,7 +279,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56742,
+                      "duration": 56767,
                       "errors": [],
                       "stdout": [
                         {
@@ -291,7 +291,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T12:59:15.481Z",
+                      "startTime": "2026-01-26T16:45:04.890Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -326,7 +326,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56633,
+                      "duration": 56390,
                       "errors": [],
                       "stdout": [
                         {
@@ -360,7 +360,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-26T12:56:25.666Z\n"
+                          "text": "Timestamp: 2026-01-26T16:42:14.428Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -378,7 +378,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/ksEFvoQB15n0lbZ3t3BoHSZmNpbT8FTobRXJ696AUFcj1S5KB68CPeX9RZLIozr3\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/WsN3ZDQe9N85phwgnqC7XDQJ5K1Dsfv1PHKiWAI5Ery9RBma52anOBbEWDBkjphV\n"
                         },
                         {
                           "text": "   Video: videos/video-ETPAY.webm\n"
@@ -425,7 +425,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T13:00:12.235Z",
+                      "startTime": "2026-01-26T16:46:01.669Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -451,8 +451,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-26T12:56:24.581Z",
-    "duration": 284366.945,
+    "startTime": "2026-01-26T16:42:13.391Z",
+    "duration": 284736.68700000003,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
