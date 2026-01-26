@@ -7818,5 +7818,59 @@
       "passed": 5,
       "failed": 0
     }
+  },
+  {
+    "timestamp": "2026-01-26T20:03:01.277Z",
+    "results": [
+      {
+        "paymentMethod": "Tarjeta de Crédito (Webpay)",
+        "paymentId": "WEBPAY_CREDITO",
+        "status": "PASSED",
+        "steps": [
+          {
+            "step": "Buscar producto con stock",
+            "status": "passed"
+          },
+          {
+            "step": "Agregar al carrito",
+            "status": "passed"
+          },
+          {
+            "step": "Ir al checkout",
+            "status": "passed"
+          },
+          {
+            "step": "Continuar como invitado",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar retiro en tienda",
+            "status": "passed"
+          },
+          {
+            "step": "Completar datos personales",
+            "status": "passed"
+          },
+          {
+            "step": "Seleccionar Tarjeta de Crédito (Webpay)",
+            "status": "passed"
+          },
+          {
+            "step": "Clic en Pagar y verificar pasarela",
+            "status": "passed"
+          }
+        ],
+        "error": null,
+        "gatewayReached": true,
+        "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
+        "duration": 35807,
+        "videoPath": "videos/video-WEBPAY_CREDITO.webm"
+      }
+    ],
+    "summary": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    }
   }
 ]

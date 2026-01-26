@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3b741f00adeb0441d338c6878ffb1f4969709f15",
-        "commitHash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21367189511"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
+        "commitHash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21371851667"
       },
       "gitCommit": {
-        "shortHash": "3b741f0",
-        "hash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
-        "subject": "fix: Remove background gradient from logo icon for consistency",
-        "body": "fix: Remove background gradient from logo icon for consistency\n",
+        "shortHash": "d1a3c13",
+        "hash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
+        "subject": "fix: Remove unnecessary blank line before footer in banners HTML",
+        "body": "fix: Remove unnecessary blank line before footer in banners HTML\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769448043000
+          "time": 1769457062000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769448043000
+          "time": 1769457062000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3b741f00adeb0441d338c6878ffb1f4969709f15",
-            "commitHash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21367189511"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
+            "commitHash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21371851667"
           },
           "gitCommit": {
-            "shortHash": "3b741f0",
-            "hash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
-            "subject": "fix: Remove background gradient from logo icon for consistency",
-            "body": "fix: Remove background gradient from logo icon for consistency\n",
+            "shortHash": "d1a3c13",
+            "hash": "d1a3c13bfc4fd3a7172a9a872965da6eed18b7c1",
+            "subject": "fix: Remove unnecessary blank line before footer in banners HTML",
+            "body": "fix: Remove unnecessary blank line before footer in banners HTML\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769448043000
+              "time": 1769457062000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769448043000
+              "time": 1769457062000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2451,
+                      "duration": 2755,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T17:25:17.744Z",
+                      "startTime": "2026-01-26T19:56:13.556Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4240,
+                      "duration": 4076,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T17:25:20.427Z",
+                      "startTime": "2026-01-26T19:56:16.567Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4824,
+                      "duration": 4651,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T17:25:24.680Z",
+                      "startTime": "2026-01-26T19:56:20.661Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4732,
+                      "duration": 4345,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T17:25:29.518Z",
+                      "startTime": "2026-01-26T19:56:25.324Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11099,
+                      "duration": 10951,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T17:25:34.265Z",
+                      "startTime": "2026-01-26T19:56:29.679Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8187,
+                      "duration": 4323,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T17:25:45.375Z",
+                      "startTime": "2026-01-26T19:56:40.640Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-26T17:25:16.631Z",
-    "duration": 37014.738,
+    "startTime": "2026-01-26T19:56:12.362Z",
+    "duration": 32694.501000000004,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
