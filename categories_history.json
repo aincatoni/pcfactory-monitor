@@ -1,12 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-26T06:02:18.253092+00:00",
-      "total_categories": 388,
-      "added": [],
-      "removed": []
-    },
-    {
       "timestamp": "2026-01-26T06:55:51.757796+00:00",
       "total_categories": 388,
       "added": [],
@@ -194,6 +188,29 @@
           "id": "721",
           "nombre": "Grabadoras DVR y NVR",
           "timestamp": "2026-01-26T21:47:52.156391+00:00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-26T22:00:19.415414+00:00",
+      "total_categories": 383,
+      "added": [
+        {
+          "id": 930,
+          "nombre": "Splitters y Switches de Video",
+          "timestamp": "2026-01-26T22:00:19.415414+00:00"
+        },
+        {
+          "id": 930,
+          "nombre": "Splitters y Switches de Video",
+          "timestamp": "2026-01-26T22:00:19.415414+00:00"
+        }
+      ],
+      "removed": [
+        {
+          "id": "692",
+          "nombre": "Cargadores para Automóvil",
+          "timestamp": "2026-01-26T22:00:19.415414+00:00"
         }
       ]
     }
