@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/41e53cb402f097437b882fc9213d4d0886ad29a3",
-        "commitHash": "41e53cb402f097437b882fc9213d4d0886ad29a3",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21366073606"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3b741f00adeb0441d338c6878ffb1f4969709f15",
+        "commitHash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21367189511"
       },
       "gitCommit": {
-        "shortHash": "41e53cb",
-        "hash": "41e53cb402f097437b882fc9213d4d0886ad29a3",
-        "subject": "fix: Update banner price display logic and enhance price analysis functionality",
-        "body": "fix: Update banner price display logic and enhance price analysis functionality\n",
+        "shortHash": "3b741f0",
+        "hash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
+        "subject": "fix: Remove background gradient from logo icon for consistency",
+        "body": "fix: Remove background gradient from logo icon for consistency\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769443741000
+          "time": 1769448043000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769443741000
+          "time": 1769448043000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/41e53cb402f097437b882fc9213d4d0886ad29a3",
-            "commitHash": "41e53cb402f097437b882fc9213d4d0886ad29a3",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21366073606"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3b741f00adeb0441d338c6878ffb1f4969709f15",
+            "commitHash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21367189511"
           },
           "gitCommit": {
-            "shortHash": "41e53cb",
-            "hash": "41e53cb402f097437b882fc9213d4d0886ad29a3",
-            "subject": "fix: Update banner price display logic and enhance price analysis functionality",
-            "body": "fix: Update banner price display logic and enhance price analysis functionality\n",
+            "shortHash": "3b741f0",
+            "hash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
+            "subject": "fix: Remove background gradient from logo icon for consistency",
+            "body": "fix: Remove background gradient from logo icon for consistency\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769443741000
+              "time": 1769448043000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769443741000
+              "time": 1769448043000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2306,
+                      "duration": 2451,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T16:51:03.844Z",
+                      "startTime": "2026-01-26T17:25:17.744Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4223,
+                      "duration": 4240,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T16:51:06.378Z",
+                      "startTime": "2026-01-26T17:25:20.427Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5932,
+                      "duration": 4824,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T16:51:10.617Z",
+                      "startTime": "2026-01-26T17:25:24.680Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6023,
+                      "duration": 4732,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T16:51:16.562Z",
+                      "startTime": "2026-01-26T17:25:29.518Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11784,
+                      "duration": 11099,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T16:51:22.599Z",
+                      "startTime": "2026-01-26T17:25:34.265Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5076,
+                      "duration": 8187,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-26T16:51:34.396Z",
+                      "startTime": "2026-01-26T17:25:45.375Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-26T16:51:02.774Z",
-    "duration": 36790.404,
+    "startTime": "2026-01-26T17:25:16.631Z",
+    "duration": 37014.738,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-        "commitHash": "f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21358424919"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3b741f00adeb0441d338c6878ffb1f4969709f15",
+        "commitHash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21367189511"
       },
       "gitCommit": {
-        "shortHash": "f4f9164",
-        "hash": "f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-        "subject": "fix: Improve price extraction logic in OCR function for better accuracy",
-        "body": "fix: Improve price extraction logic in OCR function for better accuracy\n",
+        "shortHash": "3b741f0",
+        "hash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
+        "subject": "fix: Remove background gradient from logo icon for consistency",
+        "body": "fix: Remove background gradient from logo icon for consistency\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769431898000
+          "time": 1769448043000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769431898000
+          "time": 1769448043000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-            "commitHash": "f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21358424919"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/3b741f00adeb0441d338c6878ffb1f4969709f15",
+            "commitHash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21367189511"
           },
           "gitCommit": {
-            "shortHash": "f4f9164",
-            "hash": "f4f9164ba7f0486ed07320baacc7f6cd37124d5f",
-            "subject": "fix: Improve price extraction logic in OCR function for better accuracy",
-            "body": "fix: Improve price extraction logic in OCR function for better accuracy\n",
+            "shortHash": "3b741f0",
+            "hash": "3b741f00adeb0441d338c6878ffb1f4969709f15",
+            "subject": "fix: Remove background gradient from logo icon for consistency",
+            "body": "fix: Remove background gradient from logo icon for consistency\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769431898000
+              "time": 1769448043000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769431898000
+              "time": 1769448043000
             },
             "branch": "main"
           },
@@ -120,7 +120,7 @@
         {
           "title": "Banner Price Monitor",
           "file": "banner-price-check.spec.js",
-          "line": 595,
+          "line": 697,
           "column": 6,
           "specs": [
             {
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 165468,
+                      "duration": 289590,
                       "errors": [],
                       "stdout": [
                         {
@@ -155,13 +155,100 @@
                           "text": "✅ Slider encontrado con selector: #carousel-home-desktop .carousel-item\n"
                         },
                         {
-                          "text": "📊 Banners encontrados: 15\n\n"
+                          "text": "📊 Banners encontrados: 13\n\n"
                         },
                         {
                           "text": "🛑 Pausando slider principal...\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 1/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 1/13 del carousel\n"
+                        },
+                        {
+                          "text": "  ✨ Este es el Banner #1 (data-gtag-index=\"1\")\n"
+                        },
+                        {
+                          "text": "  📸 Screenshot guardado: banner-1.png\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen guardado: banner-1-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-1-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-1-img-center.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-1-img-bottom.png\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"[BONA para ir en ayuda de las personas\nEstamos en la emergencia afectadas en los incendios de Nuble y Biobio\n| - | HZTUMORTEAUE\nReconstruimos Ee ——\n65.533130-1\nH 0 | BancoEstado\ndonde Chile NOS necesita © Cuenta Corriente 7030\n| emergencia.chile@techo.org\ni ; - EEE = Svar : [% - Sh\nLETTE\n\n4 oa 3] EAA a Ell ES 0 2\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"[BONA para ir en ayuda de las personas\nEstamos en la emergencia afectadas en los incendios de Nuble y Biobio\n| - | HZTUMORTEAUE\nReconstruimos Ee ——\n65.533130-1\nH 0 | BancoEstado\ndonde Chile NOS necesita © Cuenta Corriente 7030\n| emergencia.chile@techo.org\ni ; - EEE = Svar : [% - Sh\nLETTE\n\n4 oa 3] EAA a Ell ES 0 2\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"BONA para ir en ayu\nEstamos en la emergencia afectadas en los incend\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"BONA para ir en ayu\nEstamos en la emergencia afectadas en los incend\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"Estamos en la emergencia afectadas en los incena\n\n1 -.\n~ Reconstruimos \"EF\n65.533!\ndonde Chile NOS necesita Cuenta Gort\nemeraencia.chil\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"Estamos en la emergencia afectadas en los incena\n\n1 -.\n~ Reconstruimos \"EF\n65.533!\ndonde Chile NOS necesita Cuenta Gort\nemeraencia.chil\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"‘donde Chile NOS necesita Curia cor\n\nP) A . % i emergencia.chni\n\nae\n: MEE EE hea BE\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"‘donde Chile NOS necesita Curia cor\n\nP) A . % i emergencia.chni\n\nae\n: MEE EE hea BE\"\n"
+                        },
+                        {
+                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
+                        },
+                        {
+                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
+                        },
+                        {
+                          "text": "\n🎨 Analizando posición 2/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #2 (data-gtag-index=\"2\")\n"
@@ -173,6 +260,12 @@
                           "text": "  🖼️ Screenshot de imagen guardado: banner-2-img.png\n"
                         },
                         {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-2-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-2-img-center.png\n"
+                        },
+                        {
                           "text": "  🧩 Screenshot de recorte guardado: banner-2-img-bottom.png\n"
                         },
                         {
@@ -182,13 +275,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"[EE\nEl Verano es mejor .\ncon tu Hogar Seguro\naras IP | Kits de Vigilancia Ww ©]\nh = i r Camara Seguridad IP Ezviz® Camara Seguridad IP Ezviz® Camara Seguridad IP Ezviz® [0 |\n| Bb Interior Full HD con visién nocturna H1c Exterior 360° 2K (3MP) con luz y audio HBC 2K (3MP) de interior 360° Héc Pro\ni BEET -60% 32990 BexF SEXIER -60%\nFA, r— i\"\n"
+                          "text": "  🔍 OCR resultado: \"El Verano es mejor a N\nCémaras IP | Kits de Vigilancia IW @\noO\n\"TEE RT BE —\ni = Camara Seguridad IP Ezviz® Camara Seguridad IP Ezviz® Camara Seguridad IP Ezviz®\n“i LJ 3 Interior Full HD con visién noctuma Hic Exterior 360° 2K (3MP) con luzy audio HBC 2K (3MP) de interior 360° Héc Pro\nra SEL -60% 32900 XDA SEE: -60%\n2 3 A \\ V7 A Referencial: $34.90 Referencial: 69.990 Referendal: $49.990\n= AN Sl ER 3\naa HT 5 SRR. ye? a\"\n"
                         },
                         {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                          "text": "  📍 Precio detectado en OCR: $49.990\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"[EE\nEl Verano es mejor .\ncon tu Hogar Seguro\naras IP | Kits de Vigilancia Ww ©]\nh = i r Camara Seguridad IP Ezviz® Camara Seguridad IP Ezviz® Camara Seguridad IP Ezviz® [0 |\n| Bb Interior Full HD con visién nocturna H1c Exterior 360° 2K (3MP) con luz y audio HBC 2K (3MP) de interior 360° Héc Pro\ni BEET -60% 32990 BexF SEXIER -60%\nFA, r— i\"\n"
+                          "text": "  📍 Precio detectado en OCR: $69.990\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -197,19 +290,109 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"= J iE —\nRaw | ridad IP Ezviz® Camara Seguridad IP Ezviz® Camara Seguridad IP Ezviz®\n~ E |= IHD convisién nocturma Hic Exterior 360° 2K (3MP) con luzy audio HBC. 2K (BMP) de interior 360° Hc Pro\n\n3 $13.990 $32.990 $19.990\n- jo fainter preety fitted\nJ ——\nTg ~ ~ i\n\nPI a\"\n"
+                          "text": "  🔍 OCR resultado: \"El Verano es mejor . =\nCémaras IP | Kits de Vigilancia w Ba\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $13.990\n"
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"El Verano es mejor . =\nCémaras IP | Kits de Vigilancia w Ba\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"— Lid Remy\nCémaras IP | Kits de Vigilancia wl\n{1d .\nre 7 1 4\nTY EE EE a\npa ] 1 | 18 Ee ridad IP Ezviz® Camara Seguridad IP Ezviz®\nJb ees SE 8 jor Full HD con vision noctuma Hic Exterior 360° 2K (3MP) con luzy audio HBC\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"— Lid Remy\nCémaras IP | Kits de Vigilancia wl\n{1d .\nre 7 1 4\nTY EE EE a\npa ] 1 | 18 Ee ridad IP Ezviz® Camara Seguridad IP Ezviz®\nJb ees SE 8 jor Full HD con vision noctuma Hic Exterior 360° 2K (3MP) con luzy audio HBC\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"lt dL =\n\n- | | 18 Camara Seguridad IP Ezviz® Camara Seguridad IP Ezviz®\n\n“i “i Interior Full HD con visién noctuma Hic Exterior 360° 2K (3MP) con luzy audio HBC\n\nBhs\n\n4 : SEX: I -60% 32990 Wx\nx 1 A (7 IN Referencial: $34.990 Referencial: $69.990 L\n? ae gn\"\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $32.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $19.990\n"
+                          "text": "  📍 Precio detectado en OCR: $34.990\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$13.990, $32.990, $19.990]\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$49.990, $69.990, $32.990, $34.990]\n"
+                        },
+                        {
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad?size=12\n"
+                        },
+                        {
+                          "text": "  🌐 Navegando al producto...\n"
+                        },
+                        {
+                          "text": "  💰 Precios encontrados en página de productos: 27 [$234.990, $49.990, $19.990, $20.590, $69.990, $32.990, $33.990, $24.990, $21.090, $34.990, $13.990, $14.390, $41.990, $44.190, $31.990, $33.690, $21.990, $23.190, $34.690, $27.990, $29.490, $28.990, $30.490, $59.990, $37.990, $39.990, $44.990]\n"
+                        },
+                        {
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
+                        },
+                        {
+                          "text": "     Precios coincidentes: $49.990, $69.990, $32.990, $34.990\n"
+                        },
+                        {
+                          "text": "\n🎨 Analizando posición 3/13 del carousel\n"
+                        },
+                        {
+                          "text": "  ✨ Este es el Banner #3 (data-gtag-index=\"3\")\n"
+                        },
+                        {
+                          "text": "  📸 Screenshot guardado: banner-3.png\n"
+                        },
+                        {
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11884.913ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-3-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-3-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-3-img-center.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-3-img-bottom.png\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \". a =\nEl Verano es mejor NTE \"88g g\ncon tu Hogar Seguro SY GO 73\nCémaras IP | Kits de Vigilancia E = [FS | LLY)\n1 S— | | Kit de Vigilancia Annke® Grabador DVR Annke® Kit de Vigilancia Annke®\ni El DVR hibrido 4 canales + 4 Camara SMP (3K) 8 canales SMP DWBTKT DVRDW81KD +4 CT1GT +4 CT1GU\ni 4 Sle I -30% 69.990 Te{157 Ll XI 41%\nNg: x #4 | v2 © Referencial: $199.990 Referencial: $99.990 _ Referendial: $399.990\n“> fae | 2\n2 a a :\nTEP 5 SR x CA\"\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $69.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $199.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $99.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $399.990\n"
+                        },
+                        {
+                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$69.990, $199.990, $99.990, $399.990]\n"
                         },
                         {
                           "text": "  🔗 Link destino: https://www.pcfactory.cl/ofertas-de-verano/kits-de-vigilancia\n"
@@ -221,94 +404,13 @@
                           "text": "  💰 Precios encontrados en página de productos: 18 [$199.990, $139.990, $144.290, $99.990, $69.990, $73.690, $399.990, $234.990, $242.290, $39.990, $27.990, $29.490, $79.990, $59.990, $63.190, $279.990, $189.990, $195.890]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $13.990, $32.990, $19.990\n"
+                          "text": "     Precios coincidentes: $69.990, $199.990, $99.990, $399.990\n"
                         },
                         {
-                          "text": "     Producto: $199.990, $139.990, $144.290, $99.990, $69.990, $73.690, $399.990, $234.990, $242.290, $39.990, $27.990, $29.490, $79.990, $59.990, $63.190, $279.990, $189.990, $195.890\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $13.990, $32.990, $19.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 2/15 del carousel\n"
-                        },
-                        {
-                          "text": "  ✨ Este es el Banner #3 (data-gtag-index=\"3\")\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-3.png\n"
-                        },
-                        {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-3-img.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-3-img-bottom.png\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en alt de imagen: $54.461\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"El Verano es mejor ~@\ncon tu Hogar Seguro f8g\nWwe |E— CYT\nbol | Kit de Vigilancia Annke® Grabador DVR Annke® Kit de Vigilancia Annke® [)\nRew | DVR hibrido d cansles +4 Cmaras SMP (3K) 8 candles SMP DWB1KT DVROWSIKD-+4 CT1GT + 4CTIGU\n: 1 Er 30% Er I-30% PE I-41%\n~ |\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"El Verano es mejor ~@\ncon tu Hogar Seguro f8g\nWwe |E— CYT\nbol | Kit de Vigilancia Annke® Grabador DVR Annke® Kit de Vigilancia Annke® [)\nRew | DVR hibrido d cansles +4 Cmaras SMP (3K) 8 candles SMP DWB1KT DVROWSIKD-+4 CT1GT + 4CTIGU\n: 1 Er 30% Er I-30% PE I-41%\n~ |\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"i 3 RS —\n- 1 [| Annke® Grabador DVR Annke® Kit de Vigilancia Annke®\n~ Ee  S— Jo4 canales + 4 Camaras SMP (3K) 8 canales SMP DWB1KT DVRDWB1KD +4 CT1GT +4 CTIGU\n; $139.990 $69.990 $234.990\nx jo anton) ton aon\n2 — :\nTg 2\nPI — he\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $139.990\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $69.990\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $234.990\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$54.461, $139.990, $69.990, $234.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54661,53913,54660,53812\n"
-                        },
-                        {
-                          "text": "  🌐 Navegando al producto...\n"
-                        },
-                        {
-                          "text": "  💰 Precios encontrados en página de productos: 14 [$429.990, $979.990, $929.990, $749.990, $773.190, $1.199.990, $1.010.290, $999.990, $824.490, $849.990, $569.990, $443.290, $199.990, $10.290]\n"
-                        },
-                        {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
-                        },
-                        {
-                          "text": "     Banner: $54.461, $139.990, $69.990, $234.990\n"
-                        },
-                        {
-                          "text": "     Producto: $429.990, $979.990, $929.990, $749.990, $773.190, $1.199.990, $1.010.290, $999.990, $824.490, $849.990, $569.990, $443.290, $199.990, $10.290\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $54.461, $139.990, $69.990, $234.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 3/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 4/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #4 (data-gtag-index=\"4\")\n"
@@ -317,7 +419,16 @@
                           "text": "  📸 Screenshot guardado: banner-4.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-4-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11943.981ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-4-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-4-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-4-img-center.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-4-img-bottom.png\n"
@@ -329,52 +440,40 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"h F A\nzi =\nLenovo \\ | Lenovo\n< O\nEe -— 2 LOQ f Lesion LGQ |\naAal/ \\ a\n- Notebook Gamer Lenovo® Tablet Gamer Lenovo® Notebook Lenovo® [0 |\nCorels 3050 1561160851268 Lion ab 8\" 1268 256081 Funda Ryeen RIX 050156\" 166851208\nj 749.990 QF rex VI -25% TEX I -18%\nPR finds areas ni vascimon\n[\\ 4\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $749.990\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"PR — PUT TT TE —— RT——\nNotebook Gamer Lenovo® Tablet Gamer Lenovo® Notebook Lenovo® [1]\nCoreiS RTX 3050 15.6\" 16GB 512GB Legion Tab 8.8\" 12GB 256GB+ Funda Ryzen7 RTX 4050 15.6\" 16GB 512G8\n$749.990 $429,990 $979,990 ]\nB frites fimbtrivh bits a\"\n"
+                          "text": "  🔍 OCR resultado: \"AN\nNy A\n=\nee x ros >\nL\nL enovo A ; \\J i LEGION \\J i\nweek *E lo =\nWere RN Emma y Sa\n- \\\n= po\nNotebook Gamer Lenovo® Tablet Gamer Lenovo® Notebook Lenovo®\nCore 5 RTX 3050 15.6\" 16GB 512GB Legion Tab 8.8\" 12GB 256GB+ Funda Ryzen 7 RTX 4050 15.6\" 16GB 512GB\n] : LEX I -19% 429.990 LYS eT -18%\na» Referencial: §929.990 Referencial: $569.990 Referendial: $1.199.990\n0 Sy;\nor\"\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $429.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $979.990\n"
+                          "text": "  📍 Precio detectado en OCR: $569.990\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$749.990, $429.990, $979.990]\n"
+                          "text": "  📍 Precio detectado en OCR: $1.199.990\n"
                         },
                         {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=53757,54348,54468\n"
+                          "text": "  📍 Precio detectado en OCR: $929.990\n"
+                        },
+                        {
+                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$429.990, $569.990, $1.199.990, $929.990]\n"
+                        },
+                        {
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54661,53913,54660,53812,54570\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 10 [$678.990, $809.990, $949.990, $679.990, $700.990, $799.990, $699.990, $1.149.990, $835.090, $149.990]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 17 [$429.990, $979.990, $929.990, $749.990, $773.190, $1.199.990, $1.010.290, $999.990, $824.490, $849.990, $569.990, $443.290, $739.990, $678.990, $699.990, $199.990, $10.290]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $749.990, $429.990, $979.990\n"
+                          "text": "     Precios coincidentes: $429.990, $569.990, $1.199.990, $929.990\n"
                         },
                         {
-                          "text": "     Producto: $678.990, $809.990, $949.990, $679.990, $700.990, $799.990, $699.990, $1.149.990, $835.090, $149.990\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $749.990, $429.990, $979.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 4/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 5/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #5 (data-gtag-index=\"5\")\n"
@@ -383,7 +482,16 @@
                           "text": "  📸 Screenshot guardado: banner-5.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-5-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11847.142999999996ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    22 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-5-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-5-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-5-img-center.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-5-img-bottom.png\n"
@@ -395,58 +503,40 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"* ——\nVer > Ww\n= = = a =\n‘mejor tecnologia.\nNotebook Asus® Notebook Gamer Asus® Notebook Dell® [0\n; - REE E-28% EEE I -30% 678.990 & LTA\"\n"
+                          "text": "  🔍 OCR resultado: \"Ul = TY\nVer re 4\nA E om g_ ~ =\nmejor tecnologia_\nNotebook Asus® Notebook Gamer Asus® Notebook Dell®\nn Co) Corei7 15.6\" 16GB 512GB Ryzen 7 RTX 3050 15.6\" 16GB 512GB AMD Ryzen 715.6\" 16GB 1TB.\n\nSENS [J 679.000 ELM 300000 EIA 15%\n\nJ = yo || Referencia:$949.990 Referencial: $1.149.990 Referendial: $799.990 |\n\noo 1 Eh —\nTI i\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $678.990\n"
+                          "text": "  📍 Precio detectado en OCR: $679.000\n"
                         },
                         {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                          "text": "  📍 Precio detectado en OCR: $949.990\n"
                         },
                         {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                          "text": "  📍 Precio detectado en OCR: $1.149.990\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"a mejor tecno ogia gu =\npe Notebook Asus” | Bt a Ne cots\npy\n| aly [1679.99 fee pilcd\nhe\nof oe ede E-\"\n"
+                          "text": "  📍 Precio detectado en OCR: $799.990\n"
                         },
                         {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$679.000, $949.990, $1.149.990, $799.990]\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"a mejor tecno ogia gu =\npe Notebook Asus” | Bt a Ne cots\npy\n| aly [1679.99 fee pilcd\nhe\nof oe ede E-\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"a mejor tecno ogia gu =\npe Notebook Asus” | Bt a Ne cots\npy\n| aly [1679.99 fee pilcd\nhe\nof oe ede E-\"\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 1 [$678.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54391,54013,52956\n"
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=53757,54348,54468\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$79.990, $204.990, $269.990, $174.990, $180.390, $96.990, $82.490, $499.990, $211.290]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 10 [$678.990, $809.990, $949.990, $679.990, $700.990, $799.990, $699.990, $1.149.990, $835.090, $149.990]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $678.990\n"
+                          "text": "     Precios coincidentes: $679.000, $949.990, $1.149.990, $799.990\n"
                         },
                         {
-                          "text": "     Producto: $79.990, $204.990, $269.990, $174.990, $180.390, $96.990, $82.490, $499.990, $211.290\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $678.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 5/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 6/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #6 (data-gtag-index=\"6\")\n"
@@ -455,7 +545,16 @@
                           "text": "  📸 Screenshot guardado: banner-6.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-6-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11870.81200000002ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-6-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-6-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-6-img-center.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-6-img-bottom.png\n"
@@ -467,13 +566,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"Ver - “Sally <3\nA wh © Ee\ni\" 4 ) Bob\nntiai Monitor A ®o@0- DEE 88\npy. | SRgELMonitor. Ms |\nmejor tecnologia_\nMonitor Samsung® Monitor Gamer LG® Monitor Smart Samsung® [0\n(a) ariel NR Cerro mar THD atta SEES\n5 A eX -18% E SZC I -35% 2 5204990 1:07\nn EE reeionm Refeendt 26550 Referencit $4999%\"\n"
+                          "text": "  🔍 OCR resultado: \"Ver - aly —\na of Gis — = =\nMonitor = Hs ica Ho@E- -@8E-20\npei PTs | - SmeENonitor M5.\nMonitor Samsung® Monitor Gamer LG® Monitor Smart Samsung®\noy) 22\" FHD Panel IPS Essential S3 100 Hz Sms Curvo 27\" QHD 180Hz 1ms FreeSync 32\" FHD 60Hz VA 4ms LS32DMS01ELXZS\n7\n| A\nLoabaly OER 18%  CIZEII 35% eI -59%\nJ nd ls 7 Referenda: $96.99 Referencial: $269.990 Referendial: $499.990\n. ‘ fe se = = e. A E\"\n"
                         },
                         {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                          "text": "  📍 Precio detectado en OCR: $269.990\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"Ver - “Sally <3\nA wh © Ee\ni\" 4 ) Bob\nntiai Monitor A ®o@0- DEE 88\npy. | SRgELMonitor. Ms |\nmejor tecnologia_\nMonitor Samsung® Monitor Gamer LG® Monitor Smart Samsung® [0\n(a) ariel NR Cerro mar THD atta SEES\n5 A eX -18% E SZC I -35% 2 5204990 1:07\nn EE reeionm Refeendt 26550 Referencit $4999%\"\n"
+                          "text": "  📍 Precio detectado en OCR: $499.990\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -482,43 +581,67 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"a ‘mejor Seco 0gia gu F TEE AC\nPan Monitor Samsung® Monitor Gamer LG® Monitor Smart Samsung”\nf 4 22\" FHD Panel PS Essentil 53 100 Hz sms Curvo27\" QHD 180Hz ms Freesync 32° FHD 60Hz VA 4ms LS32DMSOELXZS\na_i 2d\n/ as: (f+ $79.990 $174.990 $204.990\nugg [7 sererenci 550 Refeenct 269% Rend 435%\na - :\"\n"
+                          "text": "  🔍 OCR resultado: \"i LG Ultr3Ge\nVera } Cy Kg ve\n'A Ra aA x (8 ¢ :\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $79.990\n"
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"i LG Ultr3Ge\nVera } Cy Kg ve\n'A Ra aA x (8 ¢ :\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"Ww -i bam a\n7 ei) TR\nort joey y co\nMonitor Samsung® Monitor Gamer LG®\nAT 22\" FHD Panel IPS Essential S3 100 Hz Sms Curvo 27\" QHD 180Hz 1ms FreeSync\np— - be 4 JE SHAE TS ESSCTRAGL 55 ade dhe\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"Ww -i bam a\n7 ei) TR\nort joey y co\nMonitor Samsung® Monitor Gamer LG®\nAT 22\" FHD Panel IPS Essential S3 100 Hz Sms Curvo 27\" QHD 180Hz 1ms FreeSync\np— - be 4 JE SHAE TS ESSCTRAGL 55 ade dhe\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ © Ee\nFE Monitor Samsung® Monitor Gamer LG®\ny AT 22\" FHD Panel IPS Essential $3 100 Hz 5ms Curvo 27\" QHD 180Hz 1ms FreeSync\nTI — bet al\n(2 y\n= 579.990 $174,990\n9) i Referencial: $96.990 Referencial: $269.990\nPu 18\ney °C jes\n2 7 a\"\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $174.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $204.990\n"
+                          "text": "  📍 Precio detectado en OCR: $579.990\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$79.990, $174.990, $204.990]\n"
+                          "text": "  📍 Precio detectado en OCR: $96.990\n"
                         },
                         {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=55062,55001,55291\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 5 [$269.990, $499.990, $174.990, $579.990, $96.990]\n"
+                        },
+                        {
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54391,54013,52956\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$89.990, $229.990, $119.990, $92.790, $189.990, $159.990, $164.990, $299.990, $237.090]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 9 [$79.990, $204.990, $269.990, $174.990, $180.390, $96.990, $82.490, $499.990, $211.290]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $79.990, $174.990, $204.990\n"
+                          "text": "     Precios coincidentes: $269.990, $499.990, $174.990, $96.990\n"
                         },
                         {
-                          "text": "     Producto: $89.990, $229.990, $119.990, $92.790, $189.990, $159.990, $164.990, $299.990, $237.090\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $79.990, $174.990, $204.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 6/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 7/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #7 (data-gtag-index=\"7\")\n"
@@ -527,7 +650,16 @@
                           "text": "  📸 Screenshot guardado: banner-7.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-7-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11870.263000000006ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-7-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-7-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-7-img-center.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-7-img-bottom.png\n"
@@ -539,13 +671,16 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"a 5 o .\nVer: /\n\n3\n\n© | i\n€2\n\nmejor tecnologia_\nCelular Motorola® Celular Xiaomi® Celular ZTE®\n\ni ily EE TE R-25% E PEEEEI-16% E Er -23%\"\n"
+                          "text": "  🔍 OCR resultado: \"Cn Ri (\nVer = . AY\nEH\n[ol : -\nNE\nmejor tecnologia_ 3\nCelular Motorola® Celular Xiaomi® Celular ZTE®\ny oy) Moto GO6 128GB/4GB Azul Redmi 15C 5G 256GB/4GB Negro Nubia Air 5g 256GB Negro\nA A\n1 i ' L WN <89.990 Tr 2 SEE -16% B 229.990 x37\nJ ill | Referencit:s1199% Referencial: $189.990 [nr\nE oT : = ke el g E\"\n"
                         },
                         {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                          "text": "  📍 Precio detectado en OCR: $89.990\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"a 5 o .\nVer: /\n\n3\n\n© | i\n€2\n\nmejor tecnologia_\nCelular Motorola® Celular Xiaomi® Celular ZTE®\n\ni ily EE TE R-25% E PEEEEI-16% E Er -23%\"\n"
+                          "text": "  📍 Precio detectado en OCR: $229.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $189.990\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -554,43 +689,64 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"— blade | JE — Bt Ot —\nPan Celular Motorola® Celular Xiaomi® Celular ZTE®\nVy a ) Redmi 15C 5G 256GB/4GB Negrc \\ubia Al re\ng. Moto G06 128GB/4GB Azul imi 84GB Negro Nubia A 592568 Negro\n/ i (§ 89.990 $159.990 $229.990\nOe | [© Referenda: $119.90 Referencit $189.99. Referendst$299 990\nlol\nFe <\"\n"
+                          "text": "  🔍 OCR resultado: \"eon\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"eon\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"w - i @®) 2\nSeed Hy\n0\nE\nmejor tecnologia_\n> Celular Motorola® Celular Xiaomi®\n- i» aN Moto GO 128GB/4GB Azul Redmi 15C 5G 256GB/4GB Negro\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"w - i @®) 2\nSeed Hy\n0\nE\nmejor tecnologia_\n> Celular Motorola® Celular Xiaomi®\n- i» aN Moto GO 128GB/4GB Azul Redmi 15C 5G 256GB/4GB Negro\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ TEE\nFE Celular Motorola® Celular Xiaomi®\n\nF AT Moto GO 128GB/4GB Azul Redmi 15C 5G 256GB/4GB Negro\n\nFa\nWf /\n/ io (fe iil 89.990 $159.990\nELI |] Referencial: $119.990 Referencial: $189.90\nwimps\nar [CC Js\n& a\"\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $159.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $229.990\n"
+                          "text": "  📍 Precio detectado en OCR: $119.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $89.990\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 5 [$89.990, $229.990, $189.990, $159.990, $119.990]\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$159.990, $229.990, $89.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54866,54202,54201\n"
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=55062,55001,55291\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$144.990, $629.990, $169.990, $149.490, $769.990, $649.490, $799.990, $599.990, $618.590]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 9 [$89.990, $229.990, $119.990, $92.790, $189.990, $159.990, $164.990, $299.990, $237.090]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $159.990, $229.990, $89.990\n"
+                          "text": "     Precios coincidentes: $89.990, $229.990, $189.990, $159.990, $119.990\n"
                         },
                         {
-                          "text": "     Producto: $144.990, $629.990, $169.990, $149.490, $769.990, $649.490, $799.990, $599.990, $618.590\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $159.990, $229.990, $89.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 7/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 8/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #8 (data-gtag-index=\"8\")\n"
@@ -602,6 +758,12 @@
                           "text": "  🖼️ Screenshot de imagen guardado: banner-8-img.png\n"
                         },
                         {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-8-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-8-img-center.png\n"
+                        },
+                        {
                           "text": "  🧩 Screenshot de recorte guardado: banner-8-img-bottom.png\n"
                         },
                         {
@@ -611,10 +773,16 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"Ver 7\nLenovo //\nY06/ wes, A\n‘mejor tecnologia I —\nTablet Samsung® Allin One Asus® Tablet Lenovo® [0\nGalaxy Tab A11 8.7\" 4GB 64GB. Intel Core i323,8\"16GB 51268 Yoga Tab Plus 12,7\" 16GB 2568+ Funda + Lapiz\nf TIN $144.990 GETS rE -18% ETI -2 5%\"\n"
+                          "text": "  🔍 OCR resultado: \"Ver =.\" 7\n== Lenovo /\nYOGA 21s y\n=\nmejor tecnologia_ ————\nTablet Samsung® Allin One Asus® Tablet Lenovo®\nn Co) Galaxy Tab A118.7\" 4GB 64GB Intel Core i323 8\"16GB 512GB YogaTabPlus 127\" 16GB 256GB + Funda+Lipiz\n+ aE: (gre IN 144.990 GV rE I -18% 599.990 iy\nJ pu || Referencia: $169.99 Referencial: 769.990 Referencial: $799.90 |\n-— Cee lS = E\"\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $144.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $599.990\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $769.990\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -623,49 +791,64 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"a mejor tecnologia Ea a -\nVo Tablet Samsung® Allin One Asus® Tablet Lenovo®\nV Galaxy Tab A11 8.7\" 4GB 64GB Intel Core 3 23,8\"16GB 512G8 fab Pluss 12,7\" + Funda +1\nLy lay Tat tel Core YogaTa 12,7\" 16GB 25608 + Fu Lapiz.\nJ aa (§ I¥ $144,990 $629.990 $599,990\na | Referencil:$169.990 Referenct $769.99 Referendt 19990\nLg oe\"\n"
+                          "text": "  🔍 OCR resultado: \"eri ON} Bn\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"eri ON} Bn\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ ————\n8 Tablet Samsung® Allin One Asus®\n4 ; FO Galaxy Tab A118.7\" 4GB 64GB Intel Core 323,8\"16GB 512GB\np— - be 4 IES FA8 EO. TLS ORD nd nsnndesscahudhonihte ll tose i\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ ————\n8 Tablet Samsung® Allin One Asus®\n4 ; FO Galaxy Tab A118.7\" 4GB 64GB Intel Core 323,8\"16GB 512GB\np— - be 4 IES FA8 EO. TLS ORD nd nsnndesscahudhonihte ll tose i\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ _— a&\nFE Tablet Samsung® Allin One Asus®\n\ny Ae Galaxy Tab A118.7\" 4GB 64GB Intel Core i3 23,8\"16GB 512GB\n\nPA! :\nN [34 [\n1 1 $144.990 $629.990\nneg 1 Referencial: $169.990 Referencial: 769.990\npy OC hie,\nz i\"\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $629.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $599.990\n"
-                        },
-                        {
                           "text": "  📍 Precio detectado en OCR: $169.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $19.990\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 5 [$144.990, $599.990, $769.990, $629.990, $169.990]\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 5 [$144.990, $629.990, $599.990, $169.990, $19.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54187,54579,54703\n"
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54866,54202,54201\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$99.990, $879.990, $124.990, $103.090, $199.990, $159.990, $168.390, $999.990, $926.290]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 9 [$144.990, $629.990, $169.990, $149.490, $769.990, $649.490, $799.990, $599.990, $618.590]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $144.990, $629.990, $599.990, $169.990, $19.990\n"
+                          "text": "     Precios coincidentes: $144.990, $599.990, $769.990, $629.990, $169.990\n"
                         },
                         {
-                          "text": "     Producto: $99.990, $879.990, $124.990, $103.090, $199.990, $159.990, $168.390, $999.990, $926.290\n"
-                        },
-                        {
-                          "text": "     ✅ Coincidentes: $169.990\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $144.990, $629.990, $599.990, $19.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 8/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 9/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #9 (data-gtag-index=\"9\")\n"
@@ -674,7 +857,16 @@
                           "text": "  📸 Screenshot guardado: banner-9.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-9-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11802.470000000001ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-9-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-9-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-9-img-center.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-9-img-bottom.png\n"
@@ -686,58 +878,43 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"— i. 3\nverso} -— ¥ < He l i\nHP PO gr HE exar\nTea =m F\n‘mejor tecnologia_ 3\nTarjeta de Video Asus® Placa Madre Asus® Unidad SSD Lexar® [0\nGeForce RTXS070 PRIME O12G WHITE Prime BESOEMEA WIFI 1TBSat2325\"\n5 A . KEE -12% E SEE -20% $99.990  Trl0y7y\neh nent 10 ten $2499)\"\n"
+                          "text": "  🔍 OCR resultado: \"os | [8\nVer (— f= |: ll:\nAy 7 H=l8\n13) 5 © BE ==: Lexar\n§| (1 § - Td >\n: Gina\nmejor tecnologia_ g\nTarjeta de Video Asus® Placa Madre Asus® Unidad SSD Lexar®\nn oy) GeForce RTX5070 PRIME O12G WHITE Prime B650EM-A WIFI 1TBSata3 2.5\"\n1 aE SIN $879.990 Ci PAS SEE -20% 99.990 Tri)\nJ a EE | Referendil:$999.990 Referencial: $199.990 Referendal: $124.990 _\"\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $879.990\n"
                         },
                         {
                           "text": "  📍 Precio detectado en OCR: $99.990\n"
                         },
                         {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                          "text": "  📍 Precio detectado en OCR: $999.990\n"
                         },
                         {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                          "text": "  📍 Precio detectado en OCR: $199.990\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"© mejor Seco 0gia gu F a CA\n\nCr of -\n\nLal\nhe La E\"\n"
+                          "text": "  📍 Precio detectado en OCR: $124.990\n"
                         },
                         {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 5 [$879.990, $99.990, $999.990, $199.990, $124.990]\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"© mejor Seco 0gia gu F a CA\n\nCr of -\n\nLal\nhe La E\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"© mejor Seco 0gia gu F a CA\n\nCr of -\n\nLal\nhe La E\"\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 1 [$99.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=49535,49067,53268\n"
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54187,54579,54703\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$12.990, $62.990, $14.990, $13.390, $94.990, $64.990, $47.990, $31.990, $32.990]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 9 [$99.990, $879.990, $124.990, $103.090, $199.990, $159.990, $168.390, $999.990, $926.290]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $99.990\n"
+                          "text": "     Precios coincidentes: $879.990, $99.990, $999.990, $199.990, $124.990\n"
                         },
                         {
-                          "text": "     Producto: $12.990, $62.990, $14.990, $13.390, $94.990, $64.990, $47.990, $31.990, $32.990\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $99.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 9/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 10/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #10 (data-gtag-index=\"10\")\n"
@@ -749,6 +926,12 @@
                           "text": "  🖼️ Screenshot de imagen guardado: banner-10-img.png\n"
                         },
                         {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-10-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-10-img-center.png\n"
+                        },
+                        {
                           "text": "  🧩 Screenshot de recorte guardado: banner-10-img-bottom.png\n"
                         },
                         {
@@ -758,58 +941,40 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"=) J\n‘mejor tecnologia_\nAudifono Gamer HyperX® Audifonos Headset Sony® Audifono Bluetooth Xiaomi® [0\nCloud I Gaming Red WH-GH520 Bluetooth negro. Remi Buds 6 Play Pink\n5 A . 562.990 QeI:V7 $31990 Sxk$y BPX I -13%\ntt) Refrenca $4759 reno $1499\"\n"
+                          "text": "  🔍 OCR resultado: \"Audifono Gamer HyperX® Audifonos Headset Sony® Audifono Bluetooth Xiaomi®\nn oy) Cloud lll Gaming Red WH-CH520 Bluetooth negro Redmi Buds 6 Play Pink\n5 ily 5 & M¥s62000 EVAN 31900 TCE MMENN:12990 WEL\nJ a b oy | Referencia:$94990 Referencial: $47.990 Referencial:$14.990 _\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $31.990\n"
+                          "text": "  📍 Precio detectado en OCR: $12.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $562.990\n"
+                          "text": "  📍 Precio detectado en OCR: $47.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $62.990\n"
+                          "text": "  📍 Precio detectado en OCR: $14.990\n"
                         },
                         {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                          "text": "  📍 Precio detectado en OCR: $94.990\n"
                         },
                         {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$12.990, $47.990, $14.990, $94.990]\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"a ‘mejor Seco 0gia gu F /\na re Cra oil\nNy \"a\nLA\nhe La E\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"a ‘mejor Seco 0gia gu F /\na re Cra oil\nNy \"a\nLA\nhe La E\"\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$31.990, $562.990, $62.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=55026,54883\n"
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=49535,49067,53268\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 6 [$239.990, $449.990, $569.990, $463.890, $349.990, $247.390]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 9 [$12.990, $62.990, $14.990, $13.390, $94.990, $64.990, $47.990, $31.990, $32.990]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $31.990, $562.990, $62.990\n"
+                          "text": "     Precios coincidentes: $12.990, $47.990, $14.990, $94.990\n"
                         },
                         {
-                          "text": "     Producto: $239.990, $449.990, $569.990, $463.890, $349.990, $247.390\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $31.990, $562.990, $62.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 10/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 11/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #11 (data-gtag-index=\"11\")\n"
@@ -818,7 +983,16 @@
                           "text": "  📸 Screenshot guardado: banner-11.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-11-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11877.353000000003ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-11-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-11-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-11-img-center.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-11-img-bottom.png\n"
@@ -830,13 +1004,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"EES)\n> “Gh a\ndet verano ~~]\n| @ E a\nmara GoPro® Camara GoPro®\n\n- [ ; 239.990 Sib $449.990 rab’\nYo ¢ DL Frm Refrencot $5659\nig | :\"\n"
+                          "text": "  🔍 OCR resultado: \"Ver | A\\\nmejor tecnologia_\nCamara GoPro® Camara GoPro®\n- EAS (Vy 235900 E1073 04999 [21% :\nEl [2 eu E | el Referencial: $349.990 Referencial: $569.990 »\nig > A Hh i\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $449.990\n"
+                          "text": "  📍 Precio detectado en OCR: $349.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $239.990\n"
+                          "text": "  📍 Precio detectado en OCR: $569.990\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -845,49 +1019,61 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"o— ‘mejor tecnologia_ LR cimracops\nBE e TE) PE -31% 21%\nES p (a be. |\"\n"
+                          "text": "  🔍 OCR resultado: \"agi iN\ns 8\nho\n\n\\ %\n\n| |\nWEE\ngees |\"\n"
                         },
                         {
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"o— ‘mejor tecnologia_ LR cimracops\nBE e TE) PE -31% 21%\nES p (a be. |\"\n"
+                          "text": "  🔍 OCR resultado: \"agi iN\ns 8\nho\n\n\\ %\n\n| |\nWEE\ngees |\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
                         },
                         {
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"o— ‘mejor tecnologia_ LR cimracops\nBE e TE) PE -31% 21%\nES p (a be. |\"\n"
+                          "text": "  🔍 OCR resultado: \"- jel 2\naX Camara GoPro® Can\n- A» LITHERO MAX\"\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$449.990, $239.990]\n"
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=44204,17017\n"
+                          "text": "  🔍 OCR resultado: \"- jel 2\naX Camara GoPro® Can\n- A» LITHERO MAX\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"mejor tecnologia_\nCamara GoPro® Can\n. Co) LITHERO ine\nem $239.990 Leib) *44\n\"3 il LC — Referencial: $349.990 Refers\nPy i =\"\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $239.990\n"
+                        },
+                        {
+                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$349.990, $569.990, $239.990]\n"
+                        },
+                        {
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=55026,54883\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 6 [$149.990, $164.990, $239.990, $170.090, $169.990, $154.590]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 6 [$239.990, $449.990, $569.990, $463.890, $349.990, $247.390]\n"
                         },
                         {
-                          "text": "  ❌ Algunos precios del banner NO coinciden con la página\n"
+                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Banner: $449.990, $239.990\n"
+                          "text": "     Precios coincidentes: $349.990, $569.990, $239.990\n"
                         },
                         {
-                          "text": "     Producto: $149.990, $164.990, $239.990, $170.090, $169.990, $154.590\n"
-                        },
-                        {
-                          "text": "     ✅ Coincidentes: $239.990\n"
-                        },
-                        {
-                          "text": "     ❌ Faltantes: $449.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 11/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 12/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #12 (data-gtag-index=\"12\")\n"
@@ -896,7 +1082,16 @@
                           "text": "  📸 Screenshot guardado: banner-12.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-12-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11841.643999999971ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  21 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-12-img.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-12-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-12-img-center.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-12-img-bottom.png\n"
@@ -908,10 +1103,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"= ee 2 | EERE\n= ~ rm I] =\n= we Comienza elano ® —\nJ con todo Bw EET\n+ | RESUELTO i ry\nob © hen 7 a vs EEE rp\n=4 . ~~ ¥  ECA-31% 149.990 QPL\n\\ p- od . SS lt) Referencil$169.9%0\"\n"
+                          "text": "  🔍 OCR resultado: \"= A IRE T rn\nEy : as | Il II |_| | |\n\nA p-Comienza el aio o ——\n\n\\ con todo a fry (Ll\n7 RESUELTO ms a\n: A = BOD a ae AE er\n\n= CN 515 TIL a 12%\n\n\\ Eg 1S Fo 2 er eile\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $149.990\n"
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"= A IRE T rn\nEy : as | Il II |_| | |\n\nA p-Comienza el aio o ——\n\n\\ con todo a fry (Ll\n7 RESUELTO ms a\n: A = BOD a ae AE er\n\n= CN 515 TIL a 12%\n\n\\ Eg 1S Fo 2 er eile\"\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -920,37 +1118,61 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"54 — w a Baa\n| 4 Multifuncional HP® I Fotografica Canon®\n© nen ay a ralwritven Serle [1 |\nay = BZ: IA -31% $149.990 TO VA/S\n- x Referenciat: $239.90 Referenciak: $169.990\n== Br\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $169.990\n"
+                          "text": "  🔍 OCR resultado: \"Er WIN] |\n\\Sall ~An Fada we | pm 00\"\n"
                         },
                         {
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"54 — w a Baa\n| 4 Multifuncional HP® I Fotografica Canon®\n© nen ay a ralwritven Serle [1 |\nay = BZ: IA -31% $149.990 TO VA/S\n- x Referenciat: $239.90 Referenciak: $169.990\n== Br\"\n"
+                          "text": "  🔍 OCR resultado: \"Er WIN] |\n\\Sall ~An Fada we | pm 00\"\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$149.990, $169.990]\n"
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
                         },
                         {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/ofertas-de-verano\n"
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"A p-Comienza el aio ®\nUs con todo Fw! li\n\n+  RESUELTO is ;\nJ 4 o> nego Multifuncional HP® = Imp\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"A p-Comienza el aio ®\nUs con todo Fw! li\n\n+  RESUELTO is ;\nJ 4 o> nego Multifuncional HP® = Imp\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"dad v - Fy\n[| N . Multifuncional HP® Im)\nA r=) Lo 02 Tinta Continua Smart Tank 720 WiFi-Direct Th\na p vie\n> BN <164.990 TL 14\n\\ ee A. A NEED) i\n} TA - pa\nSs EUS Sar. rer\"\n"
+                        },
+                        {
+                          "text": "  📍 Precio detectado en OCR: $164.990\n"
+                        },
+                        {
+                          "text": "  ✅ Total de precios únicos detectados en banner: 1 [$164.990]\n"
+                        },
+                        {
+                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=44204,17017\n"
                         },
                         {
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 81 [$34.990, $13.990, $14.390, $69.990, $32.990, $33.990, $49.990, $19.990, $20.590, $199.990, $139.990, $144.290, $99.990, $73.690, $399.990, $234.990, $242.290, $929.990, $749.990, $773.190, $1.199.990, $979.990, $1.010.290, $949.990, $679.990, $700.990, $569.990, $429.990, $443.290, $169.990, $144.990, $149.490, $799.990, $599.990, $618.590, $96.990, $79.990, $82.490, $269.990, $174.990, $180.390, $499.990, $204.990, $211.290, $119.990, $89.990, $92.790, $189.990, $159.990, $164.990, $299.990, $229.990, $237.090, $769.990, $629.990, $649.490, $999.990, $879.990, $926.290, $168.390, $124.990, $103.090, $94.990, $62.990, $64.990, $47.990, $31.990, $239.990, $170.090, $149.990, $154.590, $1.149.990, $809.990, $835.090, $678.990, $699.990, $349.990, $247.390, $449.990, $463.890, $10.290]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 6 [$149.990, $164.990, $239.990, $170.090, $169.990, $154.590]\n"
                         },
                         {
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Precios coincidentes: $149.990, $169.990\n"
+                          "text": "     Precios coincidentes: $164.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 12/15 del carousel\n"
+                          "text": "\n🎨 Analizando posición 13/13 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #13 (data-gtag-index=\"13\")\n"
@@ -962,6 +1184,12 @@
                           "text": "  🖼️ Screenshot de imagen guardado: banner-13-img.png\n"
                         },
                         {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-13-img-top.png\n"
+                        },
+                        {
+                          "text": "  🧩 Screenshot de recorte guardado: banner-13-img-center.png\n"
+                        },
+                        {
                           "text": "  🧩 Screenshot de recorte guardado: banner-13-img-bottom.png\n"
                         },
                         {
@@ -971,13 +1199,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"Prende tu verano\n\nVer. ee\nF — — 0,\n\nel Ne 40% FT\"\n"
+                          "text": "  🔍 OCR resultado: \"BR a CN\nCY | OB | Factory LST\nPaga con Mastercard a través de be EY Je he 9 -\nClick to Pay y participa por experiencias y P= X\nfutboleras en Madrid y Rio de Janeiro. A\niInférmate aqui! 7% - 59 L. —\n: ’ E ~ & -\n. . =\nCuando tu mundo hace click: ] priceless - py \\ ] r hh\nrte y= ny 4\"\n"
                         },
                         {
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"Prende tu verano\n\nVer. ee\nF — — 0,\n\nel Ne 40% FT\"\n"
+                          "text": "  🔍 OCR resultado: \"BR a CN\nCY | OB | Factory LST\nPaga con Mastercard a través de be EY Je he 9 -\nClick to Pay y participa por experiencias y P= X\nfutboleras en Madrid y Rio de Janeiro. A\niInférmate aqui! 7% - 59 L. —\n: ’ E ~ & -\n. . =\nCuando tu mundo hace click: ] priceless - py \\ ] r hh\nrte y= ny 4\"\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -986,49 +1214,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"Ea - 8 0, Ea\n) ty 4 % ame\"\n"
+                          "text": "  🔍 OCR resultado: \"OC» | (@ | PFactory :\nPaga con Mastercard a través de TN\nFad HPN PEE RR, PE TE. i\"\n"
                         },
                         {
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"Ea - 8 0, Ea\n) ty 4 % ame\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"Ea - 8 0, Ea\n) ty 4 % ame\"\n"
-                        },
-                        {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
-                        },
-                        {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 13/15 del carousel\n"
-                        },
-                        {
-                          "text": "  ✨ Este es el Banner #13 (data-gtag-index=\"13\")\n"
-                        },
-                        {
-                          "text": "  ⏭️ Banner ya procesado (carousel volvió al inicio), saltando\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 14/15 del carousel\n"
-                        },
-                        {
-                          "text": "  ✨ Este es el Banner #14 (data-gtag-index=\"14\")\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-14.png\n"
-                        },
-                        {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-14-img.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-14-img-bottom.png\n"
+                          "text": "  🔍 OCR resultado: \"OC» | (@ | PFactory :\nPaga con Mastercard a través de TN\nFad HPN PEE RR, PE TE. i\"\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -1037,13 +1229,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \">| | Pe Factory \\ : . J\na r\n\nPaga con Mastercard a través de \\ or) \\\nElick to Pay y participa por experiencias . a \\ N\n\nutboleras en Madrid y Rio de Janeiro. (14 _-\n\n1&2 3) . f\niinférmate aqui! , E iy 5\nR . . 3 : Pr we\n\nCuando tu mundo hace click: priceless - \" \\ x Ne\nSoman mr aE nN M-\"\n"
+                          "text": "  🔍 OCR resultado: \"Paga con Mastercard a través de %\nClick to Pay y participa por experiencias :\nfutboleras en Madrid y Rio de Janeiro.\"\n"
                         },
                         {
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \">| | Pe Factory \\ : . J\na r\n\nPaga con Mastercard a través de \\ or) \\\nElick to Pay y participa por experiencias . a \\ N\n\nutboleras en Madrid y Rio de Janeiro. (14 _-\n\n1&2 3) . f\niinférmate aqui! , E iy 5\nR . . 3 : Pr we\n\nCuando tu mundo hace click: priceless - \" \\ x Ne\nSoman mr aE nN M-\"\n"
+                          "text": "  🔍 OCR resultado: \"Paga con Mastercard a través de %\nClick to Pay y participa por experiencias :\nfutboleras en Madrid y Rio de Janeiro.\"\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -1052,76 +1244,13 @@
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"PERI Me TT TTT 7 IVI MS JETT pr\niinférmate aqui! oh ») 3\nE ?\nCuando tu mundo hace click: priceless ——\nI A »\nprotien La WW 1 .\"\n"
+                          "text": "  🔍 OCR resultado: \"TUL UIC Uo Cl IFT 1T- 7 INI ie Will] Ve\nCuando tu mundo hace click: a | priceless ’ ee\nor ey ono sal 2\"\n"
                         },
                         {
                           "text": "  🔍 Ejecutando OCR en imagen...\n"
                         },
                         {
-                          "text": "  🔍 OCR resultado: \"PERI Me TT TTT 7 IVI MS JETT pr\niinférmate aqui! oh ») 3\nE ?\nCuando tu mundo hace click: priceless ——\nI A »\nprotien La WW 1 .\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"PERI Me TT TTT 7 IVI MS JETT pr\niinférmate aqui! oh ») 3\nE ?\nCuando tu mundo hace click: priceless ——\nI A »\nprotien La WW 1 .\"\n"
-                        },
-                        {
-                          "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
-                        },
-                        {
-                          "text": "  ℹ️ Banner sin precios detectados (posiblemente promocional)\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 15/15 del carousel\n"
-                        },
-                        {
-                          "text": "  ✨ Este es el Banner #15 (data-gtag-index=\"15\")\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-15.png\n"
-                        },
-                        {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-15-img.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-15-img-bottom.png\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"TECHO pr\n[BONA para ir en ayuda de las personas\nEstamos en la emergencia afectadas en los incendios de Nuble y Biobio\nH TT\n\n< Reconstruimos Err >\n\n65.533130-1\n\n. . BancoEstad\ndonde Chile NOS necesita $i. A. Ba\n\n| emergenciachile@techo.org\n: iw MAE fi 3 x iP i\n1 2 4 a E KF iy =i bn I e-\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"TECHO pr\n[BONA para ir en ayuda de las personas\nEstamos en la emergencia afectadas en los incendios de Nuble y Biobio\nH TT\n\n< Reconstruimos Err >\n\n65.533130-1\n\n. . BancoEstad\ndonde Chile NOS necesita $i. A. Ba\n\n| emergenciachile@techo.org\n: iw MAE fi 3 x iP i\n1 2 4 a E KF iy =i bn I e-\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"geo dr Td ny a FA lye\n‘donde Chile NOS necesita | Guerin Coma 7030 [1]\n» : as, HE py  emergenciachile@techoorg\n| CERRY\n1 RO Ss “pee 3 id -\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"geo dr Td ny a FA lye\n‘donde Chile NOS necesita | Guerin Coma 7030 [1]\n» : as, HE py  emergenciachile@techoorg\n| CERRY\n1 RO Ss “pee 3 id -\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"geo dr Td ny a FA lye\n‘donde Chile NOS necesita | Guerin Coma 7030 [1]\n» : as, HE py  emergenciachile@techoorg\n| CERRY\n1 RO Ss “pee 3 id -\"\n"
+                          "text": "  🔍 OCR resultado: \"TUL UIC Uo Cl IFT 1T- 7 INI ie Will] Ve\nCuando tu mundo hace click: a | priceless ’ ee\nor ey ono sal 2\"\n"
                         },
                         {
                           "text": "  ℹ️ No se detectaron precios en el banner (puede ser promocional)\n"
@@ -1136,24 +1265,31 @@
                           "text": "\n📊 RESUMEN:\n"
                         },
                         {
-                          "text": "   Total banners analizados: 14\n"
+                          "text": "   Total banners analizados: 13\n"
                         },
                         {
                           "text": "   🏷️  Con precio: 11\n"
                         },
                         {
-                          "text": "   🚫 Sin precio: 3\n"
+                          "text": "   🚫 Sin precio: 2\n"
                         },
                         {
-                          "text": "   ✅ Precios coinciden: 1\n"
+                          "text": "   ✅ Precios coinciden: 11\n"
                         },
                         {
-                          "text": "   ❌ Precios NO coinciden: 10\n"
+                          "text": "   ❌ Precios NO coinciden: 0\n"
                         }
                       ],
-                      "stderr": [],
+                      "stderr": [
+                        {
+                          "buffer": "SW1hZ2UgdG9vIHNtYWxsIHRvIHNjYWxlISEgKDJ4MzYgdnMgbWluIHdpZHRoIG9mIDMpCg=="
+                        },
+                        {
+                          "buffer": "TGluZSBjYW5ub3QgYmUgcmVjb2duaXplZCEhCg=="
+                        }
+                      ],
                       "retry": 0,
-                      "startTime": "2026-01-26T12:56:24.668Z",
+                      "startTime": "2026-01-26T17:25:14.269Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1169,7 +1305,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-3.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
                         },
                         {
                           "name": "video",
@@ -1179,27 +1315,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-3.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-5.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-7.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-8.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-9.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
                         },
                         {
                           "name": "video",
@@ -1209,12 +1330,92 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-8.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-10.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-12.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-7.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-13.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-11.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-14.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-18.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-19.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-15.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-20.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-21.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-17.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-23.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-22.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-9.webm"
                         },
                         {
                           "name": "video",
@@ -1229,7 +1430,7 @@
               ],
               "id": "52eb7d336b897c539938-c663a2caec990ea9e24c",
               "file": "banner-price-check.spec.js",
-              "line": 604,
+              "line": 706,
               "column": 3
             }
           ]
@@ -1258,7 +1459,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 21508,
+                  "duration": 24018,
                   "errors": [],
                   "stdout": [
                     {
@@ -1271,10 +1472,10 @@
                       "text": "Probando selectores:\n\n"
                     },
                     {
-                      "text": "✅ .carousel-item: 30 elementos encontrados\n"
+                      "text": "✅ .carousel-item: 26 elementos encontrados\n"
                     },
                     {
-                      "text": "✅ [class*=\"banner\"]: 102 elementos encontrados\n"
+                      "text": "✅ [class*=\"banner\"]: 94 elementos encontrados\n"
                     },
                     {
                       "text": "✅ [class*=\"slider\"]: 6 elementos encontrados\n"
@@ -1364,7 +1565,7 @@
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
                     },
                     {
-                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-62e5f764-c7c3-49a6-a180-f35bf69c97ba.active \n"
+                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-b6897608-c2cb-4094-bdc6-5f39b527d187.active \n"
                     },
                     {
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
@@ -1411,7 +1612,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-26T12:59:10.407Z",
+                  "startTime": "2026-01-26T17:30:04.102Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1440,8 +1641,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-26T12:56:23.433Z",
-    "duration": 188628.537,
+    "startTime": "2026-01-26T17:25:13.034Z",
+    "duration": 315276.593,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
