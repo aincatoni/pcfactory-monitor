@@ -35,10 +35,22 @@ def generate_html(results_data):
     timestamp = results_data.get('timestamp', '')
     timestamp_display = format_chile_timestamp(timestamp)
     banners = results_data.get('banners', [])
+    def sort_key(banner):
+        try:
+            return int(banner.get('index'))
+        except (TypeError, ValueError):
+            return 10**9
+    banners = sorted(banners, key=sort_key)
 
     # Estadísticas
     total = len(banners)
-    with_price = len([b for b in banners if b.get('bannerPrice')])
+    with_price = len([
+        b for b in banners
+        if (
+            (isinstance(b.get('bannerPrices'), list) and len(b.get('bannerPrices')) > 0)
+            or b.get('bannerPrice')
+        )
+    ])
     matched = len([b for b in banners if b.get('priceMatch') == True])
     mismatched = len([b for b in banners if b.get('priceMatch') == False])
     no_price = len([b for b in banners if b.get('status') == 'no_price'])
@@ -51,6 +63,10 @@ def generate_html(results_data):
         status = banner.get('status', 'unknown')
         banner_price = banner.get('bannerPrice')
         product_price = banner.get('productPrice')
+        if banner_price is None:
+            banner_price = banner.get('bannerPrices')
+        if product_price is None:
+            product_price = banner.get('productPrices')
         product_url = banner.get('productUrl', '')
         screenshot = banner.get('screenshot', '')
         error = banner.get('error', '')
@@ -75,8 +91,14 @@ def generate_html(results_data):
             status_class = ''
 
         # Precios
-        banner_price_display = format_price(banner_price)
-        product_price_display = format_price(product_price)
+        if isinstance(banner_price, list):
+            banner_price_display = ", ".join(format_price(p) for p in banner_price) if banner_price else "N/A"
+        else:
+            banner_price_display = format_price(banner_price)
+        if isinstance(product_price, list):
+            product_price_display = ", ".join(format_price(p) for p in product_price) if product_price else "N/A"
+        else:
+            product_price_display = format_price(product_price)
 
         # Link del producto
         product_link = ''
@@ -124,7 +146,7 @@ def generate_html(results_data):
     # Status class
     if health_score == 100:
         status_class = "status-ok"
-        status_text = "Todos los precios coinciden"
+        status_text = "Todo OK"
         health_message = "¡Perfecto! Todos los banners con precio tienen información correcta"
     elif health_score >= 80:
         status_class = "status-warning"
@@ -134,6 +156,13 @@ def generate_html(results_data):
         status_class = "status-error"
         status_text = f"{mismatched} banner(es) con precio incorrecto"
         health_message = "Múltiples banners requieren revisión"
+
+    if health_score == 100:
+        status_color = "var(--accent-green)"
+    elif health_score >= 80:
+        status_color = "var(--accent-yellow)"
+    else:
+        status_color = "var(--accent-red)"
 
     html = f'''<!DOCTYPE html>
 <html lang="es">
@@ -186,7 +215,7 @@ def generate_html(results_data):
         .status-text {{ font-size: 1rem; font-weight: 500; }}
 
         .health-card {{ background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary)); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 2rem; }}
-        .health-score {{ font-size: 4rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-green), var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }}
+        .health-score {{ font-family: var(--font-mono); font-size: 4rem; font-weight: 700; color: {status_color}; margin-bottom: 0.5rem; }}
         .health-label {{ font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }}
         .health-message {{ font-size: 1rem; color: var(--text-secondary); }}
 
