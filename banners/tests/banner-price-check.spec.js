@@ -115,10 +115,16 @@ function extractPricesFromOCR(text) {
     || textLower.includes('descto')
     || textLower.includes('descuento');
 
+  const referencePattern = /\b(ref|referencia|referencial|referenc)\b/i;
   const lines = text.split('\n');
   for (const line of lines) {
     const lower = line.toLowerCase();
-    const dotMatches = [...line.matchAll(dotPattern)];
+    let lineForPrices = line;
+    const referenceMatch = line.match(referencePattern);
+    if (referenceMatch && typeof referenceMatch.index === 'number') {
+      lineForPrices = line.slice(0, referenceMatch.index);
+    }
+    const dotMatches = [...lineForPrices.matchAll(dotPattern)];
     const hasDotPriceEnding = dotMatches.some((match) => match[1].endsWith('990'));
     const hasCurrencyHint = line.includes('$')
       || lower.includes('pesos')
@@ -151,23 +157,23 @@ function extractPricesFromOCR(text) {
       candidates.push(priceStr);
     };
 
-    for (const match of line.matchAll(dollarGroupedPattern)) {
+    for (const match of lineForPrices.matchAll(dollarGroupedPattern)) {
       addCandidate(match);
     }
-    for (const match of line.matchAll(dollarPlainPattern)) {
+    for (const match of lineForPrices.matchAll(dollarPlainPattern)) {
       addCandidate(match, true);
     }
-    for (const match of line.matchAll(pesosPattern)) {
+    for (const match of lineForPrices.matchAll(pesosPattern)) {
       addCandidate(match);
     }
     if (dotMatches.length >= 2 || hasDotPriceEnding || globalCurrencyHint || lower.includes('oferta') || lower.includes('promo')) {
-      for (const match of dotMatches) {
+      for (const match of lineForPrices.matchAll(dotPattern)) {
         addCandidate(match);
       }
     }
 
     if (hasCurrencyHint) {
-      for (const match of line.matchAll(plainPattern)) {
+      for (const match of lineForPrices.matchAll(plainPattern)) {
         const priceStr = match[1];
         if (priceStr && priceStr.endsWith('990')) {
           candidates.push(priceStr);
@@ -181,7 +187,12 @@ function extractPricesFromOCR(text) {
         const price = parseInt(normalized.replace(/\./g, ''), 10);
         return { priceStr, price };
       })
-      .filter(({ price }) => !isNaN(price) && price >= 10000 && price < 5000000);
+      .filter(({ price }) => (
+        !isNaN(price)
+        && price >= 10000
+        && price < 5000000
+        && price % 1000 === 990
+      ));
 
     const hasLowPriceInLine = parsedCandidates.some(({ price }) => price < 100000);
 
@@ -244,6 +255,7 @@ async function analyzeBannerForPrices(page, bannerElement, ocrScreenshotPaths) {
     const allPrices = [];
     const seenPrices = new Set();
     const priceCounts = new Map();
+    const segmentBest = new Map();
 
     // Helper para agregar precios sin duplicados
     const addPrices = (prices, source) => {
@@ -258,7 +270,7 @@ async function analyzeBannerForPrices(page, bannerElement, ocrScreenshotPaths) {
     };
 
     // OCR es la fuente más confiable para precios en banners
-    const maxOcrPrices = 4;
+    const maxOcrPrices = 6;
     for (const screenshotPath of ocrScreenshotPaths) {
       if (!screenshotPath || !fs.existsSync(screenshotPath)) {
         continue;
@@ -270,16 +282,53 @@ async function analyzeBannerForPrices(page, bannerElement, ocrScreenshotPaths) {
       const primaryOcrText = await extractTextFromImage(screenshotPath, { psm: Tesseract.PSM.SPARSE_TEXT });
       const primaryPrices = extractPricesFromOCR(primaryOcrText);
       addPrices(primaryPrices, 'OCR');
+      const segmentMatch = screenshotPath.match(/bottom-(left|center|right)/);
+      if (segmentMatch && primaryPrices.length > 0) {
+        const segment = segmentMatch[1];
+        const minPrice = Math.min(...primaryPrices);
+        if (!segmentBest.has(segment) || minPrice < segmentBest.get(segment)) {
+          segmentBest.set(segment, minPrice);
+        }
+      }
       if (primaryPrices.length === 0) {
         const fallbackOcrText = await extractTextFromImage(screenshotPath, { psm: Tesseract.PSM.SINGLE_BLOCK });
-        addPrices(extractPricesFromOCR(fallbackOcrText), 'OCR (fallback)');
+        const fallbackPrices = extractPricesFromOCR(fallbackOcrText);
+        addPrices(fallbackPrices, 'OCR (fallback)');
+        const segmentMatchFallback = screenshotPath.match(/bottom-(left|center|right)/);
+        if (segmentMatchFallback && fallbackPrices.length > 0) {
+          const segment = segmentMatchFallback[1];
+          const minPrice = Math.min(...fallbackPrices);
+          if (!segmentBest.has(segment) || minPrice < segmentBest.get(segment)) {
+            segmentBest.set(segment, minPrice);
+          }
+        }
       }
       if (screenshotPath.includes('img-bottom') && allPrices.length < 3) {
         const lineOcrText = await extractTextFromImage(screenshotPath, {
           psm: Tesseract.PSM.SINGLE_LINE,
           whitelist: '0123456789$.'
         });
-        addPrices(extractPricesFromOCR(lineOcrText), 'OCR (line)');
+        const linePrices = extractPricesFromOCR(lineOcrText);
+        addPrices(linePrices, 'OCR (line)');
+        const segmentMatchLine = screenshotPath.match(/bottom-(left|center|right)/);
+        if (segmentMatchLine && linePrices.length > 0) {
+          const segment = segmentMatchLine[1];
+          const minPrice = Math.min(...linePrices);
+          if (!segmentBest.has(segment) || minPrice < segmentBest.get(segment)) {
+            segmentBest.set(segment, minPrice);
+          }
+        }
+      }
+    }
+
+    if (segmentBest.size >= 2) {
+      const segmentPrices = Array.from(segmentBest.values());
+      const uniqueSegmentPrices = Array.from(new Set(segmentPrices));
+      allPrices.length = 0;
+      seenPrices.clear();
+      for (const price of uniqueSegmentPrices) {
+        allPrices.push(price);
+        seenPrices.add(price);
       }
     }
 
@@ -390,19 +439,31 @@ function comparePrices(bannerPrices, productPrices) {
 function filterBannerPricesForComparison(bannerPrices, priceCounts, productPrices) {
   const filtered = [];
   const ignored = [];
+  const corrections = [];
   const TOLERANCE_PERCENT = 1;
+  const hasLowPrice = bannerPrices.some((price) => price < 200000);
 
   for (const price of bannerPrices) {
-    const count = priceCounts[String(price)] || 1;
     const matchesProduct = isPriceInList(price, productPrices, TOLERANCE_PERCENT);
-    if (matchesProduct || count >= 2) {
-      filtered.push(price);
-    } else {
+    let finalPrice = price;
+    let finalMatches = matchesProduct;
+
+    if (!finalMatches && hasLowPrice && price >= 500000 && price <= 699990 && price % 1000 === 990) {
+      const trimmedPrice = price - 500000;
+      if (trimmedPrice >= 10000 && isPriceInList(trimmedPrice, productPrices, TOLERANCE_PERCENT)) {
+        finalPrice = trimmedPrice;
+        finalMatches = true;
+        corrections.push({ from: price, to: trimmedPrice });
+      }
+    }
+
+    filtered.push(finalPrice);
+    if (!finalMatches) {
       ignored.push(price);
     }
   }
 
-  return { filtered, ignored };
+  return { filtered, ignored, corrections };
 }
 
 async function deriveSliderRootSelector(page, itemSelector) {
@@ -679,6 +740,22 @@ async function captureImageFromUrl(context, imageUrl, outputPath) {
     await imagePage.setContent(`<img src="${imageUrl}" />`, { waitUntil: 'domcontentloaded' });
     const img = imagePage.locator('img');
     await img.waitFor({ state: 'visible', timeout: 10000 });
+    const naturalSize = await img.evaluate((el) => ({
+      width: el.naturalWidth || el.width,
+      height: el.naturalHeight || el.height
+    }));
+    if (naturalSize.width && naturalSize.height) {
+      const maxWidth = 3000;
+      const scale = naturalSize.width * 2 <= maxWidth ? 2 : (naturalSize.width * 1.5 <= maxWidth ? 1.5 : 1);
+      await imagePage.setViewportSize({
+        width: Math.max(1, Math.round(naturalSize.width * scale)),
+        height: Math.max(1, Math.round(naturalSize.height * scale))
+      });
+      await img.evaluate((el, factor) => {
+        el.style.width = `${(el.naturalWidth || el.width) * factor}px`;
+        el.style.height = `${(el.naturalHeight || el.height) * factor}px`;
+      }, scale);
+    }
     await img.screenshot({ path: outputPath, scale: 'device' });
     outputPaths.push(outputPath);
 
@@ -696,6 +773,21 @@ async function captureImageFromUrl(context, imageUrl, outputPath) {
           x: Math.max(0, bbox.x),
           y: config.y,
           width: Math.max(1, bbox.width),
+          height: cropHeight,
+        };
+        await imagePage.screenshot({ path: cropPath, clip, scale: 'device' });
+        outputPaths.push(cropPath);
+      }
+
+      const bottomY = Math.max(0, bbox.y + bbox.height - cropHeight);
+      const segmentWidth = Math.max(1, bbox.width / 3);
+      const segmentLabels = ['left', 'center', 'right'];
+      for (let i = 0; i < 3; i++) {
+        const cropPath = outputPath.replace(/\.png$/, `-bottom-${segmentLabels[i]}.png`);
+        const clip = {
+          x: Math.max(0, bbox.x + segmentWidth * i),
+          y: bottomY,
+          width: Math.max(1, segmentWidth),
           height: cropHeight,
         };
         await imagePage.screenshot({ path: cropPath, clip, scale: 'device' });
@@ -1008,6 +1100,29 @@ test.describe('Banner Price Monitor', () => {
                 console.log(`  ⚠️ No se pudo capturar recorte de imagen: ${cropError.message}`);
               }
             }
+
+            const bottomY = Math.max(0, bbox.y + bbox.height - cropHeight);
+            const segmentWidth = Math.max(1, bbox.width / 3);
+            const segmentLabels = ['left', 'center', 'right'];
+            for (let i = 0; i < 3; i++) {
+              const crop = {
+                x: Math.max(0, bbox.x + segmentWidth * i),
+                y: bottomY,
+                width: Math.max(1, segmentWidth),
+                height: cropHeight,
+              };
+              const cropFilename = realBannerIndex !== null
+                ? `banner-${realBannerIndex}-img-bottom-${segmentLabels[i]}.png`
+                : `banner-${loopIndex}-img-bottom-${segmentLabels[i]}.png`;
+              const cropPath = path.join(CONFIG.screenshotsDir, cropFilename);
+              try {
+                await page.screenshot({ path: cropPath, clip: crop, scale: 'device' });
+                fallbackOcrPaths.push(cropPath);
+                console.log(`  🧩 Screenshot de recorte guardado: ${cropFilename}`);
+              } catch (cropError) {
+                console.log(`  ⚠️ No se pudo capturar recorte de imagen: ${cropError.message}`);
+              }
+            }
           }
         }
 
@@ -1101,6 +1216,9 @@ test.describe('Banner Price Monitor', () => {
               : bannerPricesRaw;
             bannerResult.bannerPrices = bannerPrices;
             bannerResult.bannerPricesIgnored = filteredData.ignored;
+            if (filteredData.corrections && filteredData.corrections.length > 0) {
+              bannerResult.bannerPricesCorrected = filteredData.corrections;
+            }
 
             // Comparar arrays de precios
             const comparison = comparePrices(bannerPrices, productPrices);
