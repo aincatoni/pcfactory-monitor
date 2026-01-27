@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-27T11:56:41.744Z",
+  "timestamp": "2026-01-27T21:16:00.608Z",
   "banners": [
     {
       "index": 1,
@@ -19,13 +19,12 @@
       "index": 2,
       "screenshot": "banner-2-source.png",
       "bannerPrices": [
-        49990,
-        69990,
         32990,
-        34990
+        13990,
+        19990
       ],
       "productPrices": [
-        234990,
+        303990,
         49990,
         19990,
         20590,
@@ -37,10 +36,10 @@
         34990,
         13990,
         14390,
-        41990,
-        44190,
         31990,
         33690,
+        41990,
+        44190,
         21990,
         23190,
         34690,
@@ -51,30 +50,29 @@
         59990,
         37990,
         39990,
-        44990
+        79990,
+        44990,
+        46390
       ],
       "productUrl": "https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad?size=12",
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
-        49990,
-        69990,
         32990,
-        34990
+        13990,
+        19990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
-        49990,
-        69990,
         32990,
-        34990
+        13990,
+        19990
       ],
       "bannerPriceCounts": {
-        "32990": 1,
-        "34990": 1,
-        "49990": 1,
-        "69990": 2
+        "13990": 1,
+        "19990": 2,
+        "32990": 2
       },
       "bannerPricesIgnored": []
     },
@@ -82,10 +80,12 @@
       "index": 3,
       "screenshot": "banner-3-source.png",
       "bannerPrices": [
-        69990,
+        234990,
         199990,
         99990,
-        399990
+        399990,
+        139990,
+        69990
       ],
       "productPrices": [
         199990,
@@ -111,35 +111,46 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
-        69990,
+        234990,
         199990,
         99990,
-        399990
+        399990,
+        139990,
+        69990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
-        69990,
+        234990,
         199990,
         99990,
-        399990
+        399990,
+        139990,
+        569990
       ],
       "bannerPriceCounts": {
-        "69990": 1,
         "99990": 1,
+        "139990": 1,
         "199990": 1,
-        "399990": 1
+        "234990": 2,
+        "399990": 1,
+        "569990": 1
       },
-      "bannerPricesIgnored": []
+      "bannerPricesIgnored": [],
+      "bannerPricesCorrected": [
+        {
+          "from": 569990,
+          "to": 69990
+        }
+      ]
     },
     {
       "index": 4,
       "screenshot": "banner-4-source.png",
       "bannerPrices": [
+        749990,
         429990,
-        569990,
-        1199990,
-        929990
+        979990
       ],
       "productPrices": [
         429990,
@@ -164,23 +175,22 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
+        749990,
         429990,
-        569990,
-        1199990,
-        929990
+        979990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
+        749990,
         429990,
-        569990,
-        1199990,
-        929990
+        979990
       ],
       "bannerPriceCounts": {
-        "429990": 1,
-        "569990": 1,
-        "929990": 1,
+        "29990": 1,
+        "429990": 2,
+        "749990": 2,
+        "979990": 2,
         "1199990": 1
       },
       "bannerPricesIgnored": []
@@ -189,10 +199,9 @@
       "index": 5,
       "screenshot": "banner-5-source.png",
       "bannerPrices": [
-        679000,
-        949990,
-        1149990,
-        799990
+        679990,
+        809990,
+        678990
       ],
       "productPrices": [
         678990,
@@ -210,24 +219,22 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
-        679000,
-        949990,
-        1149990,
-        799990
+        679990,
+        809990,
+        678990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
-        679000,
-        949990,
-        1149990,
-        799990
+        679990,
+        809990,
+        678990
       ],
       "bannerPriceCounts": {
-        "679000": 1,
+        "678990": 2,
+        "679990": 3,
         "799990": 1,
-        "949990": 1,
-        "1149990": 1
+        "809990": 2
       },
       "bannerPricesIgnored": []
     },
@@ -235,10 +242,9 @@
       "index": 6,
       "screenshot": "banner-6-source.png",
       "bannerPrices": [
-        174990,
         75990,
-        96990,
-        99990
+        79990,
+        174990
       ],
       "productPrices": [
         75990,
@@ -254,40 +260,71 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
-        174990,
         75990,
-        96990,
-        99990
+        79990,
+        174990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
-        174990,
         75990,
-        96990,
-        599990,
-        99990
+        79990,
+        174990
       ],
       "bannerPriceCounts": {
-        "75990": 1,
-        "96990": 1,
-        "99990": 1,
-        "174990": 1,
-        "599990": 1
+        "75990": 3,
+        "79990": 2,
+        "174990": 2,
+        "269990": 1,
+        "579990": 1
       },
-      "bannerPricesIgnored": [
-        599990
-      ]
+      "bannerPricesIgnored": []
     },
     {
       "index": 7,
       "screenshot": "banner-7-source.png",
       "bannerPrices": [
+        149990,
+        164990,
+        239990
+      ],
+      "productPrices": [
+        149990,
+        164990,
+        239990,
+        170090,
+        169990,
+        154590
+      ],
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=44204,17017",
+      "status": "match",
+      "priceMatch": true,
+      "matchedPrices": [
+        149990,
+        164990,
+        239990
+      ],
+      "missingPrices": [],
+      "error": null,
+      "bannerPricesRaw": [
+        149990,
+        164990,
+        239990
+      ],
+      "bannerPriceCounts": {
+        "149990": 1,
+        "164990": 2,
+        "239990": 1
+      },
+      "bannerPricesIgnored": []
+    },
+    {
+      "index": 8,
+      "screenshot": "banner-8-source.png",
+      "bannerPrices": [
         89990,
-        229990,
-        189990,
         159990,
-        119990
+        229990
       ],
       "productPrices": [
         89990,
@@ -305,38 +342,30 @@
       "priceMatch": true,
       "matchedPrices": [
         89990,
-        229990,
-        189990,
         159990,
-        119990
+        229990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
         89990,
-        229990,
-        189990,
         159990,
-        119990
+        229990
       ],
       "bannerPriceCounts": {
         "89990": 2,
-        "119990": 1,
-        "159990": 1,
-        "189990": 1,
-        "229990": 1
+        "159990": 2,
+        "229990": 3,
+        "299990": 1
       },
       "bannerPricesIgnored": []
     },
     {
-      "index": 8,
-      "screenshot": "banner-8-source.png",
+      "index": 9,
+      "screenshot": "banner-9-source.png",
       "bannerPrices": [
         144990,
-        599990,
-        769990,
-        629990,
-        169990
+        599990
       ],
       "productPrices": [
         144990,
@@ -354,38 +383,29 @@
       "priceMatch": true,
       "matchedPrices": [
         144990,
-        599990,
-        769990,
-        629990,
-        169990
+        599990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
         144990,
-        599990,
-        769990,
-        629990,
-        169990
+        599990
       ],
       "bannerPriceCounts": {
-        "144990": 2,
-        "169990": 1,
-        "599990": 1,
+        "144990": 3,
+        "599990": 3,
         "629990": 1,
-        "769990": 2
+        "799990": 1
       },
       "bannerPricesIgnored": []
     },
     {
-      "index": 9,
-      "screenshot": "banner-9-source.png",
+      "index": 10,
+      "screenshot": "banner-10-source.png",
       "bannerPrices": [
         879990,
-        99990,
-        999990,
-        199990,
-        124990
+        159990,
+        99990
       ],
       "productPrices": [
         99990,
@@ -403,45 +423,38 @@
       "priceMatch": true,
       "matchedPrices": [
         879990,
-        99990,
-        999990,
-        199990,
-        124990
+        159990,
+        99990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
         879990,
-        99990,
-        999990,
-        199990,
-        124990
+        159990,
+        99990
       ],
       "bannerPriceCounts": {
-        "99990": 1,
+        "99990": 3,
         "124990": 1,
-        "199990": 1,
-        "879990": 1,
-        "999990": 1
+        "159990": 3,
+        "879990": 3
       },
       "bannerPricesIgnored": []
     },
     {
-      "index": 10,
-      "screenshot": "banner-10-source.png",
+      "index": 11,
+      "screenshot": "banner-11-source.png",
       "bannerPrices": [
-        12990,
-        47990,
-        14990,
-        94990
+        62990,
+        12990
       ],
       "productPrices": [
         12990,
         62990,
-        14990,
-        13390,
         94990,
         64990,
+        14990,
+        13390,
         47990,
         31990,
         32990
@@ -450,34 +463,30 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
-        12990,
-        47990,
-        14990,
-        94990
+        62990,
+        12990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
-        12990,
-        47990,
-        14990,
-        94990
+        62990,
+        12990
       ],
       "bannerPriceCounts": {
-        "12990": 1,
+        "12990": 3,
         "14990": 1,
+        "31990": 2,
         "47990": 1,
-        "94990": 1
+        "62990": 2
       },
       "bannerPricesIgnored": []
     },
     {
-      "index": 11,
-      "screenshot": "banner-11-source.png",
+      "index": 12,
+      "screenshot": "banner-12-source.png",
       "bannerPrices": [
-        349990,
-        569990,
-        239990
+        239990,
+        449990
       ],
       "productPrices": [
         239990,
@@ -491,51 +500,18 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
-        349990,
-        569990,
-        239990
+        239990,
+        449990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
-        349990,
-        569990,
-        239990
+        239990,
+        449990
       ],
       "bannerPriceCounts": {
         "239990": 1,
-        "349990": 2,
-        "569990": 1
-      },
-      "bannerPricesIgnored": []
-    },
-    {
-      "index": 12,
-      "screenshot": "banner-12-source.png",
-      "bannerPrices": [
-        164990
-      ],
-      "productPrices": [
-        149990,
-        164990,
-        239990,
-        170090,
-        169990,
-        154590
-      ],
-      "productUrl": "https://www.pcfactory.cl/busqueda?productos=44204,17017",
-      "status": "match",
-      "priceMatch": true,
-      "matchedPrices": [
-        164990
-      ],
-      "missingPrices": [],
-      "error": null,
-      "bannerPricesRaw": [
-        164990
-      ],
-      "bannerPriceCounts": {
-        "164990": 1
+        "449990": 2
       },
       "bannerPricesIgnored": []
     },
