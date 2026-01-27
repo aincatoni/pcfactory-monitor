@@ -1,23 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-26T21:47:52.156391+00:00",
-      "total_categories": 384,
-      "added": [],
-      "removed": [
-        {
-          "id": "753",
-          "nombre": "Control de Acceso",
-          "timestamp": "2026-01-26T21:47:52.156391+00:00"
-        },
-        {
-          "id": "721",
-          "nombre": "Grabadoras DVR y NVR",
-          "timestamp": "2026-01-26T21:47:52.156391+00:00"
-        }
-      ]
-    },
-    {
       "timestamp": "2026-01-26T22:00:19.415414+00:00",
       "total_categories": 383,
       "added": [
@@ -204,6 +187,12 @@
     },
     {
       "timestamp": "2026-01-27T15:19:23.921063+00:00",
+      "total_categories": 383,
+      "added": [],
+      "removed": []
+    },
+    {
+      "timestamp": "2026-01-27T15:48:36.491514+00:00",
       "total_categories": 383,
       "added": [],
       "removed": []
