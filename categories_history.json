@@ -1,29 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-26T22:00:19.415414+00:00",
-      "total_categories": 383,
-      "added": [
-        {
-          "id": 930,
-          "nombre": "Splitters y Switches de Video",
-          "timestamp": "2026-01-26T22:00:19.415414+00:00"
-        },
-        {
-          "id": 930,
-          "nombre": "Splitters y Switches de Video",
-          "timestamp": "2026-01-26T22:00:19.415414+00:00"
-        }
-      ],
-      "removed": [
-        {
-          "id": "692",
-          "nombre": "Cargadores para Automóvil",
-          "timestamp": "2026-01-26T22:00:19.415414+00:00"
-        }
-      ]
-    },
-    {
       "timestamp": "2026-01-26T22:30:05.901355+00:00",
       "total_categories": 383,
       "added": [],
@@ -193,6 +170,12 @@
     },
     {
       "timestamp": "2026-01-27T15:48:36.491514+00:00",
+      "total_categories": 383,
+      "added": [],
+      "removed": []
+    },
+    {
+      "timestamp": "2026-01-27T16:02:31.146694+00:00",
       "total_categories": 383,
       "added": [],
       "removed": []
