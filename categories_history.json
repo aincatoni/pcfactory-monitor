@@ -1,23 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-27T18:57:27.594025+00:00",
-      "total_categories": 380,
-      "added": [],
-      "removed": [
-        {
-          "id": "544",
-          "nombre": "Fundas Discos Duros",
-          "timestamp": "2026-01-27T18:57:27.594025+00:00"
-        },
-        {
-          "id": "842",
-          "nombre": "Organización de Accesorios",
-          "timestamp": "2026-01-27T18:57:27.594025+00:00"
-        }
-      ]
-    },
-    {
       "timestamp": "2026-01-27T19:26:00.268551+00:00",
       "total_categories": 380,
       "added": [],
@@ -198,6 +181,12 @@
     },
     {
       "timestamp": "2026-01-28T09:48:47.764167+00:00",
+      "total_categories": 378,
+      "added": [],
+      "removed": []
+    },
+    {
+      "timestamp": "2026-01-28T10:03:48.051133+00:00",
       "total_categories": 378,
       "added": [],
       "removed": []
