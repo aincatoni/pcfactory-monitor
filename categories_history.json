@@ -1,23 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-27T19:48:37.958469+00:00",
-      "total_categories": 378,
-      "added": [],
-      "removed": [
-        {
-          "id": "868",
-          "nombre": "Micrófonos Dinámicos",
-          "timestamp": "2026-01-27T19:48:37.958469+00:00"
-        },
-        {
-          "id": "852",
-          "nombre": "Sonido",
-          "timestamp": "2026-01-27T19:48:37.958469+00:00"
-        }
-      ]
-    },
-    {
       "timestamp": "2026-01-27T20:00:12.872868+00:00",
       "total_categories": 378,
       "added": [],
@@ -187,6 +170,12 @@
     },
     {
       "timestamp": "2026-01-28T10:48:23.888915+00:00",
+      "total_categories": 378,
+      "added": [],
+      "removed": []
+    },
+    {
+      "timestamp": "2026-01-28T11:04:44.776907+00:00",
       "total_categories": 378,
       "added": [],
       "removed": []
