@@ -1,30 +1,16 @@
 {
-  "timestamp": "2026-01-27T23:25:52.837Z",
+  "timestamp": "2026-01-28T11:51:28.726Z",
   "banners": [
     {
       "index": 1,
       "screenshot": "banner-1-source.png",
-      "bannerPrices": [],
-      "productPrices": [],
-      "productUrl": null,
-      "status": "no_price",
-      "priceMatch": null,
-      "matchedPrices": [],
-      "missingPrices": [],
-      "error": null,
-      "bannerPricesRaw": [],
-      "bannerPriceCounts": {}
-    },
-    {
-      "index": 2,
-      "screenshot": "banner-2-source.png",
       "bannerPrices": [
         32990,
         13990,
         19990
       ],
       "productPrices": [
-        303990,
+        289990,
         49990,
         19990,
         20590,
@@ -77,8 +63,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 3,
-      "screenshot": "banner-3-source.png",
+      "index": 2,
+      "screenshot": "banner-2-source.png",
       "bannerPrices": [
         234990,
         199990,
@@ -145,8 +131,8 @@
       ]
     },
     {
-      "index": 4,
-      "screenshot": "banner-4-source.png",
+      "index": 3,
+      "screenshot": "banner-3-source.png",
       "bannerPrices": [
         749990,
         429990,
@@ -161,8 +147,8 @@
         1199990,
         1010290,
         999990,
-        824490,
-        849990,
+        799990,
+        824790,
         569990,
         443290,
         739990,
@@ -196,8 +182,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 5,
-      "screenshot": "banner-5-source.png",
+      "index": 4,
+      "screenshot": "banner-4-source.png",
       "bannerPrices": [
         679990,
         809990,
@@ -239,8 +225,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 6,
-      "screenshot": "banner-6-source.png",
+      "index": 5,
+      "screenshot": "banner-5-source.png",
       "bannerPrices": [
         75990,
         79990,
@@ -281,8 +267,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 7,
-      "screenshot": "banner-7-source.png",
+      "index": 6,
+      "screenshot": "banner-6-source.png",
       "bannerPrices": [
         149990,
         164990,
@@ -319,8 +305,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 8,
-      "screenshot": "banner-8-source.png",
+      "index": 7,
+      "screenshot": "banner-7-source.png",
       "bannerPrices": [
         89990,
         159990,
@@ -361,8 +347,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 9,
-      "screenshot": "banner-9-source.png",
+      "index": 8,
+      "screenshot": "banner-8-source.png",
       "bannerPrices": [
         144990,
         599990
@@ -400,8 +386,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 10,
-      "screenshot": "banner-10-source.png",
+      "index": 9,
+      "screenshot": "banner-9-source.png",
       "bannerPrices": [
         879990,
         159990,
@@ -442,8 +428,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 11,
-      "screenshot": "banner-11-source.png",
+      "index": 10,
+      "screenshot": "banner-10-source.png",
       "bannerPrices": [
         62990,
         12990
@@ -482,8 +468,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 12,
-      "screenshot": "banner-12-source.png",
+      "index": 11,
+      "screenshot": "banner-11-source.png",
       "bannerPrices": [
         239990,
         449990
@@ -516,8 +502,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 13,
-      "screenshot": "banner-13-source.png",
+      "index": 12,
+      "screenshot": "banner-12-source.png",
       "bannerPrices": [],
       "productPrices": [],
       "productUrl": null,
