@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/aafac1e042a21b607649e4f482e70e4eadeaa7a4",
         "commitHash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21437080567"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21458532552"
       },
       "gitCommit": {
         "shortHash": "aafac1e",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/aafac1e042a21b607649e4f482e70e4eadeaa7a4",
             "commitHash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21437080567"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21458532552"
           },
           "gitCommit": {
             "shortHash": "aafac1e",
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 254330,
+                      "duration": 244962,
                       "errors": [],
                       "stdout": [
                         {
@@ -155,13 +155,13 @@
                           "text": "✅ Slider encontrado con selector: #carousel-home-desktop .carousel-item\n"
                         },
                         {
-                          "text": "📊 Banners encontrados: 12\n\n"
+                          "text": "📊 Banners encontrados: 11\n\n"
                         },
                         {
                           "text": "🛑 Pausando slider principal...\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 1/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 1/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #1 (data-gtag-index=\"1\")\n"
@@ -296,7 +296,7 @@
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 29 [$289.990, $49.990, $19.990, $20.590, $69.990, $32.990, $33.990, $24.990, $21.090, $31.990, $33.690, $34.990, $13.990, $14.390, $41.990, $44.190, $21.990, $23.190, $34.690, $27.990, $29.490, $28.990, $30.490, $59.990, $37.990, $39.990, $79.990, $44.990, $46.390]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 29 [$289.990, $49.990, $19.990, $20.590, $69.990, $32.990, $33.990, $24.990, $21.090, $31.990, $33.690, $41.990, $44.190, $34.990, $13.990, $14.390, $21.990, $23.190, $34.690, $27.990, $29.490, $28.990, $30.490, $59.990, $37.990, $39.990, $79.990, $44.990, $46.390]\n"
                         },
                         {
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
@@ -305,7 +305,7 @@
                           "text": "     Precios coincidentes: $32.990, $13.990, $19.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 2/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 2/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #2 (data-gtag-index=\"2\")\n"
@@ -419,7 +419,7 @@
                           "text": "     Precios coincidentes: $234.990, $199.990, $99.990, $399.990, $139.990, $69.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 3/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 3/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #3 (data-gtag-index=\"3\")\n"
@@ -428,7 +428,10 @@
                           "text": "  📸 Screenshot guardado: banner-3.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-3-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11895.063000000002ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-3-img.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-3-img-top.png\n"
@@ -557,7 +560,7 @@
                           "text": "     Precios coincidentes: $749.990, $429.990, $979.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 4/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 4/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #4 (data-gtag-index=\"4\")\n"
@@ -683,7 +686,7 @@
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 10 [$678.990, $809.990, $949.990, $679.990, $700.990, $799.990, $699.990, $1.149.990, $835.090, $149.990]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 10 [$678.990, $809.990, $1.149.990, $835.090, $799.990, $699.990, $949.990, $679.990, $700.990, $149.990]\n"
                         },
                         {
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
@@ -692,7 +695,7 @@
                           "text": "     Precios coincidentes: $679.990, $809.990, $678.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 5/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 5/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #5 (data-gtag-index=\"5\")\n"
@@ -830,7 +833,7 @@
                           "text": "     Precios coincidentes: $75.990, $79.990, $174.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 6/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 6/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #6 (data-gtag-index=\"6\")\n"
@@ -980,7 +983,7 @@
                           "text": "     Precios coincidentes: $149.990, $164.990, $239.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 7/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 7/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #7 (data-gtag-index=\"7\")\n"
@@ -1115,7 +1118,7 @@
                           "text": "     Precios coincidentes: $89.990, $159.990, $229.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 8/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 8/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #8 (data-gtag-index=\"8\")\n"
@@ -1256,7 +1259,7 @@
                           "text": "     Precios coincidentes: $144.990, $599.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 9/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 9/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #9 (data-gtag-index=\"9\")\n"
@@ -1391,7 +1394,7 @@
                           "text": "     Precios coincidentes: $879.990, $159.990, $99.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 10/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 10/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #10 (data-gtag-index=\"10\")\n"
@@ -1535,7 +1538,7 @@
                           "text": "     Precios coincidentes: $62.990, $12.990\n"
                         },
                         {
-                          "text": "\n🎨 Analizando posición 11/12 del carousel\n"
+                          "text": "\n🎨 Analizando posición 11/11 del carousel\n"
                         },
                         {
                           "text": "  ✨ Este es el Banner #11 (data-gtag-index=\"11\")\n"
@@ -1563,153 +1566,6 @@
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-11-img-bottom-right.png\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"Ver | L\\\n‘mejor tecnologia_\nCamara GoPro® Camara GoPro®\n. n o LITHERO MAX 2 360 Black\n——A am re gi $239.990 Ceci bh $449.990 rab\nYo = Eo Es | Referencial: $349.990 Referencial: $569.990 K\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $239.990\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $449.990\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"veri ON} ®\nVa he\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"veri ON} ®\nVa he\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"9,\np\nCamara GoPro® Camara GoPro®\na LIT HERO MAX 2 360 Black\n— y ‘NY —- CE EEE Se\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"9,\np\nCamara GoPro® Camara GoPro®\na LIT HERO MAX 2 360 Black\n— y ‘NY —- CE EEE Se\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ oo\n: Camara GoPro® Camara GoPro®\nn oy) LITHERO MAX 2360 Black\n— 31% PT -21%\np+ Y ae i; f yo 4 J ST —- Referencial: $349.990 Referencial: $569.990\nay . FE = ) SE it\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ oo\n: Camara GoPro® Camara GoPro®\nn oy) LITHERO MAX 2360 Black\n— 31% PT -21%\np+ Y ae i; f yo 4 J ST —- Referencial: $349.990 Referencial: $569.990\nay . FE = ) SE it\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"mejor tecnologia_\n. a —\n\n\\ 1 = \\ cos & |\nmus EERE E —.\nRs od ee > _ ge. / - “\n= x ~S: Sino\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"mejor tecnologia_\n. a —\n\n\\ 1 = \\ cos & |\nmus EERE E —.\nRs od ee > _ ge. / - “\n= x ~S: Sino\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"Camara GoPro®\nLIT HERO\nrik [I -31%\nReferencial: $349.990 ad |\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"Camara GoPro®\nLIT HERO\nrik [I -31%\nReferencial: $349.990 ad |\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"Camara GoPro®\nMAX 2 360 Black\n\n449.990 Tra L/S —\nReferencial: $569.990\"\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$239.990, $449.990]\n"
-                        },
-                        {
-                          "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=55026,54883\n"
-                        },
-                        {
-                          "text": "  🌐 Navegando al producto...\n"
-                        },
-                        {
-                          "text": "  💰 Precios encontrados en página de productos: 6 [$239.990, $449.990, $569.990, $463.890, $349.990, $247.390]\n"
-                        },
-                        {
-                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
-                        },
-                        {
-                          "text": "     Precios coincidentes: $239.990, $449.990\n"
-                        },
-                        {
-                          "text": "\n🎨 Analizando posición 12/12 del carousel\n"
-                        },
-                        {
-                          "text": "  ✨ Este es el Banner #12 (data-gtag-index=\"12\")\n"
-                        },
-                        {
-                          "text": "  📸 Screenshot guardado: banner-12.png\n"
-                        },
-                        {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-12-img.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-12-img-top.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-12-img-center.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-12-img-bottom.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-12-img-bottom-left.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-12-img-bottom-center.png\n"
-                        },
-                        {
-                          "text": "  🧩 Screenshot de recorte guardado: banner-12-img-bottom-right.png\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -1829,16 +1685,16 @@
                           "text": "\n📊 RESUMEN:\n"
                         },
                         {
-                          "text": "   Total banners analizados: 12\n"
+                          "text": "   Total banners analizados: 11\n"
                         },
                         {
-                          "text": "   🏷️  Con precio: 11\n"
+                          "text": "   🏷️  Con precio: 10\n"
                         },
                         {
                           "text": "   🚫 Sin precio: 1\n"
                         },
                         {
-                          "text": "   ✅ Precios coinciden: 11\n"
+                          "text": "   ✅ Precios coinciden: 10\n"
                         },
                         {
                           "text": "   ❌ Precios NO coinciden: 0\n"
@@ -1846,7 +1702,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-28T11:51:28.757Z",
+                      "startTime": "2026-01-28T22:53:53.611Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1867,17 +1723,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-4.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-5.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-4.webm"
                         },
                         {
                           "name": "video",
@@ -1897,6 +1748,11 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-9.webm"
                         },
                         {
@@ -1907,17 +1763,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-11.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-12.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-14.webm"
                         },
                         {
                           "name": "video",
@@ -1927,7 +1773,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-11.webm"
                         },
                         {
                           "name": "video",
@@ -1937,7 +1783,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-18.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
                         },
                         {
                           "name": "video",
@@ -1947,7 +1793,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-20.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-18.webm"
                         },
                         {
                           "name": "video",
@@ -1957,17 +1803,17 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-20.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-14.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-19.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-23.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-22.webm"
                         },
                         {
                           "name": "video",
@@ -2011,7 +1857,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 22512,
+                  "duration": 21369,
                   "errors": [],
                   "stdout": [
                     {
@@ -2024,10 +1870,10 @@
                       "text": "Probando selectores:\n\n"
                     },
                     {
-                      "text": "✅ .carousel-item: 24 elementos encontrados\n"
+                      "text": "✅ .carousel-item: 22 elementos encontrados\n"
                     },
                     {
-                      "text": "✅ [class*=\"banner\"]: 90 elementos encontrados\n"
+                      "text": "✅ [class*=\"banner\"]: 86 elementos encontrados\n"
                     },
                     {
                       "text": "✅ [class*=\"slider\"]: 6 elementos encontrados\n"
@@ -2117,7 +1963,7 @@
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
                     },
                     {
-                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-62e5f764-c7c3-49a6-a180-f35bf69c97ba.active \n"
+                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-bccdc726-227e-446c-be24-67f3ce67462c.active \n"
                     },
                     {
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
@@ -2164,7 +2010,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-28T11:55:44.036Z",
+                  "startTime": "2026-01-28T22:58:00.078Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2193,8 +2039,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-28T11:51:27.443Z",
-    "duration": 279276.22900000005,
+    "startTime": "2026-01-28T22:53:52.331Z",
+    "duration": 269278.346,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,

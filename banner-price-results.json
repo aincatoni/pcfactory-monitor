@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-28T11:51:28.726Z",
+  "timestamp": "2026-01-28T22:53:53.583Z",
   "banners": [
     {
       "index": 1,
@@ -21,11 +21,11 @@
         21090,
         31990,
         33690,
+        41990,
+        44190,
         34990,
         13990,
         14390,
-        41990,
-        44190,
         21990,
         23190,
         34690,
@@ -192,13 +192,13 @@
       "productPrices": [
         678990,
         809990,
+        1149990,
+        835090,
+        799990,
+        699990,
         949990,
         679990,
         700990,
-        799990,
-        699990,
-        1149990,
-        835090,
         149990
       ],
       "productUrl": "https://www.pcfactory.cl/busqueda?productos=53757,54348,54468",
@@ -470,40 +470,6 @@
     {
       "index": 11,
       "screenshot": "banner-11-source.png",
-      "bannerPrices": [
-        239990,
-        449990
-      ],
-      "productPrices": [
-        239990,
-        449990,
-        569990,
-        463890,
-        349990,
-        247390
-      ],
-      "productUrl": "https://www.pcfactory.cl/busqueda?productos=55026,54883",
-      "status": "match",
-      "priceMatch": true,
-      "matchedPrices": [
-        239990,
-        449990
-      ],
-      "missingPrices": [],
-      "error": null,
-      "bannerPricesRaw": [
-        239990,
-        449990
-      ],
-      "bannerPriceCounts": {
-        "239990": 1,
-        "449990": 2
-      },
-      "bannerPricesIgnored": []
-    },
-    {
-      "index": 12,
-      "screenshot": "banner-12-source.png",
       "bannerPrices": [],
       "productPrices": [],
       "productUrl": null,
