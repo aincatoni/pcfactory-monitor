@@ -1,12 +1,11 @@
 {
-  "timestamp": "2026-01-29T16:54:55.084Z",
+  "timestamp": "2026-01-29T17:35:32.924Z",
   "banners": [
     {
       "index": 1,
       "screenshot": "banner-1-source.png",
       "bannerPrices": [
-        729990,
-        1129990
+        729990
       ],
       "productPrices": [
         39990,
@@ -37,18 +36,15 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
-        729990,
-        1129990
+        729990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
-        729990,
-        1129990
+        729990
       ],
       "bannerPriceCounts": {
-        "729990": 1,
-        "1129990": 1
+        "729990": 1
       },
       "bannerPricesIgnored": []
     },
@@ -165,9 +161,6 @@
       "screenshot": "banner-4-source.png",
       "bannerPrices": [
         234990,
-        199990,
-        99990,
-        399990,
         139990,
         69990
       ],
@@ -196,9 +189,6 @@
       "priceMatch": true,
       "matchedPrices": [
         234990,
-        199990,
-        99990,
-        399990,
         139990,
         69990
       ],
@@ -206,21 +196,20 @@
       "error": null,
       "bannerPricesRaw": [
         234990,
-        199990,
         99990,
-        399990,
         139990,
         569990
       ],
       "bannerPriceCounts": {
         "99990": 1,
-        "139990": 1,
+        "139990": 2,
         "199990": 1,
         "234990": 2,
-        "399990": 1,
         "569990": 1
       },
-      "bannerPricesIgnored": [],
+      "bannerPricesIgnored": [
+        99990
+      ],
       "bannerPricesCorrected": [
         {
           "from": 569990,
@@ -274,8 +263,7 @@
         "29990": 1,
         "429990": 2,
         "749990": 2,
-        "979990": 2,
-        "1199990": 1
+        "979990": 2
       },
       "bannerPricesIgnored": []
     },
@@ -317,7 +305,6 @@
       "bannerPriceCounts": {
         "678990": 2,
         "679990": 3,
-        "799990": 1,
         "809990": 2
       },
       "bannerPricesIgnored": []
@@ -359,7 +346,6 @@
         "75990": 3,
         "79990": 2,
         "174990": 2,
-        "269990": 1,
         "579990": 1
       },
       "bannerPricesIgnored": []
@@ -369,8 +355,7 @@
       "screenshot": "banner-8-source.png",
       "bannerPrices": [
         149990,
-        164990,
-        239990
+        164990
       ],
       "productPrices": [
         149990,
@@ -385,20 +370,17 @@
       "priceMatch": true,
       "matchedPrices": [
         149990,
-        164990,
-        239990
+        164990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
         149990,
-        164990,
-        239990
+        164990
       ],
       "bannerPriceCounts": {
         "149990": 1,
-        "164990": 2,
-        "239990": 1
+        "164990": 2
       },
       "bannerPricesIgnored": []
     },
@@ -439,8 +421,7 @@
       "bannerPriceCounts": {
         "89990": 2,
         "159990": 2,
-        "229990": 3,
-        "299990": 1
+        "229990": 3
       },
       "bannerPricesIgnored": []
     },
@@ -448,8 +429,9 @@
       "index": 10,
       "screenshot": "banner-10-source.png",
       "bannerPrices": [
+        599990,
         144990,
-        599990
+        629990
       ],
       "productPrices": [
         144990,
@@ -466,20 +448,21 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
+        599990,
         144990,
-        599990
+        629990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
+        599990,
         144990,
-        599990
+        629990
       ],
       "bannerPriceCounts": {
         "144990": 3,
         "599990": 3,
-        "629990": 1,
-        "799990": 1
+        "629990": 1
       },
       "bannerPricesIgnored": []
     },
@@ -519,7 +502,6 @@
       ],
       "bannerPriceCounts": {
         "99990": 3,
-        "124990": 1,
         "159990": 3,
         "879990": 3
       },
@@ -529,8 +511,9 @@
       "index": 12,
       "screenshot": "banner-12-source.png",
       "bannerPrices": [
-        62990,
-        12990
+        12990,
+        31990,
+        62990
       ],
       "productPrices": [
         12990,
@@ -547,18 +530,19 @@
       "status": "match",
       "priceMatch": true,
       "matchedPrices": [
-        62990,
-        12990
+        12990,
+        31990,
+        62990
       ],
       "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
-        62990,
-        12990
+        12990,
+        31990,
+        62990
       ],
       "bannerPriceCounts": {
         "12990": 3,
-        "14990": 1,
         "31990": 2,
         "47990": 1,
         "62990": 2

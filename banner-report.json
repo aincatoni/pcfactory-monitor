@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "commitHash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21487078981"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "commitHash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21488391796"
       },
       "gitCommit": {
-        "shortHash": "aafac1e",
-        "hash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "subject": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic",
-        "body": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic\n",
+        "shortHash": "f2adb54",
+        "hash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "subject": "fix: Update banner price extraction logic and improve price filtering for accuracy",
+        "body": "fix: Update banner price extraction logic and improve price filtering for accuracy\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769544246000
+          "time": 1769707543000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769544246000
+          "time": 1769707543000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "commitHash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21487078981"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "commitHash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21488391796"
           },
           "gitCommit": {
-            "shortHash": "aafac1e",
-            "hash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "subject": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic",
-            "body": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic\n",
+            "shortHash": "f2adb54",
+            "hash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "subject": "fix: Update banner price extraction logic and improve price filtering for accuracy",
+            "body": "fix: Update banner price extraction logic and improve price filtering for accuracy\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769544246000
+              "time": 1769707543000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769544246000
+              "time": 1769707543000
             },
             "branch": "main"
           },
@@ -120,7 +120,7 @@
         {
           "title": "Banner Price Monitor",
           "file": "banner-price-check.spec.js",
-          "line": 805,
+          "line": 895,
           "column": 6,
           "specs": [
             {
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 279763,
+                      "duration": 285853,
                       "errors": [],
                       "stdout": [
                         {
@@ -242,7 +242,10 @@
                           "text": "  🔍 OCR resultado: \"i C | D [| (24 Referenciat:$1.129.990 er Po\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $1.129.990\n"
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"i C | D [| (24 Referenciat:$1.129.990 er Po\"\n"
                         },
                         {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
@@ -290,7 +293,7 @@
                           "text": "  🔍 OCR resultado: \"CE\"\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$729.990, $1.129.990]\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 1 [$729.990]\n"
                         },
                         {
                           "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54174,40944,47523,55161,52956,33865,55062,55310&size=12&sort=precio,desc\n"
@@ -305,7 +308,7 @@
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Precios coincidentes: $729.990, $1.129.990\n"
+                          "text": "     Precios coincidentes: $729.990\n"
                         },
                         {
                           "text": "\n🎨 Analizando posición 2/13 del carousel\n"
@@ -644,9 +647,6 @@
                           "text": "  📍 Precio detectado en OCR: $99.990\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $399.990\n"
-                        },
-                        {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
                         },
                         {
@@ -692,7 +692,46 @@
                           "text": "  📍 Precio detectado en OCR: $569.990\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 6 [$234.990, $199.990, $99.990, $399.990, $139.990, $569.990]\n"
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"DEE 4 i 55 i F- |\n} | | Kit de Vigilanci\n- i Ai DVR hibrido 4 canale\nre $139.990\nNg A [7 A Referencial: $199.990\naN _———\nA i\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"a Annke® Grabador DVR Annke®\n\ns +4 Camaras SMP (3K) 8 canales 5SMP DW81KT\n\nh-30% CLEVE -30%\nReferencial: $99.990\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"a Annke® Grabador DVR Annke®\n\ns +4 Camaras SMP (3K) 8 canales 5SMP DW81KT\n\nh-30% CLEVE -30%\nReferencial: $99.990\"\n"
+                        },
+                        {
+                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"Kit de Vigilancia Annke®\nDVRDWS1KD +4 CT1GT +4 CT1GU\n\nZEA -41%\nReferendal: $399.990\"\n"
+                        },
+                        {
+                          "text": "  🔍 Ejecutando OCR en imagen...\n"
+                        },
+                        {
+                          "text": "  🔍 OCR resultado: \"Kit de Vigilancia Annke®\nDVRDWS1KD +4 CT1GT +4 CT1GU\n\nZEA -41%\nReferendal: $399.990\"\n"
+                        },
+                        {
+                          "text": "  ✅ Total de precios únicos detectados en banner: 4 [$234.990, $99.990, $139.990, $569.990]\n"
                         },
                         {
                           "text": "  🔗 Link destino: https://www.pcfactory.cl/ofertas-de-verano/kits-de-vigilancia\n"
@@ -707,7 +746,7 @@
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Precios coincidentes: $234.990, $199.990, $99.990, $399.990, $139.990, $69.990\n"
+                          "text": "     Precios coincidentes: $234.990, $139.990, $69.990\n"
                         },
                         {
                           "text": "\n🎨 Analizando posición 5/13 del carousel\n"
@@ -825,9 +864,6 @@
                         },
                         {
                           "text": "  🔍 OCR resultado: \"RRS.\nNotebook Lenovo®\nRyzen 7 RTX 4050 15.6\" 16GB 512GB\n$979.990\nReferendal: $1.199.990 |\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $1.199.990\n"
                         },
                         {
                           "text": "  ✅ Total de precios únicos detectados en banner: 3 [$749.990, $429.990, $979.990]\n"
@@ -960,9 +996,6 @@
                         },
                         {
                           "text": "  🔍 OCR resultado: \"Notebook Dell®\nAMD Ryzen7 15.6\" 16GB 1TB\ni 678.990\n| | Referendial: $799.990 |\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $799.990\n"
                         },
                         {
                           "text": "  ✅ Total de precios únicos detectados en banner: 3 [$679.990, $809.990, $678.990]\n"
@@ -1100,9 +1133,6 @@
                           "text": "  🔍 OCR resultado: \"a SEY\nMonitor Gamer LG®\nCurvo 27\" QHD 180Hz 1ms FreeSync\n$174.990\n| Referendial: $269.990 |\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $269.990\n"
-                        },
-                        {
                           "text": "  ✅ Total de precios únicos detectados en banner: 3 [$75.990, $79.990, $174.990]\n"
                         },
                         {
@@ -1235,9 +1265,6 @@
                           "text": "  🔍 OCR resultado: \"a+ ~ NS\nMultifuncional HP®\nTinta Continua Smart Tank 720 WiFi-Direct\n$164.990 cj LN.\nReferendial: $239.990 Fo | \\\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $239.990\n"
-                        },
-                        {
                           "text": "  🔍 Intentando OCR en imagen del banner...\n"
                         },
                         {
@@ -1253,7 +1280,7 @@
                           "text": "  🔍 OCR resultado: \"Impresora Fotografica Canon®\nTinta A3+ Pixma IX-6810 WiFi / Ethernet\nCEE -12%\n\nReferencial: $169.990\"\n"
                         },
                         {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$149.990, $164.990, $239.990]\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$149.990, $164.990]\n"
                         },
                         {
                           "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=44204,17017\n"
@@ -1268,7 +1295,7 @@
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Precios coincidentes: $149.990, $164.990, $239.990\n"
+                          "text": "     Precios coincidentes: $149.990, $164.990\n"
                         },
                         {
                           "text": "\n🎨 Analizando posición 9/13 del carousel\n"
@@ -1383,9 +1410,6 @@
                         },
                         {
                           "text": "  🔍 OCR resultado: \"RRR ——\nCelular ZTE®\nNubia Air 5g 256GB Negro\n$229.990\n| Referendial:$299.990 |\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $299.990\n"
                         },
                         {
                           "text": "  ✅ Total de precios únicos detectados en banner: 3 [$89.990, $159.990, $229.990]\n"
@@ -1526,10 +1550,7 @@
                           "text": "  🔍 OCR resultado: \"CT EE\nTablet Lenovo®\nYoga Tab Plus 12,7\" 16GB 256GB+ Funda + Lapiz\n$599.990\n| Referendial: $799.990 |\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $799.990\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$144.990, $599.990]\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$599.990, $144.990, $629.990]\n"
                         },
                         {
                           "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=54866,54202,54201\n"
@@ -1544,7 +1565,7 @@
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Precios coincidentes: $144.990, $599.990\n"
+                          "text": "     Precios coincidentes: $599.990, $144.990, $629.990\n"
                         },
                         {
                           "text": "\n🎨 Analizando posición 11/13 del carousel\n"
@@ -1659,9 +1680,6 @@
                         },
                         {
                           "text": "  🔍 OCR resultado: \"Unidad SSD Lexar®\n1TB Sata3 2.5\"\n99.990\n| Referendial: $124.990 » |\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $124.990\n"
                         },
                         {
                           "text": "  ✅ Total de precios únicos detectados en banner: 3 [$879.990, $159.990, $99.990]\n"
@@ -1805,10 +1823,7 @@
                           "text": "  🔍 OCR resultado: \"Audifono Bluetooth Xiaomi®\nRedmi Buds 6 Play Pink\n$12.990\n| Referendial: $14.990 |\"\n"
                         },
                         {
-                          "text": "  📍 Precio detectado en OCR: $14.990\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 2 [$62.990, $12.990]\n"
+                          "text": "  ✅ Total de precios únicos detectados en banner: 3 [$12.990, $31.990, $62.990]\n"
                         },
                         {
                           "text": "  🔗 Link destino: https://www.pcfactory.cl/busqueda?productos=49535,49067,53268\n"
@@ -1823,7 +1838,7 @@
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
                         },
                         {
-                          "text": "     Precios coincidentes: $62.990, $12.990\n"
+                          "text": "     Precios coincidentes: $12.990, $31.990, $62.990\n"
                         },
                         {
                           "text": "\n🎨 Analizando posición 13/13 del carousel\n"
@@ -2006,10 +2021,16 @@
                         },
                         {
                           "buffer": "TGluZSBjYW5ub3QgYmUgcmVjb2duaXplZCEhCg=="
+                        },
+                        {
+                          "buffer": "SW1hZ2UgdG9vIHNtYWxsIHRvIHNjYWxlISEgKDJ4MzYgdnMgbWluIHdpZHRoIG9mIDMpCg=="
+                        },
+                        {
+                          "buffer": "TGluZSBjYW5ub3QgYmUgcmVjb2duaXplZCEhCg=="
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:54:55.120Z",
+                      "startTime": "2026-01-29T17:35:32.957Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2070,7 +2091,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-12.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-11.webm"
                         },
                         {
                           "name": "video",
@@ -2090,12 +2111,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-17.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-17.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
                         },
                         {
                           "name": "video",
@@ -2115,22 +2136,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-11.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-23.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-25.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-12.webm"
                         },
                         {
                           "name": "video",
@@ -2145,6 +2151,21 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-23.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-25.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video.webm"
                         }
                       ]
@@ -2155,7 +2176,7 @@
               ],
               "id": "52eb7d336b897c539938-c663a2caec990ea9e24c",
               "file": "banner-price-check.spec.js",
-              "line": 814,
+              "line": 904,
               "column": 3
             }
           ]
@@ -2184,7 +2205,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 21492,
+                  "duration": 23021,
                   "errors": [],
                   "stdout": [
                     {
@@ -2337,7 +2358,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-29T16:59:36.114Z",
+                  "startTime": "2026-01-29T17:40:20.028Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2366,8 +2387,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-29T16:54:53.748Z",
-    "duration": 304027.949,
+    "startTime": "2026-01-29T17:35:31.561Z",
+    "duration": 311654.078,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,

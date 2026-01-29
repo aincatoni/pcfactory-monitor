@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "commitHash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21487078981"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "commitHash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21488391796"
       },
       "gitCommit": {
-        "shortHash": "aafac1e",
-        "hash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "subject": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic",
-        "body": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic\n",
+        "shortHash": "f2adb54",
+        "hash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "subject": "fix: Update banner price extraction logic and improve price filtering for accuracy",
+        "body": "fix: Update banner price extraction logic and improve price filtering for accuracy\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769544246000
+          "time": 1769707543000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769544246000
+          "time": 1769707543000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "commitHash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21487078981"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "commitHash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21488391796"
           },
           "gitCommit": {
-            "shortHash": "aafac1e",
-            "hash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "subject": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic",
-            "body": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic\n",
+            "shortHash": "f2adb54",
+            "hash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "subject": "fix: Update banner price extraction logic and improve price filtering for accuracy",
+            "body": "fix: Update banner price extraction logic and improve price filtering for accuracy\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769544246000
+              "time": 1769707543000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769544246000
+              "time": 1769707543000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2469,
+                      "duration": 2081,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:54:52.326Z",
+                      "startTime": "2026-01-29T17:35:32.120Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4228,
+                      "duration": 4450,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:54:55.045Z",
+                      "startTime": "2026-01-29T17:35:35.436Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5904,
+                      "duration": 5026,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:54:59.287Z",
+                      "startTime": "2026-01-29T17:35:39.897Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6138,
+                      "duration": 4748,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:55:05.205Z",
+                      "startTime": "2026-01-29T17:35:44.935Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12148,
+                      "duration": 11324,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:55:11.357Z",
+                      "startTime": "2026-01-29T17:35:49.694Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5402,
+                      "duration": 4716,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:55:23.515Z",
+                      "startTime": "2026-01-29T17:36:01.029Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-29T16:54:51.231Z",
-    "duration": 37773.131,
+    "startTime": "2026-01-29T17:35:31.035Z",
+    "duration": 34796.448000000004,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

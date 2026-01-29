@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "commitHash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21487078981"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "commitHash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21488391796"
       },
       "gitCommit": {
-        "shortHash": "aafac1e",
-        "hash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-        "subject": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic",
-        "body": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic\n",
+        "shortHash": "f2adb54",
+        "hash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+        "subject": "fix: Update banner price extraction logic and improve price filtering for accuracy",
+        "body": "fix: Update banner price extraction logic and improve price filtering for accuracy\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769544246000
+          "time": 1769707543000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769544246000
+          "time": 1769707543000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "commitHash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21487078981"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "commitHash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21488391796"
           },
           "gitCommit": {
-            "shortHash": "aafac1e",
-            "hash": "aafac1e042a21b607649e4f482e70e4eadeaa7a4",
-            "subject": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic",
-            "body": "fix: Enhance banner monitoring by adding banner dependency, improving screenshot handling, and updating price extraction logic\n",
+            "shortHash": "f2adb54",
+            "hash": "f2adb54d6bb97bbf739e62fadea66b28e219ba1d",
+            "subject": "fix: Update banner price extraction logic and improve price filtering for accuracy",
+            "body": "fix: Update banner price extraction logic and improve price filtering for accuracy\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769544246000
+              "time": 1769707543000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769544246000
+              "time": 1769707543000
             },
             "branch": "main"
           },
@@ -138,7 +138,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56050,
+                      "duration": 56835,
                       "errors": [],
                       "stdout": [
                         {
@@ -150,7 +150,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:54:48.334Z",
+                      "startTime": "2026-01-29T17:35:39.487Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -185,7 +185,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 55736,
+                      "duration": 57244,
                       "errors": [],
                       "stdout": [
                         {
@@ -197,7 +197,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:55:44.606Z",
+                      "startTime": "2026-01-29T17:36:37.749Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -232,7 +232,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 55929,
+                      "duration": 57087,
                       "errors": [],
                       "stdout": [
                         {
@@ -244,7 +244,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:56:40.355Z",
+                      "startTime": "2026-01-29T17:37:35.005Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -279,7 +279,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56755,
+                      "duration": 57109,
                       "errors": [],
                       "stdout": [
                         {
@@ -291,7 +291,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:57:36.295Z",
+                      "startTime": "2026-01-29T17:38:32.102Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -326,7 +326,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 56397,
+                      "duration": 56699,
                       "errors": [],
                       "stdout": [
                         {
@@ -360,7 +360,7 @@
                           "text": "========================================\n"
                         },
                         {
-                          "text": "Timestamp: 2026-01-29T16:54:48.308Z\n"
+                          "text": "Timestamp: 2026-01-29T17:35:39.456Z\n"
                         },
                         {
                           "text": "Total: 5\n"
@@ -378,7 +378,7 @@
                           "text": "✅ Transferencia ETPay: PASSED\n"
                         },
                         {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/RqxcYzY5sD7QBRv5jBxMhoVNqsYDEnvVcuVVV35EhfdbnjS9kOByLWILrQJRThs0\n"
+                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/mCTNEof2A8tERIfsK3nxoqISuc72tHA9iVv2f2cFhTsa5oLju0eZgMch4wXA3SOW\n"
                         },
                         {
                           "text": "   Video: videos/video-ETPAY.webm\n"
@@ -425,7 +425,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T16:58:33.062Z",
+                      "startTime": "2026-01-29T17:39:29.222Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -451,8 +451,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-29T16:54:47.194Z",
-    "duration": 282346.675,
+    "startTime": "2026-01-29T17:35:38.329Z",
+    "duration": 287671.311,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,
