@@ -1,0 +1,26 @@
+{
+  "name": "pcfactory-checkout-endpoints-monitor",
+  "version": "1.0.0",
+  "description": "Monitor de endpoints críticos del checkout de PCFactory",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "dashboard": "node serve.js",
+    "monitor": "npm test && npm run dashboard"
+  },
+  "keywords": [
+    "pcfactory",
+    "monitoring",
+    "checkout",
+    "api",
+    "endpoints"
+  ],
+  "author": "PCFactory Monitor Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}

@@ -2,6 +2,8 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
+const { URL } = require('url');
+const https = require('https');
 const Tesseract = require('tesseract.js');
 
 /**
@@ -43,6 +45,52 @@ const CONFIG = {
   // Timeout
   navigationTimeout: 30000,
 };
+
+async function sendGoogleChatMessage(webhookUrl, text) {
+  if (!webhookUrl) return;
+  try {
+    const url = new URL(webhookUrl);
+    const payload = JSON.stringify({ text });
+    if (typeof fetch === 'function') {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: payload
+      });
+      if (!res.ok) {
+        console.log(`  ⚠️ Error enviando a Google Chat: ${res.status} ${res.statusText}`);
+      }
+    } else {
+      await new Promise((resolve) => {
+        const req = https.request(
+          url,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8',
+              'Content-Length': Buffer.byteLength(payload)
+            }
+          },
+          (res) => {
+            if (res.statusCode && res.statusCode >= 400) {
+              console.log(`  ⚠️ Error enviando a Google Chat: ${res.statusCode}`);
+            }
+            res.resume();
+            res.on('end', resolve);
+          }
+        );
+        req.on('error', (err) => {
+          console.log(`  ⚠️ Error enviando a Google Chat: ${err.message}`);
+          resolve();
+        });
+        req.write(payload);
+        req.end();
+      });
+    }
+  } catch (error) {
+    console.log(`  ⚠️ Error enviando a Google Chat: ${error.message}`);
+  }
+}
 
 // Resultados globales
 const results = {
@@ -1393,6 +1441,8 @@ test.describe('Banner Price Monitor', () => {
     const matched = results.banners.filter(b => b.priceMatch === true).length;
     const mismatched = results.banners.filter(b => b.priceMatch === false).length;
     const errors = results.banners.filter(b => b.status === 'error').length;
+    const mismatchedBanners = results.banners.filter(b => b.priceMatch === false).map(b => b.index);
+    const errorBanners = results.banners.filter(b => b.status === 'error').map(b => b.index);
 
     console.log(`\n📊 RESUMEN:`);
     console.log(`   Total banners analizados: ${total}`);
@@ -1402,6 +1452,28 @@ test.describe('Banner Price Monitor', () => {
     console.log(`   ❌ Precios NO coinciden: ${mismatched}`);
     if (errors > 0) {
       console.log(`   ⚠️  Errores: ${errors}`);
+    }
+
+    const chatWebhook = process.env.GOOGLE_CHAT_WEBHOOK_URL || process.env.CHAT_WEBHOOK_URL;
+    if (chatWebhook) {
+      const resumen = [
+        `PCFactory Banner Monitor`,
+        `Total: ${total} | Con precio: ${withPrice} | Sin precio: ${noPrice}`,
+        `Coinciden: ${matched} | No coinciden: ${mismatched}${errors > 0 ? ` | Errores: ${errors}` : ''}`,
+        `Fecha: ${new Date().toISOString()}`
+      ].join('\n');
+      await sendGoogleChatMessage(chatWebhook, resumen);
+
+      if (mismatchedBanners.length > 0 || errorBanners.length > 0) {
+        const alertaPartes = ['🚨 ALERTA: fallos en banners'];
+        if (mismatchedBanners.length > 0) {
+          alertaPartes.push(`No coinciden: ${mismatchedBanners.join(', ')}`);
+        }
+        if (errorBanners.length > 0) {
+          alertaPartes.push(`Errores: ${errorBanners.join(', ')}`);
+        }
+        await sendGoogleChatMessage(chatWebhook, alertaPartes.join('\n'));
+      }
     }
   });
 });
