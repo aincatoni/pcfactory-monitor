@@ -1,9 +1,107 @@
 {
-  "timestamp": "2026-01-29T11:54:44.900Z",
+  "timestamp": "2026-01-29T14:12:11.494Z",
   "banners": [
     {
       "index": 1,
       "screenshot": "banner-1-source.png",
+      "bannerPrices": [
+        729990,
+        1129990
+      ],
+      "productPrices": [
+        39990,
+        729990,
+        1129990,
+        752590,
+        119990,
+        89990,
+        92790,
+        549990,
+        424990,
+        438190,
+        114990,
+        69990,
+        42090,
+        299990,
+        174990,
+        180390,
+        74990,
+        59990,
+        61890,
+        499990,
+        179990,
+        185590,
+        129990
+      ],
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=54174,40944,47523,55161,52956,33865,55062,55310",
+      "status": "match",
+      "priceMatch": true,
+      "matchedPrices": [
+        729990,
+        1129990
+      ],
+      "missingPrices": [],
+      "error": null,
+      "bannerPricesRaw": [
+        729990,
+        1129990
+      ],
+      "bannerPriceCounts": {
+        "729990": 1,
+        "1129990": 1
+      },
+      "bannerPricesIgnored": []
+    },
+    {
+      "index": 2,
+      "screenshot": "banner-2-source.png",
+      "bannerPrices": [
+        179990
+      ],
+      "productPrices": [
+        39990,
+        729990,
+        1129990,
+        752590,
+        119990,
+        89990,
+        92790,
+        549990,
+        424990,
+        438190,
+        114990,
+        69990,
+        42090,
+        299990,
+        174990,
+        180390,
+        74990,
+        59990,
+        61890,
+        499990,
+        179990,
+        185590,
+        129990
+      ],
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=54174,40944,47523,55161,52956,33865,55062,55310",
+      "status": "match",
+      "priceMatch": true,
+      "matchedPrices": [
+        179990
+      ],
+      "missingPrices": [],
+      "error": null,
+      "bannerPricesRaw": [
+        179990
+      ],
+      "bannerPriceCounts": {
+        "179990": 2
+      },
+      "bannerPricesIgnored": []
+    },
+    {
+      "index": 3,
+      "screenshot": "banner-3-source.png",
       "bannerPrices": [
         32990,
         13990,
@@ -28,9 +126,9 @@
         14390,
         21990,
         23190,
-        34690,
         27990,
         29490,
+        34690,
         28990,
         30490,
         59990,
@@ -63,8 +161,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 2,
-      "screenshot": "banner-2-source.png",
+      "index": 4,
+      "screenshot": "banner-4-source.png",
       "bannerPrices": [
         234990,
         199990,
@@ -131,8 +229,8 @@
       ]
     },
     {
-      "index": 3,
-      "screenshot": "banner-3-source.png",
+      "index": 5,
+      "screenshot": "banner-5-source.png",
       "bannerPrices": [
         749990,
         429990,
@@ -182,8 +280,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 4,
-      "screenshot": "banner-4-source.png",
+      "index": 6,
+      "screenshot": "banner-6-source.png",
       "bannerPrices": [
         679990,
         809990,
@@ -225,8 +323,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 5,
-      "screenshot": "banner-5-source.png",
+      "index": 7,
+      "screenshot": "banner-7-source.png",
       "bannerPrices": [
         75990,
         79990,
@@ -267,8 +365,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 6,
-      "screenshot": "banner-6-source.png",
+      "index": 8,
+      "screenshot": "banner-8-source.png",
       "bannerPrices": [
         149990,
         164990,
@@ -305,8 +403,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 7,
-      "screenshot": "banner-7-source.png",
+      "index": 9,
+      "screenshot": "banner-9-source.png",
       "bannerPrices": [
         89990,
         159990,
@@ -347,8 +445,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 8,
-      "screenshot": "banner-8-source.png",
+      "index": 10,
+      "screenshot": "banner-10-source.png",
       "bannerPrices": [
         144990,
         599990
@@ -386,8 +484,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 9,
-      "screenshot": "banner-9-source.png",
+      "index": 11,
+      "screenshot": "banner-11-source.png",
       "bannerPrices": [
         879990,
         159990,
@@ -428,8 +526,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 10,
-      "screenshot": "banner-10-source.png",
+      "index": 12,
+      "screenshot": "banner-12-source.png",
       "bannerPrices": [
         62990,
         12990
@@ -437,10 +535,10 @@
       "productPrices": [
         12990,
         62990,
-        94990,
-        64990,
         14990,
         13390,
+        94990,
+        64990,
         47990,
         31990,
         32990
@@ -468,8 +566,8 @@
       "bannerPricesIgnored": []
     },
     {
-      "index": 11,
-      "screenshot": "banner-11-source.png",
+      "index": 13,
+      "screenshot": "banner-13-source.png",
       "bannerPrices": [],
       "productPrices": [],
       "productUrl": null,
