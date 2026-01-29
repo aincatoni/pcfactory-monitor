@@ -1,18 +1,6 @@
 {
   "history": [
     {
-      "timestamp": "2026-01-28T15:55:37.034898+00:00",
-      "total_categories": 379,
-      "added": [
-        {
-          "id": 621,
-          "nombre": "Cámaras Reflex",
-          "timestamp": "2026-01-28T15:55:37.034898+00:00"
-        }
-      ],
-      "removed": []
-    },
-    {
       "timestamp": "2026-01-28T16:34:27.951245+00:00",
       "total_categories": 379,
       "added": [],
@@ -182,6 +170,12 @@
     },
     {
       "timestamp": "2026-01-29T12:53:13.555127+00:00",
+      "total_categories": 379,
+      "added": [],
+      "removed": []
+    },
+    {
+      "timestamp": "2026-01-29T13:59:44.391356+00:00",
       "total_categories": 379,
       "added": [],
       "removed": []
