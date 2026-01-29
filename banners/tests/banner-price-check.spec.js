@@ -115,14 +115,17 @@ function extractPricesFromOCR(text) {
     || textLower.includes('descto')
     || textLower.includes('descuento');
 
-  const referencePattern = /\b(ref|referencia|referencial|referenc)\b/i;
+  const referencePattern = /\b(ref|referenc|referen|referend|referencial|referendal|referencal|referencia)\b/i;
   const lines = text.split('\n');
   for (const line of lines) {
     const lower = line.toLowerCase();
     let lineForPrices = line;
     const referenceMatch = line.match(referencePattern);
-    if (referenceMatch && typeof referenceMatch.index === 'number') {
-      lineForPrices = line.slice(0, referenceMatch.index);
+    const referenceIndex = referenceMatch && typeof referenceMatch.index === 'number'
+      ? referenceMatch.index
+      : lower.indexOf('refer');
+    if (referenceIndex >= 0) {
+      lineForPrices = line.slice(0, referenceIndex);
     }
     const dotMatches = [...lineForPrices.matchAll(dotPattern)];
     const hasDotPriceEnding = dotMatches.some((match) => match[1].endsWith('990'));
@@ -324,11 +327,50 @@ async function analyzeBannerForPrices(page, bannerElement, ocrScreenshotPaths) {
     if (segmentBest.size >= 2) {
       const segmentPrices = Array.from(segmentBest.values());
       const uniqueSegmentPrices = Array.from(new Set(segmentPrices));
-      allPrices.length = 0;
-      seenPrices.clear();
-      for (const price of uniqueSegmentPrices) {
-        allPrices.push(price);
-        seenPrices.add(price);
+      if (segmentBest.size >= 3) {
+        allPrices.length = 0;
+        seenPrices.clear();
+        for (const price of uniqueSegmentPrices) {
+          allPrices.push(price);
+          seenPrices.add(price);
+        }
+      } else if (uniqueSegmentPrices.length >= allPrices.length) {
+        allPrices.length = 0;
+        seenPrices.clear();
+        for (const price of uniqueSegmentPrices) {
+          allPrices.push(price);
+          seenPrices.add(price);
+        }
+      } else {
+        for (const price of uniqueSegmentPrices) {
+          if (!seenPrices.has(price)) {
+            allPrices.push(price);
+            seenPrices.add(price);
+          }
+        }
+      }
+    }
+
+    if (allPrices.length > 3) {
+      const cleaned = [];
+      for (const price of allPrices) {
+        const count = priceCounts.get(price) || 0;
+        const hasCloseLower = allPrices.some((p) => {
+          const diff = price - p;
+          return p < price && p % 1000 === price % 1000 && diff >= 30000 && diff <= 80000;
+        });
+        if (count === 1 && hasCloseLower) {
+          continue;
+        }
+        cleaned.push(price);
+      }
+      if (cleaned.length >= 3) {
+        allPrices.length = 0;
+        seenPrices.clear();
+        for (const price of cleaned) {
+          allPrices.push(price);
+          seenPrices.add(price);
+        }
       }
     }
 
@@ -442,8 +484,51 @@ function filterBannerPricesForComparison(bannerPrices, priceCounts, productPrice
   const corrections = [];
   const TOLERANCE_PERCENT = 1;
   const hasLowPrice = bannerPrices.some((price) => price < 200000);
+  const candidateFinals = [];
 
   for (const price of bannerPrices) {
+    let finalPrice = price;
+    if (!isPriceInList(price, productPrices, TOLERANCE_PERCENT)
+      && hasLowPrice && price >= 500000 && price <= 699990 && price % 1000 === 990) {
+      const trimmedPrice = price - 500000;
+      if (trimmedPrice >= 10000 && isPriceInList(trimmedPrice, productPrices, TOLERANCE_PERCENT)) {
+        finalPrice = trimmedPrice;
+      }
+    }
+    candidateFinals.push({ original: price, final: finalPrice });
+  }
+
+  const referentialHighs = new Set();
+  if (candidateFinals.length > 3) {
+    for (let i = 0; i < candidateFinals.length; i++) {
+      for (let j = 0; j < candidateFinals.length; j++) {
+        if (i === j) continue;
+        const higher = candidateFinals[i].final;
+        const lower = candidateFinals[j].final;
+        const diff = higher - lower;
+        if (higher > lower && higher % 1000 === lower % 1000 && diff >= 30000 && diff <= 80000) {
+          const higherCount = priceCounts[String(candidateFinals[i].original)] || 0;
+          if (higherCount <= 1) {
+            referentialHighs.add(higher);
+          }
+        }
+      }
+    }
+  }
+
+  for (const price of bannerPrices) {
+    if (price < 50000) {
+      const sameTailHigher = bannerPrices.find((p) => (
+        p >= 100000 && p % 100000 === price % 100000
+      ));
+      if (sameTailHigher && isPriceInList(sameTailHigher, productPrices, TOLERANCE_PERCENT)) {
+        const lowMatches = isPriceInList(price, productPrices, TOLERANCE_PERCENT);
+        if (!lowMatches) {
+          ignored.push(price);
+          continue;
+        }
+      }
+    }
     const matchesProduct = isPriceInList(price, productPrices, TOLERANCE_PERCENT);
     let finalPrice = price;
     let finalMatches = matchesProduct;
@@ -455,6 +540,11 @@ function filterBannerPricesForComparison(bannerPrices, priceCounts, productPrice
         finalMatches = true;
         corrections.push({ from: price, to: trimmedPrice });
       }
+    }
+
+    if (referentialHighs.has(finalPrice)) {
+      ignored.push(price);
+      continue;
     }
 
     filtered.push(finalPrice);
