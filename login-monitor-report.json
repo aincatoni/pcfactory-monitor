@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/b560729273927764a569b43da1d9fce148a8cbc3",
-        "commitHash": "b560729273927764a569b43da1d9fce148a8cbc3",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21494285712"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
+        "commitHash": "6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21495118284"
       },
       "gitCommit": {
-        "shortHash": "b560729",
-        "hash": "b560729273927764a569b43da1d9fce148a8cbc3",
-        "subject": "feat(checkout): add Playwright configuration and API endpoint tests",
-        "body": "feat(checkout): add Playwright configuration and API endpoint tests\n\n- Created playwright.config.js for API testing configuration.\n- Implemented serve.js to serve the dashboard for monitoring.\n- Added checkout-endpoints.spec.js to monitor critical checkout API endpoints.\n- Introduced .gitignore for payments directory to exclude unnecessary files.\n- Developed explore-checkout-endpoints.js for exploring checkout API endpoints.\n- Updated package-lock.json with Playwright dependencies.\n",
+        "shortHash": "6ff4bbb",
+        "hash": "6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
+        "subject": "feat(checkout): add monitoring for checkout endpoints and enhance dashboard navigation",
+        "body": "feat(checkout): add monitoring for checkout endpoints and enhance dashboard navigation\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769719405000
+          "time": 1769721584000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769719405000
+          "time": 1769721584000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/b560729273927764a569b43da1d9fce148a8cbc3",
-            "commitHash": "b560729273927764a569b43da1d9fce148a8cbc3",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21494285712"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
+            "commitHash": "6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21495118284"
           },
           "gitCommit": {
-            "shortHash": "b560729",
-            "hash": "b560729273927764a569b43da1d9fce148a8cbc3",
-            "subject": "feat(checkout): add Playwright configuration and API endpoint tests",
-            "body": "feat(checkout): add Playwright configuration and API endpoint tests\n\n- Created playwright.config.js for API testing configuration.\n- Implemented serve.js to serve the dashboard for monitoring.\n- Added checkout-endpoints.spec.js to monitor critical checkout API endpoints.\n- Introduced .gitignore for payments directory to exclude unnecessary files.\n- Developed explore-checkout-endpoints.js for exploring checkout API endpoints.\n- Updated package-lock.json with Playwright dependencies.\n",
+            "shortHash": "6ff4bbb",
+            "hash": "6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
+            "subject": "feat(checkout): add monitoring for checkout endpoints and enhance dashboard navigation",
+            "body": "feat(checkout): add monitoring for checkout endpoints and enhance dashboard navigation\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769719405000
+              "time": 1769721584000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769719405000
+              "time": 1769721584000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2137,
+                      "duration": 2117,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T20:52:37.160Z",
+                      "startTime": "2026-01-29T21:21:07.378Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3736,
+                      "duration": 3963,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T20:52:40.959Z",
+                      "startTime": "2026-01-29T21:21:10.629Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4888,
+                      "duration": 5570,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T20:52:44.705Z",
+                      "startTime": "2026-01-29T21:21:14.603Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4811,
+                      "duration": 5397,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T20:52:49.606Z",
+                      "startTime": "2026-01-29T21:21:20.186Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 10967,
+                      "duration": 11293,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T20:52:54.432Z",
+                      "startTime": "2026-01-29T21:21:25.592Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4532,
+                      "duration": 5008,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T20:53:05.411Z",
+                      "startTime": "2026-01-29T21:21:36.896Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-29T20:52:36.134Z",
-    "duration": 33890.67,
+    "startTime": "2026-01-29T21:21:06.363Z",
+    "duration": 35610.418000000005,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

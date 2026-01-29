@@ -1,0 +1,335 @@
+{
+  "timestamp": "2026-01-29T21:20:57.405Z",
+  "endpoints": [
+    {
+      "priority": "P0",
+      "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/status",
+      "name": "Verificar Estado del Carrito",
+      "status": "PASSED",
+      "responseTime": 306,
+      "statusCode": 200,
+      "error": null,
+      "expectedTimeout": 2000,
+      "validations": [
+        {
+          "name": "Status code 200",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "Tiene campo status.activo",
+          "passed": true
+        },
+        {
+          "name": "Tiene items array",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 2000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P0",
+      "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/entrega/opciones",
+      "name": "Opciones de Entrega",
+      "status": "PASSED",
+      "responseTime": 101,
+      "statusCode": 200,
+      "error": null,
+      "expectedTimeout": 2000,
+      "validations": [
+        {
+          "name": "Status code 200",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "Tiene opciones de entrega",
+          "passed": true
+        },
+        {
+          "name": "Tiene sucursales disponibles",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 2000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P0",
+      "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/pago/opciones",
+      "name": "Medios de Pago",
+      "status": "PASSED",
+      "responseTime": 79,
+      "statusCode": 200,
+      "error": null,
+      "expectedTimeout": 3000,
+      "validations": [
+        {
+          "name": "Status code 200",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "Tiene medios de pago",
+          "passed": true
+        },
+        {
+          "name": "Tiene medios de pago críticos (ETP/WP/BCA)",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 3000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P1",
+      "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/entrega/retiro",
+      "name": "Configurar Retiro en Tienda",
+      "status": "PASSED",
+      "responseTime": 91,
+      "statusCode": 200,
+      "error": null,
+      "expectedTimeout": 3000,
+      "validations": [
+        {
+          "name": "Status code 200",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "Tiene status.activo",
+          "passed": true
+        },
+        {
+          "name": "Tiene información de sucursal",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 3000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P1",
+      "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/entrega/despacho",
+      "name": "Fechas de Despacho",
+      "status": "PASSED",
+      "responseTime": 75,
+      "statusCode": 500,
+      "error": null,
+      "expectedTimeout": 3000,
+      "validations": [
+        {
+          "name": "Status code válido (200, 400 o 500)",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 3000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P1",
+      "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/entrega/diferido",
+      "name": "Despacho Diferido",
+      "status": "PASSED",
+      "responseTime": 104,
+      "statusCode": 200,
+      "error": null,
+      "expectedTimeout": 2000,
+      "validations": [
+        {
+          "name": "Status code 200",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "Sin errores (error: false)",
+          "passed": true
+        },
+        {
+          "name": "Tiene resultado array",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 2000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P1",
+      "endpoint": "GET /pcfactory-services-perfil-privado/v1/perfil/rut/{rut}",
+      "name": "Validar RUT",
+      "status": "PASSED",
+      "responseTime": 105,
+      "statusCode": 200,
+      "error": null,
+      "expectedTimeout": 2000,
+      "validations": [
+        {
+          "name": "Status code 200",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "RUT válido",
+          "passed": true
+        },
+        {
+          "name": "Tiene mensaje",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 2000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P1",
+      "endpoint": "GET /api-delivery-method/v2/delivery/ship/{tienda}/{ciudad}/{comuna}/web",
+      "name": "Disponibilidad Despacho V2",
+      "status": "PASSED",
+      "responseTime": 115,
+      "statusCode": 200,
+      "error": null,
+      "expectedTimeout": 2000,
+      "validations": [
+        {
+          "name": "Status code 200",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "Tiene campo codigo",
+          "passed": true
+        },
+        {
+          "name": "Tiene tarifas disponibles",
+          "passed": true
+        },
+        {
+          "name": "Tarifa tiene días de entrega",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 2000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P2",
+      "endpoint": "GET /api/customers/realms/principal/me",
+      "name": "Datos de Sesión (sin auth)",
+      "status": "PASSED",
+      "responseTime": 149,
+      "statusCode": 401,
+      "error": null,
+      "expectedTimeout": 2000,
+      "validations": [
+        {
+          "name": "Status code 401 (sin auth)",
+          "passed": true
+        },
+        {
+          "name": "Response es JSON",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 2000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P2",
+      "endpoint": "GET /pcfactory-services-perfil-privado/v1/perfil/datos",
+      "name": "Perfil Privado (sin auth)",
+      "status": "PASSED",
+      "responseTime": 72,
+      "statusCode": 400,
+      "error": null,
+      "expectedTimeout": 2000,
+      "validations": [
+        {
+          "name": "Status code indica falta de auth",
+          "passed": true
+        },
+        {
+          "name": "Endpoint responde",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 2000ms",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "priority": "P2",
+      "endpoint": "GET /pcfactory-services-perfil-privado/v1/perfil/direcciones",
+      "name": "Direcciones del Usuario (sin auth)",
+      "status": "PASSED",
+      "responseTime": 72,
+      "statusCode": 400,
+      "error": null,
+      "expectedTimeout": 2000,
+      "validations": [
+        {
+          "name": "Status code indica falta de auth",
+          "passed": true
+        },
+        {
+          "name": "Endpoint responde",
+          "passed": true
+        },
+        {
+          "name": "Tiempo < 2000ms",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 11,
+    "passed": 11,
+    "failed": 0,
+    "avgResponseTime": 115
+  }
+}
