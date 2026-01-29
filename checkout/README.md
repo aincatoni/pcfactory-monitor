@@ -28,11 +28,12 @@ A diferencia del monitor de medios de pago (E2E), este monitor **no navega por l
 5. **POST /carro/entrega/despacho** - Obtener fechas de despacho
 6. **POST /carro/entrega/diferido** - Consultar despacho diferido
 7. **GET /perfil/rut/{rut}** - Validar RUT
+8. **GET /delivery/ship** - Verificar disponibilidad de despacho (API V2)
 
 ### 🟢 Prioridad 2 - Secundarios (usuario con auth)
-8. **GET /me** - Obtener datos de sesión
-9. **GET /perfil/datos** - Obtener datos del perfil
-10. **GET /perfil/direcciones** - Obtener direcciones del usuario
+9. **GET /me** - Obtener datos de sesión
+10. **GET /perfil/datos** - Obtener datos del perfil
+11. **GET /perfil/direcciones** - Obtener direcciones del usuario
 
 **Nota:** Los endpoints P2 requieren autenticación. Si se configuran las credenciales en GitHub Secrets (`PCFACTORY_RUT` y `PCFACTORY_PASSWORD`), el monitor hará login automáticamente y probará estos endpoints con datos reales. Si no hay credenciales, solo verificará que rechacen correctamente las peticiones sin auth.
 

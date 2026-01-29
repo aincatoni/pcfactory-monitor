@@ -7,7 +7,7 @@ Se ha creado un **monitor de endpoints de API** para el checkout de PCFactory co
 ```
 checkout/
 ├── tests/
-│   └── checkout-endpoints.spec.js    # Test que verifica los 10 endpoints
+│   └── checkout-endpoints.spec.js    # Test que verifica los 11 endpoints
 ├── dashboard.html                      # Dashboard visual con estado de endpoints
 ├── package.json                        # Dependencias del proyecto
 ├── playwright.config.js                # Configuración de Playwright
@@ -15,7 +15,7 @@ checkout/
 └── .gitignore                          # Archivos a ignorar en git
 ```
 
-## 🎯 Endpoints Monitoreados (10 total)
+## 🎯 Endpoints Monitoreados (11 total)
 
 ### 🔴 P0 - Críticos (3 endpoints)
 Estos endpoints bloquean el checkout completamente si fallan:
@@ -24,20 +24,21 @@ Estos endpoints bloquean el checkout completamente si fallan:
 2. **POST /carro/entrega/opciones** - Obtener opciones de entrega
 3. **POST /carro/pago/opciones** - Obtener medios de pago disponibles
 
-### 🟡 P1 - Importantes (4 endpoints)
+### 🟡 P1 - Importantes (5 endpoints)
 Estos endpoints afectan UX pero no bloquean el checkout:
 
 4. **POST /carro/entrega/retiro** - Configurar retiro en tienda
 5. **POST /carro/entrega/despacho** - Obtener fechas de despacho
 6. **POST /carro/entrega/diferido** - Consultar despacho diferido
 7. **GET /perfil/rut/{rut}** - Validar RUT del usuario
+8. **GET /delivery/ship** - Verificar disponibilidad de despacho (API V2)
 
 ### 🟢 P2 - Secundarios (3 endpoints)
 Endpoints de usuario con autenticación:
 
-8. **GET /api/customers/realms/principal/me** - Datos de sesión
-9. **GET /perfil/datos** - Datos del perfil privado
-10. **GET /perfil/direcciones** - Direcciones del usuario
+9. **GET /api/customers/realms/principal/me** - Datos de sesión
+10. **GET /perfil/datos** - Datos del perfil privado
+11. **GET /perfil/direcciones** - Direcciones del usuario
 
 **✨ Nuevas mejoras:**
 - Si hay credenciales configuradas (`PCFACTORY_RUT` y `PCFACTORY_PASSWORD`), el monitor hace login automáticamente y prueba estos endpoints con datos reales

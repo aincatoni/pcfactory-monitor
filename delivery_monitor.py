@@ -1114,6 +1114,7 @@ def generate_html_dashboard(report: Dict) -> str:
         <div class="nav-links">
             <a href="index.html" class="nav-link">📦 Categorías</a>
             <a href="delivery.html" class="nav-link active">🚚 Despacho Nacional</a>
+            <a href="checkout.html" class="nav-link">🛒 Checkout</a>
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
             <a href="banners.html" class="nav-link">🎨 Banners</a>

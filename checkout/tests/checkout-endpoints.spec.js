@@ -36,7 +36,11 @@ const CONFIG = {
     rut: '16915848', // RUT válido para pruebas
     sucursal: 9, // Mall Plaza Oeste
     idEmpresa: 1,
-    codigoRestriccion: 1
+    codigoRestriccion: 1,
+    // Para endpoint de delivery V2
+    tiendaId: 11, // Tienda por defecto
+    ciudadId: 1, // Santiago
+    comunaId: 296 // Santiago Centro
   },
 
   // Timeouts
@@ -566,6 +570,76 @@ test.describe('PCFactory Checkout Endpoints Monitor', () => {
         result.error = error.message;
         result.responseTime = Date.now() - startTime;
         console.log(`  ❌ GET /perfil/rut/{rut}: ${error.message}`);
+        throw error;
+      } finally {
+        recordEndpointResult(result);
+      }
+    });
+
+    test('Endpoint: GET /delivery/ship - Verificar disponibilidad de despacho (V2)', async ({ request }) => {
+      const result = {
+        priority: 'P1',
+        endpoint: 'GET /api-delivery-method/v2/delivery/ship/{tienda}/{ciudad}/{comuna}/web',
+        name: 'Disponibilidad Despacho V2',
+        status: 'UNKNOWN',
+        responseTime: 0,
+        statusCode: 0,
+        error: null,
+        expectedTimeout: CONFIG.timeouts.normal,
+        validations: []
+      };
+
+      const startTime = Date.now();
+
+      try {
+        // Construir URL con query params
+        const url = `https://api.pcfactory.cl/api-delivery-method/v2/delivery/ship/${CONFIG.testData.tiendaId}/${CONFIG.testData.ciudadId}/${CONFIG.testData.comunaId}/web?cantidad=${CONFIG.testProduct.cantidad}&id_producto=${CONFIG.testProduct.id}&total=100000`;
+
+        const response = await request.get(url, {
+          timeout: CONFIG.timeouts.normal
+        });
+
+        result.responseTime = Date.now() - startTime;
+        result.statusCode = response.status();
+
+        expect(response.status()).toBe(200);
+        result.validations.push({ name: 'Status code 200', passed: true });
+
+        const data = await response.json();
+        result.validations.push({ name: 'Response es JSON', passed: true });
+
+        // Validar estructura de respuesta
+        expect(data).toHaveProperty('codigo');
+        result.validations.push({ name: 'Tiene campo codigo', passed: true });
+
+        // Si el código es 0, significa que hay despacho disponible
+        if (data.codigo === 0 || data.codigo === '0') {
+          expect(data).toHaveProperty('resultado');
+          expect(data.resultado).toHaveProperty('tarifas');
+          expect(Array.isArray(data.resultado.tarifas)).toBe(true);
+          result.validations.push({ name: 'Tiene tarifas disponibles', passed: true });
+
+          if (data.resultado.tarifas.length > 0) {
+            const tarifa = data.resultado.tarifas[0];
+            expect(tarifa).toHaveProperty('dias_entrega');
+            result.validations.push({ name: 'Tarifa tiene días de entrega', passed: true });
+          }
+        } else {
+          // Si no hay despacho disponible, solo verificamos que responda correctamente
+          result.validations.push({ name: 'Endpoint responde correctamente (sin despacho disponible)', passed: true });
+        }
+
+        expect(result.responseTime).toBeLessThan(CONFIG.timeouts.normal);
+        result.validations.push({ name: `Tiempo < ${CONFIG.timeouts.normal}ms`, passed: true });
+
+        result.status = 'PASSED';
+        console.log(`  ✅ GET /delivery/ship: ${result.responseTime}ms (codigo: ${data.codigo})`);
+
+      } catch (error) {
+        result.status = 'FAILED';
+        result.error = error.message;
+        result.responseTime = Date.now() - startTime;
+        console.log(`  ❌ GET /delivery/ship: ${error.message}`);
         throw error;
       } finally {
         recordEndpointResult(result);

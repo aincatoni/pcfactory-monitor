@@ -316,9 +316,45 @@ jobs:
             banners/test-results/
           retention-days: 7
 
+  monitor-checkout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        working-directory: checkout
+        run: npm install
+      - name: Install Playwright browsers
+        working-directory: checkout
+        run: npx playwright install chromium --with-deps
+      - name: Run checkout endpoint tests
+        working-directory: checkout
+        run: npm test
+        continue-on-error: true
+        env:
+          PCFACTORY_RUT: ${{ secrets.PCFACTORY_RUT }}
+          PCFACTORY_PASSWORD: ${{ secrets.PCFACTORY_PASSWORD }}
+      - name: Copy dashboard to output
+        run: |
+          mkdir -p ./output
+          cp ./checkout/dashboard.html ./output/checkout.html
+          cp ./checkout/test-results/checkout-endpoints-report.json ./output/ 2>/dev/null || echo "No report JSON found"
+      - name: Upload checkout results
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkout-results
+          path: |
+            output/
+            checkout/test-results/
+          retention-days: 7
+
   deploy:
     runs-on: ubuntu-latest
-    needs: [monitor-categories, monitor-delivery, monitor-payments, monitor-login, monitor-banners]
+    needs: [monitor-categories, monitor-delivery, monitor-payments, monitor-login, monitor-banners, monitor-checkout]
     if: |
       always() &&
       (
@@ -326,7 +362,8 @@ jobs:
         needs.monitor-delivery.result == 'success' ||
         needs.monitor-payments.result == 'success' ||
         needs.monitor-login.result == 'success' ||
-        needs.monitor-banners.result == 'success'
+        needs.monitor-banners.result == 'success' ||
+        needs.monitor-checkout.result == 'success'
       )
     steps:
       - uses: actions/checkout@v4
@@ -376,6 +413,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: banner-results
+          path: ./new-results/
+        continue-on-error: true
+
+      - name: Download checkout results if available
+        uses: actions/download-artifact@v4
+        with:
+          name: checkout-results
           path: ./new-results/
         continue-on-error: true
 
@@ -430,7 +474,11 @@ jobs:
           if [ ! -f "banners.html" ]; then
             echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Banner Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🎨 Monitor de Banners</h1><p>El monitor de banners se ejecuta 3 veces al dia (9am, 2pm, 8pm Chile).</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > banners.html
           fi
-          
+
+          if [ ! -f "checkout.html" ]; then
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Checkout Endpoints Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🛒 Endpoints de Checkout</h1><p>El monitor de endpoints de checkout se ejecuta cada 10 minutos.</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > checkout.html
+          fi
+
           rm -rf ./new-results
           echo "Final files:"
           ls -la *.html *.csv *.txt *.json 2>/dev/null || echo "No files"
