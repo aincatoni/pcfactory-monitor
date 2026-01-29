@@ -294,7 +294,7 @@
     <script>
         async function loadReport() {
             try {
-                const response = await fetch('./test-results/checkout-endpoints-report.json');
+                const response = await fetch('./checkout-endpoints-report.json');
                 const data = await response.json();
                 renderDashboard(data);
             } catch (error) {
