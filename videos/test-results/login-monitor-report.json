@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
-        "commitHash": "6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21495118284"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a487e4cb5f1a54d97edf0fa4810f7d8c0a832603",
+        "commitHash": "a487e4cb5f1a54d97edf0fa4810f7d8c0a832603",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21497665800"
       },
       "gitCommit": {
-        "shortHash": "6ff4bbb",
-        "hash": "6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
-        "subject": "feat(checkout): add monitoring for checkout endpoints and enhance dashboard navigation",
-        "body": "feat(checkout): add monitoring for checkout endpoints and enhance dashboard navigation\n",
+        "shortHash": "a487e4c",
+        "hash": "a487e4cb5f1a54d97edf0fa4810f7d8c0a832603",
+        "subject": "fix: update fetch path for checkout endpoints report in dashboard",
+        "body": "fix: update fetch path for checkout endpoints report in dashboard\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769721584000
+          "time": 1769722992000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769721584000
+          "time": 1769722992000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
-            "commitHash": "6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21495118284"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/a487e4cb5f1a54d97edf0fa4810f7d8c0a832603",
+            "commitHash": "a487e4cb5f1a54d97edf0fa4810f7d8c0a832603",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21497665800"
           },
           "gitCommit": {
-            "shortHash": "6ff4bbb",
-            "hash": "6ff4bbb6aec18cf2e9e0d16e94e8e3ccb8540574",
-            "subject": "feat(checkout): add monitoring for checkout endpoints and enhance dashboard navigation",
-            "body": "feat(checkout): add monitoring for checkout endpoints and enhance dashboard navigation\n",
+            "shortHash": "a487e4c",
+            "hash": "a487e4cb5f1a54d97edf0fa4810f7d8c0a832603",
+            "subject": "fix: update fetch path for checkout endpoints report in dashboard",
+            "body": "fix: update fetch path for checkout endpoints report in dashboard\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769721584000
+              "time": 1769722992000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769721584000
+              "time": 1769722992000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2117,
+                      "duration": 2191,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T21:21:07.378Z",
+                      "startTime": "2026-01-29T22:55:15.928Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3963,
+                      "duration": 3809,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T21:21:10.629Z",
+                      "startTime": "2026-01-29T22:55:20.108Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5570,
+                      "duration": 4260,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T21:21:14.603Z",
+                      "startTime": "2026-01-29T22:55:23.930Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5397,
+                      "duration": 4480,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T21:21:20.186Z",
+                      "startTime": "2026-01-29T22:55:28.206Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11293,
+                      "duration": 10381,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T21:21:25.592Z",
+                      "startTime": "2026-01-29T22:55:32.700Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5008,
+                      "duration": 4322,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-29T21:21:36.896Z",
+                      "startTime": "2026-01-29T22:55:43.092Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-29T21:21:06.363Z",
-    "duration": 35610.418000000005,
+    "startTime": "2026-01-29T22:55:14.837Z",
+    "duration": 32667.341,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
