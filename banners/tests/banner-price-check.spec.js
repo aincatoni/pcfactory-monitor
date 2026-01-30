@@ -99,6 +99,12 @@ const results = {
   banners: []
 };
 
+function isPageClosedError(error) {
+  const message = error && error.message ? error.message : '';
+  return message.includes('Target page, context or browser has been closed')
+    || message.includes('has been closed');
+}
+
 /**
  * Extrae TODOS los precios de un texto (elimina puntos de miles)
  * @returns {number[]} Array de precios encontrados
@@ -720,6 +726,7 @@ async function goToCarouselIndex(page, sliderRootSelector, index) {
 }
 
 async function getActiveBanner(page, sliderRootSelector, sliderItemSelector) {
+  if (page.isClosed()) return null;
   const candidateSelectors = [];
   if (sliderRootSelector) {
     candidateSelectors.push(
@@ -737,13 +744,22 @@ async function getActiveBanner(page, sliderRootSelector, sliderItemSelector) {
   }
 
   for (const selector of candidateSelectors) {
-    const locator = page.locator(selector).first();
-    if (await locator.count()) {
-      return locator;
+    try {
+      const locator = page.locator(selector).first();
+      if (await locator.count()) {
+        return locator;
+      }
+    } catch (error) {
+      if (isPageClosedError(error)) return null;
     }
   }
 
-  return page.locator(sliderItemSelector).first();
+  try {
+    return page.locator(sliderItemSelector).first();
+  } catch (error) {
+    if (isPageClosedError(error)) return null;
+    return null;
+  }
 }
 
 async function getBannerGtagIndex(bannerElement) {
@@ -758,6 +774,7 @@ async function getBannerGtagIndex(bannerElement) {
     }
     return gtagIndex;
   } catch (error) {
+    if (isPageClosedError(error)) return null;
     return null;
   }
 }
@@ -804,6 +821,7 @@ async function getCarouselIndicatorIndexes(page, sliderRootSelector) {
 }
 
 async function clickNextBanner(page, sliderRootSelector) {
+  if (page.isClosed()) return false;
   const selectors = [];
   if (sliderRootSelector) {
     selectors.push(
@@ -815,10 +833,14 @@ async function clickNextBanner(page, sliderRootSelector) {
   selectors.push(...CONFIG.nextButtonSelectors);
 
   for (const selector of selectors) {
-    const button = page.locator(selector).first();
-    if (await button.count()) {
-      await button.click();
-      return true;
+    try {
+      const button = page.locator(selector).first();
+      if (await button.count()) {
+        await button.click();
+        return true;
+      }
+    } catch (error) {
+      if (isPageClosedError(error)) return false;
     }
   }
   return false;
@@ -1070,6 +1092,13 @@ test.describe('Banner Price Monitor', () => {
 
         // Obtener el banner activo actual
         let activeBanner = await getActiveBanner(page, sliderRootSelector, sliderItemSelector);
+        if (!activeBanner) {
+          console.log(`  ⚠️ No se pudo obtener banner activo (la página puede haberse cerrado). Terminando análisis.`);
+          bannerResult.status = 'error';
+          bannerResult.error = 'Página cerrada o banner activo no disponible';
+          results.banners.push(bannerResult);
+          break;
+        }
         const bannerDataElement = useIndicators && targetIndicatorIndex !== null
           ? page.locator(sliderItemSelector).nth(targetIndicatorIndex)
           : activeBanner;
