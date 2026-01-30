@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-30T12:20:09.947Z",
+  "timestamp": "2026-01-30T12:58:08.667Z",
   "banners": [
     {
       "index": 1,
@@ -193,9 +193,7 @@
         59990,
         37990,
         39990,
-        79990,
-        44990,
-        46390
+        44990
       ],
       "productUrl": "https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad?size=12",
       "status": "match",
@@ -420,7 +418,7 @@
       "bannerPrices": [
         32990,
         31990,
-        432990
+        32990
       ],
       "productPrices": [
         31990,
@@ -432,15 +430,14 @@
         105290
       ],
       "productUrl": "https://www.pcfactory.cl/busqueda?productos=54770,53155,53008",
-      "status": "mismatch",
-      "priceMatch": false,
+      "status": "match",
+      "priceMatch": true,
       "matchedPrices": [
         32990,
-        31990
+        31990,
+        32990
       ],
-      "missingPrices": [
-        432990
-      ],
+      "missingPrices": [],
       "error": null,
       "bannerPricesRaw": [
         32990,
@@ -458,13 +455,16 @@
       },
       "bannerPricesIgnored": [
         599990,
-        99990,
-        432990
+        99990
       ],
       "bannerPricesCorrected": [
         {
           "from": 599990,
           "to": 99990
+        },
+        {
+          "from": 432990,
+          "to": 32990
         }
       ]
     },
