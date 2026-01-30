@@ -1118,6 +1118,7 @@ def generate_html_dashboard(report: Dict) -> str:
             <a href="payments.html" class="nav-link">💳 Medios de Pago</a>
             <a href="login.html" class="nav-link">🔐 Login</a>
             <a href="banners.html" class="nav-link">🎨 Banners</a>
+            <a href="pagespeed.html" class="nav-link">⚡ PageSpeed</a>
         </div>
         
         <div class="product-panel">

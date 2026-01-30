@@ -46,6 +46,14 @@ on:
         options:
           - 'true'
           - 'false'
+      run_pagespeed:
+        description: 'Ejecutar monitor de PageSpeed'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 permissions:
   contents: write
@@ -365,9 +373,69 @@ jobs:
             checkout/test-results/
           retention-days: 7
 
+  check-pagespeed-schedule:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.run_only_banners != 'true'
+    outputs:
+      should_run: ${{ steps.check.outputs.should_run }}
+    steps:
+      - name: Check if should run pagespeed
+        id: check
+        run: |
+          HOUR=$(date -u +%H)
+          echo "Current UTC time: $HOUR"
+
+          if [[ "${{ github.event.inputs.run_pagespeed }}" == "true" ]]; then
+            echo "Manual trigger - running pagespeed"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          # Ejecutar una vez al día a las 15:00 UTC (12pm Chile)
+          elif [[ "$HOUR" == "15" ]]; then
+            echo "Daily scheduled time - running pagespeed"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          else
+            echo "Not scheduled time for pagespeed"
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          fi
+
+  monitor-pagespeed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: check-pagespeed-schedule
+    if: needs.check-pagespeed-schedule.outputs.should_run == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Download previous pagespeed history
+        run: |
+          mkdir -p ./output
+          curl -f -o ./output/pagespeed_history.json https://aincatoni.github.io/pcfactory-monitor/pagespeed_history.json || echo "No previous pagespeed history found"
+        continue-on-error: true
+      - name: Run PageSpeed monitor
+        run: |
+          python pagespeed_monitor.py --output-dir ./output
+        continue-on-error: true
+      - name: Generate pagespeed dashboard
+        run: |
+          python pagespeed_dashboard.py \
+            --results ./output/pagespeed_report.json \
+            --output-dir ./output
+        continue-on-error: true
+      - name: Upload pagespeed results
+        uses: actions/upload-artifact@v4
+        with:
+          name: pagespeed-results
+          path: output/
+          retention-days: 7
+
   deploy:
     runs-on: ubuntu-latest
-    needs: [monitor-categories, monitor-delivery, monitor-payments, monitor-login, monitor-banners, monitor-checkout]
+    needs: [monitor-categories, monitor-delivery, monitor-payments, monitor-login, monitor-banners, monitor-checkout, monitor-pagespeed]
     if: |
       always() &&
       (
@@ -376,7 +444,8 @@ jobs:
         needs.monitor-payments.result == 'success' ||
         needs.monitor-login.result == 'success' ||
         needs.monitor-banners.result == 'success' ||
-        needs.monitor-checkout.result == 'success'
+        needs.monitor-checkout.result == 'success' ||
+        needs.monitor-pagespeed.result == 'success'
       )
     steps:
       - uses: actions/checkout@v4
@@ -436,6 +505,13 @@ jobs:
           path: ./new-results/
         continue-on-error: true
 
+      - name: Download pagespeed results if available
+        uses: actions/download-artifact@v4
+        with:
+          name: pagespeed-results
+          path: ./new-results/
+        continue-on-error: true
+
       - name: Merge results
         run: |
           if [ -d "./new-results" ]; then
@@ -490,6 +566,10 @@ jobs:
 
           if [ ! -f "checkout.html" ]; then
             echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Checkout Endpoints Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>🛒 Endpoints de Checkout</h1><p>El monitor de endpoints de checkout se ejecuta cada 10 minutos.</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > checkout.html
+          fi
+
+          if [ ! -f "pagespeed.html" ]; then
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>PageSpeed Monitor</title><style>body{font-family:sans-serif;background:#1a1a2e;color:#fff;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;}</style></head><body><div style="text-align:center"><h1>⚡ PageSpeed - Core Web Vitals</h1><p>El monitor de PageSpeed se ejecuta una vez al día (12pm Chile).</p><a href="index.html" style="color:#9f7aea">← Volver</a></div></body></html>' > pagespeed.html
           fi
 
           rm -rf ./new-results
