@@ -66,9 +66,24 @@ def generate_html_dashboard(report: dict, output_dir: Path):
 
     timestamp_display = format_chile_timestamp(current.get("timestamp", ""))
 
-    # Datos actuales
-    mobile = current.get("mobile", {})
-    desktop = current.get("desktop", {})
+    # Datos actuales (manejar None si la API falló)
+    mobile = current.get("mobile") or {}
+    desktop = current.get("desktop") or {}
+
+    # Verificar si hay datos válidos
+    has_data = bool(mobile) or bool(desktop)
+    data_warning = ""
+    if not has_data:
+        data_warning = '''
+        <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid var(--accent-yellow); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+            <h3 style="color: var(--accent-yellow); margin-bottom: 0.5rem;">⚠️ Sin datos disponibles</h3>
+            <p style="color: var(--text-secondary); margin: 0;">
+                No se pudieron obtener datos de la API de PageSpeed Insights.
+                Esto puede deberse a límites de rate, problemas de red, o que aún no se ha ejecutado el monitor.
+                El próximo análisis se ejecutará automáticamente a las 12pm Chile.
+            </p>
+        </div>
+        '''
 
     # Preparar datos para gráficos (últimos 30 días)
     history_data = history[-30:] if len(history) > 30 else history
@@ -299,6 +314,8 @@ def generate_html_dashboard(report: dict, output_dir: Path):
             <a href="banners.html" class="nav-link">🎨 Banners</a>
             <a href="pagespeed.html" class="nav-link active">⚡ PageSpeed</a>
         </div>
+
+        {data_warning}
 
         <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">📱 Mobile</h3>
         <div class="stats-grid">

@@ -54,3 +54,7 @@ categories_history_test.html
 # Environment variables
 .env
 .env.local
+
+# Output directory (generated files)
+output/
+!output/.gitkeep
