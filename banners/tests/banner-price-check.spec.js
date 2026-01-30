@@ -458,21 +458,60 @@ async function extractProductPrices(page) {
       '[class*="precio"]',
       '[class*="price"]',
     ];
-    let combinedText = '';
+    const buildCombinedText = async () => {
+      let combinedText = '';
+      for (const selector of priceLocators) {
+        const count = await page.locator(selector).count();
+        if (count > 0) {
+          const texts = await page.locator(selector).allInnerTexts();
+          combinedText += `\n${texts.join('\n')}`;
+        }
+      }
+      if (!combinedText.trim()) {
+        combinedText = await page.locator('body').innerText();
+      }
+      return combinedText;
+    };
 
-    for (const selector of priceLocators) {
-      const count = await page.locator(selector).count();
-      if (count > 0) {
-        const texts = await page.locator(selector).allInnerTexts();
-        combinedText += `\n${texts.join('\n')}`;
+    const waitForPricesHint = async () => {
+      try {
+        await page.waitForFunction(
+          () => {
+            const text = document.body ? document.body.innerText : '';
+            return /\$|\bpesos\b|precio/i.test(text);
+          },
+          { timeout: 3500 }
+        );
+      } catch (e) {
+        // ignore timeouts
+      }
+    };
+
+    try {
+      await page.waitForLoadState('networkidle', { timeout: 2500 });
+    } catch (e) {
+      // ignore timeouts on pages with long polling
+    }
+
+    await waitForPricesHint();
+
+    let allPrices = [];
+    const attempts = [0, 900, 1500];
+    for (let i = 0; i < attempts.length; i++) {
+      if (attempts[i] > 0) {
+        await page.waitForTimeout(attempts[i]);
+      }
+      const combinedText = await buildCombinedText();
+      allPrices = extractAllPrices(combinedText);
+      if (allPrices.length > 0) {
+        break;
+      }
+      if (i === 0) {
+        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+        await page.waitForTimeout(400);
+        await page.evaluate(() => window.scrollTo(0, 0));
       }
     }
-
-    if (!combinedText.trim()) {
-      combinedText = await page.locator('body').innerText();
-    }
-
-    const allPrices = extractAllPrices(combinedText);
 
     if (allPrices.length > 0) {
       console.log(`  💰 Precios encontrados en página de productos: ${allPrices.length} [${allPrices.map(p => '$' + p.toLocaleString('es-CL')).join(', ')}]`);
