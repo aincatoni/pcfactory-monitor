@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/76e774bc59c221c8adff5db5944d4c3ccabb2eb0",
-        "commitHash": "76e774bc59c221c8adff5db5944d4c3ccabb2eb0",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21516599063"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/c4b5b1606ff223e926d76e64526a6bbcb1a00429",
+        "commitHash": "c4b5b1606ff223e926d76e64526a6bbcb1a00429",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21522021125"
       },
       "gitCommit": {
-        "shortHash": "76e774b",
-        "hash": "76e774bc59c221c8adff5db5944d4c3ccabb2eb0",
-        "subject": "feat: update README and enhance checkout dashboard with logo and styling improvements",
-        "body": "feat: update README and enhance checkout dashboard with logo and styling improvements\n",
+        "shortHash": "c4b5b16",
+        "hash": "c4b5b1606ff223e926d76e64526a6bbcb1a00429",
+        "subject": "fix: update logo image size in banners and dashboard for consistency",
+        "body": "fix: update logo image size in banners and dashboard for consistency\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769777779000
+          "time": 1769783060000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769777779000
+          "time": 1769783060000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/76e774bc59c221c8adff5db5944d4c3ccabb2eb0",
-            "commitHash": "76e774bc59c221c8adff5db5944d4c3ccabb2eb0",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21516599063"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/c4b5b1606ff223e926d76e64526a6bbcb1a00429",
+            "commitHash": "c4b5b1606ff223e926d76e64526a6bbcb1a00429",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21522021125"
           },
           "gitCommit": {
-            "shortHash": "76e774b",
-            "hash": "76e774bc59c221c8adff5db5944d4c3ccabb2eb0",
-            "subject": "feat: update README and enhance checkout dashboard with logo and styling improvements",
-            "body": "feat: update README and enhance checkout dashboard with logo and styling improvements\n",
+            "shortHash": "c4b5b16",
+            "hash": "c4b5b1606ff223e926d76e64526a6bbcb1a00429",
+            "subject": "fix: update logo image size in banners and dashboard for consistency",
+            "body": "fix: update logo image size in banners and dashboard for consistency\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769777779000
+              "time": 1769783060000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769777779000
+              "time": 1769783060000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2261,
+                      "duration": 2345,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T12:58:12.624Z",
+                      "startTime": "2026-01-30T16:00:48.722Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4050,
+                      "duration": 3646,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T12:58:15.613Z",
+                      "startTime": "2026-01-30T16:00:51.308Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6163,
+                      "duration": 4218,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T12:58:19.677Z",
+                      "startTime": "2026-01-30T16:00:54.967Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5645,
+                      "duration": 4369,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T12:58:25.851Z",
+                      "startTime": "2026-01-30T16:00:59.195Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11666,
+                      "duration": 10528,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T12:58:31.507Z",
+                      "startTime": "2026-01-30T16:01:03.577Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5240,
+                      "duration": 4149,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T12:58:43.184Z",
+                      "startTime": "2026-01-30T16:01:14.116Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-30T12:58:11.509Z",
-    "duration": 37014.431,
+    "startTime": "2026-01-30T16:00:47.584Z",
+    "duration": 30770.354,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
