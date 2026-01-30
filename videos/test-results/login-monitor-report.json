@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-        "commitHash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21527573679"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
+        "commitHash": "9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21533433034"
       },
       "gitCommit": {
-        "shortHash": "b3f1be9",
-        "hash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-        "subject": "Add PageSpeed monitoring and dashboard generation scripts",
-        "body": "Add PageSpeed monitoring and dashboard generation scripts\n\n- Implement `pagespeed_monitor.py` to monitor Core Web Vitals using Google PageSpeed Insights API.\n- Create `pagespeed_dashboard.py` to generate an HTML dashboard for displaying PageSpeed metrics.\n- Update `payment_dashboard.py` to include a link to the new PageSpeed dashboard.\n",
+        "shortHash": "9bc84ea",
+        "hash": "9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
+        "subject": "refactor: improve price extraction logic in banner price check tests",
+        "body": "refactor: improve price extraction logic in banner price check tests\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769800270000
+          "time": 1769804689000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769800270000
+          "time": 1769804689000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 1,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-            "commitHash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21527573679"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
+            "commitHash": "9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21533433034"
           },
           "gitCommit": {
-            "shortHash": "b3f1be9",
-            "hash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-            "subject": "Add PageSpeed monitoring and dashboard generation scripts",
-            "body": "Add PageSpeed monitoring and dashboard generation scripts\n\n- Implement `pagespeed_monitor.py` to monitor Core Web Vitals using Google PageSpeed Insights API.\n- Create `pagespeed_dashboard.py` to generate an HTML dashboard for displaying PageSpeed metrics.\n- Update `payment_dashboard.py` to include a link to the new PageSpeed dashboard.\n",
+            "shortHash": "9bc84ea",
+            "hash": "9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
+            "subject": "refactor: improve price extraction logic in banner price check tests",
+            "body": "refactor: improve price extraction logic in banner price check tests\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769800270000
+              "time": 1769804689000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769800270000
+              "time": 1769804689000
             },
             "branch": "main"
           },
@@ -139,12 +139,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2213,
+                      "duration": 2061,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T19:13:29.242Z",
+                      "startTime": "2026-01-30T22:52:47.821Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -184,12 +184,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4400,
+                      "duration": 4543,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T19:13:32.881Z",
+                      "startTime": "2026-01-30T22:52:51.002Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -229,12 +229,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5045,
+                      "duration": 5292,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T19:13:37.297Z",
+                      "startTime": "2026-01-30T22:52:55.561Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -274,12 +274,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 5033,
+                      "duration": 4957,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T19:13:42.355Z",
+                      "startTime": "2026-01-30T22:53:00.865Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -319,12 +319,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 11332,
+                      "duration": 11553,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T19:13:47.403Z",
+                      "startTime": "2026-01-30T22:53:05.843Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -364,7 +364,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4835,
+                      "duration": 4865,
                       "errors": [],
                       "stdout": [
                         {
@@ -385,7 +385,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-30T19:13:58.745Z",
+                      "startTime": "2026-01-30T22:53:17.406Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -416,8 +416,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-30T19:13:28.041Z",
-    "duration": 35633.102000000006,
+    "startTime": "2026-01-30T22:52:46.668Z",
+    "duration": 35689.297999999995,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

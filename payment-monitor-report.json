@@ -1,6 +1,94 @@
 {
-  "timestamp": "2026-01-30T19:16:47.885Z",
+  "timestamp": "2026-01-30T22:52:46.865Z",
   "results": [
+    {
+      "paymentMethod": "Transferencia ETPay",
+      "paymentId": "ETPAY",
+      "status": "PASSED",
+      "steps": [
+        {
+          "step": "Buscar producto con stock",
+          "status": "passed"
+        },
+        {
+          "step": "Agregar al carrito",
+          "status": "passed"
+        },
+        {
+          "step": "Ir al checkout",
+          "status": "passed"
+        },
+        {
+          "step": "Continuar como invitado",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar retiro en tienda",
+          "status": "passed"
+        },
+        {
+          "step": "Completar datos personales",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar Transferencia ETPay",
+          "status": "passed"
+        },
+        {
+          "step": "Clic en Pagar y verificar pasarela",
+          "status": "passed"
+        }
+      ],
+      "error": null,
+      "gatewayReached": true,
+      "gatewayUrl": "https://pmt-pcfactory.etpayment.com/session/imFHxX34Uu7nVi7uZzgg2KdeJsWEyJRhLzg7BnxueTgD0MTuX8xl4r2aQY2fiuuR",
+      "duration": 33673,
+      "videoPath": "videos/video-ETPAY.webm"
+    },
+    {
+      "paymentMethod": "Compraquí",
+      "paymentId": "BANCOESTADO",
+      "status": "PASSED",
+      "steps": [
+        {
+          "step": "Buscar producto con stock",
+          "status": "passed"
+        },
+        {
+          "step": "Agregar al carrito",
+          "status": "passed"
+        },
+        {
+          "step": "Ir al checkout",
+          "status": "passed"
+        },
+        {
+          "step": "Continuar como invitado",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar retiro en tienda",
+          "status": "passed"
+        },
+        {
+          "step": "Completar datos personales",
+          "status": "passed"
+        },
+        {
+          "step": "Seleccionar Compraquí",
+          "status": "passed"
+        },
+        {
+          "step": "Clic en Pagar y verificar pasarela",
+          "status": "passed"
+        }
+      ],
+      "error": null,
+      "gatewayReached": true,
+      "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
+      "duration": 33733,
+      "videoPath": "videos/video-BANCOESTADO.webm"
+    },
     {
       "paymentMethod": "Mastercard Click to Pay",
       "paymentId": "CLICKTOPAY",
@@ -42,7 +130,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://pagos.compraqui.cl/compraqui-web/index.html",
-      "duration": 35615,
+      "duration": 33924,
       "videoPath": "videos/video-CLICKTOPAY.webm"
     },
     {
@@ -86,7 +174,7 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-      "duration": 34409,
+      "duration": 34437,
       "videoPath": "videos/video-WEBPAY_DEBITO.webm"
     },
     {
@@ -130,13 +218,13 @@
       "error": null,
       "gatewayReached": true,
       "gatewayUrl": "https://webpay3g.transbank.cl/webpayserver/initTransaction",
-      "duration": 34803,
+      "duration": 34416,
       "videoPath": "videos/video-WEBPAY_CREDITO.webm"
     }
   ],
   "summary": {
-    "total": 3,
-    "passed": 3,
+    "total": 5,
+    "passed": 5,
     "failed": 0
   }
 }
