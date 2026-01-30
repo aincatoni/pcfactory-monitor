@@ -550,6 +550,12 @@ function filterBannerPricesForComparison(bannerPrices, priceCounts, productPrice
         finalPrice = trimmedPrice;
       }
     }
+    if (!isPriceInList(finalPrice, productPrices, TOLERANCE_PERCENT) && hasLowPrice && price >= 100000 && price <= 999990) {
+      const lastFive = price % 100000;
+      if (lastFive >= 10000 && isPriceInList(lastFive, productPrices, TOLERANCE_PERCENT)) {
+        finalPrice = lastFive;
+      }
+    }
     candidateFinals.push({ original: price, final: finalPrice });
   }
 
@@ -594,6 +600,14 @@ function filterBannerPricesForComparison(bannerPrices, priceCounts, productPrice
         finalPrice = trimmedPrice;
         finalMatches = true;
         corrections.push({ from: price, to: trimmedPrice });
+      }
+    }
+    if (!finalMatches && hasLowPrice && price >= 100000 && price <= 999990) {
+      const lastFive = price % 100000;
+      if (lastFive >= 10000 && isPriceInList(lastFive, productPrices, TOLERANCE_PERCENT)) {
+        finalPrice = lastFive;
+        finalMatches = true;
+        corrections.push({ from: price, to: lastFive });
       }
     }
 

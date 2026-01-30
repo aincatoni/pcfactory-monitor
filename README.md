@@ -1,40 +1,51 @@
-# PCFactory Monitor - Fix v5
+# PCFactory Monitor
 
-## Cambios incluidos
+## Qué hace este repo
+Este proyecto ejecuta varios monitores automáticos sobre pc Factory y publica dashboards en GitHub Pages. Cada monitor valida un área crítica del sitio y deja reportes y capturas para revisión.
 
-### 1. Hora Chile en todos los dashboards
-Todos los timestamps ahora muestran hora Chile (UTC-3) en vez de UTC.
-Formato: `DD/MM/YYYY HH:MM:SS Chile`
+## Monitores disponibles
 
-### 2. Workflow corregido (monitor.yml)
-- **Ventana ampliada**: De 10 a 20 minutos para compensar delays de GitHub Actions
-- **Hora 01 UTC agregada**: Para cubrir 10pm Chile (01:00 UTC del día siguiente)
-- Horarios finales: 01:00, 12:00, 17:00, 23:00 UTC (10pm, 9am, 2pm, 8pm Chile)
+### 1) Categorías
+Verifica el estado de las categorías principales:
+- Revisa disponibilidad (HTTP/status) y cantidad de productos.
+- Detecta categorías vacías o con errores.
+- Genera historial y un dashboard con tabla completa.
 
-### 3. Nueva tabla de todas las categorías (monitor.py)
-- Se agregó una sección "Todas las Categorías" con filtro de búsqueda
-- Muestra: ID, Nombre, Status HTTP, Cantidad de productos, Enlace
-- Las categorías vacías y con error se destacan con colores
+### 2) Despacho / Delivery
+Simula búsquedas de despacho con producto + total y valida:
+- Disponibilidad de envío por ciudad/comuna.
+- Respuestas del backend y posibles errores.
+- Genera un dashboard con resultados y tendencias.
 
-### 4. Se preservó todo lo original
-- Isotipo de PCFactory ✓
-- Cards detalladas de medios de pago (uptime 24h, duración, gateway) ✓
-- Lógica de parsing de Playwright en login ✓
-- Todos los estilos y funcionalidades originales ✓
+### 3) Medios de pago
+Ejecuta pruebas con Playwright para verificar:
+- Disponibilidad de medios de pago.
+- Respuesta de gateways y consistencia de la UI.
+- Dashboard con uptime y detalle de fallos.
 
-## Archivos a reemplazar
+### 4) Login
+Prueba el flujo de inicio de sesión:
+- Valida formulario, autenticación y accesos.
+- Guarda evidencia (videos) cuando hay fallos.
+- Dashboard con el estado del login.
 
-```
-.github/workflows/monitor.yml      ← REEMPLAZAR
-monitor.py                         ← REEMPLAZAR  
-delivery_monitor.py                ← REEMPLAZAR
-payment_dashboard.py               ← REEMPLAZAR
-login/scripts/login_dashboard.py   ← REEMPLAZAR
-```
+### 5) Banners (precios y links)
+Analiza el slider principal:
+- Detecta precios en banners (OCR + texto).
+- Compara contra precios reales en páginas destino.
+- Genera capturas por banner y dashboard con estado.
 
-## Instalación
+### 6) Checkout
+Valida endpoints clave del checkout:
+- Detecta errores en pasos críticos del flujo.
+- Reporta resultados en dashboard.
 
-1. Descomprime el ZIP
-2. Copia los archivos a tu repositorio reemplazando los existentes
-3. Commit y push
-4. Ejecuta manualmente con `run_payments: true` y `run_login: true` para probar
+## Dashboards
+Los resultados se publican en GitHub Pages:
+- `index.html` (resumen general)
+- `banners.html`, `payments.html`, `login.html`, `checkout.html`, etc.
+
+## Cómo correr manualmente en GitHub Actions
+En Actions → PCFactory Monitor → Run workflow:
+- `run_payments`, `run_login`, `run_banners` para habilitar monitores puntuales.
+- `run_only_banners` para ejecutar SOLO banners y actualizar el dashboard.
