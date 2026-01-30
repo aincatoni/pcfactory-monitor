@@ -49,7 +49,7 @@
         .status-text { font-size: 1rem; font-weight: 500; }
 
         .health-card { background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary)); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 2rem; }
-        .health-score { font-family: var(--font-mono); font-size: 4rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.5rem; }
+        .health-score { font-family: var(--font-mono); font-size: 4rem; font-weight: 700; color: var(--accent-yellow); margin-bottom: 0.5rem; }
         .health-label { font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
         .health-message { font-size: 1rem; color: var(--text-secondary); }
 
@@ -114,7 +114,7 @@
                 <div class="logo-icon"><img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg"></div>
                 <div class="logo-text"><h1>pc Factory Monitor</h1><span>Monitor de Banners</span></div>
             </div>
-            <div class="timestamp">30/01/2026 08:12:14 Chile</div>
+            <div class="timestamp">30/01/2026 08:30:32 Chile</div>
         </header>
 
         <div class="nav-links">
@@ -126,24 +126,24 @@
             <a href="banners.html" class="nav-link active">🎨 Banners</a>
         </div>
 
-        <div class="status-banner status-ok">
+        <div class="status-banner status-warning">
             <div class="status-indicator"></div>
-            <span class="status-text">Todo OK</span>
+            <span class="status-text">0 banner(es) con precio incorrecto</span>
         </div>
 
         <div class="health-card">
-            <div class="health-score">100.0%</div>
+            <div class="health-score">93.8%</div>
             <div class="health-label">Precisión de Precios</div>
-            <div class="health-message">¡Perfecto! Todos los banners con precio tienen información correcta</div>
+            <div class="health-message">La mayoría de los banners tienen precios correctos</div>
         </div>
 
         <div class="stats-grid">
-            <div class="stat-card"><div class="stat-label">Total Banners</div><div class="stat-value blue">15</div></div>
-            <div class="stat-card"><div class="stat-label">Con Precio</div><div class="stat-value blue">14</div></div>
-            <div class="stat-card"><div class="stat-label">✓ Coinciden</div><div class="stat-value green">14</div></div>
+            <div class="stat-card"><div class="stat-label">Total Banners</div><div class="stat-value blue">17</div></div>
+            <div class="stat-card"><div class="stat-label">Con Precio</div><div class="stat-value blue">16</div></div>
+            <div class="stat-card"><div class="stat-label">✓ Coinciden</div><div class="stat-value green">15</div></div>
             <div class="stat-card"><div class="stat-label">✗ No Coinciden</div><div class="stat-value red">0</div></div>
             <div class="stat-card"><div class="stat-label">Sin Precio</div><div class="stat-value yellow">1</div></div>
-            <div class="stat-card"><div class="stat-label">Errores</div><div class="stat-value red">0</div></div>
+            <div class="stat-card"><div class="stat-label">Errores</div><div class="stat-value red">1</div></div>
         </div>
 
         <div class="section">
@@ -182,7 +182,7 @@
                 <td><span class="badge badge-id">2</span></td>
                 <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>$179.990</td>
-                <td>$39.990, $729.990, $1.129.990, $752.590, $549.990, $424.990, $438.190, $499.990, $179.990, $185.590, $299.990, $174.990, $180.390, $114.990, $89.990, $92.790, $119.990, $74.990, $59.990, $61.890, $69.990, $42.090, $129.990</td>
+                <td>$39.990, $729.990, $1.129.990, $752.590, $549.990, $424.990, $438.190, $499.990, $179.990, $185.590, $299.990, $174.990, $180.390, $119.990, $89.990, $92.790, $114.990, $74.990, $59.990, $61.890, $69.990, $42.090, $129.990</td>
                 <td><a href="https://www.pcfactory.cl/busqueda?productos=54174,40944,47523,55161,52956,33865,55062,55310&size=12&sort=precio,desc" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-2-source.png', 'Banner 2')">
@@ -360,6 +360,36 @@
             </td>
             </tr>
         
+            <tr class="match-row">
+                <td><span class="badge badge-id">16</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
+                <td>$424.990, $64.990</td>
+                <td>$64.990, $424.990, $84.990, $68.390, $74.990, $549.990, $438.190</td>
+                <td><a href="https://www.pcfactory.cl/busqueda?productos=55161,53712,53721" target="_blank" class="link">Ver</a></td>
+                <td>
+                <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-16-source.png', 'Banner 16')">
+                    📸 Ver
+                </button>
+            </td>
+            </tr>
+        
+            <tr class="error-row">
+                <td><span class="badge badge-id">17</span></td>
+                <td><span class="badge badge-warning">Error</span></td>
+                <td>$32.990, $599.990, $99.990, $31.990, $432.990</td>
+                <td>N/A</td>
+                <td></td>
+                <td>
+                <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-17-source.png', 'Banner 17')">
+                    📸 Ver
+                </button>
+            </td>
+            </tr>
+        
+                <tr class="error-row">
+                    <td colspan="6"><div class="error-text">locator.count: Target page, context or browser has been closed</div></td>
+                </tr>
+            
                     </tbody>
                 </table>
             </div>

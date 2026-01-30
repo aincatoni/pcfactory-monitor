@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-30T11:12:14.915Z",
+  "timestamp": "2026-01-30T11:30:32.559Z",
   "banners": [
     {
       "index": 1,
@@ -68,10 +68,10 @@
         299990,
         174990,
         180390,
-        114990,
+        119990,
         89990,
         92790,
-        119990,
+        114990,
         74990,
         59990,
         61890,
@@ -657,6 +657,74 @@
         "62990": 2
       },
       "bannerPricesIgnored": []
+    },
+    {
+      "index": 16,
+      "screenshot": "banner-16-source.png",
+      "bannerPrices": [
+        424990,
+        64990
+      ],
+      "productPrices": [
+        64990,
+        424990,
+        84990,
+        68390,
+        74990,
+        549990,
+        438190
+      ],
+      "productUrl": "https://www.pcfactory.cl/busqueda?productos=55161,53712,53721",
+      "status": "match",
+      "priceMatch": true,
+      "matchedPrices": [
+        424990,
+        64990
+      ],
+      "missingPrices": [],
+      "error": null,
+      "bannerPricesRaw": [
+        424990,
+        64990
+      ],
+      "bannerPriceCounts": {
+        "64990": 4,
+        "424990": 3,
+        "564990": 1
+      },
+      "bannerPricesIgnored": []
+    },
+    {
+      "index": 17,
+      "screenshot": "banner-17-source.png",
+      "bannerPrices": [
+        32990,
+        599990,
+        99990,
+        31990,
+        432990
+      ],
+      "productPrices": [],
+      "productUrl": null,
+      "status": "error",
+      "priceMatch": null,
+      "matchedPrices": [],
+      "missingPrices": [],
+      "error": "locator.count: Target page, context or browser has been closed",
+      "bannerPricesRaw": [
+        32990,
+        599990,
+        99990,
+        31990,
+        432990
+      ],
+      "bannerPriceCounts": {
+        "31990": 2,
+        "32990": 1,
+        "99990": 3,
+        "432990": 1,
+        "599990": 1
+      }
     }
   ]
 }
