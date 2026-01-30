@@ -312,7 +312,7 @@ def generate_html(results, history):
     if not test_rows:
         test_rows = '<tr><td colspan="4" class="empty-state">Sin datos de tests</td></tr>'
 
-    # Generar historial (incluyendo ejecución actual)
+    # Generar historial (incluyendo ejecución actual sin duplicar)
     history_rows = ""
 
     # Primero agregar la ejecución actual
@@ -323,8 +323,23 @@ def generate_html(results, history):
         'total': total
     }
 
-    # Combinar ejecución actual con historial previo
-    all_runs = [current_run] + list(reversed(history.get('runs', [])[-14:]))
+    # Combinar ejecución actual con historial previo evitando duplicados por minuto
+    max_history_rows = 100
+    history_runs = list(reversed(history.get('runs', [])[-max_history_rows:]))
+    def normalize_minute(ts):
+        try:
+            dt = datetime.fromisoformat(ts.replace('Z', '+00:00'))
+            return dt.replace(second=0, microsecond=0).isoformat()
+        except:
+            return ts[:16] if ts else ''
+
+    current_minute = normalize_minute(current_run.get('timestamp', ''))
+    history_minutes = {normalize_minute(run.get('timestamp', '')) for run in history_runs}
+    if current_minute in history_minutes:
+        all_runs = history_runs
+    else:
+        trimmed_history = history_runs[:max_history_rows - 1]
+        all_runs = [current_run] + trimmed_history
 
     for run in all_runs:
         run_time = run.get('timestamp', '')
