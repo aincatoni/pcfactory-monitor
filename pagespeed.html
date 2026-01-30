@@ -165,7 +165,7 @@
                     <span>Core Web Vitals - PageSpeed Insights</span>
                 </div>
             </div>
-            <div class="timestamp">30/01/2026 16:06:10 Chile</div>
+            <div class="timestamp">30/01/2026 17:04:17 Chile</div>
         </header>
 
         <div class="nav-links">
@@ -178,26 +178,37 @@
             <a href="pagespeed.html" class="nav-link active">⚡ PageSpeed</a>
         </div>
 
+        
+        <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid var(--accent-yellow); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+            <h3 style="color: var(--accent-yellow); margin-bottom: 0.5rem;">⚠️ Sin datos disponibles</h3>
+            <p style="color: var(--text-secondary); margin: 0;">
+                No se pudieron obtener datos de la API de PageSpeed Insights.
+                Esto puede deberse a límites de rate, problemas de red, o que aún no se ha ejecutado el monitor.
+                El próximo análisis se ejecutará automáticamente a las 12pm Chile.
+            </p>
+        </div>
+        
+
         <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">📱 Mobile</h3>
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Performance Score</div>
-                <div class="stat-value yellow">68/100</div>
+                <div class="stat-value red">0/100</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">LCP (Largest Contentful Paint)</div>
-                <div class="stat-value">3.20s</div>
-                <div class="cwv-status needs-improvement">Mejorable</div>
+                <div class="stat-value">0.00s</div>
+                <div class="cwv-status unknown">N/A</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">FID (First Input Delay)</div>
-                <div class="stat-value">85ms</div>
-                <div class="cwv-status good">Bueno</div>
+                <div class="stat-value">0ms</div>
+                <div class="cwv-status unknown">N/A</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">CLS (Cumulative Layout Shift)</div>
-                <div class="stat-value">0.150</div>
-                <div class="cwv-status needs-improvement">Mejorable</div>
+                <div class="stat-value">0.000</div>
+                <div class="cwv-status unknown">N/A</div>
             </div>
         </div>
 
@@ -205,22 +216,22 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Performance Score</div>
-                <div class="stat-value yellow">85/100</div>
+                <div class="stat-value red">0/100</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">LCP (Largest Contentful Paint)</div>
-                <div class="stat-value">1.90s</div>
-                <div class="cwv-status good">Bueno</div>
+                <div class="stat-value">0.00s</div>
+                <div class="cwv-status unknown">N/A</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">FID (First Input Delay)</div>
-                <div class="stat-value">45ms</div>
-                <div class="cwv-status good">Bueno</div>
+                <div class="stat-value">0ms</div>
+                <div class="cwv-status unknown">N/A</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">CLS (Cumulative Layout Shift)</div>
-                <div class="stat-value">0.080</div>
-                <div class="cwv-status good">Bueno</div>
+                <div class="stat-value">0.000</div>
+                <div class="cwv-status unknown">N/A</div>
             </div>
         </div>
 
@@ -292,18 +303,18 @@
         new Chart(document.getElementById('perfChart'), {
             type: 'line',
             data: {
-                labels: ["25/01", "26/01", "27/01", "28/01", "29/01", "30/01"],
+                labels: ["30/01", "30/01", "30/01", "30/01"],
                 datasets: [
                     {
                         label: 'Mobile',
-                        data: [65.0, 66.5, 67.0, 67.8, 68.2, 68.5],
+                        data: [null, null, null, null],
                         borderColor: '#3b82f6',
                         backgroundColor: 'rgba(59, 130, 246, 0.1)',
                         tension: 0.3
                     },
                     {
                         label: 'Desktop',
-                        data: [82.0, 83.5, 84.0, 84.8, 85.1, 85.3],
+                        data: [null, null, null, null],
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.1)',
                         tension: 0.3
@@ -327,18 +338,18 @@
         new Chart(document.getElementById('lcpChart'), {
             type: 'line',
             data: {
-                labels: ["25/01", "26/01", "27/01", "28/01", "29/01", "30/01"],
+                labels: ["30/01", "30/01", "30/01", "30/01"],
                 datasets: [
                     {
                         label: 'Mobile (segundos)',
-                        data: [3.5, 3.4, 3.3, 3.25, 3.22, 3.2],
+                        data: [null, null, null, null],
                         borderColor: '#3b82f6',
                         backgroundColor: 'rgba(59, 130, 246, 0.1)',
                         tension: 0.3
                     },
                     {
                         label: 'Desktop (segundos)',
-                        data: [2.1, 2.0, 1.95, 1.92, 1.91, 1.9],
+                        data: [null, null, null, null],
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.1)',
                         tension: 0.3
@@ -379,18 +390,18 @@
         new Chart(document.getElementById('clsChart'), {
             type: 'line',
             data: {
-                labels: ["25/01", "26/01", "27/01", "28/01", "29/01", "30/01"],
+                labels: ["30/01", "30/01", "30/01", "30/01"],
                 datasets: [
                     {
                         label: 'Mobile',
-                        data: [0.18, 0.16, 0.17, 0.155, 0.152, 0.15],
+                        data: [null, null, null, null],
                         borderColor: '#3b82f6',
                         backgroundColor: 'rgba(59, 130, 246, 0.1)',
                         tension: 0.3
                     },
                     {
                         label: 'Desktop',
-                        data: [0.09, 0.085, 0.087, 0.082, 0.081, 0.08],
+                        data: [null, null, null, null],
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.1)',
                         tension: 0.3
