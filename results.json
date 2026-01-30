@@ -1,35 +1,35 @@
 {
   "config": {
-    "configFile": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/playwright.config.js",
-    "rootDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests",
-    "forbidOnly": true,
+    "configFile": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/checkout/playwright.config.js",
+    "rootDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/checkout/tests",
+    "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
     "globalTeardown": null,
-    "globalTimeout": 0,
+    "globalTimeout": 300000,
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-        "commitHash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21527573679"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/46c60b8a186a9bc9effa3d6f1f5392c7801eeadc",
+        "commitHash": "46c60b8a186a9bc9effa3d6f1f5392c7801eeadc",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21528158380"
       },
       "gitCommit": {
-        "shortHash": "b3f1be9",
-        "hash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-        "subject": "Add PageSpeed monitoring and dashboard generation scripts",
-        "body": "Add PageSpeed monitoring and dashboard generation scripts\n\n- Implement `pagespeed_monitor.py` to monitor Core Web Vitals using Google PageSpeed Insights API.\n- Create `pagespeed_dashboard.py` to generate an HTML dashboard for displaying PageSpeed metrics.\n- Update `payment_dashboard.py` to include a link to the new PageSpeed dashboard.\n",
+        "shortHash": "46c60b8",
+        "hash": "46c60b8a186a9bc9effa3d6f1f5392c7801eeadc",
+        "subject": "feat: add data availability warning to PageSpeed dashboard and update output directory in .gitignore",
+        "body": "feat: add data availability warning to PageSpeed dashboard and update output directory in .gitignore\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769800270000
+          "time": 1769801510000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769800270000
+          "time": 1769801510000
         },
         "branch": "main"
       },
@@ -38,51 +38,49 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results",
+        "outputDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/checkout/test-results",
         "repeatEach": 1,
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-            "commitHash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21527573679"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/46c60b8a186a9bc9effa3d6f1f5392c7801eeadc",
+            "commitHash": "46c60b8a186a9bc9effa3d6f1f5392c7801eeadc",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21528158380"
           },
           "gitCommit": {
-            "shortHash": "b3f1be9",
-            "hash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
-            "subject": "Add PageSpeed monitoring and dashboard generation scripts",
-            "body": "Add PageSpeed monitoring and dashboard generation scripts\n\n- Implement `pagespeed_monitor.py` to monitor Core Web Vitals using Google PageSpeed Insights API.\n- Create `pagespeed_dashboard.py` to generate an HTML dashboard for displaying PageSpeed metrics.\n- Update `payment_dashboard.py` to include a link to the new PageSpeed dashboard.\n",
+            "shortHash": "46c60b8",
+            "hash": "46c60b8a186a9bc9effa3d6f1f5392c7801eeadc",
+            "subject": "feat: add data availability warning to PageSpeed dashboard and update output directory in .gitignore",
+            "body": "feat: add data availability warning to PageSpeed dashboard and update output directory in .gitignore\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769800270000
+              "time": 1769801510000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769800270000
+              "time": 1769801510000
             },
             "branch": "main"
           },
           "actualWorkers": 1
         },
-        "id": "chromium",
-        "name": "chromium",
-        "testDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests",
+        "id": "API Tests",
+        "name": "API Tests",
+        "testDir": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/checkout/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 180000
+        "timeout": 30000
       }
     ],
     "quiet": false,
     "reporter": [
       [
-        "html",
-        {
-          "outputFolder": "playwright-report"
-        }
+        "list",
+        null
       ],
       [
         "json",
@@ -91,8 +89,11 @@
         }
       ],
       [
-        "list",
-        null
+        "html",
+        {
+          "outputFolder": "playwright-report",
+          "open": "never"
+        }
       ]
     ],
     "reportSlowTests": {
@@ -110,437 +111,538 @@
   },
   "suites": [
     {
-      "title": "payment-methods.spec.js",
-      "file": "payment-methods.spec.js",
+      "title": "checkout-endpoints.spec.js",
+      "file": "checkout-endpoints.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "PCFactory Payment Methods Monitor",
-          "file": "payment-methods.spec.js",
-          "line": 84,
+          "title": "PCFactory Checkout Endpoints Monitor",
+          "file": "checkout-endpoints.spec.js",
+          "line": 83,
           "column": 6,
-          "specs": [
+          "specs": [],
+          "suites": [
             {
-              "title": "Verificar Transferencia ETPay",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "🔴 P0 - Endpoints Críticos",
+              "file": "checkout-endpoints.spec.js",
+              "line": 137,
+              "column": 8,
+              "specs": [
                 {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "title": "Endpoint: POST /carro/status - Verificar estado del carrito",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 56177,
-                      "errors": [],
-                      "stdout": [
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
                         {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "    Haciendo clic en botón Pagar...\n"
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 164,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  🔐 Intentando login para endpoints P2...\n"
+                            },
+                            {
+                              "text": "  ⚠️  Error en login: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input#loginRut, input[name=\"rut\"]').first()\u001b[22m\n, endpoints P2 se probarán sin auth\n"
+                            },
+                            {
+                              "text": "  ✅ POST /carro/status: 146ms\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:33.215Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-30T19:13:37.822Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ee5ff-rificar-Transferencia-ETPay-chromium/video.webm"
-                        }
-                      ]
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
+                  "id": "2b02b8810c837e6604a3-b82deb4bd07c06ef4756",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 139,
+                  "column": 5
+                },
+                {
+                  "title": "Endpoint: POST /carro/entrega/opciones - Obtener opciones de entrega",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 30,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ POST /carro/entrega/opciones: 18ms\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.419Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b02b8810c837e6604a3-6b83c861148e92a4122e",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 201,
+                  "column": 5
+                },
+                {
+                  "title": "Endpoint: POST /carro/pago/opciones - Obtener medios de pago",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 46,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ POST /carro/pago/opciones: 34ms (6 medios disponibles)\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.465Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b02b8810c837e6604a3-2859d5c692663320b80c",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 262,
+                  "column": 5
                 }
-              ],
-              "id": "3f2683f08aeb6c605225-6b16f542516fc8e8a9ee",
-              "file": "payment-methods.spec.js",
-              "line": 94,
-              "column": 5
+              ]
             },
             {
-              "title": "Verificar Compraquí",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "🟡 P1 - Endpoints Importantes",
+              "file": "checkout-endpoints.spec.js",
+              "line": 331,
+              "column": 8,
+              "specs": [
                 {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "title": "Endpoint: POST /carro/entrega/retiro - Configurar retiro en tienda",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 56003,
-                      "errors": [],
-                      "stdout": [
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
                         {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "    Haciendo clic en botón Pagar...\n"
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 26,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ POST /carro/entrega/retiro: 15ms\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.540Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-30T19:14:35.793Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--9c913-Monitor-Verificar-Compraquí-chromium/video.webm"
-                        }
-                      ]
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
+                  "id": "2b02b8810c837e6604a3-1c98073a0a241314fca1",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 333,
+                  "column": 5
+                },
+                {
+                  "title": "Endpoint: POST /carro/entrega/despacho - Obtener fechas de despacho",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 19,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ POST /carro/entrega/despacho: 11ms (status 500)\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.579Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b02b8810c837e6604a3-bc95e22892014f582374",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 397,
+                  "column": 5
+                },
+                {
+                  "title": "Endpoint: POST /carro/entrega/diferido - Consultar despacho diferido",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 52,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ POST /carro/entrega/diferido: 43ms\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.612Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b02b8810c837e6604a3-e254ddd51efabb1bb0af",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 464,
+                  "column": 5
+                },
+                {
+                  "title": "Endpoint: GET /perfil/rut/{rut} - Validar RUT",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 53,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ GET /perfil/rut/{rut}: 44ms\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.678Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b02b8810c837e6604a3-8ae77bd19dd94163efdb",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 526,
+                  "column": 5
+                },
+                {
+                  "title": "Endpoint: GET /delivery/ship - Verificar disponibilidad de despacho (V2)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 68,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ GET /delivery/ship: 59ms (codigo: 0)\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.741Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b02b8810c837e6604a3-ee1530124c8fd8605c7c",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 579,
+                  "column": 5
                 }
-              ],
-              "id": "3f2683f08aeb6c605225-4bec07209d3775128d89",
-              "file": "payment-methods.spec.js",
-              "line": 94,
-              "column": 5
+              ]
             },
             {
-              "title": "Verificar Mastercard Click to Pay",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "title": "🟢 P2 - Endpoints de Usuario",
+              "file": "checkout-endpoints.spec.js",
+              "line": 650,
+              "column": 8,
+              "specs": [
                 {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "title": "Endpoint: GET /me - Obtener datos de sesión",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 74998,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29",
-                        "location": {
-                          "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                          "column": 29,
-                          "line": 388
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 386 |\u001b[39m       \n \u001b[90m 387 |\u001b[39m       \u001b[90m// Assertion final\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 388 |\u001b[39m       expect(result\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[32m'PASSED'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 389 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 390 |\u001b[39m   }\n \u001b[90m 391 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                            "column": 29,
-                            "line": 388
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mPASS\u001b[27mED\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mFAIL\u001b[27mED\"\u001b[39m\n\n  386 |       \n  387 |       // Assertion final\n> 388 |       expect(result.status).toBe('PASSED');\n      |                             ^\n  389 |     });\n  390 |   }\n  391 | });\n    at /home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js:388:29"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "   Video copiado: videos/video-ETPAY.webm\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-BANCOESTADO.webm\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-CLICKTOPAY.webm\n"
-                        },
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-30T19:13:37.796Z\n"
-                        },
-                        {
-                          "text": "Total: 3\n"
-                        },
-                        {
-                          "text": "✅ Passed: 2\n"
-                        },
-                        {
-                          "text": "❌ Failed: 1\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "✅ Transferencia ETPay: PASSED\n"
-                        },
-                        {
-                          "text": "   Gateway: https://pmt-pcfactory.etpayment.com/session/C0Yxtp51W989D8A1B1U0FUIjE9kbPXhg76HkT7micOMH76QngBpHdRSwuCrE6YIA\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-ETPAY.webm\n"
-                        },
-                        {
-                          "text": "✅ Compraquí: PASSED\n"
-                        },
-                        {
-                          "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-BANCOESTADO.webm\n"
-                        },
-                        {
-                          "text": "❌ Mastercard Click to Pay: FAILED\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-CLICKTOPAY.webm\n"
-                        },
-                        {
-                          "text": "   Error: page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('section[data-section-name=\"Lista productos\"]') to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-30T19:15:31.810Z",
+                      "timeout": 30000,
                       "annotations": [],
-                      "attachments": [
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium/error-context.md"
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 157,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ GET /me: 150ms (401 esperado sin auth)\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.821Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "errorLocation": {
-                        "file": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/tests/payment-methods.spec.js",
-                        "column": 29,
-                        "line": 388
-                      }
-                    },
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 58943,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "    Haciendo clic en botón Pagar...\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-01-30T19:16:47.909Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry1/video.webm"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--edb58-car-Mastercard-Click-to-Pay-chromium-retry1/trace.zip"
-                        }
-                      ]
+                      "status": "expected"
                     }
                   ],
-                  "status": "flaky"
-                }
-              ],
-              "id": "3f2683f08aeb6c605225-d56cad27cc6e083b82f3",
-              "file": "payment-methods.spec.js",
-              "line": 94,
-              "column": 5
-            },
-            {
-              "title": "Verificar Tarjeta de Débito (Webpay)",
-              "ok": true,
-              "tags": [],
-              "tests": [
+                  "id": "2b02b8810c837e6604a3-7bc08c9315e330a32916",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 652,
+                  "column": 5
+                },
                 {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "title": "Endpoint: GET /perfil/datos - Obtener perfil privado",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 56674,
-                      "errors": [],
-                      "stdout": [
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
                         {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "    Haciendo clic en botón Pagar...\n"
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 15,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ GET /perfil/datos: 7ms (400 esperado sin auth)\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:46.990Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-30T19:17:47.773Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--ca2c3-r-Tarjeta-de-Débito-Webpay--chromium/video.webm"
-                        }
-                      ]
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3f2683f08aeb6c605225-9cf1d5c0ae7ab961cbf8",
-              "file": "payment-methods.spec.js",
-              "line": 94,
-              "column": 5
-            },
-            {
-              "title": "Verificar Tarjeta de Crédito (Webpay)",
-              "ok": true,
-              "tags": [],
-              "tests": [
+                  "id": "2b02b8810c837e6604a3-3118a92397aa3a2f72b7",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 721,
+                  "column": 5
+                },
                 {
-                  "timeout": 180000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "title": "Endpoint: GET /perfil/direcciones - Obtener direcciones",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 57096,
-                      "errors": [],
-                      "stdout": [
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "API Tests",
+                      "projectName": "API Tests",
+                      "results": [
                         {
-                          "text": "    Encontrados 1 productos con +100 unidades, seleccionando índice 0\n"
-                        },
-                        {
-                          "text": "    Haciendo clic en botón Pagar...\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-CLICKTOPAY.webm\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-WEBPAY_DEBITO.webm\n"
-                        },
-                        {
-                          "text": "   Video copiado: videos/video-WEBPAY_CREDITO.webm\n"
-                        },
-                        {
-                          "text": "\n========================================\n"
-                        },
-                        {
-                          "text": "RESUMEN DE MONITOREO DE MEDIOS DE PAGO\n"
-                        },
-                        {
-                          "text": "========================================\n"
-                        },
-                        {
-                          "text": "Timestamp: 2026-01-30T19:16:47.885Z\n"
-                        },
-                        {
-                          "text": "Total: 3\n"
-                        },
-                        {
-                          "text": "✅ Passed: 3\n"
-                        },
-                        {
-                          "text": "❌ Failed: 0\n"
-                        },
-                        {
-                          "text": "----------------------------------------\n"
-                        },
-                        {
-                          "text": "✅ Mastercard Click to Pay: PASSED\n"
-                        },
-                        {
-                          "text": "   Gateway: https://pagos.compraqui.cl/compraqui-web/index.html\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-CLICKTOPAY.webm\n"
-                        },
-                        {
-                          "text": "✅ Tarjeta de Débito (Webpay): PASSED\n"
-                        },
-                        {
-                          "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-WEBPAY_DEBITO.webm\n"
-                        },
-                        {
-                          "text": "✅ Tarjeta de Crédito (Webpay): PASSED\n"
-                        },
-                        {
-                          "text": "   Gateway: https://webpay3g.transbank.cl/webpayserver/initTransaction\n"
-                        },
-                        {
-                          "text": "   Video: videos/video-WEBPAY_CREDITO.webm\n"
-                        },
-                        {
-                          "text": "========================================\n\n"
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 13,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "  ✅ GET /perfil/direcciones: 7ms (400 esperado sin auth)\n"
+                            },
+                            {
+                              "text": "\n========================================\n"
+                            },
+                            {
+                              "text": "RESUMEN DE MONITOREO DE ENDPOINTS CHECKOUT\n"
+                            },
+                            {
+                              "text": "========================================\n"
+                            },
+                            {
+                              "text": "Timestamp: 2026-01-30T19:34:33.188Z\n"
+                            },
+                            {
+                              "text": "Total: 11\n"
+                            },
+                            {
+                              "text": "✅ Passed: 11\n"
+                            },
+                            {
+                              "text": "❌ Failed: 0\n"
+                            },
+                            {
+                              "text": "⏱️  Tiempo promedio: 49ms\n"
+                            },
+                            {
+                              "text": "----------------------------------------\n"
+                            },
+                            {
+                              "text": "\n🔴 P0:\n"
+                            },
+                            {
+                              "text": "✅ Verificar Estado del Carrito: 146ms (200)\n"
+                            },
+                            {
+                              "text": "✅ Opciones de Entrega: 18ms (200)\n"
+                            },
+                            {
+                              "text": "✅ Medios de Pago: 34ms (200)\n"
+                            },
+                            {
+                              "text": "\n🟡 P1:\n"
+                            },
+                            {
+                              "text": "✅ Configurar Retiro en Tienda: 15ms (200)\n"
+                            },
+                            {
+                              "text": "✅ Fechas de Despacho: 11ms (500)\n"
+                            },
+                            {
+                              "text": "✅ Despacho Diferido: 43ms (200)\n"
+                            },
+                            {
+                              "text": "✅ Validar RUT: 44ms (200)\n"
+                            },
+                            {
+                              "text": "✅ Disponibilidad Despacho V2: 59ms (200)\n"
+                            },
+                            {
+                              "text": "\n🟢 P2:\n"
+                            },
+                            {
+                              "text": "✅ Datos de Sesión (sin auth): 150ms (401)\n"
+                            },
+                            {
+                              "text": "✅ Perfil Privado (sin auth): 7ms (400)\n"
+                            },
+                            {
+                              "text": "✅ Direcciones del Usuario (sin auth): 7ms (400)\n"
+                            },
+                            {
+                              "text": "========================================\n\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-01-30T19:34:47.018Z",
+                          "annotations": [],
+                          "attachments": []
                         }
                       ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-01-30T19:18:44.482Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/payments/test-results/payment-methods-PCFactory--785e1--Tarjeta-de-Crédito-Webpay--chromium/video.webm"
-                        }
-                      ]
+                      "status": "expected"
                     }
                   ],
-                  "status": "expected"
+                  "id": "2b02b8810c837e6604a3-e7e5fe3642508daaa195",
+                  "file": "checkout-endpoints.spec.js",
+                  "line": 790,
+                  "column": 5
                 }
-              ],
-              "id": "3f2683f08aeb6c605225-25c5a9f2e564119fce55",
-              "file": "payment-methods.spec.js",
-              "line": 94,
-              "column": 5
+              ]
             }
           ]
         }
@@ -549,11 +651,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-30T19:13:36.620Z",
-    "duration": 365050.667,
-    "expected": 4,
+    "startTime": "2026-01-30T19:34:32.009Z",
+    "duration": 15107.123,
+    "expected": 11,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 1
+    "flaky": 0
   }
 }
