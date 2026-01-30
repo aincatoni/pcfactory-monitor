@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-30T17:33:51.831Z",
+  "timestamp": "2026-01-30T19:13:21.818Z",
   "banners": [
     {
       "index": 1,
@@ -21,10 +21,10 @@
         299990,
         174990,
         180390,
-        114990,
+        119990,
         89990,
         92790,
-        119990,
+        114990,
         74990,
         59990,
         61890,
@@ -117,35 +117,13 @@
         678990,
         979990
       ],
-      "productPrices": [
-        429990,
-        979990,
-        929990,
-        749990,
-        773190,
-        1199990,
-        1010290,
-        999990,
-        799990,
-        824790,
-        569990,
-        443290,
-        739990,
-        678990,
-        699990,
-        199990,
-        10290
-      ],
+      "productPrices": [],
       "productUrl": "https://www.pcfactory.cl/busqueda?productos=54661,53913,54660,53812,54570",
-      "status": "match",
-      "priceMatch": true,
-      "matchedPrices": [
-        749990,
-        678990,
-        979990
-      ],
+      "status": "no_product_price",
+      "priceMatch": null,
+      "matchedPrices": [],
       "missingPrices": [],
-      "error": null,
+      "error": "No se encontraron precios en la página de destino",
       "bannerPricesRaw": [
         749990,
         678990,
@@ -155,8 +133,7 @@
         "678990": 2,
         "749990": 3,
         "979990": 3
-      },
-      "bannerPricesIgnored": []
+      }
     },
     {
       "index": 5,
@@ -166,46 +143,13 @@
         13990,
         19990
       ],
-      "productPrices": [
-        289990,
-        49990,
-        19990,
-        20590,
-        69990,
-        32990,
-        33990,
-        24990,
-        21090,
-        31990,
-        33690,
-        41990,
-        44190,
-        34990,
-        13990,
-        14390,
-        21990,
-        23190,
-        34690,
-        27990,
-        29490,
-        71990,
-        75790,
-        28990,
-        30490,
-        59990,
-        37990,
-        39990
-      ],
+      "productPrices": [],
       "productUrl": "https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad?size=12",
-      "status": "match",
-      "priceMatch": true,
-      "matchedPrices": [
-        32990,
-        13990,
-        19990
-      ],
+      "status": "no_product_price",
+      "priceMatch": null,
+      "matchedPrices": [],
       "missingPrices": [],
-      "error": null,
+      "error": "No se encontraron precios en la página de destino",
       "bannerPricesRaw": [
         32990,
         13990,
@@ -215,8 +159,7 @@
         "13990": 1,
         "19990": 2,
         "32990": 2
-      },
-      "bannerPricesIgnored": []
+      }
     },
     {
       "index": 6,

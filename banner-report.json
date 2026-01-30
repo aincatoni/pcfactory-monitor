@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/c4b5b1606ff223e926d76e64526a6bbcb1a00429",
-        "commitHash": "c4b5b1606ff223e926d76e64526a6bbcb1a00429",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21524790169"
+        "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/b3f1be9d25ba949d563ed46202e89d3e1fefc393",
+        "commitHash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21527573679"
       },
       "gitCommit": {
-        "shortHash": "c4b5b16",
-        "hash": "c4b5b1606ff223e926d76e64526a6bbcb1a00429",
-        "subject": "fix: update logo image size in banners and dashboard for consistency",
-        "body": "fix: update logo image size in banners and dashboard for consistency\n",
+        "shortHash": "b3f1be9",
+        "hash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
+        "subject": "Add PageSpeed monitoring and dashboard generation scripts",
+        "body": "Add PageSpeed monitoring and dashboard generation scripts\n\n- Implement `pagespeed_monitor.py` to monitor Core Web Vitals using Google PageSpeed Insights API.\n- Create `pagespeed_dashboard.py` to generate an HTML dashboard for displaying PageSpeed metrics.\n- Update `payment_dashboard.py` to include a link to the new PageSpeed dashboard.\n",
         "author": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769783060000
+          "time": 1769800270000
         },
         "committer": {
           "name": "Ain Cortés Catoni",
           "email": "ain.catoni@gmail.com",
-          "time": 1769783060000
+          "time": 1769800270000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 0,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/c4b5b1606ff223e926d76e64526a6bbcb1a00429",
-            "commitHash": "c4b5b1606ff223e926d76e64526a6bbcb1a00429",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21524790169"
+            "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/b3f1be9d25ba949d563ed46202e89d3e1fefc393",
+            "commitHash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21527573679"
           },
           "gitCommit": {
-            "shortHash": "c4b5b16",
-            "hash": "c4b5b1606ff223e926d76e64526a6bbcb1a00429",
-            "subject": "fix: update logo image size in banners and dashboard for consistency",
-            "body": "fix: update logo image size in banners and dashboard for consistency\n",
+            "shortHash": "b3f1be9",
+            "hash": "b3f1be9d25ba949d563ed46202e89d3e1fefc393",
+            "subject": "Add PageSpeed monitoring and dashboard generation scripts",
+            "body": "Add PageSpeed monitoring and dashboard generation scripts\n\n- Implement `pagespeed_monitor.py` to monitor Core Web Vitals using Google PageSpeed Insights API.\n- Create `pagespeed_dashboard.py` to generate an HTML dashboard for displaying PageSpeed metrics.\n- Update `payment_dashboard.py` to include a link to the new PageSpeed dashboard.\n",
             "author": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769783060000
+              "time": 1769800270000
             },
             "committer": {
               "name": "Ain Cortés Catoni",
               "email": "ain.catoni@gmail.com",
-              "time": 1769783060000
+              "time": 1769800270000
             },
             "branch": "main"
           },
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 305976,
+                      "duration": 351310,
                       "errors": [],
                       "stdout": [
                         {
@@ -302,7 +302,7 @@
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 23 [$39.990, $729.990, $1.129.990, $752.590, $549.990, $424.990, $438.190, $499.990, $179.990, $185.590, $299.990, $174.990, $180.390, $114.990, $89.990, $92.790, $119.990, $74.990, $59.990, $61.890, $69.990, $42.090, $129.990]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 23 [$39.990, $729.990, $1.129.990, $752.590, $549.990, $424.990, $438.190, $499.990, $179.990, $185.590, $299.990, $174.990, $180.390, $119.990, $89.990, $92.790, $114.990, $74.990, $59.990, $61.890, $69.990, $42.090, $129.990]\n"
                         },
                         {
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
@@ -464,7 +464,10 @@
                           "text": "  📸 Screenshot guardado: banner-3.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11871.032999999989ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    22 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11863.366000000002ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-3-img.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-3-img-top.png\n"
@@ -719,13 +722,10 @@
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 17 [$429.990, $979.990, $929.990, $749.990, $773.190, $1.199.990, $1.010.290, $999.990, $799.990, $824.790, $569.990, $443.290, $739.990, $678.990, $699.990, $199.990, $10.290]\n"
+                          "text": "  ⚠️ No se encontraron precios en la página de productos\n"
                         },
                         {
-                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
-                        },
-                        {
-                          "text": "     Precios coincidentes: $749.990, $678.990, $979.990\n"
+                          "text": "  ⚠️ No se pudo extraer precios de la página de productos\n"
                         },
                         {
                           "text": "\n🎨 Analizando posición 5/13 del carousel\n"
@@ -863,13 +863,10 @@
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 28 [$289.990, $49.990, $19.990, $20.590, $69.990, $32.990, $33.990, $24.990, $21.090, $31.990, $33.690, $41.990, $44.190, $34.990, $13.990, $14.390, $21.990, $23.190, $34.690, $27.990, $29.490, $71.990, $75.790, $28.990, $30.490, $59.990, $37.990, $39.990]\n"
+                          "text": "  ⚠️ No se encontraron precios en la página de productos\n"
                         },
                         {
-                          "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
-                        },
-                        {
-                          "text": "     Precios coincidentes: $32.990, $13.990, $19.990\n"
+                          "text": "  ⚠️ No se pudo extraer precios de la página de productos\n"
                         },
                         {
                           "text": "\n🎨 Analizando posición 6/13 del carousel\n"
@@ -1988,7 +1985,7 @@
                           "text": "   🚫 Sin precio: 2\n"
                         },
                         {
-                          "text": "   ✅ Precios coinciden: 11\n"
+                          "text": "   ✅ Precios coinciden: 9\n"
                         },
                         {
                           "text": "   ❌ Precios NO coinciden: 0\n"
@@ -1999,9 +1996,6 @@
                           "buffer": "SW1hZ2UgdG9vIHNtYWxsIHRvIHNjYWxlISEgKDJ4MzYgdnMgbWluIHdpZHRoIG9mIDMpCg=="
                         },
                         {
-                          "buffer": "TGluZSBjYW5ub3QgYmUgcmVjb2duaXplZCEhCg=="
-                        },
-                        {
                           "buffer": "SW1hZ2UgdG9vIHNtYWxsIHRvIHNjYWxlISEgKDJ4MzYgdnMgbWluIHdpZHRoIG9mIDMpCg=="
                         },
                         {
@@ -2009,6 +2003,9 @@
                         },
                         {
                           "buffer": "SW1hZ2UgdG9vIHNtYWxsIHRvIHNjYWxlISEgKDJ4MzYgdnMgbWluIHdpZHRoIG9mIDMpCg=="
+                        },
+                        {
+                          "buffer": "TGluZSBjYW5ub3QgYmUgcmVjb2duaXplZCEhCg=="
                         },
                         {
                           "buffer": "SW1hZ2UgdG9vIHNtYWxsIHRvIHNjYWxlISEgKDJ4MzYgdnMgbWluIHdpZHRoIG9mIDMpCg=="
@@ -2018,13 +2015,18 @@
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-01-30T17:33:51.869Z",
+                      "startTime": "2026-01-30T19:13:21.849Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-2.webm"
                         },
                         {
                           "name": "video",
@@ -2039,6 +2041,11 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-4.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-5.webm"
                         },
                         {
@@ -2049,22 +2056,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-4.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-2.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-7.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-8.webm"
                         },
                         {
                           "name": "video",
@@ -2079,7 +2071,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-10.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-8.webm"
                         },
                         {
                           "name": "video",
@@ -2089,12 +2081,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-14.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-13.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-13.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-14.webm"
                         },
                         {
                           "name": "video",
@@ -2104,12 +2096,22 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-17.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-10.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-17.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-19.webm"
                         },
                         {
                           "name": "video",
@@ -2124,17 +2126,7 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-19.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-21.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
                         },
                         {
                           "name": "video",
@@ -2145,6 +2137,11 @@
                           "name": "video",
                           "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-23.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
                         },
                         {
                           "name": "video",
@@ -2188,7 +2185,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 21818,
+                  "duration": 21254,
                   "errors": [],
                   "stdout": [
                     {
@@ -2294,7 +2291,7 @@
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
                     },
                     {
-                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-cca0312c-1eba-46d3-b69a-933b29aad527.active \n"
+                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-51ed6c95-d1f7-42bd-b6a3-40293f337d44.active \n"
                     },
                     {
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
@@ -2341,7 +2338,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-30T17:38:58.099Z",
+                  "startTime": "2026-01-30T19:19:13.416Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2370,8 +2367,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-30T17:33:50.532Z",
-    "duration": 329549.019,
+    "startTime": "2026-01-30T19:13:20.555Z",
+    "duration": 374279.885,
     "expected": 2,
     "skipped": 0,
     "unexpected": 0,
