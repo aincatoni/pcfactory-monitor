@@ -38,6 +38,14 @@ on:
         options:
           - 'true'
           - 'false'
+      run_only_banners:
+        description: 'Ejecutar SOLO banners (omite otros monitores)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 permissions:
   contents: write
@@ -48,6 +56,7 @@ jobs:
   monitor-categories:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    if: github.event.inputs.run_only_banners != 'true'
     steps:
       - uses: actions/checkout@v4
       - name: Setup Python
@@ -75,6 +84,7 @@ jobs:
   monitor-delivery:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    if: github.event.inputs.run_only_banners != 'true'
     steps:
       - uses: actions/checkout@v4
       - name: Setup Python
@@ -102,6 +112,7 @@ jobs:
 
   check-payment-schedule:
     runs-on: ubuntu-latest
+    if: github.event.inputs.run_only_banners != 'true'
     outputs:
       should_run: ${{ steps.check.outputs.should_run }}
     steps:
@@ -130,6 +141,7 @@ jobs:
 
   check-login-schedule:
     runs-on: ubuntu-latest
+    if: github.event.inputs.run_only_banners != 'true'
     outputs:
       should_run: ${{ steps.check.outputs.should_run }}
     steps:
@@ -319,6 +331,7 @@ jobs:
   monitor-checkout:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    if: github.event.inputs.run_only_banners != 'true'
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node.js

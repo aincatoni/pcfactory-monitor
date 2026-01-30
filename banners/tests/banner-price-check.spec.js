@@ -16,6 +16,7 @@ const Tesseract = require('tesseract.js');
 const CONFIG = {
   baseUrl: 'https://www.pcfactory.cl',
   screenshotsDir: './test-results/screenshots',
+  maxBanners: null, // null = sin límite; usar número para acotar por tiempo
 
   // Selectores del slider (pueden necesitar ajuste)
   // Nota: Solo queremos banners del carousel principal (no todos los carousels de la página)
@@ -1024,7 +1025,10 @@ test.describe('Banner Price Monitor', () => {
     const orderedBanners = uniqueBanners.length > 0 ? uniqueBanners : bannerMeta;
     const indicatorIndexes = await getCarouselIndicatorIndexes(page, sliderRootSelector);
     const useIndicators = indicatorIndexes.length > 0;
-    const totalBanners = Math.min(useIndicators ? indicatorIndexes.length : orderedBanners.length, 15); // Máximo 15 para evitar timeouts muy largos
+    const detectedTotal = useIndicators ? indicatorIndexes.length : orderedBanners.length;
+    const totalBanners = CONFIG.maxBanners
+      ? Math.min(detectedTotal, CONFIG.maxBanners)
+      : detectedTotal;
     const processedBannerIds = new Set(); // Para detectar cuando vuelve al inicio
     const processedGtagIndexes = new Set();
 
