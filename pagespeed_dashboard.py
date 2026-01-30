@@ -132,8 +132,11 @@ def generate_html_dashboard(report: dict, output_dir: Path):
     desktop_cls_status, desktop_cls_text = get_cwv_status("cls", desktop.get("cls", 0)) if desktop else ("unknown", "N/A")
 
     # Promedio de performance score
-    avg_mobile_perf = sum(p for p in mobile_perf if p is not None) / len([p for p in mobile_perf if p is not None]) if mobile_perf else 0
-    avg_desktop_perf = sum(p for p in desktop_perf if p is not None) / len([p for p in desktop_perf if p is not None]) if desktop_perf else 0
+    mobile_valid = [p for p in mobile_perf if p is not None]
+    avg_mobile_perf = sum(mobile_valid) / len(mobile_valid) if mobile_valid else 0
+
+    desktop_valid = [p for p in desktop_perf if p is not None]
+    avg_desktop_perf = sum(desktop_valid) / len(desktop_valid) if desktop_valid else 0
 
     html = f'''<!DOCTYPE html>
 <html lang="es">
