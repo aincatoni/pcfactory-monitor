@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
         "commitHash": "9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21529781101"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21530430870"
       },
       "gitCommit": {
         "shortHash": "9bc84ea",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
             "commitHash": "9bc84ea9abe6795d6ef172a39c3669d2c044fbb5",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21529781101"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21530430870"
           },
           "gitCommit": {
             "shortHash": "9bc84ea",
@@ -146,7 +146,7 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 271,
+                          "duration": 454,
                           "errors": [],
                           "stdout": [
                             {
@@ -156,12 +156,12 @@
                               "text": "  ⚠️  Error en login: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input#loginRut, input[name=\"rut\"]').first()\u001b[22m\n, endpoints P2 se probarán sin auth\n"
                             },
                             {
-                              "text": "  ✅ POST /carro/status: 257ms\n"
+                              "text": "  ✅ POST /carro/status: 436ms\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:12.092Z",
+                          "startTime": "2026-01-30T20:59:26.159Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -190,16 +190,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 44,
+                          "duration": 111,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ POST /carro/entrega/opciones: 34ms\n"
+                              "text": "  ✅ POST /carro/entrega/opciones: 101ms\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:25.812Z",
+                          "startTime": "2026-01-30T20:59:41.013Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -228,16 +228,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 44,
+                          "duration": 105,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ POST /carro/pago/opciones: 33ms (6 medios disponibles)\n"
+                              "text": "  ✅ POST /carro/pago/opciones: 84ms (6 medios disponibles)\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:25.871Z",
+                          "startTime": "2026-01-30T20:59:41.137Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -274,16 +274,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 38,
+                          "duration": 101,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ POST /carro/entrega/retiro: 30ms\n"
+                              "text": "  ✅ POST /carro/entrega/retiro: 93ms\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:25.930Z",
+                          "startTime": "2026-01-30T20:59:41.260Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -312,16 +312,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 34,
+                          "duration": 84,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ POST /carro/entrega/despacho: 27ms (status 500)\n"
+                              "text": "  ✅ POST /carro/entrega/despacho: 78ms (status 500)\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:25.979Z",
+                          "startTime": "2026-01-30T20:59:41.373Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -350,16 +350,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 69,
+                          "duration": 122,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ POST /carro/entrega/diferido: 62ms\n"
+                              "text": "  ✅ POST /carro/entrega/diferido: 114ms\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:26.026Z",
+                          "startTime": "2026-01-30T20:59:41.468Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -388,16 +388,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 58,
+                          "duration": 116,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ GET /perfil/rut/{rut}: 50ms\n"
+                              "text": "  ✅ GET /perfil/rut/{rut}: 108ms\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:26.106Z",
+                          "startTime": "2026-01-30T20:59:41.603Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -426,16 +426,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 90,
+                          "duration": 134,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ GET /delivery/ship: 81ms (codigo: 0)\n"
+                              "text": "  ✅ GET /delivery/ship: 126ms (codigo: 0)\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:26.174Z",
+                          "startTime": "2026-01-30T20:59:41.730Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -472,16 +472,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 281,
+                          "duration": 274,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ GET /me: 275ms (401 esperado sin auth)\n"
+                              "text": "  ✅ GET /me: 268ms (401 esperado sin auth)\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:26.275Z",
+                          "startTime": "2026-01-30T20:59:41.876Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -510,16 +510,16 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 30,
+                          "duration": 82,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ GET /perfil/datos: 24ms (400 esperado sin auth)\n"
+                              "text": "  ✅ GET /perfil/datos: 76ms (400 esperado sin auth)\n"
                             }
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:26.568Z",
+                          "startTime": "2026-01-30T20:59:42.162Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -548,11 +548,11 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 32,
+                          "duration": 81,
                           "errors": [],
                           "stdout": [
                             {
-                              "text": "  ✅ GET /perfil/direcciones: 26ms (400 esperado sin auth)\n"
+                              "text": "  ✅ GET /perfil/direcciones: 76ms (400 esperado sin auth)\n"
                             },
                             {
                               "text": "\n========================================\n"
@@ -564,7 +564,7 @@
                               "text": "========================================\n"
                             },
                             {
-                              "text": "Timestamp: 2026-01-30T20:34:12.064Z\n"
+                              "text": "Timestamp: 2026-01-30T20:59:26.133Z\n"
                             },
                             {
                               "text": "Total: 11\n"
@@ -576,7 +576,7 @@
                               "text": "❌ Failed: 0\n"
                             },
                             {
-                              "text": "⏱️  Tiempo promedio: 82ms\n"
+                              "text": "⏱️  Tiempo promedio: 142ms\n"
                             },
                             {
                               "text": "----------------------------------------\n"
@@ -585,43 +585,43 @@
                               "text": "\n🔴 P0:\n"
                             },
                             {
-                              "text": "✅ Verificar Estado del Carrito: 257ms (200)\n"
+                              "text": "✅ Verificar Estado del Carrito: 436ms (200)\n"
                             },
                             {
-                              "text": "✅ Opciones de Entrega: 34ms (200)\n"
+                              "text": "✅ Opciones de Entrega: 101ms (200)\n"
                             },
                             {
-                              "text": "✅ Medios de Pago: 33ms (200)\n"
+                              "text": "✅ Medios de Pago: 84ms (200)\n"
                             },
                             {
                               "text": "\n🟡 P1:\n"
                             },
                             {
-                              "text": "✅ Configurar Retiro en Tienda: 30ms (200)\n"
+                              "text": "✅ Configurar Retiro en Tienda: 93ms (200)\n"
                             },
                             {
-                              "text": "✅ Fechas de Despacho: 27ms (500)\n"
+                              "text": "✅ Fechas de Despacho: 78ms (500)\n"
                             },
                             {
-                              "text": "✅ Despacho Diferido: 62ms (200)\n"
+                              "text": "✅ Despacho Diferido: 114ms (200)\n"
                             },
                             {
-                              "text": "✅ Validar RUT: 50ms (200)\n"
+                              "text": "✅ Validar RUT: 108ms (200)\n"
                             },
                             {
-                              "text": "✅ Disponibilidad Despacho V2: 81ms (200)\n"
+                              "text": "✅ Disponibilidad Despacho V2: 126ms (200)\n"
                             },
                             {
                               "text": "\n🟢 P2:\n"
                             },
                             {
-                              "text": "✅ Datos de Sesión (sin auth): 275ms (401)\n"
+                              "text": "✅ Datos de Sesión (sin auth): 268ms (401)\n"
                             },
                             {
-                              "text": "✅ Perfil Privado (sin auth): 24ms (400)\n"
+                              "text": "✅ Perfil Privado (sin auth): 76ms (400)\n"
                             },
                             {
-                              "text": "✅ Direcciones del Usuario (sin auth): 26ms (400)\n"
+                              "text": "✅ Direcciones del Usuario (sin auth): 76ms (400)\n"
                             },
                             {
                               "text": "========================================\n\n"
@@ -629,7 +629,7 @@
                           ],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-01-30T20:34:26.608Z",
+                          "startTime": "2026-01-30T20:59:42.256Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -651,8 +651,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-30T20:34:10.968Z",
-    "duration": 15746.260999999999,
+    "startTime": "2026-01-30T20:59:24.998Z",
+    "duration": 17418.067,
     "expected": 11,
     "skipped": 0,
     "unexpected": 0,
