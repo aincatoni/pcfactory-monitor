@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-30T11:30:32.559Z",
+  "timestamp": "2026-01-30T11:56:29.149Z",
   "banners": [
     {
       "index": 1,
@@ -584,15 +584,15 @@
         259990
       ],
       "productPrices": [
-        116390,
-        284990,
+        109990,
+        259990,
         379990,
-        299990,
+        267990,
         229990,
-        189990,
-        195890,
+        179990,
+        185590,
         159990,
-        119990
+        113390
       ],
       "productUrl": "https://www.pcfactory.cl/busqueda?productos=55060,54341,55306",
       "status": "match",
@@ -696,35 +696,15 @@
     },
     {
       "index": 17,
-      "screenshot": "banner-17-source.png",
-      "bannerPrices": [
-        32990,
-        599990,
-        99990,
-        31990,
-        432990
-      ],
+      "screenshot": "banner-17.png",
+      "bannerPrices": [],
       "productPrices": [],
       "productUrl": null,
       "status": "error",
       "priceMatch": null,
       "matchedPrices": [],
       "missingPrices": [],
-      "error": "locator.count: Target page, context or browser has been closed",
-      "bannerPricesRaw": [
-        32990,
-        599990,
-        99990,
-        31990,
-        432990
-      ],
-      "bannerPriceCounts": {
-        "31990": 2,
-        "32990": 1,
-        "99990": 3,
-        "432990": 1,
-        "599990": 1
-      }
+      "error": "page.waitForTimeout: Test timeout of 360000ms exceeded."
     }
   ]
 }

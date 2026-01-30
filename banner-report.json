@@ -14,7 +14,7 @@
       "ci": {
         "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/effdfb41a6005e84fa4778309e8ece59523ae4e0",
         "commitHash": "effdfb41a6005e84fa4778309e8ece59523ae4e0",
-        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21514297505"
+        "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21514960783"
       },
       "gitCommit": {
         "shortHash": "effdfb4",
@@ -45,7 +45,7 @@
           "ci": {
             "commitHref": "https://github.com/aincatoni/pcfactory-monitor/commit/effdfb41a6005e84fa4778309e8ece59523ae4e0",
             "commitHash": "effdfb41a6005e84fa4778309e8ece59523ae4e0",
-            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21514297505"
+            "buildHref": "https://github.com/aincatoni/pcfactory-monitor/actions/runs/21514960783"
           },
           "gitCommit": {
             "shortHash": "effdfb4",
@@ -139,7 +139,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "timedOut",
-                      "duration": 373523,
+                      "duration": 375002,
                       "error": {
                         "message": "\u001b[31mTest timeout of 360000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 360000ms exceeded.\u001b[39m"
@@ -766,7 +766,7 @@
                           "text": "  📸 Screenshot guardado: banner-5.png\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11876.488999999987ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  2 × retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m      - waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11949.006999999998ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  22 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\n"
                         },
                         {
                           "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-5-img.png\n"
@@ -2134,7 +2134,7 @@
                           "text": "  🌐 Navegando al producto...\n"
                         },
                         {
-                          "text": "  💰 Precios encontrados en página de productos: 9 [$116.390, $284.990, $379.990, $299.990, $229.990, $189.990, $195.890, $159.990, $119.990]\n"
+                          "text": "  💰 Precios encontrados en página de productos: 9 [$109.990, $259.990, $379.990, $267.990, $229.990, $179.990, $185.590, $159.990, $113.390]\n"
                         },
                         {
                           "text": "  ✅ ¡Todos los precios del banner coinciden con la página!\n"
@@ -2293,7 +2293,10 @@
                           "text": "  📸 Screenshot guardado: banner-16.png\n"
                         },
                         {
-                          "text": "  🖼️ Screenshot de imagen guardado: banner-16-img.png\n"
+                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Timeout 11869.735999999975ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    23 × waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "  🖼️ Screenshot de imagen por recorte guardado: banner-16-img.png\n"
                         },
                         {
                           "text": "  🧩 Screenshot de recorte guardado: banner-16-img-top.png\n"
@@ -2419,118 +2422,13 @@
                           "text": "\n🎨 Analizando posición 17/19 del carousel\n"
                         },
                         {
-                          "text": "  ✨ Este es el Banner #17 (data-gtag-index=\"17\")\n"
+                          "text": "  ❌ Error al procesar banner: page.waitForTimeout: Test timeout of 360000ms exceeded.\n"
                         },
                         {
-                          "text": "  📸 Screenshot guardado: banner-17.png\n"
+                          "text": "\n🎨 Analizando posición 18/19 del carousel\n"
                         },
                         {
-                          "text": "  ⚠️ No se pudo capturar screenshot de imagen: locator.screenshot: Test timeout of 360000ms exceeded.\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying scroll into view action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  12 × retrying scroll into view action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m       - waiting for element to be stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m  - retrying scroll into view action\u001b[22m\n\u001b[2m    - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"Audifonos Sleve® Audifonos Sony® Audifono Gamer Logitech®\nA Headset Pulse Anc 2Gen Bluetooth True Wireless Bluetooth WF-C510 G535 LIGHTSPEED\n| i ¢ )N -\nA am SN 32.990 Rx YT -36% 599.990 \\ri:)/A\nle l& 1% 7 # J Referenciak: $49.950 Referencial: $49.990 Referendial: $139.990 J)\nwe A 2 ay\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $32.990\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $599.990\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $99.990\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"verioN} 7.) a Bo £)\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"verioN} 7.) a Bo £)\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"> Audifonos Sleve® Audifonos Sony® Audifono Gamer Logitech®\n/ 1 Fw» Headset Pulse Anc 2Gen Bluetooth True Wireless Bluetooth WF-C510 G535 LIGHTSPEED\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"> Audifonos Sleve® Audifonos Sony® Audifono Gamer Logitech®\n/ 1 Fw» Headset Pulse Anc 2Gen Bluetooth True Wireless Bluetooth WF-C510 G535 LIGHTSPEED\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"mejor tecnologia le r-—— ph —\nHE # Audifonos Sleve® Audifonos Sony® Audifono Gamer Logitech®\n\nf “ pe Headset Pulse Anc 2Gen Bluetooth True Wireless Bluetooth WF-C510 G535 LIGHTSPEED\n\nYT — EY |\nLl ii {\nLam §432.990 $31,990 $99,990\nLL [| ( Referencial: $49.990 | Referencial: $49.990 | | Referendial: $139.990\nE: Vind - ~S ¥ \\ a E\"\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $31.990\n"
-                        },
-                        {
-                          "text": "  📍 Precio detectado en OCR: $432.990\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ Tv.\nPam Audifonos Slev\nS—— rf 1 xm Headset Pulse Anc?\nJL) | Referencial: $49.990\ngE ol ol\nyr a3 - -.\"\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"mejor tecnologia_ Tv.\nPam Audifonos Slev\nS—— rf 1 xm Headset Pulse Anc?\nJL) | Referencial: $49.990\ngE ol ol\nyr a3 - -.\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"__d\ne® Audifonos Sony®\nGen Bluetooth True Wireless Bluetooth WF-C510\n$31990 ¥\n| Referencial: $49.990 EE |\"\n"
-                        },
-                        {
-                          "text": "  🔍 Intentando OCR en imagen del banner...\n"
-                        },
-                        {
-                          "text": "  🔍 Ejecutando OCR en imagen...\n"
-                        },
-                        {
-                          "text": "  🔍 OCR resultado: \"pa —\nAudifono Gamer Logitech®\nG535 LIGHTSPEED\n$99,990\n| | | | Referendal: $139.990\"\n"
-                        },
-                        {
-                          "text": "  ✅ Total de precios únicos detectados en banner: 5 [$32.990, $599.990, $99.990, $31.990, $432.990]\n"
-                        },
-                        {
-                          "text": "  ❌ Error al procesar banner: locator.count: Target page, context or browser has been closed\n"
-                        },
-                        {
-                          "text": "  🛑 Navegador cerrado, terminando análisis\n"
+                          "text": "  ⚠️ Página cerrada, terminando análisis\n"
                         },
                         {
                           "text": "\n✅ Resultados guardados en: ./test-results/banner-price-results.json\n"
@@ -2542,7 +2440,7 @@
                           "text": "   Total banners analizados: 17\n"
                         },
                         {
-                          "text": "   🏷️  Con precio: 16\n"
+                          "text": "   🏷️  Con precio: 15\n"
                         },
                         {
                           "text": "   🚫 Sin precio: 1\n"
@@ -2584,7 +2482,7 @@
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2026-01-30T11:30:32.591Z",
+                      "startTime": "2026-01-30T11:56:29.181Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -2615,17 +2513,17 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-5.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-6.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-7.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-5.webm"
                         },
                         {
                           "name": "video",
@@ -2640,12 +2538,17 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-10.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-11.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-10.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-12.webm"
                         },
                         {
                           "name": "video",
@@ -2660,17 +2563,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-15.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-12.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-16.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-15.webm"
                         },
                         {
                           "name": "video",
@@ -2685,12 +2583,12 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-20.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-18.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-18.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-20.webm"
                         },
                         {
                           "name": "video",
@@ -2700,17 +2598,17 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-22.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-23.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-22.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-25.webm"
                         },
                         {
                           "name": "video",
@@ -2730,27 +2628,22 @@
                         {
                           "name": "video",
                           "contentType": "video/webm",
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-24.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-30.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-25.webm"
+                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-29.webm"
                         },
                         {
                           "name": "video",
                           "contentType": "video/webm",
                           "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-31.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-32.webm"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/home/runner/work/pcfactory-monitor/pcfactory-monitor/banners/test-results/banner-price-check-Banner--8a78f-anners-del-slider-principal-chromium/video-29.webm"
                         },
                         {
                           "name": "video",
@@ -2804,7 +2697,7 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 21890,
+                  "duration": 22419,
                   "errors": [],
                   "stdout": [
                     {
@@ -2817,10 +2710,10 @@
                       "text": "Probando selectores:\n\n"
                     },
                     {
-                      "text": "✅ .carousel-item: 38 elementos encontrados\n"
+                      "text": "✅ .carousel-item: 26 elementos encontrados\n"
                     },
                     {
-                      "text": "✅ [class*=\"banner\"]: 118 elementos encontrados\n"
+                      "text": "✅ [class*=\"banner\"]: 94 elementos encontrados\n"
                     },
                     {
                       "text": "✅ [class*=\"slider\"]: 6 elementos encontrados\n"
@@ -2910,31 +2803,7 @@
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
                     },
                     {
-                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-b8acfb8d-9306-402e-964d-516348d73eab.active.carousel-item-left \n"
-                    },
-                    {
-                      "text": "    Tamaño: 1280x350px, Top: 178px\n"
-                    },
-                    {
-                      "text": "  - <A> .carousel-item-link.gta-btn-select-promo \n"
-                    },
-                    {
-                      "text": "    Tamaño: 1280x350px, Top: 178px\n"
-                    },
-                    {
-                      "text": "  - <DIV> .carousel-item-img \n"
-                    },
-                    {
-                      "text": "    Tamaño: 1280x350px, Top: 178px\n"
-                    },
-                    {
-                      "text": "  - <IMG> .d-none.d-md-block \n"
-                    },
-                    {
-                      "text": "    Tamaño: 1280x350px, Top: 178px\n"
-                    },
-                    {
-                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-bccdc726-227e-446c-be24-67f3ce67462c.carousel-item-next.carousel-item-left \n"
+                      "text": "  - <DIV> .data-banner-default-carousel.carousel-item.default-carousel-cca0312c-1eba-46d3-b69a-933b29aad527.active \n"
                     },
                     {
                       "text": "    Tamaño: 1280x350px, Top: 178px\n"
@@ -2981,7 +2850,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-01-30T11:37:05.435Z",
+                  "startTime": "2026-01-30T12:03:00.194Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3010,8 +2879,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-30T11:30:31.306Z",
-    "duration": 416165.782,
+    "startTime": "2026-01-30T11:56:27.942Z",
+    "duration": 414814.915,
     "expected": 1,
     "skipped": 0,
     "unexpected": 1,
