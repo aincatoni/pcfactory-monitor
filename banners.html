@@ -49,7 +49,7 @@
         .status-text { font-size: 1rem; font-weight: 500; }
 
         .health-card { background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary)); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 2rem; }
-        .health-score { font-family: var(--font-mono); font-size: 4rem; font-weight: 700; color: var(--accent-yellow); margin-bottom: 0.5rem; }
+        .health-score { font-family: var(--font-mono); font-size: 4rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.5rem; }
         .health-label { font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
         .health-message { font-size: 1rem; color: var(--text-secondary); }
 
@@ -114,7 +114,7 @@
                 <div class="logo-icon"><img src="https://assets-v3.pcfactory.cl/uploads/e964d6b9-e816-439f-8b97-ad2149772b7b/original/pcfactory-isotipo.svg"></div>
                 <div class="logo-text"><h1>pc Factory Monitor</h1><span>Monitor de Banners</span></div>
             </div>
-            <div class="timestamp">30/01/2026 16:13:21 Chile</div>
+            <div class="timestamp">30/01/2026 17:26:22 Chile</div>
         </header>
 
         <div class="nav-links">
@@ -127,21 +127,21 @@
             <a href="pagespeed.html" class="nav-link">⚡ PageSpeed</a>
         </div>
 
-        <div class="status-banner status-warning">
+        <div class="status-banner status-ok">
             <div class="status-indicator"></div>
-            <span class="status-text">0 banner(es) con precio incorrecto</span>
+            <span class="status-text">Todo OK</span>
         </div>
 
         <div class="health-card">
-            <div class="health-score">81.8%</div>
+            <div class="health-score">100.0%</div>
             <div class="health-label">Precisión de Precios</div>
-            <div class="health-message">La mayoría de los banners tienen precios correctos</div>
+            <div class="health-message">¡Perfecto! Todos los banners con precio tienen información correcta</div>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card"><div class="stat-label">Total Banners</div><div class="stat-value blue">13</div></div>
             <div class="stat-card"><div class="stat-label">Con Precio</div><div class="stat-value blue">11</div></div>
-            <div class="stat-card"><div class="stat-label">✓ Coinciden</div><div class="stat-value green">9</div></div>
+            <div class="stat-card"><div class="stat-label">✓ Coinciden</div><div class="stat-value green">11</div></div>
             <div class="stat-card"><div class="stat-label">✗ No Coinciden</div><div class="stat-value red">0</div></div>
             <div class="stat-card"><div class="stat-label">Sin Precio</div><div class="stat-value yellow">2</div></div>
             <div class="stat-card"><div class="stat-label">Errores</div><div class="stat-value red">0</div></div>
@@ -170,7 +170,7 @@
                 <td><span class="badge badge-id">1</span></td>
                 <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>$729.990</td>
-                <td>$39.990, $729.990, $1.129.990, $752.590, $549.990, $424.990, $438.190, $499.990, $179.990, $185.590, $299.990, $174.990, $180.390, $119.990, $89.990, $92.790, $114.990, $74.990, $59.990, $61.890, $69.990, $42.090, $129.990</td>
+                <td>$39.990, $729.990, $1.129.990, $752.590, $579.990, $436.490, $449.990, $499.990, $179.990, $185.590, $299.990, $174.990, $180.390, $109.190, $114.990, $119.990, $89.990, $92.790, $74.990, $59.990, $61.890, $69.990, $42.090, $129.990</td>
                 <td><a href="https://www.pcfactory.cl/busqueda?productos=54174,40944,47523,55161,52956,33865,55062,55310&size=12&sort=precio,desc" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-1-source.png', 'Banner 1')">
@@ -183,7 +183,7 @@
                 <td><span class="badge badge-id">2</span></td>
                 <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>$179.990</td>
-                <td>$39.990, $729.990, $1.129.990, $752.590, $549.990, $424.990, $438.190, $499.990, $179.990, $185.590, $299.990, $174.990, $180.390, $119.990, $89.990, $92.790, $114.990, $74.990, $59.990, $61.890, $69.990, $42.090, $129.990</td>
+                <td>$39.990, $729.990, $1.129.990, $752.590, $579.990, $436.490, $449.990, $499.990, $179.990, $185.590, $299.990, $174.990, $180.390, $109.190, $114.990, $119.990, $89.990, $92.790, $74.990, $59.990, $61.890, $69.990, $42.090, $129.990</td>
                 <td><a href="https://www.pcfactory.cl/busqueda?productos=54174,40944,47523,55161,52956,33865,55062,55310&size=12&sort=precio,desc" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-2-source.png', 'Banner 2')">
@@ -205,11 +205,11 @@
             </td>
             </tr>
         
-            <tr class="">
+            <tr class="match-row">
                 <td><span class="badge badge-id">4</span></td>
-                <td><span class="badge badge-muted">N/A</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>$749.990, $678.990, $979.990</td>
-                <td>N/A</td>
+                <td>$429.990, $979.990, $929.990, $749.990, $773.190, $1.199.990, $1.010.290, $999.990, $799.990, $824.790, $569.990, $443.290, $739.990, $678.990, $699.990, $199.990, $10.290</td>
                 <td><a href="https://www.pcfactory.cl/busqueda?productos=54661,53913,54660,53812,54570" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-4-source.png', 'Banner 4')">
@@ -218,15 +218,11 @@
             </td>
             </tr>
         
-                <tr class="">
-                    <td colspan="6"><div class="error-text">No se encontraron precios en la página de destino</div></td>
-                </tr>
-            
-            <tr class="">
+            <tr class="match-row">
                 <td><span class="badge badge-id">5</span></td>
-                <td><span class="badge badge-muted">N/A</span></td>
+                <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>$32.990, $13.990, $19.990</td>
-                <td>N/A</td>
+                <td>$289.990, $49.990, $19.990, $20.590, $69.990, $32.990, $33.990, $24.990, $21.090, $31.990, $33.690, $41.990, $44.190, $34.990, $13.990, $14.390, $21.990, $23.190, $34.690, $27.990, $29.490, $36.090, $28.990, $30.490, $59.990, $37.990, $39.990</td>
                 <td><a href="https://www.pcfactory.cl/categoria/hogar-y-seguridad/seguridad?size=12" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-5-source.png', 'Banner 5')">
@@ -235,10 +231,6 @@
             </td>
             </tr>
         
-                <tr class="">
-                    <td colspan="6"><div class="error-text">No se encontraron precios en la página de destino</div></td>
-                </tr>
-            
             <tr class="match-row">
                 <td><span class="badge badge-id">6</span></td>
                 <td><span class="badge badge-ok">✓ Coincide</span></td>
@@ -295,7 +287,7 @@
                 <td><span class="badge badge-id">10</span></td>
                 <td><span class="badge badge-ok">✓ Coincide</span></td>
                 <td>$424.990, $64.990</td>
-                <td>$64.990, $424.990, $84.990, $68.390, $74.990, $549.990, $438.190</td>
+                <td>$64.990, $436.490, $84.990, $68.390, $75.990, $79.990, $579.990, $449.990</td>
                 <td><a href="https://www.pcfactory.cl/busqueda?productos=55161,53712,53721" target="_blank" class="link">Ver</a></td>
                 <td>
                 <button class="screenshot-btn" onclick="openScreenshot('screenshots/banner-10-source.png', 'Banner 10')">
