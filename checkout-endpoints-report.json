@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-01-31T15:42:34.132Z",
+  "timestamp": "2026-01-31T15:58:57.715Z",
   "endpoints": [
     {
       "priority": "P0",
       "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/status",
       "name": "Verificar Estado del Carrito",
       "status": "PASSED",
-      "responseTime": 223,
+      "responseTime": 196,
       "statusCode": 200,
       "error": null,
       "expectedTimeout": 2000,
@@ -38,7 +38,7 @@
       "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/entrega/opciones",
       "name": "Opciones de Entrega",
       "status": "PASSED",
-      "responseTime": 22,
+      "responseTime": 24,
       "statusCode": 200,
       "error": null,
       "expectedTimeout": 2000,
@@ -102,7 +102,7 @@
       "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/entrega/retiro",
       "name": "Configurar Retiro en Tienda",
       "status": "PASSED",
-      "responseTime": 18,
+      "responseTime": 17,
       "statusCode": 200,
       "error": null,
       "expectedTimeout": 3000,
@@ -158,7 +158,7 @@
       "endpoint": "POST /pcfactory-services-carro-compra/v1/carro/entrega/diferido",
       "name": "Despacho Diferido",
       "status": "PASSED",
-      "responseTime": 45,
+      "responseTime": 42,
       "statusCode": 200,
       "error": null,
       "expectedTimeout": 2000,
@@ -190,7 +190,7 @@
       "endpoint": "GET /pcfactory-services-perfil-privado/v1/perfil/rut/{rut}",
       "name": "Validar RUT",
       "status": "PASSED",
-      "responseTime": 39,
+      "responseTime": 51,
       "statusCode": 200,
       "error": null,
       "expectedTimeout": 2000,
@@ -222,7 +222,7 @@
       "endpoint": "GET /api-delivery-method/v2/delivery/ship/{tienda}/{ciudad}/{comuna}/web",
       "name": "Disponibilidad Despacho V2",
       "status": "PASSED",
-      "responseTime": 63,
+      "responseTime": 60,
       "statusCode": 200,
       "error": null,
       "expectedTimeout": 2000,
@@ -258,7 +258,7 @@
       "endpoint": "GET /api/customers/realms/principal/me",
       "name": "Datos de Sesión (sin auth)",
       "status": "PASSED",
-      "responseTime": 158,
+      "responseTime": 92,
       "statusCode": 401,
       "error": null,
       "expectedTimeout": 2000,
@@ -330,6 +330,6 @@
     "total": 11,
     "passed": 11,
     "failed": 0,
-    "avgResponseTime": 57
+    "avgResponseTime": 49
   }
 }
